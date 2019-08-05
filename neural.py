@@ -33,6 +33,8 @@ from sklearn import preprocessing
 #
 import _pickle as pickle # from python2 to 3
 #
+from random import sample
+
 print("Libs good")
 
 SHAPE = (30,30)
@@ -59,8 +61,7 @@ def read_files(directory, sample_size):
       for d in dirs:
          num_classes += 1
          images = os.listdir(root+d)
-         from random import sample
-         images = sample(images, sample_size)
+         images = sample(images, sample_size)  # sample
          for image in images:
             s += 1
             label_list.append(d)
@@ -81,53 +82,48 @@ def extract_feature(image_file):
 
 if __name__ == "__main__":
 
-   # if len(sys.argv) < 2:
-   #    print("Usage: python neural.py [image folder]")
-   #    exit()
+    # if len(sys.argv) < 2:
+    #    print("Usage: python neural.py [image folder]")
+    #    exit()
 
-   # image_folder = sys.argv[1]
-   image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
+    # image_folder = sys.argv[1]
+    image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
 
-   sample_size = 100
-   features, labels, num_classes = read_files(image_folder, sample_size)
+    sample_size = 100
+    features, labels, num_classes = read_files(image_folder, sample_size)
 
-   X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=12)
+    X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=12)
 
-   net = buildNetwork(SHAPE[0]*SHAPE[1]*3, 15000, num_classes, bias=True, outclass=SoftmaxLayer)
+    net = buildNetwork(SHAPE[0]*SHAPE[1]*3, 15000, num_classes, bias=True, outclass=SoftmaxLayer)
 
-   train_ds = SupervisedDataSet(SHAPE[0]*SHAPE[1]*3, num_classes)
-   test_ds  = SupervisedDataSet(SHAPE[0]*SHAPE[1]*3, num_classes)
+    train_ds = SupervisedDataSet(SHAPE[0]*SHAPE[1]*3, num_classes)
+    test_ds = SupervisedDataSet(SHAPE[0]*SHAPE[1]*3, num_classes)
 
-   for feature, label in zip(X_train, y_train):
-      train_ds.addSample(feature, label)
+    for feature, label in zip(X_train, y_train):
+        train_ds.addSample(feature, label)
 
-   for feature, label in zip(X_test, y_test):
-      test_ds.addSample(feature, label)
+    for feature, label in zip(X_test, y_test):
+        test_ds.addSample(feature, label)
 
-   # checking for model
-   if os.path.isfile("neural_model.pkl"):
-      print("Using previous model...")
-      trainer = pickle.load(open("neural_model.pkl", "rb"))
-   else:
-      print("Training")
-      trainer = BackpropTrainer(net, train_ds, momentum=0.1, verbose=True, weightdecay=0.01)
-      trainer.train()
+    # checking for model
+    if os.path.isfile("neural_model.pkl"):
+        print("Using previous model...")
+        trainer = pickle.load(open("neural_model.pkl", "rb"))
+    else:
+       print("Training")
+       trainer = BackpropTrainer(net, train_ds, momentum=0.1, verbose=True, weightdecay=0.01)
+       trainer.train()
 
-      print("Saving model...")
-      pickle.dump(trainer, open("neural_model.pkl", "wb"))
+       print("Saving model...")
+       pickle.dump(trainer, open("neural_model.pkl", "wb"))
+    correct_count = 0
+    total_count = 0
+    print("Testing...")
+    for feature, label in zip(X_test, y_test):
+        prediction = net.activate(feature).argmax(axis=0)
+        if prediction == label:
+            correct_count += 1
+        total_count += 1
 
-
-   correct_count = 0
-   total_count   = 0
-
-   print("Testing...")
-   for feature, label in zip(X_test, y_test):
-
-      prediction = net.activate(feature).argmax(axis=0)
-
-      if prediction == label:
-         correct_count += 1
-      total_count += 1
-
-   print()
-   print(str((float(correct_count)/float(total_count))*100) + "% correct")
+    print()
+    print(str((float(correct_count)/float(total_count))*100) + "% correct")

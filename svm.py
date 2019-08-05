@@ -16,11 +16,12 @@ import time
 #
 import _pickle as pickle # from python2 to 3
 #
+from random import sample
 print("Libs good")
 
 SHAPE = (30, 30)
 
-def read_files(directory):
+def read_files(directory, sample_size):
    print("Reading files...")
    s = 1
    feature_list = list()
@@ -30,6 +31,7 @@ def read_files(directory):
       for d in dirs:
          num_classes += 1
          images = os.listdir(root+d)
+         images = sample(images, sample_size)  # sample
          for image in images:
             s += 1
             label_list.append(d)
@@ -47,45 +49,47 @@ def extract_feature(image_file):
    
 
 if __name__ == "__main__":
-   # if len(sys.argv) < 2:
-   #    print("Usage: python extract_features.py [image_folder]")
-   #    exit()
 
-   # Directory containing subfolders with images in them.
-   # image_folder = sys.argv[1]
-   image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
+    # if len(sys.argv) < 2:
+    #    print("Usage: python extract_features.py [image_folder]")
+    #    exit()
 
-   # generating two numpy arrays for features and labels
-   feature_array, label_array = read_files(image_folder)
+    # Directory containing subfolders with images in them.
+    # image_folder = sys.argv[1]
+    image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
+    sample_size = 100
 
-   # Splitting the data into test and training splits
-   X_train, X_test, y_train, y_test = train_test_split(feature_array, label_array, test_size=0.2, random_state=42)
+    # generating two numpy arrays for features and labels
+    feature_array, label_array = read_files(image_folder, sample_size)
 
-   # checking for model
-   if os.path.isfile("svm_model.pkl"):
-      print("Using previous model...")
-      svm = pickle.load(open("svm_model.pkl", "rb"))
-   else:
-      print("Fitting")
+    # Splitting the data into test and training splits
+    X_train, X_test, y_train, y_test = train_test_split(feature_array, label_array,
+                                                        test_size=0.2, random_state=42)
+    # checking for model
+    if os.path.isfile("svm_model.pkl"):
+        print("Using previous model...")
+        svm = pickle.load(open("svm_model.pkl", "rb"))
+    else:
+        print("Fitting")
 
-      # Fitting model
-      svm = SVC()
-      svm.fit(X_train, y_train)
+        # Fitting model
+        svm = SVC()
+        svm.fit(X_train, y_train)
 
-      print("Saving model...")
-      pickle.dump(svm, open("svm_model.pkl", "wb"))
+        print("Saving model...")
+        pickle.dump(svm, open("svm_model.pkl", "wb"))
 
-   print("Testing...\n")
-  
-   right = 0
-   total = 0
-   for x, y in zip(X_test, y_test):
-      x = x.reshape(1, -1)
-      prediction = svm.predict(x)[0]
+    print("Testing...\n")
 
-      if y == prediction:
-         right += 1
-      total += 1
+    right = 0
+    total = 0
+    for x, y in zip(X_test, y_test):
+       x = x.reshape(1, -1)
+       prediction = svm.predict(x)[0]
 
-   accuracy = float(right)/float(total)*100
-   print(str(accuracy) + "% accuracy")
+       if y == prediction:
+           right += 1
+       total += 1
+
+    accuracy = float(right)/float(total)*100
+    print(str(accuracy) + "% accuracy")
