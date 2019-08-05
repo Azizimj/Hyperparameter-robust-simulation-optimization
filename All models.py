@@ -26,12 +26,18 @@ from sklearn.svm import SVC
 from sklearn.model_selection import train_test_split
 # import time
 import _pickle as pickle  # from python2 to 3
+import random
 from random import sample
 from pybrain.datasets import SupervisedDataSet
 from pybrain.tools.shortcuts import buildNetwork
 from pybrain.supervised.trainers import BackpropTrainer
-from pybrain.structure.modules import SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer
+from pybrain.structure.modules import SoftmaxLayer, TanhLayer, \
+    SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
 from sklearn import preprocessing
+
+random.seed(30)
+np.random.seed(110)
+
 
 print("Libs good")
 SHAPE = (30, 30)
@@ -87,15 +93,17 @@ if __name__ == "__main__":
         image_folder = sys.argv[1]
 
     # FRAMESA 16960, FRAMESB 14607
-    sample_sizes = [10, 20]
-
+    sample_sizes = [100, 200]
     SHAPE = (30, 30)
+
     # HYP
     hidden_dim = 100
     bias_ = True
-    # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer
+    # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
     hiddenclass_ = TanhLayer
     outclass_ = SoftmaxLayer
+    num_epoch = 3
+    learningrate_ = 0.01
     # HYP
 
     # generating two numpy arrays for features and labels
@@ -110,7 +118,7 @@ if __name__ == "__main__":
 
     if model_name == 'nn':
         net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, hidden_dim,
-                           num_classes, bias=bias_,hiddenclass=hiddenclass_, outclass=outclass_)
+                           num_classes, bias=bias_, hiddenclass=hiddenclass_, outclass=outclass_)
 
         train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
         test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
@@ -131,9 +139,14 @@ if __name__ == "__main__":
             tmp = "Training " + model_name+"\n"
             print(tmp)
             f.write(tmp)
-            trainer = BackpropTrainer(net, train_ds, momentum=0.1,
-                                      verbose=True, weightdecay=0.01)
-            trainer.train()
+            trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=1.0, momentum=0.1,
+                                      verbose=True, batchlearning=False, weightdecay=0.01)
+
+            # trainer.train()
+            trainer.trainEpochs(epochs=num_epoch)
+            # trainer.trainOnDataset(dataset)
+            # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
+            #                               verbose=None, continueEpochs=10, validationProportion=0.25)
 
             # print("Saving model")
             # pickle.dump(trainer, open(model_name+ ".pkl", "wb"))
