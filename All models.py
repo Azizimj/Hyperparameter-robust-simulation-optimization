@@ -49,6 +49,27 @@ def extract_feature(image_file):
     img = img / np.mean(img)
     return img
 
+def sample_folder(directory, sample_sizes):
+    from shutil import copyfile
+    print("Build a sample folder")
+    root2 = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"+str(sample_sizes)+"/"
+    if not os.path.exists(root2):
+        os.mkdir(root2)
+    s = 0
+    num_classes = 0
+    for root, dirs, files in os.walk(directory):
+        for d in dirs:
+            num_classes += 1
+            images = os.listdir(root + d)
+            images = sample(images, sample_sizes[num_classes - 1])  # sample
+            for image in images:
+                s += 1
+                if not os.path.exists(root2 + d + "/"):
+                    os.mkdir(root2 + d + "/")
+                copyfile(root + d + "/" + image, root2 + d + "/" + image)
+    print("made {} folders and copied {} files".format(num_classes, s))
+    return
+
 def read_files(directory, sample_sizes, model_name):
     print("Reading files...")
     s = 1
@@ -110,8 +131,13 @@ if __name__ == "__main__":
     weightdecay_ = 0.01
     # HYP
 
+    # Build a sample folder
+    sample_folder(image_folder, sample_sizes)
+    exit()
+
     # generating two numpy arrays for features and labels
     features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
+
     # Splitting the data into test and training splits
     X_train, X_test, y_train, y_test = train_test_split(features, labels,
                                                         test_size=0.2, random_state=random_state)

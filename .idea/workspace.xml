@@ -17,11 +17,10 @@
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
+              <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
               <folding>
                 <element signature="e#0#362#1" />
                 <element signature="e#312#322#0" expanded="true" />
-                <element signature="e#832#997#0" />
                 <element signature="e#1057#1709#0" />
                 <element signature="e#1711#1956#0" />
                 <element signature="e#3642#4277#0" />
@@ -220,7 +219,28 @@
       <option name="project" value="LOCAL" />
       <updated>1565043886132</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="hyp figed">
+      <created>1565046121531</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565046121531</updated>
+    </task>
+    <task id="LOCAL-00007" summary="set seed and hyps">
+      <created>1565047183955</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1565047183955</updated>
+    </task>
+    <task id="LOCAL-00008" summary="set seed and hyps">
+      <created>1565047326637</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1565047326637</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -236,7 +256,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36988544" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31423897" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3927987" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -253,52 +273,75 @@
     <MESSAGE value="cited the ref" />
     <MESSAGE value="initial" />
     <MESSAGE value="all models.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="all models.py" />
+    <MESSAGE value="hyp figed" />
+    <MESSAGE value="set seed and hyps" />
+    <option name="LAST_COMMIT_MESSAGE" value="set seed and hyps" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/All models.py</url>
+          <line>140</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/All models.py</url>
+          <line>79</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/All models.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>test_ds.addSample(feature, label)</expression-string>
+        <expression-string>os.walk(directory)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test_ds.addSample(feature, np.str_(&quot;s&quot;))</expression-string>
+        <expression-string>os.walk(directory)[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>type(label)</expression-string>
+        <expression-string>images</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>label</expression-string>
+        <expression-string>img[5:15,5:15]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test_ds.addSample(feature, &quot;s&quot;)</expression-string>
+        <expression-string>img</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>test_ds.addSample(feature, 'a')</expression-string>
+        <expression-string>image_file</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>feature</expression-string>
+        <expression-string>np.average(y_train)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>SHAPE[0] * SHAPE[1] * 3</expression-string>
+        <expression-string>np.std(y_train)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(images)</expression-string>
+        <expression-string>np.rank(y_train)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -396,11 +439,10 @@
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="98" column="54" selection-start-line="98" selection-start-column="54" selection-end-line="98" selection-end-column="54" />
+          <caret line="63" column="22" lean-forward="true" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
           <folding>
             <element signature="e#0#362#1" />
             <element signature="e#312#322#0" expanded="true" />
-            <element signature="e#832#997#0" />
             <element signature="e#1057#1709#0" />
             <element signature="e#1711#1956#0" />
             <element signature="e#3642#4277#0" />
