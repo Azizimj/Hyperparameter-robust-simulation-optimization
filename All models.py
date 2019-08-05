@@ -104,6 +104,10 @@ if __name__ == "__main__":
     outclass_ = SoftmaxLayer
     num_epoch = 3
     learningrate_ = 0.01
+    lrdecay_ = 1.0
+    momentum_ = 0.1
+    batchlearning_ = False
+    weightdecay_ = 0.01
     # HYP
 
     # generating two numpy arrays for features and labels
@@ -139,8 +143,9 @@ if __name__ == "__main__":
             tmp = "Training " + model_name+"\n"
             print(tmp)
             f.write(tmp)
-            trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=1.0, momentum=0.1,
-                                      verbose=True, batchlearning=False, weightdecay=0.01)
+            trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
+                                      momentum=momentum_, verbose=True, batchlearning=batchlearning_,
+                                      weightdecay=weightdecay_)
 
             # trainer.train()
             trainer.trainEpochs(epochs=num_epoch)
