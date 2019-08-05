@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neural.py" beforeDir="false" afterPath="$PROJECT_DIR$/neural.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/svm.py" beforeDir="false" afterPath="$PROJECT_DIR$/svm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/All models.py" beforeDir="false" afterPath="$PROJECT_DIR$/All models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,28 +13,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/neural.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="114" column="7" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+            <state relative-caret-position="290">
+              <caret line="90" column="25" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
               <folding>
-                <element signature="e#312#322#0" expanded="true" />
-                <element signature="e#875#1014#0" />
-                <element signature="e#1598#1754#0" />
+                <element signature="e#0#362#1" />
+                <element signature="e#832#997#0" />
+                <element signature="e#1050#1660#0" />
+                <element signature="e#1711#1956#0" />
+                <element signature="e#2438#3582#0" />
+                <element signature="e#3642#4277#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/svm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="16">
+              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
               <folding>
                 <element signature="e#26#36#0" expanded="true" />
-                <element signature="e#765#921#0" />
+                <element signature="e#410#966#0" />
+                <element signature="e#1004#1160#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/neural.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
+              <folding>
+                <element signature="e#312#322#0" expanded="true" />
+                <element signature="e#1136#1702#0" />
               </folding>
             </state>
           </provider>
@@ -53,6 +69,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>print</find>
+      <find>SHAPE</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -63,8 +80,9 @@
       <list>
         <option value="$PROJECT_DIR$/sample.py" />
         <option value="$PROJECT_DIR$/image_sampler.py" />
-        <option value="$PROJECT_DIR$/svm.py" />
         <option value="$PROJECT_DIR$/neural.py" />
+        <option value="$PROJECT_DIR$/svm.py" />
+        <option value="$PROJECT_DIR$/All models.py" />
       </list>
     </option>
   </component>
@@ -111,7 +129,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.svm">
+  <component name="RunManager" selected="Python.All models">
+    <configuration name="All models" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Day-Night-Classification-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/All models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="neural" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Day-Night-Classification-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -156,6 +195,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.All models" />
         <item itemvalue="Python.svm" />
         <item itemvalue="Python.neural" />
       </list>
@@ -179,7 +219,21 @@
       <option name="project" value="LOCAL" />
       <updated>1565038755319</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial">
+      <created>1565039212478</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1565039212478</updated>
+    </task>
+    <task id="LOCAL-00003" summary="all models.py">
+      <created>1565040723250</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565040723250</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -187,7 +241,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24981076" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24981076" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
@@ -195,8 +249,8 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1603928" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.18821605" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.14729951" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -210,10 +264,17 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cited the ref" />
-    <option name="LAST_COMMIT_MESSAGE" value="cited the ref" />
+    <MESSAGE value="initial" />
+    <MESSAGE value="all models.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="all models.py" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>len(images)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>sample(images, 100)</expression-string>
         <language-id>Python</language-id>
@@ -261,23 +322,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/neural.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="114" column="7" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+        <state relative-caret-position="42">
+          <caret line="54" column="39" selection-start-line="54" selection-start-column="39" selection-end-line="54" selection-end-column="39" />
           <folding>
             <element signature="e#312#322#0" expanded="true" />
-            <element signature="e#875#1014#0" />
-            <element signature="e#1598#1754#0" />
+            <element signature="e#1136#1702#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/svm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="16">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
           <folding>
             <element signature="e#26#36#0" expanded="true" />
-            <element signature="e#765#921#0" />
+            <element signature="e#410#966#0" />
+            <element signature="e#1004#1160#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/All models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="90" column="25" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#362#1" />
+            <element signature="e#832#997#0" />
+            <element signature="e#1050#1660#0" />
+            <element signature="e#1711#1956#0" />
+            <element signature="e#2438#3582#0" />
+            <element signature="e#3642#4277#0" />
           </folding>
         </state>
       </provider>

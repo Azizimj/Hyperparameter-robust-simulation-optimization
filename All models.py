@@ -78,8 +78,8 @@ def convertLabels(label_list):
 
 if __name__ == "__main__":
 
-    # model_name = 'nn'
-    model_name = 'svm'
+    model_name = 'nn'
+    # model_name = 'svm'
 
     image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
     if len(sys.argv) > 2:
@@ -88,14 +88,16 @@ if __name__ == "__main__":
     #    exit()
 
     # FRAMESA 16960, FRAMESB 14607
-    sample_sizes = [100, 500]
+    sample_sizes = [10, 5]
     # generating two numpy arrays for features and labels
     features, labels, num_classes = read_files(image_folder, sample_sizes)
 
     if model_name == 'nn':
-        X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=12)
+        X_train, X_test, y_train, y_test = train_test_split(features, labels,
+                                                            test_size=0.2, random_state=12)
 
-        net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, 15000, num_classes, bias=True, outclass=SoftmaxLayer)
+        net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, 15000,
+                           num_classes, bias=True, outclass=SoftmaxLayer)
 
         train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
         test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
@@ -107,56 +109,48 @@ if __name__ == "__main__":
             test_ds.addSample(feature, label)
 
         # checking for model
-        if os.path.isfile("neural_model.pkl"):
+        if os.path.isfile(model_name+ ".pkl"):
             print("Using previous model...")
-            trainer = pickle.load(open("neural_model.pkl", "rb"))
+            trainer = pickle.load(open(model_name+ ".pkl", "rb"))
         else:
             print("Training")
-            trainer = BackpropTrainer(net, train_ds, momentum=0.1, verbose=True, weightdecay=0.01)
+            trainer = BackpropTrainer(net, train_ds, momentum=0.1,
+                                      verbose=True, weightdecay=0.01)
             trainer.train()
 
             print("Saving model...")
-            pickle.dump(trainer, open("neural_model.pkl", "wb"))
-        correct_count = 0
-        total_count = 0
-        print("Testing...")
-        for feature, label in zip(X_test, y_test):
-            prediction = net.activate(feature).argmax(axis=0)
-            if prediction == label:
-                correct_count += 1
-            total_count += 1
-
-        print()
-        print(str((float(correct_count) / float(total_count)) * 100) + "% correct")
+            pickle.dump(trainer, open(model_name+ ".pkl", "wb"))
     elif model_name == 'svm':
         # Splitting the data into test and training splits
-        X_train, X_test, y_train, y_test = train_test_split(feature_array, label_array,
+        X_train, X_test, y_train, y_test = train_test_split(features, labels,
                                                             test_size=0.2, random_state=42)
         # checking for model
-        if os.path.isfile("svm_model.pkl"):
+        if os.path.isfile(model_name+ ".pkl"):
             print("Using previous model...")
-            svm = pickle.load(open("svm_model.pkl", "rb"))
+            svm = pickle.load(open(model_name+ ".pkl", "rb"))
         else:
             print("Fitting")
-
             # Fitting model
             svm = SVC()
             svm.fit(X_train, y_train)
 
             print("Saving model...")
-            pickle.dump(svm, open("svm_model.pkl", "wb"))
+            pickle.dump(svm, open(model_name+ ".pkl", "wb"))
 
-        print("Testing...\n")
+    # Test
+    print("Testing...\n")
+    correct_count = 0
+    total_count = 0
+    for feature, label in zip(X_test, y_test):
+        if model_name == 'nn':
+            prediction = net.activate(feature).argmax(axis=0)
+        elif model_name == 'svm':
+            feature = feature.reshape(1, -1)
+            prediction = svm.predict(feature)[0]
 
-        right = 0
-        total = 0
-        for x, y in zip(X_test, y_test):
-            x = x.reshape(1, -1)
-            prediction = svm.predict(x)[0]
+        if prediction == label:
+            correct_count += 1
+        total_count += 1
+    acc = (float(correct_count) / float(total_count)) * 100
 
-            if y == prediction:
-                right += 1
-            total += 1
-
-        accuracy = float(right) / float(total) * 100
-        print(str(accuracy) + "% accuracy")
+    print('acc is {}'.format(acc))
