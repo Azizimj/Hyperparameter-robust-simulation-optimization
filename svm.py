@@ -21,7 +21,7 @@ print("Libs good")
 
 SHAPE = (30, 30)
 
-def read_files(directory, sample_size):
+def read_files(directory, sample_sizes):
    print("Reading files...")
    s = 1
    feature_list = list()
@@ -31,7 +31,7 @@ def read_files(directory, sample_size):
       for d in dirs:
          num_classes += 1
          images = os.listdir(root+d)
-         images = sample(images, sample_size)  # sample
+         images = sample(images, sample_sizes[num_classes-1])  # sample
          for image in images:
             s += 1
             label_list.append(d)
@@ -57,10 +57,11 @@ if __name__ == "__main__":
     # Directory containing subfolders with images in them.
     # image_folder = sys.argv[1]
     image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
-    sample_size = 100
+    # FRAMESA 16960, FRAMESB 14607
+    sample_size = [100, 500]
 
     # generating two numpy arrays for features and labels
-    feature_array, label_array = read_files(image_folder, sample_size)
+    feature_array, label_array = read_files(image_folder, sample_sizes)
 
     # Splitting the data into test and training splits
     X_train, X_test, y_train, y_test = train_test_split(feature_array, label_array,
