@@ -34,7 +34,6 @@ from pybrain.structure.modules import SoftmaxLayer
 from sklearn import preprocessing
 
 print("Libs good")
-
 SHAPE = (30, 30)
 
 def extract_feature(image_file):
@@ -44,7 +43,7 @@ def extract_feature(image_file):
     img = img / np.mean(img)
     return img
 
-def read_files(directory, sample_sizes):
+def read_files(directory, sample_sizes, model_name):
     print("Reading files...")
     s = 1
     feature_list = list()
@@ -59,7 +58,8 @@ def read_files(directory, sample_sizes):
                 s += 1
                 label_list.append(d)
                 feature_list.append(extract_feature(root + d + "/" + image))
-
+    if model_name=='nn':
+        label_list = convertLabels(label_list)
     print(str(num_classes) + " classes")
     return np.asarray(feature_list), np.asarray(label_list), num_classes
 
@@ -78,25 +78,27 @@ def convertLabels(label_list):
 
 if __name__ == "__main__":
 
-    model_name = 'nn'
-    # model_name = 'svm'
+    # model_name = 'nn'
+    model_name = 'svm'
+    random_state = 12
 
     image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
-    if len(sys.argv) > 2:
+    if len(sys.argv) > 1:
         image_folder = sys.argv[1]
-    #    print("Usage: python neural.py [image folder]")
-    #    exit()
 
     # FRAMESA 16960, FRAMESB 14607
-    sample_sizes = [10, 5]
+    sample_sizes = [100, 50]
+
+    SHAPE = (30, 30)
+    out_dim = 100
+
     # generating two numpy arrays for features and labels
-    features, labels, num_classes = read_files(image_folder, sample_sizes)
-
+    features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
+    # Splitting the data into test and training splits
+    X_train, X_test, y_train, y_test = train_test_split(features, labels,
+                                                        test_size=0.2, random_state=random_state)
     if model_name == 'nn':
-        X_train, X_test, y_train, y_test = train_test_split(features, labels,
-                                                            test_size=0.2, random_state=12)
-
-        net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, 15000,
+        net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, out_dim,
                            num_classes, bias=True, outclass=SoftmaxLayer)
 
         train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
@@ -121,9 +123,6 @@ if __name__ == "__main__":
             print("Saving model...")
             pickle.dump(trainer, open(model_name+ ".pkl", "wb"))
     elif model_name == 'svm':
-        # Splitting the data into test and training splits
-        X_train, X_test, y_train, y_test = train_test_split(features, labels,
-                                                            test_size=0.2, random_state=42)
         # checking for model
         if os.path.isfile(model_name+ ".pkl"):
             print("Using previous model...")
