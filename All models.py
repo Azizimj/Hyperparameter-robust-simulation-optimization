@@ -109,7 +109,8 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
+    # image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
+    image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100, 200]/"
     if len(sys.argv) > 1:
         image_folder = sys.argv[1]
 
@@ -132,8 +133,8 @@ if __name__ == "__main__":
     # HYP
 
     # Build a sample folder
-    sample_folder(image_folder, sample_sizes)
-    exit()
+    # sample_folder(image_folder, sample_sizes)
+    # exit()
 
     # generating two numpy arrays for features and labels
     features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
