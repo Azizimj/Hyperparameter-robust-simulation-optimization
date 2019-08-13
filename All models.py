@@ -40,6 +40,7 @@ np.random.seed(110)
 
 
 print("Libs good")
+
 SHAPE = (30, 30)
 
 def extract_feature(image_file):
@@ -80,7 +81,8 @@ def read_files(directory, sample_sizes, model_name):
         for d in dirs:
             num_classes += 1
             images = os.listdir(root + d)
-            images = sample(images, sample_sizes[num_classes - 1])  # sample
+            if sample_sizes[0] > 0:
+                images = sample(images, sample_sizes[num_classes - 1])  # sample
             for image in images:
                 s += 1
                 label_list.append(d)
@@ -105,8 +107,8 @@ def convertLabels(label_list):
 
 if __name__ == "__main__":
 
-    model_name = 'nn'
-    # model_name = 'svm'
+    # model_name = 'nn'
+    model_name = 'svm'
     random_state = 12
 
     # image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
@@ -115,22 +117,9 @@ if __name__ == "__main__":
         image_folder = sys.argv[1]
 
     # FRAMESA 16960, FRAMESB 14607
-    sample_sizes = [100, 200]
+    # sample_sizes = [100, 200]
+    sample_sizes = [-1,-1] # -1 for not sampling
     SHAPE = (30, 30)
-
-    # HYP
-    hidden_dim = 100
-    bias_ = True
-    # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
-    hiddenclass_ = TanhLayer
-    outclass_ = SoftmaxLayer
-    num_epoch = 3
-    learningrate_ = 0.01
-    lrdecay_ = 1.0
-    momentum_ = 0.1
-    batchlearning_ = False
-    weightdecay_ = 0.01
-    # HYP
 
     # Build a sample folder
     # sample_folder(image_folder, sample_sizes)
@@ -138,16 +127,36 @@ if __name__ == "__main__":
 
     # generating two numpy arrays for features and labels
     features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
-
     # Splitting the data into test and training splits
-    X_train, X_test, y_train, y_test = train_test_split(features, labels,
-                                                        test_size=0.2, random_state=random_state)
-
-    f = open("result_hd_" + str(hidden_dim) +
-             "b_"+str(bias_) + ".txt", "a")
-    f.write(model_name+"\n")
+    test_prec = 0
+    if test_prec > 0:
+        X_train, X_test, y_train, y_test = train_test_split(features, labels,
+                                                            test_size=0, random_state=random_state)
+    else:
+        tr_st, tr_end, tes_st, tes_end = 0,100, 200,300
+        X_train, y_train = features[tr_st:tr_end+1,:], labels[tr_st:tr_end+1]
+        X_test, y_test = features[tes_st:tes_end+1], labels[tes_st:tes_end+1]
 
     if model_name == 'nn':
+
+        # NN HYP
+        hidden_dim = 100
+        bias_ = True
+        # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
+        hiddenclass_ = TanhLayer
+        outclass_ = SoftmaxLayer
+        num_epoch = 3
+        learningrate_ = 0.01
+        lrdecay_ = 1.0
+        momentum_ = 0.1
+        batchlearning_ = False
+        weightdecay_ = 0.01
+        # NN HYP
+
+        f = open("res/result_hd_" + str(hidden_dim) +
+                 "b_" + str(bias_) + ".txt", "a")
+        f.write(model_name + "\n")
+
         net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, hidden_dim,
                            num_classes, bias=bias_, hiddenclass=hiddenclass_, outclass=outclass_)
 
@@ -161,11 +170,11 @@ if __name__ == "__main__":
             test_ds.addSample(feature, label)
 
         # checking for model
-        if os.path.isfile(model_name+ ".pkl"):
+        if os.path.isfile("models/"+ model_name+ ".pkl"):
             tmp = "Using previous "+model_name+ " model...\n"
             print(tmp)
             f.write(tmp)
-            trainer = pickle.load(open(model_name+ ".pkl", "rb"))
+            trainer = pickle.load(open("models/"+ model_name+ ".pkl", "rb"))
         else:
             tmp = "Training " + model_name+"\n"
             print(tmp)
@@ -173,28 +182,41 @@ if __name__ == "__main__":
             trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
                                       momentum=momentum_, verbose=True, batchlearning=batchlearning_,
                                       weightdecay=weightdecay_)
-
+            # different trainig calls
             # trainer.train()
             trainer.trainEpochs(epochs=num_epoch)
             # trainer.trainOnDataset(dataset)
             # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
             #                               verbose=None, continueEpochs=10, validationProportion=0.25)
+            # different trainig calls
 
             # print("Saving model")
-            # pickle.dump(trainer, open(model_name+ ".pkl", "wb"))
+            # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+
     elif model_name == 'svm':
+
+        #
+        # ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
+
+        f = open("res/result_hd_" + str(hidden_dim) +
+                 "b_" + str(bias_) + ".txt", "a")
+        f.write(model_name + "\n")
+
         # checking for model
-        if os.path.isfile(model_name+ ".pkl"):
+        if os.path.isfile("models/"+ model_name+ ".pkl"):
             print("Using previous model...")
-            svm = pickle.load(open(model_name+ ".pkl", "rb"))
+            svm = pickle.load(open("models/"+ model_name+ ".pkl", "rb"))
         else:
             print("Fitting")
             # Fitting model
-            svm = SVC()
+            svm = SVC(C=1.0, kernel='rbf', degree=3, gamma='auto_deprecated', coef0=0.0,
+                      shrinking=True,probability=False, tol=0.001, cache_size=200, class_weight=None,
+                      verbose=False, max_iter=-1, decision_function_shape=’ovr’, random_state=None)
+
             svm.fit(X_train, y_train)
 
-            print("Saving model...")
-            pickle.dump(svm, open(model_name+ ".pkl", "wb"))
+            # print("Saving model...")
+            # pickle.dump(svm, open("models/"+ model_name+ ".pkl", "wb"))
 
     # Test
     tmp = "Testing...\n"
