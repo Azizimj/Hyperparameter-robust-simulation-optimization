@@ -127,15 +127,17 @@ if __name__ == "__main__":
 
     # generating two numpy arrays for features and labels
     features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
+
     # Splitting the data into test and training splits
     test_prec = 0
     if test_prec > 0:
         X_train, X_test, y_train, y_test = train_test_split(features, labels,
                                                             test_size=0, random_state=random_state)
     else:
-        tr_st, tr_end, tes_st, tes_end = 0,100, 200,300
+        tr_st, tr_end, tes_st, tes_end = 0,100, 20,30
         X_train, y_train = features[tr_st:tr_end+1,:], labels[tr_st:tr_end+1]
         X_test, y_test = features[tes_st:tes_end+1], labels[tes_st:tes_end+1]
+
 
     if model_name == 'nn':
 
@@ -193,13 +195,14 @@ if __name__ == "__main__":
             # print("Saving model")
             # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
 
+
     elif model_name == 'svm':
 
         # Hyps
         C_ = 1.0  # Penalty parameter C of the error term.
         kernel_ = 'rbf' # 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed'
         degree_ = 3 # Degree of the polynomial kernel function ('poly'). Ignored by all other kernels.
-        gamma_ = 'auto' # Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. Set gamma explicitly to 'auto' or 'scale' to avoid this warning
+        gamma_ = 'scale' # Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. Set gamma explicitly to 'auto' or 'scale' to avoid this warning
         coef0_ = 0.0  # Independent term in kernel function. It is only significant in ‘poly’ and ‘sigmoid’.
         shrinking_ = True # Whether to use the shrinking heuristic.
         probability_ = False  #Whether to enable probability estimates. This must be enabled prior to calling fit, and will slow down that method.
@@ -218,6 +221,7 @@ if __name__ == "__main__":
         else:
             print("Fitting")
             # Fitting model
+            svm = SVC()
             svm = SVC(C=C_, kernel=kernel_, degree=degree_, gamma=gamma_, coef0=coef0_,
                       shrinking=shrinking_, probability=probability_, tol=tol_,
                       verbose=False, max_iter=max_iter_)
