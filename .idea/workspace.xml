@@ -16,14 +16,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
+            <state relative-caret-position="284">
+              <caret line="222" column="55" selection-start-line="222" selection-start-column="55" selection-end-line="222" selection-end-column="55" />
               <folding>
                 <element signature="e#0#310#1" />
-                <element signature="e#964#1124#0" />
-                <element signature="e#1174#1946#0" />
-                <element signature="e#2005#2686#0" />
-                <element signature="e#2723#2943#0" />
               </folding>
             </state>
           </provider>
@@ -254,19 +250,26 @@
       <option name="project" value="LOCAL" />
       <updated>1565070979254</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="svm hyps">
+      <created>1565724099733</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1565724099733</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16111952" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16111952" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.20621932" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20621932" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3584288" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,7 +293,8 @@
     <MESSAGE value="hyp figed" />
     <MESSAGE value="set seed and hyps" />
     <MESSAGE value="sample folder build" />
-    <option name="LAST_COMMIT_MESSAGE" value="sample folder build" />
+    <MESSAGE value="svm hyps" />
+    <option name="LAST_COMMIT_MESSAGE" value="svm hyps" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -480,14 +484,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="197" column="9" selection-start-line="197" selection-start-column="9" selection-end-line="197" selection-end-column="9" />
+        <state relative-caret-position="284">
+          <caret line="222" column="55" selection-start-line="222" selection-start-column="55" selection-end-line="222" selection-end-column="55" />
           <folding>
             <element signature="e#0#310#1" />
-            <element signature="e#964#1124#0" />
-            <element signature="e#1174#1946#0" />
-            <element signature="e#2005#2686#0" />
-            <element signature="e#2723#2943#0" />
           </folding>
         </state>
       </provider>

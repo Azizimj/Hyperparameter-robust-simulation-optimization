@@ -195,11 +195,20 @@ if __name__ == "__main__":
 
     elif model_name == 'svm':
 
-        #
-        # ‘linear’, ‘poly’, ‘rbf’, ‘sigmoid’, ‘precomputed’
+        # Hyps
+        C_ = 1.0  # Penalty parameter C of the error term.
+        kernel_ = 'rbf' # 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed'
+        degree_ = 3 # Degree of the polynomial kernel function ('poly'). Ignored by all other kernels.
+        gamma_ = 'auto' # Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. Set gamma explicitly to 'auto' or 'scale' to avoid this warning
+        coef0_ = 0.0  # Independent term in kernel function. It is only significant in ‘poly’ and ‘sigmoid’.
+        shrinking_ = True # Whether to use the shrinking heuristic.
+        probability_ = False  #Whether to enable probability estimates. This must be enabled prior to calling fit, and will slow down that method.
+        tol_ = 0.001 # Tolerance for stopping criterion.
+        max_iter_ = -1 # Hard limit on iterations within solver, or -1 for no limit.
+        # Hyps
 
-        f = open("res/result_hd_" + str(hidden_dim) +
-                 "b_" + str(bias_) + ".txt", "a")
+        f = open("res/result_krnl_" + str(kernel_) +
+                 "tol_" + str(tol_) + ".txt", "a")
         f.write(model_name + "\n")
 
         # checking for model
@@ -209,9 +218,9 @@ if __name__ == "__main__":
         else:
             print("Fitting")
             # Fitting model
-            svm = SVC(C=1.0, kernel='rbf', degree=3, gamma='auto_deprecated', coef0=0.0,
-                      shrinking=True,probability=False, tol=0.001, cache_size=200, class_weight=None,
-                      verbose=False, max_iter=-1, decision_function_shape=’ovr’, random_state=None)
+            svm = SVC(C=C_, kernel=kernel_, degree=degree_, gamma=gamma_, coef0=coef0_,
+                      shrinking=shrinking_, probability=probability_, tol=tol_,
+                      verbose=False, max_iter=max_iter_)
 
             svm.fit(X_train, y_train)
 
