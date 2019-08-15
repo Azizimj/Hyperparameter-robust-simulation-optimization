@@ -16,10 +16,32 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="222" column="55" selection-start-line="222" selection-start-column="55" selection-end-line="222" selection-end-column="55" />
+            <state relative-caret-position="219">
+              <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
               <folding>
                 <element signature="e#0#310#1" />
+                <element signature="e#965#1125#0" />
+                <element signature="e#1175#1947#0" />
+                <element signature="e#1682#1864#0" />
+                <element signature="e#2006#2727#0" />
+                <element signature="e#2169#2541#0" />
+                <element signature="e#2196#2541#0" />
+                <element signature="e#2421#2541#0" />
+                <element signature="e#2764#2984#0" />
+                <element signature="e#2764#2840#1" />
+                <element signature="e#3782#3951#0" />
+                <element signature="e#3970#4171#0" />
+                <element signature="e#4210#6388#0" />
+                <element signature="e#5344#5518#0" />
+                <element signature="e#5545#6388#0" />
+                <element signature="e#5906#5931#0" />
+                <element signature="e#6024#6057#0" />
+                <element signature="e#6430#8117#0" />
+                <element signature="e#7539#7644#0" />
+                <element signature="e#7671#8117#0" />
+                <element signature="e#8017#8043#0" />
+                <element signature="e#8284#8585#0" />
+                <element signature="e#8415#8496#0" />
               </folding>
             </state>
           </provider>
@@ -66,7 +88,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -78,11 +99,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Ross/Bandit/best_arm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -257,19 +279,33 @@
       <option name="project" value="LOCAL" />
       <updated>1565724099733</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="svm done">
+      <created>1565724679199</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1565724679199</updated>
+    </task>
+    <task id="LOCAL-00013" summary="svm done">
+      <created>1565724755572</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1565724755572</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16111952" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120272316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.20621932" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3453355" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3584288" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -294,26 +330,52 @@
     <MESSAGE value="set seed and hyps" />
     <MESSAGE value="sample folder build" />
     <MESSAGE value="svm hyps" />
-    <option name="LAST_COMMIT_MESSAGE" value="svm hyps" />
+    <MESSAGE value="svm done" />
+    <option name="LAST_COMMIT_MESSAGE" value="svm done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/All models.py</url>
-          <line>61</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/All models.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="18" />
+          <line>103</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>int(len(images)*test_precs[num_classes - 1])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>num_classes</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>int(ln_*test_precs[num_classes - 1])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>random.shuffle(images)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>len(images)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>images</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>labels[tr_st:tr_end+1]</expression-string>
         <language-id>Python</language-id>
@@ -326,36 +388,6 @@
       </expression>
       <expression>
         <expression-string>labels</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>features[1:100,:]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>features</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>features[tr_st:tr_end,:]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>features[tr_st:tr_end]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>os.walk(directory)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>os.walk(directory)[0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -482,12 +514,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://E:/program/python3/Lib/shutil.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="222" column="55" selection-start-line="222" selection-start-column="55" selection-end-line="222" selection-end-column="55" />
+        <state relative-caret-position="219">
+          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
           <folding>
             <element signature="e#0#310#1" />
+            <element signature="e#965#1125#0" />
+            <element signature="e#1175#1947#0" />
+            <element signature="e#1682#1864#0" />
+            <element signature="e#2006#2727#0" />
+            <element signature="e#2169#2541#0" />
+            <element signature="e#2196#2541#0" />
+            <element signature="e#2421#2541#0" />
+            <element signature="e#2764#2984#0" />
+            <element signature="e#2764#2840#1" />
+            <element signature="e#3782#3951#0" />
+            <element signature="e#3970#4171#0" />
+            <element signature="e#4210#6388#0" />
+            <element signature="e#5344#5518#0" />
+            <element signature="e#5545#6388#0" />
+            <element signature="e#5906#5931#0" />
+            <element signature="e#6024#6057#0" />
+            <element signature="e#6430#8117#0" />
+            <element signature="e#7539#7644#0" />
+            <element signature="e#7671#8117#0" />
+            <element signature="e#8017#8043#0" />
+            <element signature="e#8284#8585#0" />
+            <element signature="e#8415#8496#0" />
           </folding>
         </state>
       </provider>

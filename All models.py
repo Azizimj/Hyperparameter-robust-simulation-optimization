@@ -71,6 +71,50 @@ def sample_folder(directory, sample_sizes):
     print("made {} folders and copied {} files".format(num_classes, s))
     return
 
+
+def test_train_sep(directory, test_precs):
+    from shutil import copyfile
+    print("test_train_sep folder")
+    root2 = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"+str(test_precs)+"/"
+    if not os.path.exists(root2):
+        os.mkdir(root2)
+    s = 0
+    num_classes = 0
+    for root, dirs, files in os.walk(directory):
+        for d in dirs:
+            num_classes += 1
+            images = os.listdir(root + d)
+
+            ln_ = len(images)
+            random.shuffle(images)
+            ln_ = int(ln_*test_precs[num_classes - 1])
+            images_tes = images[:ln_]
+            images_tr = images[ln_:]
+
+            source_dir = root + d + "/"
+
+            tr_dir = root2 + "tr/"
+            if not os.path.exists(tr_dir):
+                os.mkdir(tr_dir)
+            for image in images_tr:
+                s += 1
+                tr_dir = root2 + "tr/" + d + "/"
+                if not os.path.exists(tr_dir):
+                    os.mkdir(tr_dir)
+                copyfile(source_dir+ image, tr_dir + image)
+
+            tes_dir = root2 + "tes/"
+            if not os.path.exists(tes_dir):
+                os.mkdir(tes_dir)
+            for image in images_tes:
+                s += 1
+                tes_dir = root2 + "tes/" + d + "/"
+                if not os.path.exists(tes_dir):
+                    os.mkdir(tes_dir)
+                copyfile(source_dir + image, tes_dir + image)
+    print("made {} folders and copied {} files".format(num_classes*2, s))
+    return
+
 def read_files(directory, sample_sizes, model_name):
     print("Reading files...")
     s = 1
@@ -117,13 +161,16 @@ if __name__ == "__main__":
         image_folder = sys.argv[1]
 
     # FRAMESA 16960, FRAMESB 14607
-    # sample_sizes = [100, 200]
+    # sample_sizes = [4, 200]
     sample_sizes = [-1,-1] # -1 for not sampling
+
+    test_precs= [.2,.2]
     SHAPE = (30, 30)
 
-    # Build a sample folder
+    # Build a sample folder or seperate test and train
     # sample_folder(image_folder, sample_sizes)
-    # exit()
+    test_train_sep(image_folder, test_precs)
+    exit()
 
     # generating two numpy arrays for features and labels
     features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
