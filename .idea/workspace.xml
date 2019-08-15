@@ -16,21 +16,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
+            <state relative-caret-position="-313">
+              <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#965#1125#0" />
                 <element signature="e#1175#1947#0" />
                 <element signature="e#1682#1864#0" />
+                <element signature="e#2023#3461#0" />
                 <element signature="e#2006#2727#0" />
                 <element signature="e#2169#2541#0" />
                 <element signature="e#2196#2541#0" />
                 <element signature="e#2421#2541#0" />
                 <element signature="e#2764#2984#0" />
                 <element signature="e#2764#2840#1" />
-                <element signature="e#3782#3951#0" />
-                <element signature="e#3970#4171#0" />
                 <element signature="e#4210#6388#0" />
                 <element signature="e#5344#5518#0" />
                 <element signature="e#5545#6388#0" />
@@ -64,6 +63,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/All models.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -293,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1565724755572</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="tr_tes sep">
+      <created>1565896470935</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1565896470935</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -305,8 +314,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3453355" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3584288" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3453355" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3584288" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -331,18 +340,8 @@
     <MESSAGE value="sample folder build" />
     <MESSAGE value="svm hyps" />
     <MESSAGE value="svm done" />
-    <option name="LAST_COMMIT_MESSAGE" value="svm done" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/All models.py</url>
-          <line>103</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="tr_tes sep" />
+    <option name="LAST_COMMIT_MESSAGE" value="tr_tes sep" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -523,21 +522,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="115" column="68" selection-start-line="115" selection-start-column="68" selection-end-line="115" selection-end-column="68" />
+        <state relative-caret-position="-313">
+          <caret line="73" column="43" selection-start-line="73" selection-start-column="43" selection-end-line="73" selection-end-column="43" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#965#1125#0" />
             <element signature="e#1175#1947#0" />
             <element signature="e#1682#1864#0" />
+            <element signature="e#2023#3461#0" />
             <element signature="e#2006#2727#0" />
             <element signature="e#2169#2541#0" />
             <element signature="e#2196#2541#0" />
             <element signature="e#2421#2541#0" />
             <element signature="e#2764#2984#0" />
             <element signature="e#2764#2840#1" />
-            <element signature="e#3782#3951#0" />
-            <element signature="e#3970#4171#0" />
             <element signature="e#4210#6388#0" />
             <element signature="e#5344#5518#0" />
             <element signature="e#5545#6388#0" />

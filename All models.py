@@ -38,7 +38,6 @@ from sklearn import preprocessing
 random.seed(30)
 np.random.seed(110)
 
-
 print("Libs good")
 
 SHAPE = (30, 30)
@@ -50,19 +49,20 @@ def extract_feature(image_file):
     img = img / np.mean(img)
     return img
 
-def sample_folder(directory, sample_sizes):
+def sample_folder(images_dir, sample_sizes):
     from shutil import copyfile
     print("Build a sample folder")
-    root2 = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"+str(sample_sizes)+"/"
+    root2 = images_dir + str(sample_sizes)+"/"
     if not os.path.exists(root2):
         os.mkdir(root2)
     s = 0
     num_classes = 0
-    for root, dirs, files in os.walk(directory):
+    for root, dirs, files in os.walk(images_dir+"/"):
         for d in dirs:
             num_classes += 1
             images = os.listdir(root + d)
-            images = sample(images, sample_sizes[num_classes - 1])  # sample
+            if sample_sizes[0] >0:
+                images = sample(images, sample_sizes[num_classes - 1])  # sample
             for image in images:
                 s += 1
                 if not os.path.exists(root2 + d + "/"):
@@ -72,15 +72,15 @@ def sample_folder(directory, sample_sizes):
     return
 
 
-def test_train_sep(directory, test_precs):
+def test_train_sep(images_dir, test_precs):
     from shutil import copyfile
     print("test_train_sep folder")
-    root2 = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"+str(test_precs)+"/"
+    root2 = images_dir +str(test_precs)+"/"
     if not os.path.exists(root2):
         os.mkdir(root2)
     s = 0
     num_classes = 0
-    for root, dirs, files in os.walk(directory):
+    for root, dirs, files in os.walk(images_dir+"/"):
         for d in dirs:
             num_classes += 1
             images = os.listdir(root + d)
@@ -98,22 +98,22 @@ def test_train_sep(directory, test_precs):
                 os.mkdir(tr_dir)
             for image in images_tr:
                 s += 1
-                tr_dir = root2 + "tr/" + d + "/"
-                if not os.path.exists(tr_dir):
-                    os.mkdir(tr_dir)
-                copyfile(source_dir+ image, tr_dir + image)
+                tr_dir_im = root2 + "tr/" + d + "/"
+                if not os.path.exists(tr_dir_im):
+                    os.mkdir(tr_dir_im)
+                copyfile(source_dir+ image, tr_dir_im + image)
 
             tes_dir = root2 + "tes/"
             if not os.path.exists(tes_dir):
                 os.mkdir(tes_dir)
             for image in images_tes:
                 s += 1
-                tes_dir = root2 + "tes/" + d + "/"
-                if not os.path.exists(tes_dir):
-                    os.mkdir(tes_dir)
-                copyfile(source_dir + image, tes_dir + image)
+                tes_dir_im = root2 + "tes/" + d + "/"
+                if not os.path.exists(tes_dir_im):
+                    os.mkdir(tes_dir_im)
+                copyfile(source_dir + image, tes_dir_im + image)
     print("made {} folders and copied {} files".format(num_classes*2, s))
-    return
+    return tr_dir, tes_dir
 
 def read_files(directory, sample_sizes, model_name):
     print("Reading files...")
@@ -156,34 +156,42 @@ if __name__ == "__main__":
     random_state = 12
 
     # image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images/"
-    image_folder = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100, 200]/"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100, 200]"
+
     if len(sys.argv) > 1:
         image_folder = sys.argv[1]
 
-    # FRAMESA 16960, FRAMESB 14607
+    # FRAMESA (night) 16960, FRAMESB (day) 14607
     # sample_sizes = [4, 200]
     sample_sizes = [-1,-1] # -1 for not sampling
-
     test_precs= [.2,.2]
     SHAPE = (30, 30)
 
     # Build a sample folder or seperate test and train
-    # sample_folder(image_folder, sample_sizes)
-    test_train_sep(image_folder, test_precs)
+    sample_folder(images_dir, sample_sizes)
+
+    # sep tr tes
+    test_train_sep(images_dir, test_precs)
     exit()
 
     # generating two numpy arrays for features and labels
-    features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
-
+    # features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
     # Splitting the data into test and training splits
-    test_prec = 0
-    if test_prec > 0:
-        X_train, X_test, y_train, y_test = train_test_split(features, labels,
-                                                            test_size=0, random_state=random_state)
-    else:
-        tr_st, tr_end, tes_st, tes_end = 0,100, 20,30
-        X_train, y_train = features[tr_st:tr_end+1,:], labels[tr_st:tr_end+1]
-        X_test, y_test = features[tes_st:tes_end+1], labels[tes_st:tes_end+1]
+    # test_prec = 0
+    # if test_prec > 0:
+    #     X_train, X_test, y_train, y_test = train_test_split(features, labels,
+    #                                                         test_size=0, random_state=random_state)
+    # else:
+    #     tr_st, tr_end, tes_st, tes_end = 0,100, 20,30
+    #     X_train, y_train = features[tr_st:tr_end+1,:], labels[tr_st:tr_end+1]
+    #     X_test, y_test = features[tes_st:tes_end+1], labels[tes_st:tes_end+1]
+
+    # read tr
+    features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
+    X_train, X_test, y_train, y_test
+
+    # read tes
 
 
     if model_name == 'nn':
