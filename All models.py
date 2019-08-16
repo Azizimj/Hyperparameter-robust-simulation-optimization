@@ -251,11 +251,11 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
 if __name__ == "__main__":
 
     tr_tes_sep = False
-    sample_folder_build = False
+    sample_folder_build = True
     divide_file = False
 
-    # size_of_trs = 3000
-    size_of_trs = 50
+    size_of_trs = 3000
+    # size_of_trs = 50
 
     # init net and svm
     net = None
@@ -266,17 +266,18 @@ if __name__ == "__main__":
     random_state = 12
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "images"
 
-    # points_list_file = "Design-Data.csv"
-    points_list_file = "Design-Data-small.csv"
+    points_list_file = "Design-Data.csv"
+    # points_list_file = "Design-Data-small.csv"
 
     if len(sys.argv) > 1:
         image_folder = sys.argv[1]
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607
-    # sample_sizes = [4, 200]
-    sample_sizes = [-1,-1] # -1 for not sampling
+    sample_sizes = [100, 200]
+    # sample_sizes = [-1,-1] # -1 for not sampling
     test_precs= [.2,.2]
     SHAPE = (30, 30)
 
@@ -394,7 +395,7 @@ if __name__ == "__main__":
             kernel_ = 'rbf'  # 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed'
             degree_ = 3  # Degree of the polynomial kernel function ('poly'). Ignored by all other kernels.
             gamma_ = 'scale'  # Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. Set gamma explicitly to 'auto' or 'scale' to avoid this warning
-            coef0_ = 0.0  # Independent term in kernel function. It is only significant in ‘poly’ and ‘sigmoid’.
+            coef0_ = 0.0  # Independent term in kernel function. It is only significant in 'poly' and 'sigmoid'.
             shrinking_ = True  # Whether to use the shrinking heuristic.
             probability_ = False  # Whether to enable probability estimates. This must be enabled prior to calling fit, and will slow down that method.
             tol_ = 0.001  # Tolerance for stopping criterion.
