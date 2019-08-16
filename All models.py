@@ -148,7 +148,7 @@ def convertLabels(label_list):
 
     return label_list
 
-def seperate_with_prec(points_list, dire, size_of_trs):
+def divide_with_prec(points_list, dire, size_of_trs):
 
     import pandas as pd
     from shutil import copyfile
@@ -172,7 +172,8 @@ def seperate_with_prec(points_list, dire, size_of_trs):
 
             ln_ = len(images)
             random.shuffle(images)
-            ln_ = int(ln_ * prec * size_of_trs)
+            ln_ = min(int(prec * size_of_trs), ln_)
+            print("{} images picked".format(ln_))
             images_ = images[:ln_]
 
             source_dir = dire + class_fldr + "/"
@@ -186,53 +187,28 @@ def seperate_with_prec(points_list, dire, size_of_trs):
                 s += 1
                 copyfile(source_dir + image, division_dir_d + image)
 
-        # for root, dirs, files in os.walk(dire):
-        #     for d in dirs:
-        #         if (d == "FRAMESB"):
-        #             prec = day_prec
-        #         elif (d == "FRAMESA"):
-        #             prec = 1 - day_prec
-        #         else:
-        #             continue
-        #
-        #         num_classes += 1
-        #         images = os.listdir(root+ d)
-        #
-        #         ln_ = len(images)
-        #         random.shuffle(images)
-        #         ln_ = int(ln_ * prec * size_of_trs)
-        #         images_ = images[:ln_]
-        #
-        #         source_dir = root + d + "/"
-        #
-        #         division_dir = divide_dir +str(cntr)+"/"
-        #         make_dir(division_dir)
-        #         division_dir_d = divide_dir + str(cntr) + "/"+d+"/"
-        #         make_dir(division_dir_d)
-        #
-        #         for image in images_:
-        #             s += 1
-        #             copyfile(source_dir + image, division_dir_d + image)
-
     print("copied {} files".format(s))
     return
 
 
 if __name__ == "__main__":
 
-    tr_tes_sep = True
+    tr_tes_sep = False
     sample_folder_build = False
+    divide_file = True
 
-    size_of_trs = 3000
+    # size_of_trs = 3000
+    size_of_trs = 50
 
     # model_name = 'nn'
     model_name = 'svm'
     random_state = 12
 
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
 
-    points_list_file = "Design-Data.csv"
+    # points_list_file = "Design-Data.csv"
+    points_list_file = "Design-Data-small.csv"
 
     if len(sys.argv) > 1:
         image_folder = sys.argv[1]
@@ -240,7 +216,7 @@ if __name__ == "__main__":
     # FRAMESA (night) 16960, FRAMESB (day) 14607
     # sample_sizes = [4, 200]
     sample_sizes = [-1,-1] # -1 for not sampling
-    test_precs= [.2,.3]
+    test_precs= [.2,.2]
     SHAPE = (30, 30)
 
     if sample_folder_build:
@@ -265,15 +241,19 @@ if __name__ == "__main__":
     #     X_train, y_train = features[tr_st:tr_end+1,:], labels[tr_st:tr_end+1]
     #     X_test, y_test = features[tes_st:tes_end+1], labels[tes_st:tes_end+1]
 
-    dire = images_dir +"_"+ str(test_precs) + "/tr/"
-    seperate_with_prec(points_list_file, dire, size_of_trs)
-    exit()
+    if divide_file:
+        dire = images_dir +"_"+ str(test_precs) + "/tr/"
+        divide_with_prec(points_list_file, dire, size_of_trs)
+        exit()
 
-    # read tr
-    X_train, y_train, num_classes = read_files(tr_dir, model_name)
-    # read tes
-    tes_dir = images_dir + str(test_precs) + "tes" + "/"
+    tes_dir = images_dir + "_" + str(test_precs) + "/"+"tes/"
     X_test, y_test, num_classes = read_files(tes_dir, model_name)
+
+    divide_files_dir = images_dir +"_"+ str(test_precs) + "/tr/"+"divided/"
+    for tr_dir in os.listdir(divide_files_dir):
+        # read tr
+        X_train, y_train, num_classes = read_files(tr_dir, model_name)
+
 
 
     if model_name == 'nn':
