@@ -250,12 +250,13 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
 
 if __name__ == "__main__":
 
-    tr_tes_sep = False
-    sample_folder_build = True
+    tr_tes_sep = True
+    sample_folder_build = False
     divide_file = False
 
-    size_of_trs = 3000
-    # size_of_trs = 50
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "images"
 
     # init net and svm
     net = None
@@ -265,19 +266,15 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    images_dir = "images"
-
     points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
 
-    if len(sys.argv) > 1:
-        image_folder = sys.argv[1]
+    size_of_trs = 6000
+    # size_of_trs = 50
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607
-    sample_sizes = [100, 200]
-    # sample_sizes = [-1,-1] # -1 for not sampling
+    # sample_sizes = [100, 200]
+    sample_sizes = [-1,-1] # -1 for not sampling
     test_precs= [.2,.2]
     SHAPE = (30, 30)
 

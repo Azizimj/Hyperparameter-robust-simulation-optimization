@@ -1,0 +1,21 @@
+Your home directory is full. Most likely it's from your python packages being saved to ~/.local. If that's the case, we recommend that you use a "symbolic link" to link the .local directory to somewhere in your project directory . That way you consume your project quota instead of your home directory quota.
+
+This is how you would do it:
+
+
+cd ~
+
+mkdir /home/rcf-proj/ma3/azizim/python_packages
+mv .local .local_backup
+
+ln -s /home/rcf-proj/ma/azizim/python_packages .local
+
+# If this was successful you should be able to type ls -la and see an arrow pointing from .local to /home/rcf-proj/ma3/azizim/python_packages
+
+cp -r .local_backup .local
+
+# delete old .local_backup
+
+rm -r .local_backup
+
+You can check your quota with myquota and then retry the installation.
