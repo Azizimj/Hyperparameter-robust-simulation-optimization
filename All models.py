@@ -198,11 +198,12 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
     tmp = "Eval...\n"
     print(tmp)
     f.write(tmp)
+    make_dir(divide_files_dir + "res/")
     if tr_:
-        pred_file = open(divide_files_dir + "tr" + str(division_num) + "_preds"
+        pred_file = open(divide_files_dir + "res/tr" + str(division_num) + "_preds"
                          + str(test_precs) + "_" + model_name + ".csv", 'a')
     else:
-        pred_file = open(divide_files_dir + "tes" + str(division_num) + "_preds"
+        pred_file = open(divide_files_dir + "res/tes" + str(division_num) + "_preds"
                          + str(test_precs) + "_" + model_name + ".csv", 'a')
 
     writer_pred_file = csv.writer(pred_file)
@@ -321,6 +322,8 @@ if __name__ == "__main__":
 
 
     for tr_dir in os.listdir(divide_files_dir):
+        if tr_dir == "res":
+            continue
         # read tr
         X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
 
@@ -367,7 +370,7 @@ if __name__ == "__main__":
                 f.write(tmp)
                 trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
             else:
-                tmp = "Training " + model_name + "on set"+str(division_num)+ "\n"
+                tmp = "Training " + model_name + " on set "+str(division_num)+ "\n"
                 print(tmp)
                 f.write(tmp)
                 trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
