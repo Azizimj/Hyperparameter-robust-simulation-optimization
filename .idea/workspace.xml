@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Design-Data-small.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design-Data.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Design-Data.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/result_krnl_rbftol_0.001.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/All models.py" beforeDir="false" afterPath="$PROJECT_DIR$/All models.py" afterDir="false" />
     </list>
@@ -16,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="186" column="68" selection-start-line="186" selection-start-column="68" selection-end-line="186" selection-end-column="68" />
+            <state relative-caret-position="210">
+              <caret line="242" column="30" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="30" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#965#1125#0" />
@@ -27,21 +31,14 @@
                 <element signature="e#2421#2541#0" />
                 <element signature="e#2764#2984#0" />
                 <element signature="e#2764#2840#1" />
+                <element signature="e#4525#6608#0" />
                 <element signature="e#6424#6537#0" />
                 <element signature="e#6568#6621#0" />
                 <element signature="e#5446#5499#0" />
                 <element signature="e#8290#8417#0" />
-                <element signature="e#4210#6388#0" />
-                <element signature="e#5344#5518#0" />
-                <element signature="e#5545#6388#0" />
-                <element signature="e#5906#5931#0" />
-                <element signature="e#6024#6057#0" />
-                <element signature="e#6430#8117#0" />
-                <element signature="e#7539#7644#0" />
-                <element signature="e#7671#8117#0" />
-                <element signature="e#8017#8043#0" />
-                <element signature="e#8284#8585#0" />
-                <element signature="e#8415#8496#0" />
+                <element signature="e#9633#9824#0" />
+                <element signature="e#9859#10788#0" />
+                <element signature="e#10358#12153#0" />
               </folding>
             </state>
           </provider>
@@ -62,6 +59,7 @@
       <find>SHAPE</find>
       <find>csv</find>
       <find>if not</find>
+      <find>test_precs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -319,11 +317,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565971777859</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="divide_fn finished">
+      <created>1565975232229</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1565975232229</updated>
+    </task>
+    <task id="LOCAL-00018" summary="train on divides">
+      <created>1565976989791</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1565976989791</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120272316" />
@@ -331,8 +343,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30278233" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3584288" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31423897" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2569558" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -360,68 +372,54 @@
     <MESSAGE value="tr_tes sep" />
     <MESSAGE value="images_dir" />
     <MESSAGE value="divide finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="divide finished" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/All models.py</url>
-          <line>250</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/All models.py</url>
-          <line>253</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="divide_fn finished" />
+    <MESSAGE value="train on divides" />
+    <option name="LAST_COMMIT_MESSAGE" value="train on divides" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>y_test</expression-string>
+        <expression-string>np.std(X_train)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>X_test</expression-string>
+        <expression-string>np.average(X_train)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.listdir(dire)</expression-string>
+        <expression-string>sort(os.listdir(divide_files_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>os.walk(dire)</expression-string>
+        <expression-string>os.listdir(divide_files_dir)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>division_dir_d + image</expression-string>
+        <expression-string>df['learningrate'][0]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>source_dir + image</expression-string>
+        <expression-string>df['learningrate']</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>root+&quot;/&quot; + d</expression-string>
+        <expression-string>df['learningrate'][dd]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>df['day prec']</expression-string>
+        <expression-string>y_train</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(df['day prec'])</expression-string>
+        <expression-string>X_train</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -571,8 +569,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="186" column="68" selection-start-line="186" selection-start-column="68" selection-end-line="186" selection-end-column="68" />
+        <state relative-caret-position="210">
+          <caret line="242" column="30" selection-start-line="242" selection-start-column="30" selection-end-line="242" selection-end-column="30" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#965#1125#0" />
@@ -582,21 +580,14 @@
             <element signature="e#2421#2541#0" />
             <element signature="e#2764#2984#0" />
             <element signature="e#2764#2840#1" />
+            <element signature="e#4525#6608#0" />
             <element signature="e#6424#6537#0" />
             <element signature="e#6568#6621#0" />
             <element signature="e#5446#5499#0" />
             <element signature="e#8290#8417#0" />
-            <element signature="e#4210#6388#0" />
-            <element signature="e#5344#5518#0" />
-            <element signature="e#5545#6388#0" />
-            <element signature="e#5906#5931#0" />
-            <element signature="e#6024#6057#0" />
-            <element signature="e#6430#8117#0" />
-            <element signature="e#7539#7644#0" />
-            <element signature="e#7671#8117#0" />
-            <element signature="e#8017#8043#0" />
-            <element signature="e#8284#8585#0" />
-            <element signature="e#8415#8496#0" />
+            <element signature="e#9633#9824#0" />
+            <element signature="e#9859#10788#0" />
+            <element signature="e#10358#12153#0" />
           </folding>
         </state>
       </provider>

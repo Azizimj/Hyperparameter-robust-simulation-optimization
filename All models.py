@@ -193,6 +193,59 @@ def divide_with_prec(points_list, dire, size_of_trs):
     print("copied {} files".format(s))
     return
 
+def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm, f, tr_):
+    # tr acc
+    tmp = "Eval...\n"
+    print(tmp)
+    f.write(tmp)
+    if tr_:
+        pred_file = open(divide_files_dir + "tr" + str(division_num) + "_preds"
+                         + str(test_precs) + "_" + model_name + ".csv", 'a')
+    else:
+        pred_file = open(divide_files_dir + "tes" + str(division_num) + "_preds"
+                         + str(test_precs) + "_" + model_name + ".csv", 'a')
+
+    writer_pred_file = csv.writer(pred_file)
+
+    correct_count = 0
+    total_count = 0
+    tp = 0
+    tn = 0
+    fp = 0
+    fn = 0
+    for feature, label in zip(X, Y):
+        if model_name == 'nn':
+            prediction = net.activate(feature).argmax(axis=0)
+        elif model_name == 'svm':
+            feature = feature.reshape(1, -1)
+            prediction = svm.predict(feature)[0]
+
+        if prediction == label:
+            correct_count += 1
+            if label==1:
+                tp+=1
+            else:
+                tn+=1
+        else:
+            if label==1:
+                fn+=1
+            else:
+                fp+=1
+
+        row = [total_count, label, prediction, correct_count]
+        writer_pred_file.writerow(row)
+        total_count += 1
+    acc = float(correct_count) / float(total_count)
+    precision = float(tp)/float(tp+fp)
+    recall = float(tp)/float(tp+fn)
+    f1 = float(2*tp)/float(2*tp+fp+fn)
+    tmp = 'Acc, prec, recal, f1 on ' +str("tr " if tr_ else "tes ")+\
+          str(division_num)+" are {}, {}, {}, {} \n".format(acc, precision, recall, f1)
+    print(tmp)
+    f.write(tmp)
+    pred_file.close()
+
+    return acc, precision, recall, f1
 
 if __name__ == "__main__":
 
@@ -203,6 +256,10 @@ if __name__ == "__main__":
     # size_of_trs = 3000
     size_of_trs = 50
 
+    # init net and svm
+    net = None
+    svm = None
+    #
     model_name = 'nn'
     # model_name = 'svm'
     random_state = 12
@@ -255,8 +312,13 @@ if __name__ == "__main__":
     divide_files_dir = images_dir +"_"+ str(test_precs) + "/tr/"+"divided/"
     division_num = 0
     df = pd.read_csv(points_list_file)
-    f = open("res/result_"+test_precs +".txt", "a")
+
+    f = open("res/result_"+str(test_precs) +"_"+model_name+".txt", "a")
     f.write(model_name + "\n")
+
+    f_all = open("res/result_" + str(test_precs) + "_"+model_name+".csv", 'a')
+    writer_f_all = csv.writer(f_all)
+
 
     for tr_dir in os.listdir(divide_files_dir):
         # read tr
@@ -278,7 +340,7 @@ if __name__ == "__main__":
             # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
             hiddenclass_ = TanhLayer
             outclass_ = SoftmaxLayer
-            num_epoch = 10
+            num_epoch = 2
             # learningrate_ = 0.01
             # lrdecay_ = 1.0
             momentum_ = 0.1
@@ -358,48 +420,18 @@ if __name__ == "__main__":
                 # pickle.dump(svm, open("models/"+ model_name+ ".pkl", "wb"))
 
         # tr acc
-        tmp = "Tr accuracy...\n"
-        print(tmp)
-        f.write(tmp)
-        tmp_X_test = X_train
-        tmp_y_test = y_train
-        correct_count = 0
-        total_count = 0
-        for feature, label in zip(tmp_X_test, tmp_y_test):
-            if model_name == 'nn':
-                prediction = net.activate(feature).argmax(axis=0)
-            elif model_name == 'svm':
-                feature = feature.reshape(1, -1)
-                prediction = svm.predict(feature)[0]
+        tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+             X_train, y_train, net, svm, f, tr_=True)
 
-            if prediction == label:
-                correct_count += 1
-            total_count += 1
-        acc = (float(correct_count) / float(total_count)) * 100
-        tmp = 'Acc on tr is {} \n'.format(acc)
-        print(tmp)
-        f.write(tmp)
+        # tes acc
+        tes_acc, tes_prec, tes_reca, tes_f1  = eval(divide_files_dir, division_num, test_precs, model_name,
+             X_train, y_train, net, svm, f, tr_=False)
 
-        # Test
-        tmp = "Testing...\n"
-        print(tmp)
-        f.write(tmp)
-        correct_count = 0
-        total_count = 0
-        for feature, label in zip(X_test, y_test):
-            if model_name == 'nn':
-                prediction = net.activate(feature).argmax(axis=0)
-            elif model_name == 'svm':
-                feature = feature.reshape(1, -1)
-                prediction = svm.predict(feature)[0]
-
-            if prediction == label:
-                correct_count += 1
-            total_count += 1
-        acc = (float(correct_count) / float(total_count)) * 100
-        tmp = 'acc is {} \n'.format(acc)
-        print(tmp)
-        f.write(tmp)
+        if model_name == "nn":
+            row = [division_num,hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
+                   tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
+                   bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
+            writer_f_all.writerow(row)
 
         division_num += 1
 
