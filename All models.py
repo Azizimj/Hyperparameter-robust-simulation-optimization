@@ -263,8 +263,8 @@ if __name__ == "__main__":
             divide_file = True
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    # images_dir = "images"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "images"
 
     # init net and svm
     net = None
@@ -274,8 +274,8 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    # points_list_file = "Design-Data.csv"
-    points_list_file = "Design-Data-small.csv"
+    points_list_file = "Design-Data.csv"
+    # points_list_file = "Design-Data-small.csv"
 
     size_of_trs = 6000
     # size_of_trs = 50
