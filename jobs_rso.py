@@ -5,13 +5,13 @@ epochs = 30
 model_name = "nn"
 # model_name = "svm"
 
-side_task = ""
+side_task = "none"
 # side_task = 'tr_tes_sep'
 # side_task = 'divide_file'
 # side_task = 'sample_folder_build'
 
 jname = "rso"+str(epochs)+model_name
-ntasks = 40
+ntasks = 400
 time_ = "24:00:00"
 
 
