@@ -44,6 +44,8 @@ np.random.seed(110)
 print("Libs good")
 SHAPE = (30, 30)
 
+# import scipy
+# scipy.stats.skew(X_train)
 
 def extract_feature(image_file):
     img = cv2.imread(image_file)
@@ -245,7 +247,7 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
     f1 = float(2*tp)/max(float(2*tp+fp+fn), 1)
 
     tmp = 'Acc, prec, recal, f1 on ' +str("tr " if tr_ else "tes ")+\
-          str(division_num)+" are {}, {}, {}, {} \n".format(acc, precision, recall, f1)
+          str(division_num)+" are {}, {}, {}, {} \n".format(acc, prec, recall, f1)
     print(tmp)
     f.write(tmp)
     pred_file.close()
@@ -266,8 +268,11 @@ if __name__ == "__main__":
             divide_file = True
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    images_dir = "images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "images"
+
+    # size_of_trs = 6000
+    size_of_trs = 50
 
     # init net and svm
     net = None
@@ -277,11 +282,12 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
+    num_epoch = 2
+    if len(sys.argv) > 1:
+        num_epoch = int(sys.argv[1])
+
     points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
-
-    size_of_trs = 6000
-    # size_of_trs = 50
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607
     # sample_sizes = [100, 200]
@@ -316,9 +322,6 @@ if __name__ == "__main__":
         divide_with_prec(points_list_file, dire, size_of_trs)
         exit()
 
-    num_epoch = 4
-    if len(sys.argv) > 1:
-        num_epoch = int(sys.argv[1])
 
     tes_dir = images_dir + "_" + str(test_precs) + "/"+"tes/"
     X_test, y_test, num_classes = read_files(tes_dir, model_name)
@@ -345,7 +348,10 @@ if __name__ == "__main__":
         learningrate_ = df['learningrate'][division_num]
         lrdecay_ = df['Irdecay'][division_num]
         weightdecay_ = df['weightdecay'][division_num]
-        data_ave = np.average(X_train)
+        # data_ave = np.average(X_train)
+        X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
+                                 X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
+        data_ave = np.average(X_sample)
         data_std = np.std(X_train)
 
 
