@@ -130,6 +130,7 @@ def read_files(directory, model_name):
             images = os.listdir(root + d)
             # if sample_sizes[0] > 0:
             #     images = sample(images, sample_sizes[num_classes - 1])  # sample
+            # print(root + d)
             for image in images:
                 s += 1
                 label_list.append(d)
@@ -253,16 +254,17 @@ if __name__ == "__main__":
     tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
-    if sys.argv[2]=="tr_tes_sep":
-        tr_tes_sep = True
-    if sys.argv[2]=="sample_folder_build":
-        sample_folder_build = True
-    if sys.argv[2]=="divide_file":
-        divide_file = True
+    if len(sys.argv) > 1:
+        if sys.argv[2]=="tr_tes_sep":
+            tr_tes_sep = True
+        if sys.argv[2]=="sample_folder_build":
+            sample_folder_build = True
+        if sys.argv[2]=="divide_file":
+            divide_file = True
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    images_dir = "images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "images"
 
     # init net and svm
     net = None
@@ -272,8 +274,8 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    points_list_file = "Design-Data.csv"
-    # points_list_file = "Design-Data-small.csv"
+    # points_list_file = "Design-Data.csv"
+    points_list_file = "Design-Data-small.csv"
 
     size_of_trs = 6000
     # size_of_trs = 50
@@ -312,8 +314,8 @@ if __name__ == "__main__":
         exit()
 
     num_epoch = 4
-    if len(sys.argv) > 0:
-        num_epoch = sys.argv[1]
+    if len(sys.argv) > 1:
+        num_epoch = int(sys.argv[1])
 
     tes_dir = images_dir + "_" + str(test_precs) + "/"+"tes/"
     X_test, y_test, num_classes = read_files(tes_dir, model_name)
@@ -332,6 +334,7 @@ if __name__ == "__main__":
     for tr_dir in os.listdir(divide_files_dir):
         if tr_dir == "res":
             continue
+        # print(tr_dir)
         # read tr
         X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
 
@@ -353,7 +356,7 @@ if __name__ == "__main__":
             outclass_ = SoftmaxLayer
             # num_epoch = 4
             # if len(sys.argv)>0:
-            #     num_epoch = sys.argv[1]
+            #     num_epoch = int(sys.argv[1])
             # learningrate_ = 0.01
             # lrdecay_ = 1.0
             momentum_ = 0.1
