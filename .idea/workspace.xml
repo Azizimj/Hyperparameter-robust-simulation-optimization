@@ -4,7 +4,6 @@
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/All models.py" beforeDir="false" afterPath="$PROJECT_DIR$/All models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rso.slurm" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,16 +16,18 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="333">
+              <caret line="244" column="44" selection-start-line="244" selection-start-column="44" selection-end-line="244" selection-end-column="44" />
               <folding>
                 <element signature="e#0#310#1" />
+                <element signature="e#965#1125#0" />
                 <element signature="e#1185#1968#0" />
+                <element signature="e#2071#2138#0" />
                 <element signature="e#2079#3382#0" />
+                <element signature="e#3558#4283#0" />
                 <element signature="e#2764#2984#0" />
                 <element signature="e#2764#2840#1" />
                 <element signature="e#4525#6608#0" />
-                <element signature="e#5908#7399#0" />
                 <element signature="e#6424#6537#0" />
                 <element signature="e#6568#6621#0" />
                 <element signature="e#5446#5499#0" />
@@ -43,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/jobs_rso.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-31">
-              <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -419,7 +420,21 @@
       <option name="project" value="LOCAL" />
       <updated>1566000936258</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="job init in hpc">
+      <created>1566002175314</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1566002175314</updated>
+    </task>
+    <task id="LOCAL-00028" summary="job init in hpc">
+      <created>1566002261593</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1566002261593</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -431,8 +446,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.18494272" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.2569558" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11456628" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2569558" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -682,7 +697,7 @@
     <entry file="file://$PROJECT_DIR$/jobs_rso.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-31">
-          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -691,16 +706,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="333">
+          <caret line="244" column="44" selection-start-line="244" selection-start-column="44" selection-end-line="244" selection-end-column="44" />
           <folding>
             <element signature="e#0#310#1" />
+            <element signature="e#965#1125#0" />
             <element signature="e#1185#1968#0" />
+            <element signature="e#2071#2138#0" />
             <element signature="e#2079#3382#0" />
+            <element signature="e#3558#4283#0" />
             <element signature="e#2764#2984#0" />
             <element signature="e#2764#2840#1" />
             <element signature="e#4525#6608#0" />
-            <element signature="e#5908#7399#0" />
             <element signature="e#6424#6537#0" />
             <element signature="e#6568#6621#0" />
             <element signature="e#5446#5499#0" />

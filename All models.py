@@ -237,17 +237,20 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
         row = [total_count, label, prediction, correct_count]
         writer_pred_file.writerow(row)
         total_count += 1
-    acc = float(correct_count) / float(total_count)
-    precision = float(tp)/float(tp+fp)
-    recall = float(tp)/float(tp+fn)
-    f1 = float(2*tp)/float(2*tp+fp+fn)
+
+    # acc, prec, recall, f1 = 0,0,0,0
+    acc = float(correct_count) / max(float(total_count), 1)
+    prec = float(tp)/max(float(tp+fp), 1)
+    recall = float(tp)/max(float(tp+fn), 1)
+    f1 = float(2*tp)/max(float(2*tp+fp+fn), 1)
+
     tmp = 'Acc, prec, recal, f1 on ' +str("tr " if tr_ else "tes ")+\
           str(division_num)+" are {}, {}, {}, {} \n".format(acc, precision, recall, f1)
     print(tmp)
     f.write(tmp)
     pred_file.close()
 
-    return acc, precision, recall, f1
+    return acc, prec, recall, f1
 
 if __name__ == "__main__":
 
