@@ -268,21 +268,20 @@ if __name__ == "__main__":
             divide_file = True
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    # images_dir = "images"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "images"
 
-    # size_of_trs = 6000
-    size_of_trs = 50
+    size_of_trs = 6000
+    # size_of_trs = 50
 
     # init net and svm
     net = None
     svm = None
-    #
     model_name = 'nn'
     # model_name = 'svm'
     random_state = 12
 
-    num_epoch = 2
+    num_epoch = 10
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
 
