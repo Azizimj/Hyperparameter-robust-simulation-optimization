@@ -337,7 +337,7 @@ if __name__ == "__main__":
 
 
     for tr_dir in os.listdir(divide_files_dir):
-        if tr_dir == "res":
+        if tr_dir == "res" or division_num>len(df['hidden-dim']):
             continue
         # print(tr_dir)
         # read tr

@@ -1,7 +1,7 @@
 import os
 import time
 
-epochs = 30
+epochs = 15
 model_name = "nn"
 # model_name = "svm"
 
