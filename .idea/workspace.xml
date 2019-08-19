@@ -4,8 +4,6 @@
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/All models.py" beforeDir="false" afterPath="$PROJECT_DIR$/All models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Design-Data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Design-Data.xlsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/All models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-444">
-              <caret line="283" column="18" selection-start-line="283" selection-start-column="18" selection-end-line="283" selection-end-column="18" />
+            <state relative-caret-position="321">
+              <caret line="294" column="20" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#1185#1968#0" />
@@ -34,7 +32,6 @@
                 <element signature="e#6568#6621#0" />
                 <element signature="e#5446#5499#0" />
                 <element signature="e#8290#8417#0" />
-                <element signature="e#10208#15610#0" />
                 <element signature="e#10452#12783#0" />
                 <element signature="e#9633#9824#0" />
                 <element signature="e#11724#12655#0" />
@@ -44,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/jobs_rso.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+            <state relative-caret-position="168">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -89,8 +86,8 @@
         <option value="$PROJECT_DIR$/image_sampler.py" />
         <option value="$PROJECT_DIR$/svm.py" />
         <option value="$PROJECT_DIR$/neural.py" />
-        <option value="$PROJECT_DIR$/jobs_rso.py" />
         <option value="$PROJECT_DIR$/../../../../Ross/Bandit/best_arm/code/jobs.py" />
+        <option value="$PROJECT_DIR$/jobs_rso.py" />
         <option value="$PROJECT_DIR$/All models.py" />
       </list>
     </option>
@@ -123,7 +120,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Ross/Bandit/best_arm/code/jobs.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Ross/Bandit/best_arm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -453,11 +450,25 @@
       <option name="project" value="LOCAL" />
       <updated>1566067212806</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="data_ave of concate">
+      <created>1566092123408</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1566092123408</updated>
+    </task>
+    <task id="LOCAL-00032" summary="data_ave of concate">
+      <created>1566152539634</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1566152539634</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120272316" />
@@ -466,7 +477,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.31423897" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.36824876" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.090016365" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -501,7 +512,8 @@
     <MESSAGE value="job init in hpc" />
     <MESSAGE value="max(denom, 1)" />
     <MESSAGE value="data_ave" />
-    <option name="LAST_COMMIT_MESSAGE" value="data_ave" />
+    <MESSAGE value="data_ave of concate" />
+    <option name="LAST_COMMIT_MESSAGE" value="data_ave of concate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -530,6 +542,11 @@ scipy.stats.skew(X_train)</expression-string>
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>len(df['hidden-dim'])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>np.concatenate((X_train[:, 500:600],X_train[:, 1100:1200],X_train[:, 1600:1700],X_train[:, 2000:2100]),axis=1)</expression-string>
         <language-id>Python</language-id>
@@ -567,16 +584,6 @@ scipy.stats.skew(X_train)</expression-string>
       </expression>
       <expression>
         <expression-string>np.average(X_train[:,100:200])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.average([X_train[:,100:200],X_train[:,250:300]])</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.average(X_train[:,100:200],X_train[:,250:300])</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -734,16 +741,6 @@ scipy.stats.skew(X_train)</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jobs_rso.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/program/python3/Lib/site-packages/numpy/core/_type_aliases.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -753,8 +750,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
-          <caret line="283" column="18" selection-start-line="283" selection-start-column="18" selection-end-line="283" selection-end-column="18" />
+        <state relative-caret-position="321">
+          <caret line="294" column="20" selection-start-line="294" selection-start-column="20" selection-end-line="294" selection-end-column="20" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#1185#1968#0" />
@@ -769,11 +766,20 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#6568#6621#0" />
             <element signature="e#5446#5499#0" />
             <element signature="e#8290#8417#0" />
-            <element signature="e#10208#15610#0" />
             <element signature="e#10452#12783#0" />
             <element signature="e#9633#9824#0" />
             <element signature="e#11724#12655#0" />
             <element signature="e#10358#12153#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs_rso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -449,7 +449,7 @@ if __name__ == "__main__":
 
         # tes acc
         tes_acc, tes_prec, tes_reca, tes_f1  = eval(divide_files_dir, division_num, test_precs, model_name,
-             X_train, y_train, net, svm, f, tr_=False)
+             X_test, y_test, net, svm, f, tr_=False)
 
         if model_name == "nn":
             row = [division_num,hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
