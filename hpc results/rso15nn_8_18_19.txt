@@ -1,0 +1,1910 @@
+---------- Begin SLURM Prolog ----------
+Job ID:        4229714
+Username:      azizim
+Accountname:   lc_ma3
+Name:          rso15nn
+Partition:     main
+Nodelist:      hpc[4323,4439-4440,4486-4502]
+TasksPerNode:  20(x20)
+CPUsPerTask:   Default[1]
+TMPDIR:        /tmp/4229714.main
+SCRATCHDIR:    /staging/scratch/4229714
+Cluster:       uschpc
+HSDA Account:  false
+---------- 2019-08-17 18:36:07 ---------
+Libs good
+Reading files...
+2 classes
+Reading files...
+2 classes
+Training nn on set 0
+
+Total error:  0.238208700743
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Total error:  0.238211623619
+Eval...
+
+images_[0.2, 0.2]/tr/divided/res/
+Acc, prec, recal, f1 on tr 0 are 0.3857309551591932, 0.29620034542314333, 0.10675381263616558, 0.15694349119194692 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 0 are 0.3857309551591932, 0.29620034542314333, 0.10675381263616558, 0.15694349119194692 
+
+Reading files...
+2 classes
+Training nn on set 1
+
+Total error:  0.230386622028
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Total error:  0.230364790849
+Eval...
+
+Acc, prec, recal, f1 on tr 1 are 0.3742290381730288, 0.1130932346011444, 0.2309278350515464, 0.1518300948938093 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 1 are 0.3742290381730288, 0.1130932346011444, 0.2309278350515464, 0.1518300948938093 
+
+Reading files...
+2 classes
+Training nn on set 2
+
+Total error:  0.210198841081
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Total error:  0.210198887942
+Eval...
+
+Acc, prec, recal, f1 on tr 2 are 0.3550591765294216, 0.15737564322469982, 0.16160281814178776, 0.15946122094286336 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 2 are 0.3550591765294216, 0.15737564322469982, 0.16160281814178776, 0.15946122094286336 
+
+Reading files...
+2 classes
+Training nn on set 3
+
+Total error:  0.240726870944
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Total error:  0.240727490109
+Eval...
+
+Acc, prec, recal, f1 on tr 3 are 0.590265044174029, 0.4872177247550064, 0.9781864841745082, 0.6504550625711035 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 3 are 0.590265044174029, 0.4872177247550064, 0.9781864841745082, 0.6504550625711035 
+
+Reading files...
+2 classes
+Training nn on set 4
+
+Total error:  0.200643512803
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Total error:  0.200635366721
+Eval...
+
+Acc, prec, recal, f1 on tr 4 are 0.6319386564427405, 0.44410967158782766, 0.8023952095808383, 0.5717610550814585 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 4 are 0.6319386564427405, 0.44410967158782766, 0.8023952095808383, 0.5717610550814585 
+
+Reading files...
+2 classes
+Training nn on set 5
+
+Total error:  0.208558073807
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Total error:  0.208556864499
+Eval...
+
+Acc, prec, recal, f1 on tr 5 are 0.4085680946824471, 0.5785923753665689, 0.48310479921645444, 0.5265545769949292 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 5 are 0.4085680946824471, 0.5785923753665689, 0.48310479921645444, 0.5265545769949292 
+
+Reading files...
+2 classes
+Training nn on set 6
+
+Total error:  0.240042913227
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Total error:  0.240042745547
+Eval...
+
+Acc, prec, recal, f1 on tr 6 are 0.2990498416402734, 0.40585443037974683, 0.1293168641290648, 0.19613840565857388 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 6 are 0.2990498416402734, 0.40585443037974683, 0.1293168641290648, 0.19613840565857388 
+
+Reading files...
+2 classes
+Training nn on set 7
+
+Total error:  0.233385519541
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Total error:  0.233385299127
+Eval...
+
+Acc, prec, recal, f1 on tr 7 are 0.5559259876646108, 0.34755403868031853, 0.7675879396984925, 0.47846515270164447 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 7 are 0.5559259876646108, 0.34755403868031853, 0.7675879396984925, 0.47846515270164447 
+
+Reading files...
+2 classes
+Training nn on set 8
+
+Total error:  0.226693256205
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Total error:  0.22669912228
+Eval...
+
+Acc, prec, recal, f1 on tr 8 are 0.48891481913652274, 0.540604343720491, 0.3536133415688697, 0.4275578790141897 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 8 are 0.48891481913652274, 0.540604343720491, 0.3536133415688697, 0.4275578790141897 
+
+Reading files...
+2 classes
+Training nn on set 9
+
+Total error:  0.237113868891
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Total error:  0.237107721172
+Eval...
+
+Acc, prec, recal, f1 on tr 9 are 0.5592598766461077, 0.2451071761416589, 0.12541726275631854, 0.16593059936908516 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 9 are 0.5592598766461077, 0.2451071761416589, 0.12541726275631854, 0.16593059936908516 
+
+Reading files...
+2 classes
+Training nn on set 10
+
+Total error:  0.238672917689
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Total error:  0.238664826869
+Eval...
+
+Acc, prec, recal, f1 on tr 10 are 0.6387731288548091, 0.5713983050847458, 0.9493136219640972, 0.7133976987171009 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 10 are 0.6387731288548091, 0.5713983050847458, 0.9493136219640972, 0.7133976987171009 
+
+Reading files...
+2 classes
+Training nn on set 11
+
+Total error:  0.211576004028
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Total error:  0.211572654666
+Eval...
+
+Acc, prec, recal, f1 on tr 11 are 0.47974662443740623, 0.4915657439446367, 0.7469602366086099, 0.592930742141646 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 11 are 0.47974662443740623, 0.4915657439446367, 0.7469602366086099, 0.592930742141646 
+
+Reading files...
+2 classes
+Training nn on set 12
+
+Total error:  0.23449331934
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Total error:  0.234492880626
+Eval...
+
+Acc, prec, recal, f1 on tr 12 are 0.28688114685780963, 0.5749216300940438, 0.20301084790790347, 0.300065445026178 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 12 are 0.28688114685780963, 0.5749216300940438, 0.20301084790790347, 0.300065445026178 
+
+Reading files...
+2 classes
+Training nn on set 13
+
+Total error:  0.235042830669
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Total error:  0.23504359209
+Eval...
+
+Acc, prec, recal, f1 on tr 13 are 0.388064677446241, 0.44562243502051985, 0.3886072174172383, 0.41516648080293134 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 13 are 0.388064677446241, 0.44562243502051985, 0.3886072174172383, 0.41516648080293134 
+
+Reading files...
+2 classes
+Training nn on set 14
+
+Total error:  0.235392947949
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Total error:  0.235387672999
+Eval...
+
+Acc, prec, recal, f1 on tr 14 are 0.6586097682947157, 0.6614481409001957, 0.2842724978973928, 0.3976470588235294 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 14 are 0.6586097682947157, 0.6614481409001957, 0.2842724978973928, 0.3976470588235294 
+
+Reading files...
+2 classes
+Training nn on set 15
+
+Total error:  0.243682506784
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Total error:  0.243670957902
+Eval...
+
+Acc, prec, recal, f1 on tr 15 are 0.7252875479246541, 0.698050139275766, 0.9941814334832055, 0.8202051058258782 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 15 are 0.7252875479246541, 0.698050139275766, 0.9941814334832055, 0.8202051058258782 
+
+Reading files...
+2 classes
+Training nn on set 16
+
+Total error:  0.224573847414
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Total error:  0.224565820129
+Eval...
+
+Acc, prec, recal, f1 on tr 16 are 0.6809468244707452, 0.7156751866093644, 0.8280554828578907, 0.7677748119388498 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 16 are 0.6809468244707452, 0.7156751866093644, 0.8280554828578907, 0.7677748119388498 
+
+Reading files...
+2 classes
+Training nn on set 17
+
+Total error:  0.22936916136
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Total error:  0.229363121368
+Eval...
+
+Acc, prec, recal, f1 on tr 17 are 0.35355892648774795, 0.17452006980802792, 0.06385696040868455, 0.09350163627863488 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 17 are 0.35355892648774795, 0.17452006980802792, 0.06385696040868455, 0.09350163627863488 
+
+Reading files...
+2 classes
+Training nn on set 18
+
+Total error:  0.225176769305
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Total error:  0.22517662978
+Eval...
+
+Acc, prec, recal, f1 on tr 18 are 0.6366061010168361, 0.7932900432900433, 0.7494887525562373, 0.7707676130389064 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 18 are 0.6366061010168361, 0.7932900432900433, 0.7494887525562373, 0.7707676130389064 
+
+Reading files...
+2 classes
+Training nn on set 19
+
+Total error:  0.238378668376
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Total error:  0.238376611092
+Eval...
+
+Acc, prec, recal, f1 on tr 19 are 0.6797799633272212, 0.60604661897069, 0.9246478873239437, 0.7321901575352014 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 19 are 0.6797799633272212, 0.60604661897069, 0.9246478873239437, 0.7321901575352014 
+
+Reading files...
+2 classes
+Training nn on set 20
+
+Total error:  0.22567785018
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Total error:  0.225678459921
+Eval...
+
+Acc, prec, recal, f1 on tr 20 are 0.33238873145524256, 0.3110761979575805, 0.4637002341920375, 0.3723554301833568 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 20 are 0.33238873145524256, 0.3110761979575805, 0.4637002341920375, 0.3723554301833568 
+
+Reading files...
+2 classes
+Training nn on set 21
+
+Total error:  0.23413232014
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Total error:  0.234131972581
+Eval...
+
+Acc, prec, recal, f1 on tr 21 are 0.4050675112518753, 0.46521145975443384, 0.0969300739056282, 0.1604328393319219 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 21 are 0.4050675112518753, 0.46521145975443384, 0.0969300739056282, 0.1604328393319219 
+
+Reading files...
+2 classes
+Training nn on set 22
+
+Total error:  0.242285514516
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Total error:  0.242285370605
+Eval...
+
+Acc, prec, recal, f1 on tr 22 are 0.6296049341556926, 0.0649895178197065, 0.01715550636413946, 0.02714535901926445 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 22 are 0.6296049341556926, 0.0649895178197065, 0.01715550636413946, 0.02714535901926445 
+
+Reading files...
+2 classes
+Training nn on set 23
+
+Total error:  0.223371192862
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Total error:  0.223359846067
+Eval...
+
+Acc, prec, recal, f1 on tr 23 are 0.4669111518586431, 0.24371205550737207, 0.1077867280398926, 0.149468085106383 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 23 are 0.4669111518586431, 0.24371205550737207, 0.1077867280398926, 0.149468085106383 
+
+Reading files...
+2 classes
+Training nn on set 24
+
+Total error:  0.226769201037
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Total error:  0.226762585021
+Eval...
+
+Acc, prec, recal, f1 on tr 24 are 0.3595599266544424, 0.24682598954443616, 0.26588897827835883, 0.256003098373354 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 24 are 0.3595599266544424, 0.24682598954443616, 0.26588897827835883, 0.256003098373354 
+
+Reading files...
+2 classes
+Training nn on set 25
+
+Total error:  0.242474106887
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Total error:  0.242446177263
+Eval...
+
+Acc, prec, recal, f1 on tr 25 are 0.15135855975996, 0.11555959963603275, 0.029910504003768254, 0.04752104770813845 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 25 are 0.15135855975996, 0.11555959963603275, 0.029910504003768254, 0.04752104770813845 
+
+Reading files...
+2 classes
+Training nn on set 26
+
+Total error:  0.235769408375
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Total error:  0.23576939572
+Eval...
+
+Acc, prec, recal, f1 on tr 26 are 0.596766127687948, 0.7420480993017843, 0.5216798472866103, 0.6126501200960769 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 26 are 0.596766127687948, 0.7420480993017843, 0.5216798472866103, 0.6126501200960769 
+
+Reading files...
+2 classes
+Training nn on set 27
+
+Total error:  0.230897860291
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Total error:  0.230887263765
+Eval...
+
+Acc, prec, recal, f1 on tr 27 are 0.6214369061510252, 0.6778413736713, 0.6954697986577181, 0.6865424430641822 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 27 are 0.6214369061510252, 0.6778413736713, 0.6954697986577181, 0.6865424430641822 
+
+Reading files...
+2 classes
+Training nn on set 28
+
+Total error:  0.226556431414
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Total error:  0.22655911617
+Eval...
+
+Acc, prec, recal, f1 on tr 28 are 0.43307217869644943, 0.5682492581602374, 0.49598549598549596, 0.5296639468953118 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 28 are 0.43307217869644943, 0.5682492581602374, 0.49598549598549596, 0.5296639468953118 
+
+Reading files...
+2 classes
+Training nn on set 29
+
+Total error:  0.223224429364
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Total error:  0.223217945912
+Eval...
+
+Acc, prec, recal, f1 on tr 29 are 0.44157359559926657, 0.5658105939004815, 0.5504945340968246, 0.558047493403694 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 29 are 0.44157359559926657, 0.5658105939004815, 0.5504945340968246, 0.558047493403694 
+
+Reading files...
+2 classes
+Training nn on set 30
+
+Total error:  0.229007463146
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Total error:  0.228983369107
+Eval...
+
+Acc, prec, recal, f1 on tr 30 are 0.4665777629604934, 0.45931632161771785, 0.31474760805014845, 0.3735317149569303 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 30 are 0.4665777629604934, 0.45931632161771785, 0.31474760805014845, 0.3735317149569303 
+
+Reading files...
+2 classes
+Training nn on set 31
+
+Total error:  0.232406206787
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Total error:  0.232398755533
+Eval...
+
+Acc, prec, recal, f1 on tr 31 are 0.5252542090348391, 0.23518432104526366, 0.29422066549912435, 0.26141078838174275 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 31 are 0.5252542090348391, 0.23518432104526366, 0.29422066549912435, 0.26141078838174275 
+
+Reading files...
+2 classes
+Training nn on set 32
+
+Total error:  0.242523057315
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Total error:  0.242523057189
+Eval...
+
+Acc, prec, recal, f1 on tr 32 are 0.682113685614269, 0.19423368740515934, 0.0851063829787234, 0.1183541377716135 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 32 are 0.682113685614269, 0.19423368740515934, 0.0851063829787234, 0.1183541377716135 
+
+Reading files...
+2 classes
+Training nn on set 33
+
+Total error:  0.233711879701
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Total error:  0.23371056494
+Eval...
+
+Acc, prec, recal, f1 on tr 33 are 0.4629104850808468, 0.3519108280254777, 0.07279314888010541, 0.12063318777292577 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 33 are 0.4629104850808468, 0.3519108280254777, 0.07279314888010541, 0.12063318777292577 
+
+Reading files...
+2 classes
+Training nn on set 34
+
+Total error:  0.241513561382
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Total error:  0.241509551689
+Eval...
+
+Acc, prec, recal, f1 on tr 34 are 0.26804467411235205, 0.6096385542168675, 0.056448014279339584, 0.10332856851133347 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 34 are 0.26804467411235205, 0.6096385542168675, 0.056448014279339584, 0.10332856851133347 
+
+Reading files...
+2 classes
+Training nn on set 35
+
+Total error:  0.236795938716
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Total error:  0.236795908207
+Eval...
+
+Acc, prec, recal, f1 on tr 35 are 0.6991165194199033, 0.6818851251840943, 0.9796350171912193, 0.8040811896233583 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 35 are 0.6991165194199033, 0.6818851251840943, 0.9796350171912193, 0.8040811896233583 
+
+Reading files...
+2 classes
+Training nn on set 36
+
+Total error:  0.236578050441
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Total error:  0.236563725052
+Eval...
+
+Acc, prec, recal, f1 on tr 36 are 0.7014502417069511, 0.7085801643416778, 0.9330649219929542, 0.8054740957966764 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 36 are 0.7014502417069511, 0.7085801643416778, 0.9330649219929542, 0.8054740957966764 
+
+Reading files...
+2 classes
+Training nn on set 37
+
+Total error:  0.23474781236
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Total error:  0.234727277755
+Eval...
+
+Acc, prec, recal, f1 on tr 37 are 0.3387231205200867, 0.6655861696380335, 0.2689956331877729, 0.3831441455450163 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 37 are 0.3387231205200867, 0.6655861696380335, 0.2689956331877729, 0.3831441455450163 
+
+Reading files...
+2 classes
+Training nn on set 38
+
+Total error:  0.215720431597
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Total error:  0.215717500696
+Eval...
+
+Acc, prec, recal, f1 on tr 38 are 0.6716119353225538, 0.5880893300248139, 0.7470449172576832, 0.6581048247136411 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 38 are 0.6716119353225538, 0.5880893300248139, 0.7470449172576832, 0.6581048247136411 
+
+Reading files...
+2 classes
+Training nn on set 39
+
+Total error:  0.23072561322
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Total error:  0.230705080592
+Eval...
+
+Acc, prec, recal, f1 on tr 39 are 0.4384064010668445, 0.4091420007493443, 0.9103793247186328, 0.5645599069406747 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 39 are 0.4384064010668445, 0.4091420007493443, 0.9103793247186328, 0.5645599069406747 
+
+Reading files...
+2 classes
+Training nn on set 40
+
+Total error:  0.242029438976
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Total error:  0.242028475172
+Eval...
+
+Acc, prec, recal, f1 on tr 40 are 0.7169528254709118, 0.7184502539025767, 0.9500124347177319, 0.8181623473977298 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 40 are 0.7169528254709118, 0.7184502539025767, 0.9500124347177319, 0.8181623473977298 
+
+Reading files...
+2 classes
+Training nn on set 41
+
+Total error:  0.229350064331
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Total error:  0.229340724199
+Eval...
+
+Acc, prec, recal, f1 on tr 41 are 0.6847807967994666, 0.5671967570938572, 0.7833763996554695, 0.6579851691083378 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 41 are 0.6847807967994666, 0.5671967570938572, 0.7833763996554695, 0.6579851691083378 
+
+Reading files...
+2 classes
+Training nn on set 42
+
+Total error:  0.247781677066
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Total error:  0.247781674923
+Eval...
+
+Acc, prec, recal, f1 on tr 42 are 0.8254709118186364, 0.8255972696245734, 0.9948591404482829, 0.902359414343001 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 42 are 0.8254709118186364, 0.8255972696245734, 0.9948591404482829, 0.902359414343001 
+
+Reading files...
+2 classes
+Training nn on set 43
+
+Total error:  0.240893700413
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Total error:  0.240904855028
+Eval...
+
+Acc, prec, recal, f1 on tr 43 are 0.7242873812302051, 0.7227783452502554, 0.9225554106910039, 0.8105383734249714 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 43 are 0.7242873812302051, 0.7227783452502554, 0.9225554106910039, 0.8105383734249714 
+
+Reading files...
+2 classes
+Training nn on set 44
+
+Total error:  0.245598167411
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Total error:  0.245598166498
+Eval...
+
+Acc, prec, recal, f1 on tr 44 are 0.4744124020670112, 0.43184690377324425, 0.9974979149291076, 0.6027466297089581 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 44 are 0.4744124020670112, 0.43184690377324425, 0.9974979149291076, 0.6027466297089581 
+
+Reading files...
+2 classes
+Training nn on set 45
+
+Total error:  0.231267712948
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Total error:  0.23126765157
+Eval...
+
+Acc, prec, recal, f1 on tr 45 are 0.47641273545590934, 0.41232394366197184, 0.4430571320469164, 0.4271384278679555 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 45 are 0.47641273545590934, 0.41232394366197184, 0.4430571320469164, 0.4271384278679555 
+
+Reading files...
+2 classes
+Training nn on set 46
+
+Total error:  0.232518990996
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Total error:  0.232506245625
+Eval...
+
+Acc, prec, recal, f1 on tr 46 are 0.5467577929654942, 0.6002580645161291, 0.6653318077803204, 0.6311219644552978 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 46 are 0.5467577929654942, 0.6002580645161291, 0.6653318077803204, 0.6311219644552978 
+
+Reading files...
+2 classes
+Training nn on set 47
+
+Total error:  0.230512733932
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Total error:  0.230495599188
+Eval...
+
+Acc, prec, recal, f1 on tr 47 are 0.4350725120853476, 0.5987482614742698, 0.23441328614211815, 0.33692036783408336 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 47 are 0.4350725120853476, 0.5987482614742698, 0.23441328614211815, 0.33692036783408336 
+
+Reading files...
+2 classes
+Training nn on set 48
+
+Total error:  0.221867714991
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Total error:  0.221861107916
+Eval...
+
+Acc, prec, recal, f1 on tr 48 are 0.6261043507251208, 0.6942446043165468, 0.804363814660456, 0.7452583759227711 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 48 are 0.6261043507251208, 0.6942446043165468, 0.804363814660456, 0.7452583759227711 
+
+Reading files...
+2 classes
+Training nn on set 49
+
+Total error:  0.230382773633
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Total error:  0.230382396052
+Eval...
+
+Acc, prec, recal, f1 on tr 49 are 0.4492415402567094, 0.5063613231552163, 0.2394705174488568, 0.32516339869281047 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 49 are 0.4492415402567094, 0.5063613231552163, 0.2394705174488568, 0.32516339869281047 
+
+Reading files...
+2 classes
+Training nn on set 50
+
+Total error:  0.230280529249
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Total error:  0.230267392054
+Eval...
+
+Acc, prec, recal, f1 on tr 50 are 0.662777129521587, 0.5054945054945055, 0.6942551119766309, 0.585025641025641 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 50 are 0.662777129521587, 0.5054945054945055, 0.6942551119766309, 0.585025641025641 
+
+Reading files...
+2 classes
+Training nn on set 51
+
+Total error:  0.237578758489
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Total error:  0.237577024835
+Eval...
+
+Acc, prec, recal, f1 on tr 51 are 0.323220536756126, 0.23770934629929769, 0.1424409193913888, 0.17813765182186234 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 51 are 0.323220536756126, 0.23770934629929769, 0.1424409193913888, 0.17813765182186234 
+
+Reading files...
+2 classes
+Training nn on set 52
+
+Total error:  0.229987145773
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Total error:  0.229987300718
+Eval...
+
+Acc, prec, recal, f1 on tr 52 are 0.3752292048674779, 0.06701868399675061, 0.1021039603960396, 0.08092202059833252 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 52 are 0.3752292048674779, 0.06701868399675061, 0.1021039603960396, 0.08092202059833252 
+
+Reading files...
+2 classes
+Training nn on set 53
+
+Total error:  0.230506804621
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Total error:  0.230506610277
+Eval...
+
+Acc, prec, recal, f1 on tr 53 are 0.4774129021503584, 0.5451549110085695, 0.6996615905245347, 0.6128195628010374 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 53 are 0.4774129021503584, 0.5451549110085695, 0.6996615905245347, 0.6128195628010374 
+
+Reading files...
+2 classes
+Training nn on set 54
+
+Total error:  0.222860905075
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Total error:  0.222855240356
+Eval...
+
+Acc, prec, recal, f1 on tr 54 are 0.21736956159359894, 0.2769825918762089, 0.20214568040654998, 0.23371960176268974 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 54 are 0.21736956159359894, 0.2769825918762089, 0.20214568040654998, 0.23371960176268974 
+
+Reading files...
+2 classes
+Training nn on set 55
+
+Total error:  0.239164990716
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Total error:  0.239164980953
+Eval...
+
+Acc, prec, recal, f1 on tr 55 are 0.7824637439573262, 0.7231817076137192, 0.9468152866242038, 0.8200248241621845 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 55 are 0.7824637439573262, 0.7231817076137192, 0.9468152866242038, 0.8200248241621845 
+
+Reading files...
+2 classes
+Training nn on set 56
+
+Total error:  0.232266118856
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Total error:  0.232265850087
+Eval...
+
+Acc, prec, recal, f1 on tr 56 are 0.447574595765961, 0.18540223761321256, 0.1631504922644163, 0.17356608478802993 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 56 are 0.447574595765961, 0.18540223761321256, 0.1631504922644163, 0.17356608478802993 
+
+Reading files...
+2 classes
+Training nn on set 57
+
+Total error:  0.226552117692
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Total error:  0.22653513241
+Eval...
+
+Acc, prec, recal, f1 on tr 57 are 0.4687447907984664, 0.6724077328646749, 0.45897312859884837, 0.5455582489662056 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 57 are 0.4687447907984664, 0.6724077328646749, 0.45897312859884837, 0.5455582489662056 
+
+Reading files...
+2 classes
+Training nn on set 58
+
+Total error:  0.230134785383
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Total error:  0.230134552305
+Eval...
+
+Acc, prec, recal, f1 on tr 58 are 0.5045840973495582, 0.6557269445356088, 0.5095638867635807, 0.5734787600459242 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 58 are 0.5045840973495582, 0.6557269445356088, 0.5095638867635807, 0.5734787600459242 
+
+Reading files...
+2 classes
+Training nn on set 59
+
+Total error:  0.240424662867
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Total error:  0.240407350809
+Eval...
+
+Acc, prec, recal, f1 on tr 59 are 0.5402567094515752, 0.06464646464646465, 0.013751611516974646, 0.022678951098511695 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 59 are 0.5402567094515752, 0.06464646464646465, 0.013751611516974646, 0.022678951098511695 
+
+Reading files...
+2 classes
+Training nn on set 60
+
+Total error:  0.233555301859
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Total error:  0.233555283177
+Eval...
+
+Acc, prec, recal, f1 on tr 60 are 0.512418736456076, 0.34688419363466166, 0.7286516853932584, 0.47001268345714803 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 60 are 0.512418736456076, 0.34688419363466166, 0.7286516853932584, 0.47001268345714803 
+
+Reading files...
+2 classes
+Training nn on set 61
+
+Total error:  0.234883200669
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Total error:  0.23488222601
+Eval...
+
+Acc, prec, recal, f1 on tr 61 are 0.3133855642607101, 0.4479225953329539, 0.19994918699186992, 0.27647988758124015 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 61 are 0.3133855642607101, 0.4479225953329539, 0.19994918699186992, 0.27647988758124015 
+
+Reading files...
+2 classes
+Training nn on set 62
+
+Total error:  0.233090682467
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Total error:  0.233091037359
+Eval...
+
+Acc, prec, recal, f1 on tr 62 are 0.571928654775796, 0.7128378378378378, 0.4720357941834452, 0.5679676985195155 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 62 are 0.571928654775796, 0.7128378378378378, 0.4720357941834452, 0.5679676985195155 
+
+Reading files...
+2 classes
+Training nn on set 63
+
+Total error:  0.228017733216
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Total error:  0.228001934644
+Eval...
+
+Acc, prec, recal, f1 on tr 63 are 0.307051175195866, 0.292267850536441, 0.2603823335530653, 0.2754052640753007 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 63 are 0.307051175195866, 0.292267850536441, 0.2603823335530653, 0.2754052640753007 
+
+Reading files...
+2 classes
+Training nn on set 64
+
+Total error:  0.237286977599
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Total error:  0.237286961751
+Eval...
+
+Acc, prec, recal, f1 on tr 64 are 0.3912318719786631, 0.3428351309707242, 0.13717632552404438, 0.19594892118009688 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 64 are 0.3912318719786631, 0.3428351309707242, 0.13717632552404438, 0.19594892118009688 
+
+Reading files...
+2 classes
+Training nn on set 65
+
+Total error:  0.237884446581
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Total error:  0.237881708255
+Eval...
+
+Acc, prec, recal, f1 on tr 65 are 0.37872978829804965, 0.4635691657866948, 0.12001093493712411, 0.19066232356134635 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 65 are 0.37872978829804965, 0.4635691657866948, 0.12001093493712411, 0.19066232356134635 
+
+Reading files...
+2 classes
+Training nn on set 66
+
+Total error:  0.234872796477
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Total error:  0.234871769079
+Eval...
+
+Acc, prec, recal, f1 on tr 66 are 0.3373895649274879, 0.2926391382405745, 0.37775202780996525, 0.32979261507334345 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 66 are 0.3373895649274879, 0.2926391382405745, 0.37775202780996525, 0.32979261507334345 
+
+Reading files...
+2 classes
+Training nn on set 67
+
+Total error:  0.225262804209
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Total error:  0.22524137833
+Eval...
+
+Acc, prec, recal, f1 on tr 67 are 0.4835805967661277, 0.8335901386748844, 0.36911530589037983, 0.5116645649432535 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 67 are 0.4835805967661277, 0.8335901386748844, 0.36911530589037983, 0.5116645649432535 
+
+Reading files...
+2 classes
+Training nn on set 68
+
+Total error:  0.239813681523
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Total error:  0.239808934939
+Eval...
+
+Acc, prec, recal, f1 on tr 68 are 0.5074179029838306, 0.5356125356125356, 0.8468468468468469, 0.6561954624781849 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 68 are 0.5074179029838306, 0.5356125356125356, 0.8468468468468469, 0.6561954624781849 
+
+Reading files...
+2 classes
+Training nn on set 69
+
+Total error:  0.24312570434
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Total error:  0.243125508376
+Eval...
+
+Acc, prec, recal, f1 on tr 69 are 0.4200700116686114, 0.3887860843819393, 0.9227053140096618, 0.547064184350996 
+
+Eval...
+
+Acc, prec, recal, f1 on tes 69 are 0.4200700116686114, 0.3887860843819393, 0.9227053140096618, 0.547064184350996 
+
+Reading files...
+0 classes
