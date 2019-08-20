@@ -255,6 +255,7 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
     return acc, prec, recall, f1
 
 def nn_run():
+    print('sss')
 
 
 if __name__ == "__main__":
