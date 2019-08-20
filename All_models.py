@@ -254,11 +254,15 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
 
     return acc, prec, recall, f1
 
+def nn_run():
+
+
 if __name__ == "__main__":
 
     tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
+    hyperopt_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
