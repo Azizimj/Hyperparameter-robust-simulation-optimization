@@ -43,6 +43,8 @@ random.seed(30)
 np.random.seed(110)
 print("Libs good")
 SHAPE = (30, 30)
+model_name = 'nn'
+# model_name = 'svm'
 
 # import scipy
 # scipy.stats.skew(X_train)
@@ -254,16 +256,111 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
 
     return acc, prec, recall, f1
 
-def nn_run():
-    print('sss')
+class nn_hold():
+    def __init__(self, bias_, hiddenclass_, outclass_, momentum_, batchlearning_ ):
+        self.bias_ = bias_
+        self.hiddenclass_ = hiddenclass_
+        self.outclass_ = outclass_
+        self.momentum_ = momentum_
+        self.batchlearning_ = batchlearning_
 
+    def nn_run(self, hidden_dim, num_epoch, learningrate_, lrdecay_, num_classes, X_train, y_train):
+        # # NN HYP
+        # # hidden_dim = 100
+        # bias_ = True
+        # # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
+        # hiddenclass_ = TanhLayer
+        # outclass_ = SoftmaxLayer
+        # # num_epoch = 4
+        # # if len(sys.argv)>0:
+        # #     num_epoch = int(sys.argv[1])
+        # # learningrate_ = 0.01
+        # # lrdecay_ = 1.0
+        # momentum_ = 0.1
+        # batchlearning_ = False
+        # # weightdecay_ = 0.01
+        # # NN HYP
+
+        net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, hidden_dim,
+                           num_classes, bias=self.bias_, hiddenclass=self.hiddenclass_, outclass=self.outclass_)
+
+        train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
+        test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
+
+        for feature, label in zip(X_train, y_train):
+            train_ds.addSample(feature, label)
+
+        # for feature, label in zip(X_test, y_test):
+        #     test_ds.addSample(feature, label)
+
+        # checking for model
+        if os.path.isfile("models/" + model_name + ".pkl"):
+            tmp = "Using previous " + model_name + " model...\n"
+            print(tmp)
+            f.write(tmp)
+            trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
+        else:
+            tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
+            print(tmp)
+            f.write(tmp)
+            trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
+                                      momentum=self.momentum_, verbose=True, batchlearning=self.batchlearning_,
+                                      weightdecay=weightdecay_)
+            # different trainig calls
+            # trainer.train()
+            trainer.trainEpochs(epochs=num_epoch)
+            # trainer.trainOnDataset(dataset)
+            # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
+            #                               verbose=None, continueEpochs=10, validationProportion=0.25)
+            # different trainig calls
+
+            # print("Saving model")
+            # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+        return net
+
+def svm_run(X_train, y_train):
+
+    # Hyps
+    C_ = 1.0  # Penalty parameter C of the error term.
+    kernel_ = 'rbf'  # 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed'
+    degree_ = 3  # Degree of the polynomial kernel function ('poly'). Ignored by all other kernels.
+    gamma_ = 'scale'  # Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. Set gamma explicitly to 'auto' or 'scale' to avoid this warning
+    coef0_ = 0.0  # Independent term in kernel function. It is only significant in 'poly' and 'sigmoid'.
+    shrinking_ = True  # Whether to use the shrinking heuristic.
+    probability_ = False  # Whether to enable probability estimates. This must be enabled prior to calling fit, and will slow down that method.
+    tol_ = 0.001  # Tolerance for stopping criterion.
+    max_iter_ = -1  # Hard limit on iterations within solver, or -1 for no limit.
+    # Hyps
+
+    f = open("res/result_krnl_" + str(kernel_) +
+             "tol_" + str(tol_) + ".txt", "a")
+    f.write(model_name + "\n")
+
+    # checking for model
+    if os.path.isfile("models/" + model_name + ".pkl"):
+        print("Using previous model...")
+        svm = pickle.load(open("models/" + model_name + ".pkl", "rb"))
+    else:
+        print("Fitting")
+        # Fitting model
+        svm = SVC()
+        svm = SVC(C=C_, kernel=kernel_, degree=degree_, gamma=gamma_, coef0=coef0_,
+                  shrinking=shrinking_, probability=probability_, tol=tol_,
+                  verbose=False, max_iter=max_iter_)
+
+        svm.fit(X_train, y_train)
+
+        # print("Saving model...")
+        # pickle.dump(svm, open("models/"+ model_name+ ".pkl", "wb"))
+
+    return svm
 
 if __name__ == "__main__":
 
     tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
-    hyperopt_use = False
+    # hyperopt_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -273,11 +370,11 @@ if __name__ == "__main__":
             divide_file = True
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    images_dir = "images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "images"
 
-    size_of_trs = 6000
-    # size_of_trs = 50
+    # size_of_trs = 6000
+    size_of_trs = 50
 
     # init net and svm
     net = None
@@ -286,9 +383,17 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    num_epoch = 10
+    num_epoch = 3
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
+
+    # int:
+    # hidden_dim[20, 200]
+    #
+    # Real:
+    # learningrate_[1e-5, 0.1]
+    # lrdecay_[1e-2, 1e-1]
+    # weightdecay_[1e-3, 0.9]
 
     points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
@@ -360,7 +465,6 @@ if __name__ == "__main__":
 
 
         if model_name == 'nn':
-
             # NN HYP
             # hidden_dim = 100
             bias_ = True
@@ -376,77 +480,11 @@ if __name__ == "__main__":
             batchlearning_ = False
             # weightdecay_ = 0.01
             # NN HYP
-
-            net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, hidden_dim,
-                               num_classes, bias=bias_, hiddenclass=hiddenclass_, outclass=outclass_)
-
-            train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
-            test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
-
-            for feature, label in zip(X_train, y_train):
-                train_ds.addSample(feature, label)
-
-            for feature, label in zip(X_test, y_test):
-                test_ds.addSample(feature, label)
-
-            # checking for model
-            if os.path.isfile("models/" + model_name + ".pkl"):
-                tmp = "Using previous " + model_name + " model...\n"
-                print(tmp)
-                f.write(tmp)
-                trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
-            else:
-                tmp = "Training " + model_name + " on set "+str(division_num)+ "\n"
-                print(tmp)
-                f.write(tmp)
-                trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
-                                          momentum=momentum_, verbose=True, batchlearning=batchlearning_,
-                                          weightdecay=weightdecay_)
-                # different trainig calls
-                # trainer.train()
-                trainer.trainEpochs(epochs=num_epoch)
-                # trainer.trainOnDataset(dataset)
-                # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
-                #                               verbose=None, continueEpochs=10, validationProportion=0.25)
-                # different trainig calls
-
-                # print("Saving model")
-                # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+            nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
+            net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_, num_classes, X_train, y_train)
 
         elif model_name == 'svm':
-
-            # Hyps
-            C_ = 1.0  # Penalty parameter C of the error term.
-            kernel_ = 'rbf'  # 'linear', 'poly', 'rbf', 'sigmoid', 'precomputed'
-            degree_ = 3  # Degree of the polynomial kernel function ('poly'). Ignored by all other kernels.
-            gamma_ = 'scale'  # Kernel coefficient for 'rbf', 'poly' and 'sigmoid'. Set gamma explicitly to 'auto' or 'scale' to avoid this warning
-            coef0_ = 0.0  # Independent term in kernel function. It is only significant in 'poly' and 'sigmoid'.
-            shrinking_ = True  # Whether to use the shrinking heuristic.
-            probability_ = False  # Whether to enable probability estimates. This must be enabled prior to calling fit, and will slow down that method.
-            tol_ = 0.001  # Tolerance for stopping criterion.
-            max_iter_ = -1  # Hard limit on iterations within solver, or -1 for no limit.
-            # Hyps
-
-            f = open("res/result_krnl_" + str(kernel_) +
-                     "tol_" + str(tol_) + ".txt", "a")
-            f.write(model_name + "\n")
-
-            # checking for model
-            if os.path.isfile("models/" + model_name + ".pkl"):
-                print("Using previous model...")
-                svm = pickle.load(open("models/" + model_name + ".pkl", "rb"))
-            else:
-                print("Fitting")
-                # Fitting model
-                svm = SVC()
-                svm = SVC(C=C_, kernel=kernel_, degree=degree_, gamma=gamma_, coef0=coef0_,
-                          shrinking=shrinking_, probability=probability_, tol=tol_,
-                          verbose=False, max_iter=max_iter_)
-
-                svm.fit(X_train, y_train)
-
-                # print("Saving model...")
-                # pickle.dump(svm, open("models/"+ model_name+ ".pkl", "wb"))
+            svm = svm_run(X_train, y_train)
 
         # tr acc
         tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
