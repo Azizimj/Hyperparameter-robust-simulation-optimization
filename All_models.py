@@ -230,14 +230,14 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
     print(tmp)
     f.write(tmp)
     make_dir(divide_files_dir + "res/")
-    if tr_:
-        pred_file = open(divide_files_dir + "res/tr_" + str(division_num) + "_preds"
-                         + str(test_precs) + "_" + model_name + ".csv", 'a')
-    else:
-        pred_file = open(divide_files_dir + "res/tes_" + str(division_num) + "_preds"
-                         + str(test_precs) + "_" + model_name + ".csv", 'a')
+    # if tr_:
+    #     pred_file = open(divide_files_dir + "res/tr_" + str(division_num) + "_preds"
+    #                      + str(test_precs) + "_" + model_name + ".csv", 'a')
+    # else:
+    #     pred_file = open(divide_files_dir + "res/tes_" + str(division_num) + "_preds"
+    #                      + str(test_precs) + "_" + model_name + ".csv", 'a')
 
-    writer_pred_file = csv.writer(pred_file)
+    # writer_pred_file = csv.writer(pred_file)
 
     correct_count = 0
     total_count = 0
@@ -264,8 +264,8 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
             else:
                 fp+=1
 
-        row = [total_count, label, prediction, correct_count]
-        writer_pred_file.writerow(row)
+        # row = [total_count, label, prediction, correct_count]
+        # writer_pred_file.writerow(row)
         total_count += 1
 
     # acc, prec, recall, f1 = 0,0,0,0
@@ -278,7 +278,7 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
           str(division_num)+" are {}, {}, {}, {} \n".format(acc, prec, recall, f1)
     print(tmp)
     f.write(tmp)
-    pred_file.close()
+    # pred_file.close()
 
     return acc, prec, recall, f1
 
@@ -403,7 +403,7 @@ if __name__ == "__main__":
     tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
-    hyperopt_use = True
+    hyperopt_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -423,8 +423,8 @@ if __name__ == "__main__":
             hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    # images_dir = "images"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "images"
 
     size_of_trs = 6000
     # size_of_trs = 50
@@ -526,9 +526,11 @@ if __name__ == "__main__":
     # weightdecay_ = 0.01
     # NN HYP
 
-
+    #hypopt
     if hyperopt_use:
         max_eval_hpopt = 2
+        if len(sys.argv) > 1:
+            max_eval_hpopt = int(sys.argv[3])
 
         f = open("res/result_" + str(test_precs) + "_" + model_name + "_hyopt"+str(max_eval_hpopt)+
                  "_epo" + str(num_epoch) + ".txt", "a")
@@ -571,7 +573,7 @@ if __name__ == "__main__":
         print(tes_eval)
         f.write(str(tes_eval))
 
-
+    #RSO
     else:
         for tr_dir in os.listdir(divide_files_dir):
             if tr_dir == "res" or division_num>len(df['hidden-dim']):
