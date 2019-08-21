@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/All_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/All_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tt.py" beforeDir="false" afterPath="$PROJECT_DIR$/tt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpopr_.py" beforeDir="false" afterPath="$PROJECT_DIR$/hpopr_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs_rso.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs_rso.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,23 +15,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tt.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All_models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="257" column="16" lean-forward="true" selection-start-line="257" selection-start-column="16" selection-end-line="257" selection-end-column="16" />
+            <state relative-caret-position="131">
+              <caret line="565" column="10" selection-start-line="565" selection-start-column="10" selection-end-line="565" selection-end-column="10" />
               <folding>
                 <element signature="e#0#310#1" />
-                <element signature="e#985#999#0" />
                 <element signature="e#1066#1226#0" />
                 <element signature="e#1277#2045#0" />
                 <element signature="e#1589#1962#0" />
@@ -38,53 +30,44 @@
                 <element signature="e#2070#2138#0" />
                 <element signature="e#2106#2138#0" />
                 <element signature="e#2188#3474#0" />
-                <element signature="e#2492#3373#0" />
-                <element signature="e#2519#3373#0" />
                 <element signature="e#2932#3089#0" />
                 <element signature="e#3211#3373#0" />
                 <element signature="e#3574#4329#0" />
-                <element signature="e#3737#4143#0" />
-                <element signature="e#3764#4143#0" />
-                <element signature="e#3835#3860#0" />
-                <element signature="e#4023#4143#0" />
+                <element signature="e#4139#4185#0" />
                 <element signature="e#4366#4586#0" />
                 <element signature="e#4366#4442#1" />
                 <element signature="e#4647#5885#0" />
                 <element signature="e#4647#4668#0" />
-                <element signature="e#4911#5834#0" />
-                <element signature="e#4983#5834#0" />
                 <element signature="e#5759#5834#0" />
                 <element signature="e#5981#7672#0" />
                 <element signature="e#6104#6256#0" />
                 <element signature="e#6275#6428#0" />
-                <element signature="e#6607#7198#0" />
                 <element signature="e#6738#6819#0" />
                 <element signature="e#6865#6970#0" />
                 <element signature="e#6997#7071#0" />
-                <element signature="e#7722#16116#0" />
-                <element signature="e#7856#8071#0" />
-                <element signature="e#8077#8144#0" />
-                <element signature="e#8280#8298#0" />
-                <element signature="e#8551#8595#0" />
+                <element signature="e#7734#9864#0" />
+                <element signature="e#7822#7996#0" />
+                <element signature="e#8624#10865#0" />
+                <element signature="e#8107#8117#0" />
+                <element signature="e#8662#8706#0" />
+                <element signature="e#8877#9056#0" />
+                <element signature="e#9083#9964#0" />
+                <element signature="e#9479#9504#0" />
+                <element signature="e#9505#9538#0" />
+                <element signature="e#9831#11436#0" />
+                <element signature="e#10944#11051#0" />
+                <element signature="e#11078#11524#0" />
+                <element signature="e#11424#11450#0" />
+                <element signature="e#12537#12937#0" />
+                <element signature="e#13152#13631#0" />
                 <element signature="e#8809#8922#0" />
                 <element signature="e#8968#9021#0" />
                 <element signature="e#9027#9080#0" />
                 <element signature="e#9708#9833#0" />
-                <element signature="e#10425#16101#0" />
+                <element signature="e#14788#14890#0" />
+                <element signature="e#15511#18126#0" />
                 <element signature="e#10512#10527#0" />
                 <element signature="e#10926#11047#0" />
-                <element signature="e#11179#13515#0" />
-                <element signature="e#11179#11187#0" />
-                <element signature="e#11421#11436#0" />
-                <element signature="e#11657#11678#0" />
-                <element signature="e#12358#12549#0" />
-                <element signature="e#12584#13515#0" />
-                <element signature="e#13001#13026#0" />
-                <element signature="e#13131#13164#0" />
-                <element signature="e#13564#15370#0" />
-                <element signature="e#14746#14857#0" />
-                <element signature="e#14892#15370#0" />
-                <element signature="e#15266#15292#0" />
                 <element signature="e#15770#16074#0" />
                 <element signature="e#15776#16035#0" />
               </folding>
@@ -95,8 +78,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/jobs_rso.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+            <state relative-caret-position="187">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -122,10 +105,16 @@
       <find>test_precs</find>
       <find>reading</find>
       <find>read_files</find>
+      <find>FRAMESA</find>
+      <find>hp</find>
+      <find>int</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/All_models.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -135,9 +124,10 @@
         <option value="$PROJECT_DIR$/svm.py" />
         <option value="$PROJECT_DIR$/neural.py" />
         <option value="$PROJECT_DIR$/../../../../Ross/Bandit/best_arm/code/jobs.py" />
-        <option value="$PROJECT_DIR$/jobs_rso.py" />
         <option value="$PROJECT_DIR$/All models.py" />
         <option value="$PROJECT_DIR$/tt.py" />
+        <option value="$PROJECT_DIR$/hpopr_.py" />
+        <option value="$PROJECT_DIR$/jobs_rso.py" />
         <option value="$PROJECT_DIR$/All_models.py" />
       </list>
     </option>
@@ -185,7 +175,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.tt">
+  <component name="RunManager" selected="Python.All_models">
     <configuration name="All models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Day-Night-Classification-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -199,6 +189,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/All models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="All_models" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Day-Night-Classification-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/All_models.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -249,27 +260,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="svm" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Day-Night-Classification-master" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/svm.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="tt" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Day-Night-Classification-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -293,11 +283,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.All_models" />
         <item itemvalue="Python.tt" />
         <item itemvalue="Python.All models" />
         <item itemvalue="Python.jobs_rso" />
         <item itemvalue="Python.neural" />
-        <item itemvalue="Python.svm" />
       </list>
     </recent_temporary>
   </component>
@@ -557,20 +547,34 @@
       <option name="project" value="LOCAL" />
       <updated>1566339968815</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="hpopt init">
+      <created>1566340183706</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1566340183706</updated>
+    </task>
+    <task id="LOCAL-00037" summary="wrapped nn and svm in class">
+      <created>1566341909872</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1566341909872</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.120272316" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.120272316" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31423897" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.090016365" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.49099836" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.21440262" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -606,7 +610,9 @@
     <MESSAGE value="max(denom, 1)" />
     <MESSAGE value="data_ave" />
     <MESSAGE value="data_ave of concate" />
-    <option name="LAST_COMMIT_MESSAGE" value="data_ave of concate" />
+    <MESSAGE value="hpopt init" />
+    <MESSAGE value="wrapped nn and svm in class" />
+    <option name="LAST_COMMIT_MESSAGE" value="wrapped nn and svm in class" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -625,47 +631,47 @@ scipy.stats.skew(X_train)</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>len(df['hidden-dim'])</expression-string>
+        <expression-string>len(label_list)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.concatenate((X_train[:, 500:600],X_train[:, 1100:1200],X_train[:, 1600:1700],X_train[:, 2000:2100]),axis=1)</expression-string>
+        <expression-string>len(feature_list)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>X_train</expression-string>
+        <expression-string>feature_list</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.concatenate((X_train[:, 10:20],X_train[:, 30:40]),axis=1)</expression-string>
+        <expression-string>y_test==y_test_</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.concatenate((X_train[:, 10:20],X_train[:, 30:40]),axis=0)</expression-string>
+        <expression-string>X_test==X_test_</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.concatenate((X_train[:, 100:200],X_train[:, 300:400]),axis=0)</expression-string>
+        <expression-string>os.listdir(directory)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.vstack(X_train[:, 100:200],X_train[:, 300:400])</expression-string>
+        <expression-string>read_files(&quot;F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]_[0.2, 0.2]/tr/&quot;, model_name)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.concatenate(X_train[:, 100:200],X_train[:, 300:400])</expression-string>
+        <expression-string>tes_dir</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>np.average(X_train[:,100:200])</expression-string>
+        <expression-string>read_files(tes_dir, model_name)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -830,16 +836,6 @@ scipy.stats.skew(X_train)</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jobs_rso.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/All models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -868,18 +864,45 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/tt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hpopr_.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="42" column="36" selection-start-line="29" selection-end-line="42" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#390#493#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jobs_rso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/program/python3/Lib/site-packages/PyBrain-0.3.3-py3.7.egg/pybrain/structure/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/All_models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="257" column="16" lean-forward="true" selection-start-line="257" selection-start-column="16" selection-end-line="257" selection-end-column="16" />
+        <state relative-caret-position="131">
+          <caret line="565" column="10" selection-start-line="565" selection-start-column="10" selection-end-line="565" selection-end-column="10" />
           <folding>
             <element signature="e#0#310#1" />
-            <element signature="e#985#999#0" />
             <element signature="e#1066#1226#0" />
             <element signature="e#1277#2045#0" />
             <element signature="e#1589#1962#0" />
@@ -888,53 +911,44 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#2070#2138#0" />
             <element signature="e#2106#2138#0" />
             <element signature="e#2188#3474#0" />
-            <element signature="e#2492#3373#0" />
-            <element signature="e#2519#3373#0" />
             <element signature="e#2932#3089#0" />
             <element signature="e#3211#3373#0" />
             <element signature="e#3574#4329#0" />
-            <element signature="e#3737#4143#0" />
-            <element signature="e#3764#4143#0" />
-            <element signature="e#3835#3860#0" />
-            <element signature="e#4023#4143#0" />
+            <element signature="e#4139#4185#0" />
             <element signature="e#4366#4586#0" />
             <element signature="e#4366#4442#1" />
             <element signature="e#4647#5885#0" />
             <element signature="e#4647#4668#0" />
-            <element signature="e#4911#5834#0" />
-            <element signature="e#4983#5834#0" />
             <element signature="e#5759#5834#0" />
             <element signature="e#5981#7672#0" />
             <element signature="e#6104#6256#0" />
             <element signature="e#6275#6428#0" />
-            <element signature="e#6607#7198#0" />
             <element signature="e#6738#6819#0" />
             <element signature="e#6865#6970#0" />
             <element signature="e#6997#7071#0" />
-            <element signature="e#7722#16116#0" />
-            <element signature="e#7856#8071#0" />
-            <element signature="e#8077#8144#0" />
-            <element signature="e#8280#8298#0" />
-            <element signature="e#8551#8595#0" />
+            <element signature="e#7734#9864#0" />
+            <element signature="e#7822#7996#0" />
+            <element signature="e#8624#10865#0" />
+            <element signature="e#8107#8117#0" />
+            <element signature="e#8662#8706#0" />
+            <element signature="e#8877#9056#0" />
+            <element signature="e#9083#9964#0" />
+            <element signature="e#9479#9504#0" />
+            <element signature="e#9505#9538#0" />
+            <element signature="e#9831#11436#0" />
+            <element signature="e#10944#11051#0" />
+            <element signature="e#11078#11524#0" />
+            <element signature="e#11424#11450#0" />
+            <element signature="e#12537#12937#0" />
+            <element signature="e#13152#13631#0" />
             <element signature="e#8809#8922#0" />
             <element signature="e#8968#9021#0" />
             <element signature="e#9027#9080#0" />
             <element signature="e#9708#9833#0" />
-            <element signature="e#10425#16101#0" />
+            <element signature="e#14788#14890#0" />
+            <element signature="e#15511#18126#0" />
             <element signature="e#10512#10527#0" />
             <element signature="e#10926#11047#0" />
-            <element signature="e#11179#13515#0" />
-            <element signature="e#11179#11187#0" />
-            <element signature="e#11421#11436#0" />
-            <element signature="e#11657#11678#0" />
-            <element signature="e#12358#12549#0" />
-            <element signature="e#12584#13515#0" />
-            <element signature="e#13001#13026#0" />
-            <element signature="e#13131#13164#0" />
-            <element signature="e#13564#15370#0" />
-            <element signature="e#14746#14857#0" />
-            <element signature="e#14892#15370#0" />
-            <element signature="e#15266#15292#0" />
             <element signature="e#15770#16074#0" />
             <element signature="e#15776#16035#0" />
           </folding>

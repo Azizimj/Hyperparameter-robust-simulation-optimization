@@ -9,6 +9,7 @@ side_task = "none"
 # side_task = 'tr_tes_sep'
 # side_task = 'divide_file'
 # side_task = 'sample_folder_build'
+# side_task = 'hyperopt_use'
 
 jname = "rso"+str(epochs)+model_name
 ntasks = 400

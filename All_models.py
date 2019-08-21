@@ -36,6 +36,10 @@ from pybrain.structure.modules import SoftmaxLayer, TanhLayer, \
 from sklearn import preprocessing
 import pandas as pd
 from shutil import copyfile
+##hyp
+from hyperopt import hp
+from hyperopt import fmin, tpe, space_eval
+##
 
 import csv
 
@@ -43,11 +47,12 @@ random.seed(30)
 np.random.seed(110)
 print("Libs good")
 SHAPE = (30, 30)
-model_name = 'nn'
+# model_name = 'nn'
 # model_name = 'svm'
 
 # import scipy
 # scipy.stats.skew(X_train)
+
 
 def extract_feature(image_file):
     img = cv2.imread(image_file)
@@ -55,6 +60,7 @@ def extract_feature(image_file):
     img = img.flatten()
     img = img / np.mean(img)
     return img
+
 
 def sample_folder(images_dir, sample_sizes):
     # from shutil import copyfile
@@ -77,10 +83,12 @@ def sample_folder(images_dir, sample_sizes):
     print("made {} folders and copied {} files".format(num_classes, s))
     return
 
+
 def make_dir(dir):
     if not os.path.exists(dir):
         print(dir)
         os.mkdir(dir)
+
 
 def test_train_sep(images_dir, test_precs):
     from shutil import copyfile
@@ -121,28 +129,44 @@ def test_train_sep(images_dir, test_precs):
     print("made {} folders and copied {} files".format(num_classes*2, s))
     return tr_dir, tes_dir
 
+
 # def read_files(directory, sample_sizes, model_name):
 def read_files(directory, model_name):
-    print("Reading files...")
+    print("Reading files in {}".format(directory))
     s = 1
     feature_list = list()
     label_list = list()
     num_classes = 0
-    for root, dirs, files in os.walk(directory):
-        for d in dirs:
-            num_classes += 1
-            images = os.listdir(root + d)
-            # if sample_sizes[0] > 0:
-            #     images = sample(images, sample_sizes[num_classes - 1])  # sample
-            # print(root + d)
-            for image in images:
-                s += 1
-                label_list.append(d)
-                feature_list.append(extract_feature(root + d + "/" + image))
+
+    for class_fldr in os.listdir(directory):
+        if class_fldr not in classes_labels:
+            continue
+        num_classes += 1
+        images = os.listdir(directory + class_fldr)
+
+        source_dir = directory + class_fldr + "/"
+        for image in images:
+            s += 1
+            label_list.append(class_fldr)
+            feature_list.append(extract_feature(source_dir + image))
+    # for root, dirs, files in os.walk(directory):
+    #     for d in dirs:
+    #         if d == "divided":
+    #             continue
+    #         num_classes += 1
+    #         images = os.listdir(root + d)
+    #         # if sample_sizes[0] > 0:
+    #         #     images = sample(images, sample_sizes[num_classes - 1])  # sample
+    #         # print(root + d)
+    #         for image in images:
+    #             s += 1
+    #             label_list.append(d)
+    #             feature_list.append(extract_feature(root + d + "/" + image))
     if model_name=='nn':
         label_list = convertLabels(label_list)
     print(str(num_classes) + " classes")
     return np.asarray(feature_list), np.asarray(label_list), num_classes
+
 
 def convertLabels(label_list):
     """
@@ -155,6 +179,7 @@ def convertLabels(label_list):
     label_list = pre.fit_transform(label_list)
 
     return label_list
+
 
 def divide_with_prec(points_list, dire, size_of_trs):
 
@@ -198,17 +223,18 @@ def divide_with_prec(points_list, dire, size_of_trs):
     print("copied {} files".format(s))
     return
 
+
 def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm, f, tr_):
     # tr acc
-    tmp = "Eval...\n"
+    tmp = "Eval on {}\n".format(divide_files_dir)
     print(tmp)
     f.write(tmp)
     make_dir(divide_files_dir + "res/")
     if tr_:
-        pred_file = open(divide_files_dir + "res/tr" + str(division_num) + "_preds"
+        pred_file = open(divide_files_dir + "res/tr_" + str(division_num) + "_preds"
                          + str(test_precs) + "_" + model_name + ".csv", 'a')
     else:
-        pred_file = open(divide_files_dir + "res/tes" + str(division_num) + "_preds"
+        pred_file = open(divide_files_dir + "res/tes_" + str(division_num) + "_preds"
                          + str(test_precs) + "_" + model_name + ".csv", 'a')
 
     writer_pred_file = csv.writer(pred_file)
@@ -256,6 +282,7 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
 
     return acc, prec, recall, f1
 
+
 class nn_hold():
     def __init__(self, bias_, hiddenclass_, outclass_, momentum_, batchlearning_ ):
         self.bias_ = bias_
@@ -264,7 +291,7 @@ class nn_hold():
         self.momentum_ = momentum_
         self.batchlearning_ = batchlearning_
 
-    def nn_run(self, hidden_dim, num_epoch, learningrate_, lrdecay_, num_classes, X_train, y_train):
+    def nn_run(self, hidden_dim, num_epoch, learningrate_, lrdecay_, weightdecay_, num_classes, X_train, y_train):
         # # NN HYP
         # # hidden_dim = 100
         # bias_ = True
@@ -318,6 +345,7 @@ class nn_hold():
             # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
         return net
 
+
 def svm_run(X_train, y_train):
 
     # Hyps
@@ -355,26 +383,51 @@ def svm_run(X_train, y_train):
 
     return svm
 
+
+def objective_(hyps):
+    hidden_dim = hyps['hidden_dim']+ hidden_dim_l
+    learningrate_ = hyps['learningrate_']
+    lrdecay_ = hyps['lrdecay_']
+    weightdecay_ = hyps['weightdecay_']
+
+    net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_,
+                          lrdecay_, weightdecay_, num_classes, X_train, y_train)
+
+    eval_ = eval(tr_dir, "hpopt", test_precs, model_name, X_train, y_train, net, svm, f, tr_=True)
+
+    return eval_[0] # acc
+
+
 if __name__ == "__main__":
 
     tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
-    # hyperopt_use = False
+    hyperopt_use = True
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
+        else:
+            tr_tes_sep = False
         if sys.argv[2]=="sample_folder_build":
             sample_folder_build = True
+        else:
+            sample_folder_build = False
         if sys.argv[2]=="divide_file":
             divide_file = True
+        else:
+            divide_file = False
+        if sys.argv[2]=="hyperopt_use":
+            hyperopt_use = True
+        else:
+            hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
     images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "images"
 
-    # size_of_trs = 6000
-    size_of_trs = 50
+    size_of_trs = 6000
+    # size_of_trs = 50
 
     # init net and svm
     net = None
@@ -383,22 +436,32 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    num_epoch = 3
+    num_epoch = 2
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
 
+    # hyps:
     # int:
     # hidden_dim[20, 200]
+    hidden_dim_l = 20
+    hidden_dim_u = 200
     #
     # Real:
     # learningrate_[1e-5, 0.1]
+    learningrate_l = 1e-5
+    learningrate_u = 0.1
     # lrdecay_[1e-2, 1e-1]
+    lrdecay_l = 1e-2
+    lrdecay_u = 1e-1
     # weightdecay_[1e-3, 0.9]
+    weightdecay_l = 1e-3
+    weightdecay_u = 0.9
 
     points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607
+    classes_labels = ["FRAMESA", "FRAMESB"]
     # sample_sizes = [100, 200]
     sample_sizes = [-1,-1] # -1 for not sampling
     test_precs= [.2,.2]
@@ -431,6 +494,8 @@ if __name__ == "__main__":
         divide_with_prec(points_list_file, dire, size_of_trs)
         exit()
 
+    # read_files("F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]_[0.2, 0.2]/tr/", model_name)
+    # exit()
 
     tes_dir = images_dir + "_" + str(test_precs) + "/"+"tes/"
     X_test, y_test, num_classes = read_files(tes_dir, model_name)
@@ -445,61 +510,110 @@ if __name__ == "__main__":
     f_all = open("res/result_" + str(test_precs) + "_"+model_name+"_epo"+str(num_epoch)+".csv", 'a')
     writer_f_all = csv.writer(f_all)
 
-
-    for tr_dir in os.listdir(divide_files_dir):
-        if tr_dir == "res" or division_num>len(df['hidden-dim']):
-            continue
-        # print(tr_dir)
-        # read tr
-        X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
-
-        hidden_dim = df['hidden-dim'][division_num]
-        learningrate_ = df['learningrate'][division_num]
-        lrdecay_ = df['Irdecay'][division_num]
-        weightdecay_ = df['weightdecay'][division_num]
-        # data_ave = np.average(X_train)
-        X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
-                                 X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
-        data_ave = np.average(X_sample)
-        data_std = np.std(X_train)
+    # NN HYP
+    # hidden_dim = 100
+    bias_ = True
+    # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
+    hiddenclass_ = TanhLayer
+    outclass_ = SoftmaxLayer
+    # num_epoch = 4
+    # if len(sys.argv)>0:
+    #     num_epoch = int(sys.argv[1])
+    # learningrate_ = 0.01
+    # lrdecay_ = 1.0
+    momentum_ = 0.1
+    batchlearning_ = False
+    # weightdecay_ = 0.01
+    # NN HYP
 
 
-        if model_name == 'nn':
-            # NN HYP
-            # hidden_dim = 100
-            bias_ = True
-            # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
-            hiddenclass_ = TanhLayer
-            outclass_ = SoftmaxLayer
-            # num_epoch = 4
-            # if len(sys.argv)>0:
-            #     num_epoch = int(sys.argv[1])
-            # learningrate_ = 0.01
-            # lrdecay_ = 1.0
-            momentum_ = 0.1
-            batchlearning_ = False
-            # weightdecay_ = 0.01
-            # NN HYP
-            nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
-            net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_, num_classes, X_train, y_train)
+    if hyperopt_use:
+        max_eval_hpopt = 2
 
-        elif model_name == 'svm':
-            svm = svm_run(X_train, y_train)
+        f = open("res/result_" + str(test_precs) + "_" + model_name + "_hyopt"+str(max_eval_hpopt)+
+                 "_epo" + str(num_epoch) + ".txt", "a")
+        f.write(model_name + "\n")
 
-        # tr acc
-        tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
-             X_train, y_train, net, svm, f, tr_=True)
+        tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
+        X_train, y_train, num_classes = read_files(tr_dir, model_name)
 
-        # tes acc
-        tes_acc, tes_prec, tes_reca, tes_f1  = eval(divide_files_dir, division_num, test_precs, model_name,
-             X_test, y_test, net, svm, f, tr_=False)
+        print("hyp started ")
 
-        if model_name == "nn":
-            row = [division_num,hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
-                   tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
-                   bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
-            writer_f_all.writerow(row)
+        nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
 
-        division_num += 1
+        # hyps = {'hidden_dim':5, 'learningrate_':0.01, 'lrdecay_': 1.0, 'weightdecay_': 0.01}
+        # obj = objective_(hyps=hyps)
+        # print(obj)
+
+        # define a search space
+        # 'hidden_dim': hp.uniform('hidden_dim', hidden_dim_l, hidden_dim_u),
+        space_ = {'hidden_dim': hp.randint('hidden_dim', hidden_dim_u-hidden_dim_l+1),
+                  'learningrate_': hp.uniform('learningrate_', learningrate_l, learningrate_u ),
+                  'lrdecay_': hp.uniform('lrdecay_', lrdecay_l, lrdecay_u),
+                  'weightdecay_': hp.uniform('weightdecay_', weightdecay_l, weightdecay_u)}
+
+        # minimize the objective over the space
+        best_hyp = fmin(objective_, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
+
+        tmp = "\n optimal hyps with tpe hypopt are {}\n".format(best_hyp)
+        f.write(tmp)
+        print(tmp)
+        # tmp = "space eval at optimal hyps is {}\n".format(space_eval(space_, best_hyp))
+        # f.write(tmp)
+        # print(tmp)
+
+
+        net = nn_hold_.nn_run(best_hyp['hidden_dim'], num_epoch, best_hyp['learningrate_'], best_hyp['lrdecay_'],
+                              best_hyp['weightdecay_'], num_classes, X_train, y_train)
+
+        tes_eval = eval(tr_dir, "hpopt", test_precs, model_name,
+                        X_test, y_test, net, svm, f, tr_=False)
+        print(tes_eval)
+        f.write(str(tes_eval))
+
+
+    else:
+        for tr_dir in os.listdir(divide_files_dir):
+            if tr_dir == "res" or division_num>len(df['hidden-dim']):
+                continue
+            # print(tr_dir)
+            # read tr
+            X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
+
+            hidden_dim = df['hidden-dim'][division_num]
+            learningrate_ = df['learningrate'][division_num]
+            lrdecay_ = df['Irdecay'][division_num]
+            weightdecay_ = df['weightdecay'][division_num]
+            # data_ave = np.average(X_train)
+            X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
+                                     X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
+            data_ave = np.average(X_sample)
+            data_std = np.std(X_train)
+
+
+            if model_name == 'nn':
+                nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
+                net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_, weightdecay_, num_classes, X_train, y_train)
+
+            elif model_name == 'svm':
+                svm = svm_run(X_train, y_train)
+
+            # tr acc
+            tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+                 X_train, y_train, net, svm, f, tr_=True)
+
+            X_train, y_train = None, None
+
+            # tes acc
+            tes_acc, tes_prec, tes_reca, tes_f1  = eval(divide_files_dir, division_num, test_precs, model_name,
+                 X_test, y_test, net, svm, f, tr_=False)
+
+            if model_name == "nn":
+                row = [division_num,hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
+                       tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
+                       bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
+                writer_f_all.writerow(row)
+
+            division_num += 1
 
     f.close()
