@@ -45,7 +45,7 @@ import csv
 
 random.seed(30)
 np.random.seed(110)
-print("Libs good")
+# print("Libs good")
 SHAPE = (30, 30)
 # model_name = 'nn'
 # model_name = 'svm'
@@ -181,11 +181,11 @@ def convertLabels(label_list):
     return label_list
 
 
-def divide_with_prec(points_list, dire, size_of_trs):
+def divide_with_prec(points_list_file, dire, size_of_trs):
 
     # import pandas as pd
     # from shutil import copyfile
-    df = pd.read_csv(points_list)
+    df = pd.read_csv(points_list_file)
     # num_tr_folders = len(df['prec day'])
     s = 0
     divide_dir = dire + "divided/"
@@ -226,10 +226,10 @@ def divide_with_prec(points_list, dire, size_of_trs):
 
 def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm, f, tr_):
     # tr acc
-    tmp = "Eval on {}\n".format(divide_files_dir)
-    print(tmp)
-    f.write(tmp)
-    make_dir(divide_files_dir + "res/")
+    # tmp = "Eval on {}\n".format(divide_files_dir)
+    # print(tmp)
+    # f.write(tmp)
+    # make_dir(divide_files_dir + "res/")
     # if tr_:
     #     pred_file = open(divide_files_dir + "res/tr_" + str(division_num) + "_preds"
     #                      + str(test_precs) + "_" + model_name + ".csv", 'a')
@@ -274,10 +274,10 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
     recall = float(tp)/max(float(tp+fn), 1)
     f1 = float(2*tp)/max(float(2*tp+fp+fn), 1)
 
-    tmp = 'Acc, prec, recal, f1 on ' +str("tr " if tr_ else "tes ")+\
-          str(division_num)+" are {}, {}, {}, {} \n".format(acc, prec, recall, f1)
-    print(tmp)
-    f.write(tmp)
+    # tmp = 'Acc, prec, recal, f1 on ' +str("tr " if tr_ else "tes ")+\
+    #       str(division_num)+" are {}, {}, {}, {} \n".format(acc, prec, recall, f1)
+    # print(tmp)
+    # f.write(tmp)
     # pred_file.close()
 
     return acc, prec, recall, f1
@@ -327,9 +327,9 @@ class nn_hold():
             f.write(tmp)
             trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
         else:
-            tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
-            print(tmp)
-            f.write(tmp)
+            # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
+            # print(tmp)
+            # f.write(tmp)
             trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
                                       momentum=self.momentum_, verbose=True, batchlearning=self.batchlearning_,
                                       weightdecay=weightdecay_)
@@ -400,10 +400,12 @@ def objective_(hyps):
 
 if __name__ == "__main__":
 
-    tr_tes_sep = False
+    tr_tes_sep = True
     sample_folder_build = False
     divide_file = False
     hyperopt_use = False
+    hype_given = True
+    RSO_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -459,6 +461,7 @@ if __name__ == "__main__":
 
     points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
+    test_precs_file = "Test-Data.csv"
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607
     classes_labels = ["FRAMESA", "FRAMESB"]
@@ -475,7 +478,7 @@ if __name__ == "__main__":
     # sep tr tes
     if tr_tes_sep:
         test_train_sep(images_dir, test_precs)
-        exit()
+        # exit()
 
     # generating two numpy arrays for features and labels
     # features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
@@ -498,7 +501,6 @@ if __name__ == "__main__":
     # exit()
 
     tes_dir = images_dir + "_" + str(test_precs) + "/"+"tes/"
-    X_test, y_test, num_classes = read_files(tes_dir, model_name)
 
     divide_files_dir = images_dir +"_"+ str(test_precs) + "/tr/"+"divided/"
     division_num = 0
@@ -568,13 +570,80 @@ if __name__ == "__main__":
         net = nn_hold_.nn_run(best_hyp['hidden_dim'], num_epoch, best_hyp['learningrate_'], best_hyp['lrdecay_'],
                               best_hyp['weightdecay_'], num_classes, X_train, y_train)
 
+        X_test, y_test, num_classes = read_files(tes_dir, model_name)
         tes_eval = eval(tr_dir, "hpopt", test_precs, model_name,
                         X_test, y_test, net, svm, f, tr_=False)
-        print(tes_eval)
-        f.write(str(tes_eval))
+
+        tmp = 'Acc, prec, recal, f1 of best hyp on tes are {}\n'.format(tes_eval)
+        print(tmp)
+        f.write(tmp)
+
+    elif hype_given:
+        hidden_dim = 134
+        learningrate_ = 0.0467821978480138
+        lrdecay_ = 0.0742889052103925
+        weightdecay_ = 0.71933869547565
+
+        f = open("res/result_" + str(test_precs) + "_" + model_name + "_givenHyp" +
+                 "_epo" + str(num_epoch) + ".txt", "a")
+        f.write(model_name + "\n")
+
+        tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
+        X_train, y_train, num_classes = read_files(tr_dir, model_name)
+
+        print("given hyp started ")
+
+        nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
+
+        print("train started on {}".format(tr_dir))
+        net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_,
+                              weightdecay_, num_classes, X_train, y_train)
+
+        #
+        print("test started on {}".format(tes_dir))
+
+        df = pd.read_csv(test_precs_file)
+        test_size = 20
+
+        for cntr, day_prec in enumerate(df['day prec']):
+            X_test = []
+            y_test = []
+            num_classes = 0
+            for class_fldr in os.listdir(tes_dir):
+                if (class_fldr == "FRAMESB"):
+                    prec = day_prec
+                elif (class_fldr == "FRAMESA"):
+                    prec = 1 - day_prec
+                else:
+                    continue
+
+                num_classes += 1
+                images = os.listdir(tes_dir + class_fldr)
+
+                ln_ = len(images)
+                random.shuffle(images)
+                ln_ = min(int(prec * test_size), ln_)
+                print("{} images picked".format(ln_))
+                images_ = images[:ln_]
+
+                for image in images_:
+                    X_test.append(extract_feature(tes_dir + class_fldr+"/"+image))
+                    y_test.append(class_fldr)
+            if model_name == 'nn':
+                y_test = convertLabels(y_test)
+
+            X_test = np.asarray(X_test)
+            y_test = np.asarray(y_test)
+
+            tes_eval = eval(" ", "given_hyp", test_precs, model_name,
+                            X_test, y_test, net, svm, f, tr_=False)
+            tmp = "test on day prec {} is {} \n".format(day_prec, tes_eval)
+            print(tmp)
+            f.write(str(tmp))
 
     #RSO
-    else:
+    elif RSO_use:
+        X_test, y_test, num_classes = read_files(tes_dir, model_name)
         for tr_dir in os.listdir(divide_files_dir):
             if tr_dir == "res" or division_num>len(df['hidden-dim']):
                 continue
@@ -604,11 +673,20 @@ if __name__ == "__main__":
             tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
                  X_train, y_train, net, svm, f, tr_=True)
 
+            tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
+                  " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+            print(tmp)
+            f.write(tmp)
+
             X_train, y_train = None, None
 
             # tes acc
             tes_acc, tes_prec, tes_reca, tes_f1  = eval(divide_files_dir, division_num, test_precs, model_name,
                  X_test, y_test, net, svm, f, tr_=False)
+
+            tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)
+            print(tmp)
+            f.write(tmp)
 
             if model_name == "nn":
                 row = [division_num,hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
