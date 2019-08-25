@@ -40,7 +40,6 @@ from shutil import copyfile
 from hyperopt import hp
 from hyperopt import fmin, tpe, space_eval
 ##
-
 import csv
 
 random.seed(30)
@@ -404,7 +403,7 @@ if __name__ == "__main__":
     sample_folder_build = False
     divide_file = False
     hyperopt_use = False
-    hype_given = True
+    hype_given = False
     RSO_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -438,7 +437,7 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    num_epoch = 2
+    num_epoch = 15
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
 
