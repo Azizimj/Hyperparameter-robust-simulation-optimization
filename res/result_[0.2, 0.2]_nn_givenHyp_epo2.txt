@@ -1,0 +1,47 @@
+nn
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.8, 0.75, 0.5, 0.6 
+test on day prec 0.3 is (0.8, 0.75, 0.5, 0.6) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.75, 1.0, 0.2857142857142857, 0.4444444444444444 
+test on day prec 0.35 is (0.75, 1.0, 0.2857142857142857, 0.4444444444444444) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.65, 1.0, 0.125, 0.2222222222222222 
+test on day prec 0.4 is (0.65, 1.0, 0.125, 0.2222222222222222) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.65, 0.75, 0.3333333333333333, 0.46153846153846156 
+test on day prec 0.45 is (0.65, 0.75, 0.3333333333333333, 0.46153846153846156) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.7, 1.0, 0.4, 0.5714285714285714 
+test on day prec 0.5 is (0.7, 1.0, 0.4, 0.5714285714285714) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.5, 0.6666666666666666, 0.18181818181818182, 0.2857142857142857 
+test on day prec 0.55 is (0.5, 0.6666666666666666, 0.18181818181818182, 0.2857142857142857) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.5, 0.75, 0.25, 0.375 
+test on day prec 0.6 is (0.5, 0.75, 0.25, 0.375) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.7, 1.0, 0.5384615384615384, 0.7 
+test on day prec 0.65 is (0.7, 1.0, 0.5384615384615384, 0.7) 
+Eval on  
+Acc, prec, recal, f1 on tes given_hyp are 0.55, 1.0, 0.35714285714285715, 0.5263157894736842 
+test on day prec 0.7 is (0.55, 1.0, 0.35714285714285715, 0.5263157894736842) 
+nn
+Eval on  
+test on day prec 0.3 is (0.8, 0.75, 0.5, 0.6) 
+Eval on  
+test on day prec 0.35 is (0.75, 1.0, 0.2857142857142857, 0.4444444444444444) 
+Eval on  
+test on day prec 0.4 is (0.65, 1.0, 0.125, 0.2222222222222222) 
+Eval on  
+test on day prec 0.45 is (0.65, 0.75, 0.3333333333333333, 0.46153846153846156) 
+Eval on  
+test on day prec 0.5 is (0.7, 1.0, 0.4, 0.5714285714285714) 
+Eval on  
+test on day prec 0.55 is (0.5, 0.6666666666666666, 0.18181818181818182, 0.2857142857142857) 
+Eval on  
+test on day prec 0.6 is (0.5, 0.75, 0.25, 0.375) 
+Eval on  
+test on day prec 0.65 is (0.7, 1.0, 0.5384615384615384, 0.7) 
+Eval on  
+test on day prec 0.7 is (0.55, 1.0, 0.35714285714285715, 0.5263157894736842) 
