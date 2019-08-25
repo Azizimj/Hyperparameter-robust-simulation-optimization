@@ -424,8 +424,8 @@ if __name__ == "__main__":
             hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    images_dir = "images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "images"
 
     size_of_trs = 6000
     # size_of_trs = 50
@@ -437,7 +437,7 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    num_epoch = 15
+    num_epoch = 2
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
 
@@ -503,12 +503,6 @@ if __name__ == "__main__":
 
     divide_files_dir = images_dir +"_"+ str(test_precs) + "/tr/"+"divided/"
     division_num = 0
-
-    f = open("res/result_"+str(test_precs) +"_"+model_name+"_epo"+str(num_epoch)+ ".txt", "a")
-    f.write(model_name + "\n")
-
-    f_all = open("res/result_" + str(test_precs) + "_"+model_name+"_epo"+str(num_epoch)+".csv", 'a')
-    writer_f_all = csv.writer(f_all)
 
     # NN HYP
     # hidden_dim = 100
@@ -577,6 +571,8 @@ if __name__ == "__main__":
         f.write(tmp)
 
     elif hype_given:
+
+
         hidden_dim = 134
         learningrate_ = 0.0467821978480138
         lrdecay_ = 0.0742889052103925
@@ -586,8 +582,16 @@ if __name__ == "__main__":
                  "_epo" + str(num_epoch) + ".txt", "a")
         f.write(model_name + "\n")
 
+        f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
+        writer_f_all = csv.writer(f_all)
+
         tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
         X_train, y_train, num_classes = read_files(tr_dir, model_name)
+
+        X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
+                                   X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
+        data_ave = np.average(X_sample)
+        data_std = np.std(X_train)
 
         print("given hyp started ")
 
@@ -596,6 +600,21 @@ if __name__ == "__main__":
         print("train started on {}".format(tr_dir))
         net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_,
                               weightdecay_, num_classes, X_train, y_train)
+
+        #train eval on tr
+        tr_acc, tr_prec, tr_reca, tr_f1 = eval(" ", " ", test_precs, model_name,
+                                               X_train, y_train, net, svm, f, tr_=True)
+
+        tmp = "train tr_acc, tr_prec, tr_reca, tr_f1 " \
+              "on the whole train are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+        print(tmp)
+        f.write(str(tmp))
+
+        if model_name == "nn":
+            row = ["whole tr", hidden_dim, learningrate_, lrdecay_, weightdecay_, data_ave, data_std,
+                   tr_acc, tr_prec, tr_reca, tr_f1, "", " ", " ", " ", " ", "",
+                   bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
+            writer_f_all.writerow(row)
 
         #
         print("test started on {}".format(tes_dir))
@@ -633,14 +652,35 @@ if __name__ == "__main__":
             X_test = np.asarray(X_test)
             y_test = np.asarray(y_test)
 
-            tes_eval = eval(" ", "given_hyp", test_precs, model_name,
+            X_sample = np.concatenate((X_test[:, 500:600], X_test[:, 1100:1200],
+                                       X_test[:, 1600:1700], X_test[:, 2000:2100]), axis=1)
+            data_ave = np.average(X_sample)
+            data_std = np.std(X_test)
+
+            tes_acc, tes_prec, tes_reca, tes_f1 = eval(" ", "given_hyp", test_precs, model_name,
                             X_test, y_test, net, svm, f, tr_=False)
-            tmp = "test on day prec {} is {} \n".format(day_prec, tes_eval)
+
+            tmp = "tes_acc, tes_prec, tes_reca, tes_f1 " \
+                  "on day prec {} are {}, {}, {}, {} \n".format(day_prec, tes_acc, tes_prec, tes_reca, tes_f1)
             print(tmp)
             f.write(str(tmp))
 
+            if model_name == "nn":
+                row = [day_prec, hidden_dim, learningrate_,
+                       lrdecay_, weightdecay_, data_ave, data_std,
+                       " ", " ", " ", " ", "", tes_acc, tes_prec, tes_reca, tes_f1, "",
+                       bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
+                writer_f_all.writerow(row)
+
     #RSO
     elif RSO_use:
+
+        f = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
+        f.write(model_name + "\n")
+
+        f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
+        writer_f_all = csv.writer(f_all)
+
         df = pd.read_csv(points_list_file)
         X_test, y_test, num_classes = read_files(tes_dir, model_name)
         for tr_dir in os.listdir(divide_files_dir):
@@ -688,7 +728,7 @@ if __name__ == "__main__":
             f.write(tmp)
 
             if model_name == "nn":
-                row = [division_num,hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
+                row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
                        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
                        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
                 writer_f_all.writerow(row)
