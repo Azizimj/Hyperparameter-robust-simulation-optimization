@@ -85,7 +85,7 @@ def sample_folder(images_dir, sample_sizes):
 
 def make_dir(dir):
     if not os.path.exists(dir):
-        print(dir)
+        print("dir ( {} ) is made ".format(dir))
         os.mkdir(dir)
 
 
@@ -399,11 +399,11 @@ def objective_(hyps):
 
 if __name__ == "__main__":
 
-    tr_tes_sep = True
+    tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
     hyperopt_use = False
-    hype_given = False
+    hype_given = True
     RSO_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -477,7 +477,7 @@ if __name__ == "__main__":
     # sep tr tes
     if tr_tes_sep:
         test_train_sep(images_dir, test_precs)
-        # exit()
+        exit()
 
     # generating two numpy arrays for features and labels
     # features, labels, num_classes = read_files(image_folder, sample_sizes, model_name)
@@ -503,7 +503,6 @@ if __name__ == "__main__":
 
     divide_files_dir = images_dir +"_"+ str(test_precs) + "/tr/"+"divided/"
     division_num = 0
-    df = pd.read_csv(points_list_file)
 
     f = open("res/result_"+str(test_precs) +"_"+model_name+"_epo"+str(num_epoch)+ ".txt", "a")
     f.write(model_name + "\n")
@@ -642,6 +641,7 @@ if __name__ == "__main__":
 
     #RSO
     elif RSO_use:
+        df = pd.read_csv(points_list_file)
         X_test, y_test, num_classes = read_files(tes_dir, model_name)
         for tr_dir in os.listdir(divide_files_dir):
             if tr_dir == "res" or division_num>len(df['hidden-dim']):
