@@ -347,6 +347,10 @@ class nn_hold():
                 # print("Saving model")
                 # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
         elif batch_size>0:
+            trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
+                                      momentum=self.momentum_, verbose=True,
+                                      batchlearning=self.batchlearning_,
+                                      weightdecay=weightdecay_)
             for epoch in range(num_epoch):
                 print("\n epoch {}".format(epoch))
                 for i in range(X_train.shape[0] // batch_size):
@@ -378,10 +382,10 @@ class nn_hold():
                         # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
                         # print(tmp)
                         # f.write(tmp)
-                        trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
-                                                  momentum=self.momentum_, verbose=True,
-                                                  batchlearning=self.batchlearning_,
-                                                  weightdecay=weightdecay_)
+                        # trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
+                        #                           momentum=self.momentum_, verbose=True,
+                        #                           batchlearning=self.batchlearning_,
+                        #                           weightdecay=weightdecay_)
                         # different trainig calls
                         # trainer.train()
                         trainer.trainOnDataset(train_ds)
@@ -478,9 +482,9 @@ if __name__ == "__main__":
         else:
             hyperopt_use = False
 
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
     # images_dir = "images"
 
     make_dir("res/")
@@ -499,7 +503,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
 
-    batch_size = 40
+    batch_size = 0
 
     # hyps:
     # int:
@@ -655,6 +659,7 @@ if __name__ == "__main__":
     elif hype_given:
         hidden_dim = 134
         learningrate_ = 0.0467821978480138
+        # learningrate_ = 0.0001
         lrdecay_ = 0.0742889052103925
         weightdecay_ = 0.71933869547565
 
@@ -665,7 +670,7 @@ if __name__ == "__main__":
         f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
         writer_f_all = csv.writer(f_all)
 
-        tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
+        tr_dir = images_dir + "_" + str(test_precs) + "/tr/divided/0/"
         X_train, y_train, num_classes = read_files(tr_dir, model_name)
 
         X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
