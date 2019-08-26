@@ -42,6 +42,8 @@ from hyperopt import fmin, tpe, space_eval
 ##
 import csv
 
+# import tensorflow as tf
+
 random.seed(30)
 np.random.seed(110)
 # print("Libs good")
@@ -90,8 +92,8 @@ def make_dir(dir):
 
 
 def test_train_sep(images_dir, test_precs):
-    from shutil import copyfile
-    print("test_train_sep folder")
+
+    print("test_train_sep folder {}".format(images_dir))
     # root2 = images_dir +"_"+str(test_precs[0])+","+str(test_precs[1])+"/"
     root2 = images_dir + "_" + str(test_precs) + "/"
     make_dir(root2)
@@ -313,35 +315,88 @@ class nn_hold():
         train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
         test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
 
-        for feature, label in zip(X_train, y_train):
-            train_ds.addSample(feature, label)
+        if batch_size ==0:
+            # for feature, label in zip(X_train, y_train):
+            for feature, label in zip(X_train, y_train):
+                train_ds.addSample(feature, label)
 
-        # for feature, label in zip(X_test, y_test):
-        #     test_ds.addSample(feature, label)
+            # for feature, label in zip(X_test, y_test):
+            #     test_ds.addSample(feature, label)
 
-        # checking for model
-        if os.path.isfile("models/" + model_name + ".pkl"):
-            tmp = "Using previous " + model_name + " model...\n"
-            print(tmp)
-            f.write(tmp)
-            trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
-        else:
-            # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
-            # print(tmp)
-            # f.write(tmp)
-            trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
-                                      momentum=self.momentum_, verbose=True, batchlearning=self.batchlearning_,
-                                      weightdecay=weightdecay_)
-            # different trainig calls
-            # trainer.train()
-            trainer.trainEpochs(epochs=num_epoch)
-            # trainer.trainOnDataset(dataset)
-            # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
-            #                               verbose=None, continueEpochs=10, validationProportion=0.25)
-            # different trainig calls
+            # checking for model
+            if os.path.isfile("models/" + model_name + ".pkl"):
+                tmp = "Using previous " + model_name + " model...\n"
+                print(tmp)
+                f.write(tmp)
+                trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
+            else:
+                # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
+                # print(tmp)
+                # f.write(tmp)
+                trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
+                                          momentum=self.momentum_, verbose=True, batchlearning=self.batchlearning_,
+                                          weightdecay=weightdecay_)
+                # different trainig calls
+                # trainer.train()
+                trainer.trainEpochs(epochs=num_epoch)
+                # trainer.trainOnDataset(dataset)
+                # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
+                #                               verbose=None, continueEpochs=10, validationProportion=0.25)
+                # different trainig calls
 
-            # print("Saving model")
-            # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+                # print("Saving model")
+                # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+        elif batch_size>0:
+            for epoch in range(num_epoch):
+                print("\n epoch {}".format(epoch))
+                for i in range(X_train.shape[0] // batch_size):
+                    X_ = X_train[i * batch_size:(i + 1) * batch_size][:]
+                    y_ = y_train[i * batch_size:(i + 1) * batch_size]
+
+                    tmp = "epoch {}, batch {}".format(epoch, i)
+                    print(tmp)
+                    f.write(tmp)
+
+                    train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
+
+                    # for feature, label in zip(X_train, y_train):
+                    for feature, label in zip(X_, y_):
+                        train_ds.addSample(feature, label)
+
+                    # train_ds.batches("batches", batch_size)
+
+                    # for feature, label in zip(X_test, y_test):
+                    #     test_ds.addSample(feature, label)
+
+                    # checking for model
+                    if os.path.isfile("models/" + model_name + ".pkl"):
+                        tmp = "Using previous " + model_name + " model...\n"
+                        print(tmp)
+                        f.write(tmp)
+                        trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
+                    else:
+                        # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
+                        # print(tmp)
+                        # f.write(tmp)
+                        trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
+                                                  momentum=self.momentum_, verbose=True,
+                                                  batchlearning=self.batchlearning_,
+                                                  weightdecay=weightdecay_)
+                        # different trainig calls
+                        # trainer.train()
+                        trainer.trainOnDataset(train_ds)
+                        # trainer.trainOnDataset(dataset)
+                        # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
+                        #                               verbose=None, continueEpochs=10, validationProportion=0.25)
+                        # different trainig calls
+
+                        # print("Saving model")
+                        # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+
+                    tmp = eval(" ", " ", test_precs, model_name,
+                               X_train, y_train, net, svm, f, tr_=True)
+                    print("eval {}".format(tmp))
+
         return net
 
 
@@ -424,8 +479,11 @@ if __name__ == "__main__":
             hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
     # images_dir = "images"
+
+    make_dir("res/")
 
     size_of_trs = 6000
     # size_of_trs = 50
@@ -437,9 +495,11 @@ if __name__ == "__main__":
     # model_name = 'svm'
     random_state = 12
 
-    num_epoch = 2
+    num_epoch = 5
     if len(sys.argv) > 1:
         num_epoch = int(sys.argv[1])
+
+    batch_size = 40
 
     # hyps:
     # int:
@@ -465,7 +525,8 @@ if __name__ == "__main__":
     # FRAMESA (night) 16960, FRAMESB (day) 14607
     classes_labels = ["FRAMESA", "FRAMESB"]
     # sample_sizes = [100, 200]
-    sample_sizes = [-1,-1] # -1 for not sampling
+    sample_sizes = [500, 550]
+    # sample_sizes = [-1,-1] # -1 for not sampling
     test_precs= [.2,.2]
     SHAPE = (30, 30)
 
@@ -516,7 +577,7 @@ if __name__ == "__main__":
     # learningrate_ = 0.01
     # lrdecay_ = 1.0
     momentum_ = 0.1
-    batchlearning_ = False
+    batchlearning_ = True
     # weightdecay_ = 0.01
     # NN HYP
 
@@ -529,6 +590,9 @@ if __name__ == "__main__":
         f = open("res/result_" + str(test_precs) + "_" + model_name + "_hyopt"+str(max_eval_hpopt)+
                  "_epo" + str(num_epoch) + ".txt", "a")
         f.write(model_name + "\n")
+
+        f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
+        writer_f_all = csv.writer(f_all)
 
         tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
         X_train, y_train, num_classes = read_files(tr_dir, model_name)
@@ -558,21 +622,37 @@ if __name__ == "__main__":
         # f.write(tmp)
         # print(tmp)
 
+        hidden_dim = best_hyp['hidden_dim']
+        learningrate_ = best_hyp['learningrate_']
+        lrdecay_ = best_hyp['lrdecay_']
+        weightdecay_ = best_hyp['weightdecay_']
+        net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_,
+                              weightdecay_, num_classes, X_train, y_train)
 
-        net = nn_hold_.nn_run(best_hyp['hidden_dim'], num_epoch, best_hyp['learningrate_'], best_hyp['lrdecay_'],
-                              best_hyp['weightdecay_'], num_classes, X_train, y_train)
+        tr_acc, tr_prec, tr_reca, tr_f1 = eval(" ", " ", test_precs, model_name,
+                                               X_train, y_train, net, svm, f, tr_=True)
 
-        X_test, y_test, num_classes = read_files(tes_dir, model_name)
-        tes_eval = eval(tr_dir, "hpopt", test_precs, model_name,
-                        X_test, y_test, net, svm, f, tr_=False)
-
-        tmp = 'Acc, prec, recal, f1 of best hyp on tes are {}\n'.format(tes_eval)
+        tmp = 'Acc, prec, recal, f1 on tr for Hyperopt are ' \
+              '{}, {}, {}, {} \n'.format(tr_acc, tr_prec, tr_reca, tr_f1)
         print(tmp)
         f.write(tmp)
 
+        X_test, y_test, num_classes = read_files(tes_dir, model_name)
+        tes_acc, tes_prec, tes_reca, tes_f1 = eval(" ", " ", test_precs, model_name,
+                        X_test, y_test, net, svm, f, tr_=False)
+
+        tmp = 'Acc, prec, recal, f1 of BEST hyp on tes are {}\n'.format(tes_eval)
+        print(tmp)
+        f.write(tmp)
+
+        if model_name == "nn":
+            row = ["hyperopt", hidden_dim, learningrate_,
+                   lrdecay_, weightdecay_, data_ave, data_std,
+                   tr_acc, tr_prec, tr_reca, tr_f1, "", tes_acc, tes_prec, tes_reca, tes_f1, "",
+                   bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
+            writer_f_all.writerow(row)
+
     elif hype_given:
-
-
         hidden_dim = 134
         learningrate_ = 0.0467821978480138
         lrdecay_ = 0.0742889052103925
@@ -598,6 +678,7 @@ if __name__ == "__main__":
         nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
 
         print("train started on {}".format(tr_dir))
+
         net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_,
                               weightdecay_, num_classes, X_train, y_train)
 
@@ -611,7 +692,7 @@ if __name__ == "__main__":
         f.write(str(tmp))
 
         if model_name == "nn":
-            row = ["whole tr", hidden_dim, learningrate_, lrdecay_, weightdecay_, data_ave, data_std,
+            row = ["whole tr, hyp given", hidden_dim, learningrate_, lrdecay_, weightdecay_, data_ave, data_std,
                    tr_acc, tr_prec, tr_reca, tr_f1, "", " ", " ", " ", " ", "",
                    bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
             writer_f_all.writerow(row)
@@ -668,7 +749,7 @@ if __name__ == "__main__":
             if model_name == "nn":
                 row = [day_prec, hidden_dim, learningrate_,
                        lrdecay_, weightdecay_, data_ave, data_std,
-                       " ", " ", " ", " ", "", tes_acc, tes_prec, tes_reca, tes_f1, "",
+                       tr_acc, tr_prec, tr_reca, tr_f1, "", tes_acc, tes_prec, tes_reca, tes_f1, "",
                        bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
                 writer_f_all.writerow(row)
 
@@ -720,7 +801,7 @@ if __name__ == "__main__":
             X_train, y_train = None, None
 
             # tes acc
-            tes_acc, tes_prec, tes_reca, tes_f1  = eval(divide_files_dir, division_num, test_precs, model_name,
+            tes_acc, tes_prec, tes_reca, tes_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
                  X_test, y_test, net, svm, f, tr_=False)
 
             tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)

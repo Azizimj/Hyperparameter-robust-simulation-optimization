@@ -16,25 +16,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/All_models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="997">
-              <caret line="517" column="28" selection-start-line="517" selection-start-column="16" selection-end-line="517" selection-end-column="28" />
+            <state relative-caret-position="242">
+              <caret line="653" selection-start-line="653" selection-end-line="653" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#1060#1079#0" />
                 <element signature="e#1066#1226#0" />
                 <element signature="e#1277#2045#0" />
-                <element signature="e#1589#1962#0" />
-                <element signature="e#1616#1962#0" />
-                <element signature="e#1840#1962#0" />
                 <element signature="e#2070#2138#0" />
                 <element signature="e#2106#2138#0" />
                 <element signature="e#2188#3474#0" />
-                <element signature="e#2492#3373#0" />
-                <element signature="e#2519#3373#0" />
                 <element signature="e#2932#3089#0" />
                 <element signature="e#3211#3373#0" />
                 <element signature="e#3574#4329#0" />
-                <element signature="e#3788#4559#0" />
                 <element signature="e#4488#4559#0" />
                 <element signature="e#4139#4185#0" />
                 <element signature="e#4366#4586#0" />
@@ -46,7 +40,6 @@
                 <element signature="e#5759#5834#0" />
                 <element signature="e#5981#7672#0" />
                 <element signature="e#6649#6657#0" />
-                <element signature="e#6713#6750#0" />
                 <element signature="e#6607#7198#0" />
                 <element signature="e#6738#6819#0" />
                 <element signature="e#6865#6970#0" />
@@ -55,11 +48,16 @@
                 <element signature="e#8160#8227#0" />
                 <element signature="e#7734#9864#0" />
                 <element signature="e#7822#7996#0" />
-                <element signature="e#8624#10865#0" />
                 <element signature="e#8107#8117#0" />
-                <element signature="e#8662#8706#0" />
+                <element signature="e#9713#11292#0" />
+                <element signature="e#9851#9895#0" />
+                <element signature="e#10385#10576#0" />
+                <element signature="e#10611#11561#0" />
+                <element signature="e#10611#10683#0" />
+                <element signature="e#11047#11072#0" />
+                <element signature="e#11177#11210#0" />
+                <element signature="e#10111#10152#0" />
                 <element signature="e#8877#9056#0" />
-                <element signature="e#9083#9964#0" />
                 <element signature="e#10151#10223#0" />
                 <element signature="e#9479#9504#0" />
                 <element signature="e#9505#9538#0" />
@@ -69,8 +67,9 @@
                 <element signature="e#11424#11450#0" />
                 <element signature="e#12537#12937#0" />
                 <element signature="e#13152#13631#0" />
-                <element signature="e#13866#13933#0" />
                 <element signature="e#13852#13870#0" />
+                <element signature="e#13881#13888#0" />
+                <element signature="e#13975#13976#0" />
                 <element signature="e#8809#8922#0" />
                 <element signature="e#8968#9021#0" />
                 <element signature="e#9027#9080#0" />
@@ -79,15 +78,24 @@
                 <element signature="e#15455#15463#0" />
                 <element signature="e#15749#15764#0" />
                 <element signature="e#16916#16937#0" />
-                <element signature="e#16981#18834#0" />
+                <element signature="e#16785#19378#0" />
                 <element signature="e#17222#17308#0" />
                 <element signature="e#17053#17344#0" />
                 <element signature="e#18223#18302#0" />
-                <element signature="e#19045#21249#0" />
-                <element signature="e#20126#21373#0" />
+                <element signature="e#19553#19635#0" />
+                <element signature="e#19060#19378#0" />
+                <element signature="e#19564#19839#0" />
+                <element signature="e#19935#24085#0" />
+                <element signature="e#19649#19780#0" />
+                <element signature="e#20187#20285#0" />
+                <element signature="e#21552#21860#0" />
+                <element signature="e#21558#21821#0" />
                 <element signature="e#20257#20942#0" />
                 <element signature="e#20834#20942#0" />
-                <element signature="e#21410#23873#0" />
+                <element signature="e#22031#22166#0" />
+                <element signature="e#22150#22252#0" />
+                <element signature="e#21710#21981#0" />
+                <element signature="e#22964#25580#0" />
                 <element signature="e#21579#23873#0" />
                 <element signature="e#10512#10527#0" />
                 <element signature="e#10926#11047#0" />
@@ -133,6 +141,9 @@
       <find>hp</find>
       <find>int</find>
       <find>eval</find>
+      <find>.csv</find>
+      <find>f_all</find>
+      <find>copyfile</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -614,7 +625,28 @@
       <option name="project" value="LOCAL" />
       <updated>1566767323517</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="hype given">
+      <created>1566770312966</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1566770312966</updated>
+    </task>
+    <task id="LOCAL-00043" summary="hype given">
+      <created>1566770333647</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1566770333647</updated>
+    </task>
+    <task id="LOCAL-00044" summary="hype given csv corrected">
+      <created>1566773981679</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1566773981679</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -626,13 +658,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.14075287" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.25859246" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16366611" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.17184943" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.22094926" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -668,7 +700,19 @@
     <MESSAGE value="hpopt finished" />
     <MESSAGE value="no csv results on res" />
     <MESSAGE value="hype given" />
-    <option name="LAST_COMMIT_MESSAGE" value="hype given" />
+    <MESSAGE value="hype given csv corrected" />
+    <option name="LAST_COMMIT_MESSAGE" value="hype given csv corrected" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/All_models.py</url>
+          <line>101</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -687,47 +731,47 @@ scipy.stats.skew(X_train)</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>y_test</expression-string>
+        <expression-string>os.listdir(images_dir+&quot;/&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>X_test</expression-string>
+        <expression-string>os.listdir(images_dir)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>extract_feature(tes_dir + class_fldr+&quot;/&quot;+image)</expression-string>
+        <expression-string>[(root, dirs, files) for root, dirs, files in os.walk(images_dir+&quot;/&quot;)]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tes_dir + class_fldr+image</expression-string>
+        <expression-string>[root, dirs, files for root, dirs, files in os.walk(images_dir+&quot;/&quot;)]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>extract_feature(tes_dir + class_fldr+image)</expression-string>
+        <expression-string>for root, dirs, files in os.walk(images_dir+&quot;/&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>extract_feature(image)</expression-string>
+        <expression-string>root, dirs, files in os.walk(images_dir+&quot;/&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tes_dir + class_fldr</expression-string>
+        <expression-string>os.walk(images_dir+&quot;/&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>f.write(str(tes_eval))</expression-string>
+        <expression-string>train_ds.batches(&quot;batches&quot;, n=batch_size)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(label_list)</expression-string>
+        <expression-string>train_ds.batches(&quot;batches&quot;, n=-batch_size)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -962,25 +1006,19 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/All_models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="997">
-          <caret line="517" column="28" selection-start-line="517" selection-start-column="16" selection-end-line="517" selection-end-column="28" />
+        <state relative-caret-position="242">
+          <caret line="653" selection-start-line="653" selection-end-line="653" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#1060#1079#0" />
             <element signature="e#1066#1226#0" />
             <element signature="e#1277#2045#0" />
-            <element signature="e#1589#1962#0" />
-            <element signature="e#1616#1962#0" />
-            <element signature="e#1840#1962#0" />
             <element signature="e#2070#2138#0" />
             <element signature="e#2106#2138#0" />
             <element signature="e#2188#3474#0" />
-            <element signature="e#2492#3373#0" />
-            <element signature="e#2519#3373#0" />
             <element signature="e#2932#3089#0" />
             <element signature="e#3211#3373#0" />
             <element signature="e#3574#4329#0" />
-            <element signature="e#3788#4559#0" />
             <element signature="e#4488#4559#0" />
             <element signature="e#4139#4185#0" />
             <element signature="e#4366#4586#0" />
@@ -992,7 +1030,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#5759#5834#0" />
             <element signature="e#5981#7672#0" />
             <element signature="e#6649#6657#0" />
-            <element signature="e#6713#6750#0" />
             <element signature="e#6607#7198#0" />
             <element signature="e#6738#6819#0" />
             <element signature="e#6865#6970#0" />
@@ -1001,11 +1038,16 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#8160#8227#0" />
             <element signature="e#7734#9864#0" />
             <element signature="e#7822#7996#0" />
-            <element signature="e#8624#10865#0" />
             <element signature="e#8107#8117#0" />
-            <element signature="e#8662#8706#0" />
+            <element signature="e#9713#11292#0" />
+            <element signature="e#9851#9895#0" />
+            <element signature="e#10385#10576#0" />
+            <element signature="e#10611#11561#0" />
+            <element signature="e#10611#10683#0" />
+            <element signature="e#11047#11072#0" />
+            <element signature="e#11177#11210#0" />
+            <element signature="e#10111#10152#0" />
             <element signature="e#8877#9056#0" />
-            <element signature="e#9083#9964#0" />
             <element signature="e#10151#10223#0" />
             <element signature="e#9479#9504#0" />
             <element signature="e#9505#9538#0" />
@@ -1015,8 +1057,9 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#11424#11450#0" />
             <element signature="e#12537#12937#0" />
             <element signature="e#13152#13631#0" />
-            <element signature="e#13866#13933#0" />
             <element signature="e#13852#13870#0" />
+            <element signature="e#13881#13888#0" />
+            <element signature="e#13975#13976#0" />
             <element signature="e#8809#8922#0" />
             <element signature="e#8968#9021#0" />
             <element signature="e#9027#9080#0" />
@@ -1025,15 +1068,24 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#15455#15463#0" />
             <element signature="e#15749#15764#0" />
             <element signature="e#16916#16937#0" />
-            <element signature="e#16981#18834#0" />
+            <element signature="e#16785#19378#0" />
             <element signature="e#17222#17308#0" />
             <element signature="e#17053#17344#0" />
             <element signature="e#18223#18302#0" />
-            <element signature="e#19045#21249#0" />
-            <element signature="e#20126#21373#0" />
+            <element signature="e#19553#19635#0" />
+            <element signature="e#19060#19378#0" />
+            <element signature="e#19564#19839#0" />
+            <element signature="e#19935#24085#0" />
+            <element signature="e#19649#19780#0" />
+            <element signature="e#20187#20285#0" />
+            <element signature="e#21552#21860#0" />
+            <element signature="e#21558#21821#0" />
             <element signature="e#20257#20942#0" />
             <element signature="e#20834#20942#0" />
-            <element signature="e#21410#23873#0" />
+            <element signature="e#22031#22166#0" />
+            <element signature="e#22150#22252#0" />
+            <element signature="e#21710#21981#0" />
+            <element signature="e#22964#25580#0" />
             <element signature="e#21579#23873#0" />
             <element signature="e#10512#10527#0" />
             <element signature="e#10926#11047#0" />
