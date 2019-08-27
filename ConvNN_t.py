@@ -244,9 +244,12 @@ class CNN(nn.Module):
 
         self.im_size = im_size
         self.krnl_1 = krnl_1 # 3
-        self.krnl_2 = krnl_2 # 5
+        # self.krnl_2 = krnl_2 # 5
+        self.cnn1_out_dim = im_size+2-krnl_1+1  # floor((H_in +2 * Padding -krnl)/stride)+1)
+        self.krnl_2 = min(krnl_2, max(self.cnn1_out_dim-10, 1)  ) # to control the krnl size
         self.mx_krnl_1 = mx_krnl_1 #2
         self.mx_krnl_2 = mx_krnl_2 #2
+        self.cnn2_out_dim = self.cnn1_out_dim/self.mx_krnl_1+4-self.krnl_2+1
 
         self.out_cnn1 = 8
         self.cnn1 = nn.Conv2d(in_channels=3, out_channels=self.out_cnn1, kernel_size=self.krnl_1, stride=1, padding=1)
@@ -255,13 +258,14 @@ class CNN(nn.Module):
         self.maxpool1 = nn.MaxPool2d(kernel_size=self.mx_krnl_1)  # Maxpooling reduces the size by kernel size. 64/2 = 32
 
         self.out_cnn2 = 32
+
         self.cnn2 = nn.Conv2d(in_channels=8, out_channels=self.out_cnn2, kernel_size=self.krnl_2, stride=1, padding=2)
         self.batchnorm2 = nn.BatchNorm2d(self.out_cnn2)
         self.maxpool2 = nn.MaxPool2d(kernel_size=self.mx_krnl_2)  # Size now is 32/2 = 16
 
         # Flatten the feature maps. You have 32 feature mapsfrom cnn2. Each of the feature is
         # of size 16x16 --> 32*16*16 = 8192
-        sq_image_size = int(self.im_size/ self.mx_krnl_1 / self.mx_krnl_2)
+        sq_image_size = int(self.cnn2_out_dim/ self.mx_krnl_2)
         self.in_features_size = int(self.out_cnn2* sq_image_size**2)
         self.fc1 = nn.Linear(in_features=self.in_features_size,
                              out_features=4000)  # Flattened image is fed into linear NN and reduced to half size
@@ -280,7 +284,7 @@ class CNN(nn.Module):
 
     def forward(self, x):
         out = self.cnn1(x)
-        out = self.batchnorm1(out)
+        out = self.batchnorm1(out) #
         out = self.relu(out)
         out = self.maxpool1(out)
         out = self.cnn2(out)

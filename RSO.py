@@ -815,13 +815,13 @@ if __name__ == "__main__":
 
             if model_name == 'nn':
                 im_size = 64
-                batch_size = df['batch_size'][division_num]  # [50 - 400]
-                lr = df['lr'][division_num] # 0.0001 # [1e-4, 1e-2]
-                krnl_1= df['krnl_1'][division_num] #3  # [2, 20]
-                krnl_2= krnl_1 + 2 # 5 # [2, 40]
+                batch_size = int(df['batch_size'][division_num])  # [50 - 400]
+                lr = float(df['lr'][division_num]) # 0.0001 # [1e-4, 1e-2]
+                krnl_1= 3  # [2, 40]
+                krnl_2= int(df['krnl_1'][division_num])# 5 # [2, 40]
                 mx_krnl_1= 2 # [2, 4]
                 mx_krnl_2= 2 # [2, 8]
-                num_epochs = df['num_epochs'][division_num] # 2 # [5, 40]
+                num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()
@@ -874,7 +874,7 @@ if __name__ == "__main__":
                 row = [tr_data_ave, tr_data_std, tr_acc, "", tes_data_ave, tes_data_std, tes_acc, num_epochs]
                 writer_f_all.writerow(row)
 
-            print("division {} is done".format(division_num))
+            print("division {} is done \n".format(division_num))
             division_num += 1
 
 

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConvNN_t.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConvNN_t.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="713" column="41" selection-start-line="713" selection-start-column="41" selection-end-line="713" selection-end-column="41" />
+            <state relative-caret-position="181">
+              <caret line="878" lean-forward="true" selection-start-line="878" selection-end-line="878" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#544#549#0" />
@@ -45,6 +46,7 @@
                 <element signature="e#5406#6649#0" />
                 <element signature="e#5406#5427#0" />
                 <element signature="e#5675#6598#0" />
+                <element signature="e#5747#6598#0" />
                 <element signature="e#6523#6598#0" />
                 <element signature="e#6746#8503#0" />
                 <element signature="e#6746#6754#0" />
@@ -63,9 +65,11 @@
                 <element signature="e#21890#22369#0" />
                 <element signature="e#22682#22700#0" />
                 <element signature="e#17798#17807#0" />
+                <element signature="e#18459#18486#0" />
                 <element signature="e#23687#23800#0" />
                 <element signature="e#23846#23899#0" />
                 <element signature="e#23905#23958#0" />
+                <element signature="e#24586#24711#0" />
                 <element signature="e#24717#24819#0" />
                 <element signature="e#24999#25007#0" />
                 <element signature="e#19890#19898#0" />
@@ -77,9 +81,14 @@
                 <element signature="e#27667#27749#0" />
                 <element signature="e#28217#28550#0" />
                 <element signature="e#28223#28511#0" />
-                <element signature="e#30013#30112#0" />
+                <element signature="e#23567#28755#0" />
+                <element signature="e#23567#23585#0" />
+                <element signature="e#24159#24223#0" />
+                <element signature="e#25197#25286#0" />
+                <element signature="e#25345#25482#0" />
+                <element signature="e#25505#25522#0" />
                 <element signature="e#30242#30550#0" />
-                <element signature="e#30248#30511#0" />
+                <element signature="e#26110#26212#0" />
                 <element signature="e#30750#32775#0" />
                 <element signature="e#30881#31566#0" />
                 <element signature="e#31458#31566#0" />
@@ -87,11 +96,7 @@
                 <element signature="e#32171#32268#0" />
                 <element signature="e#32428#32775#0" />
                 <element signature="e#32434#32732#0" />
-                <element signature="e#33377#33392#0" />
-                <element signature="e#28347#28362#0" />
-                <element signature="e#28723#28755#0" />
                 <element signature="e#29583#29664#0" />
-                <element signature="e#29707#29828#0" />
                 <element signature="e#29980#29988#0" />
                 <element signature="e#30591#30600#0" />
                 <element signature="e#35228#35545#0" />
@@ -104,9 +109,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="188" column="65" selection-start-line="188" selection-start-column="65" selection-end-line="188" selection-end-column="65" />
+            <state relative-caret-position="429">
+              <caret line="267" column="62" lean-forward="true" selection-start-line="267" selection-start-column="62" selection-end-line="267" selection-end-column="62" />
               <folding>
+                <element signature="e#293#8422#0" />
                 <element signature="e#396#1550#0" />
                 <element signature="e#321#745#0" />
                 <element signature="e#1302#1384#0" />
@@ -128,11 +134,8 @@
                 <element signature="e#7285#8180#0" />
                 <element signature="e#7890#7943#0" />
                 <element signature="e#8263#8364#0" />
-                <element signature="e#3106#5607#0" />
-                <element signature="e#3134#4674#0" />
                 <element signature="e#9766#9852#0" />
                 <element signature="e#10737#10787#0" />
-                <element signature="e#4710#5607#0" />
               </folding>
             </state>
           </provider>
@@ -380,20 +383,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00001" summary="cited the ref">
-      <created>1565038755319</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1565038755319</updated>
-    </task>
-    <task id="LOCAL-00002" summary="initial">
-      <created>1565039212478</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1565039212478</updated>
     </task>
     <task id="LOCAL-00003" summary="all models.py">
       <created>1565040723250</created>
@@ -724,7 +713,21 @@
       <option name="project" value="LOCAL" />
       <updated>1566870944292</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="divide with new">
+      <created>1566930410110</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1566930410110</updated>
+    </task>
+    <task id="LOCAL-00051" summary="RSO use in new">
+      <created>1566942800106</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1566942800106</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TodoView">
@@ -745,8 +748,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.10638298" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.060556464" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.49918166" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.23076923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
@@ -763,8 +766,6 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="initial" />
-    <MESSAGE value="all models.py" />
     <MESSAGE value="hyp figed" />
     <MESSAGE value="set seed and hyps" />
     <MESSAGE value="sample folder build" />
@@ -788,7 +789,9 @@
     <MESSAGE value="hype given" />
     <MESSAGE value="hype given csv corrected" />
     <MESSAGE value="pytorch added" />
-    <option name="LAST_COMMIT_MESSAGE" value="pytorch added" />
+    <MESSAGE value="divide with new" />
+    <MESSAGE value="RSO use in new" />
+    <option name="LAST_COMMIT_MESSAGE" value="RSO use in new" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -807,6 +810,11 @@
           <url>file://$PROJECT_DIR$/ConvNN_t.py</url>
           <line>178</line>
           <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ConvNN_t.py</url>
+          <line>289</line>
+          <option name="timeStamp" value="117" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -841,47 +849,47 @@ scipy.stats.skew(X_train)</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>df['day prec']</expression-string>
+        <expression-string>out</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>df</expression-string>
+        <expression-string>self.cnn1(x)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(tr_data_ave / len(self.train_dataset)).item()</expression-string>
+        <expression-string>x</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(tr_data_ave / len(self.train_dataset)).sum()</expression-string>
+        <expression-string>(self.im_size+4)/ self.krnl_1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tr_data_ave / len(self.train_dataset)</expression-string>
+        <expression-string>self.krnl_1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>1.3347/len(self.train_dataset)</expression-string>
+        <expression-string>im_size+4/ self.krnl_1</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(self.train_dataset)</expression-string>
+        <expression-string>self.batchnorm1(x)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>tr_data_ave</expression-string>
+        <expression-string>self.batchnorm1(self.cnn1(x))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>1.3347/125</expression-string>
+        <expression-string>min(1,2)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1279,11 +1287,26 @@ scipy.stats.skew(X_train)</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://E:/program/Anaconda/envs/tf_2/Lib/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="2898" selection-start-line="2898" selection-end-line="2898" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/program/Anaconda/envs/tf_2/Lib/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="546" selection-start-line="546" selection-end-line="546" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="188" column="65" selection-start-line="188" selection-start-column="65" selection-end-line="188" selection-end-column="65" />
+        <state relative-caret-position="429">
+          <caret line="267" column="62" lean-forward="true" selection-start-line="267" selection-start-column="62" selection-end-line="267" selection-end-column="62" />
           <folding>
+            <element signature="e#293#8422#0" />
             <element signature="e#396#1550#0" />
             <element signature="e#321#745#0" />
             <element signature="e#1302#1384#0" />
@@ -1305,19 +1328,16 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#7285#8180#0" />
             <element signature="e#7890#7943#0" />
             <element signature="e#8263#8364#0" />
-            <element signature="e#3106#5607#0" />
-            <element signature="e#3134#4674#0" />
             <element signature="e#9766#9852#0" />
             <element signature="e#10737#10787#0" />
-            <element signature="e#4710#5607#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="713" column="41" selection-start-line="713" selection-start-column="41" selection-end-line="713" selection-end-column="41" />
+        <state relative-caret-position="181">
+          <caret line="878" lean-forward="true" selection-start-line="878" selection-end-line="878" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#544#549#0" />
@@ -1345,6 +1365,7 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#5406#6649#0" />
             <element signature="e#5406#5427#0" />
             <element signature="e#5675#6598#0" />
+            <element signature="e#5747#6598#0" />
             <element signature="e#6523#6598#0" />
             <element signature="e#6746#8503#0" />
             <element signature="e#6746#6754#0" />
@@ -1363,9 +1384,11 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#21890#22369#0" />
             <element signature="e#22682#22700#0" />
             <element signature="e#17798#17807#0" />
+            <element signature="e#18459#18486#0" />
             <element signature="e#23687#23800#0" />
             <element signature="e#23846#23899#0" />
             <element signature="e#23905#23958#0" />
+            <element signature="e#24586#24711#0" />
             <element signature="e#24717#24819#0" />
             <element signature="e#24999#25007#0" />
             <element signature="e#19890#19898#0" />
@@ -1377,9 +1400,14 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#27667#27749#0" />
             <element signature="e#28217#28550#0" />
             <element signature="e#28223#28511#0" />
-            <element signature="e#30013#30112#0" />
+            <element signature="e#23567#28755#0" />
+            <element signature="e#23567#23585#0" />
+            <element signature="e#24159#24223#0" />
+            <element signature="e#25197#25286#0" />
+            <element signature="e#25345#25482#0" />
+            <element signature="e#25505#25522#0" />
             <element signature="e#30242#30550#0" />
-            <element signature="e#30248#30511#0" />
+            <element signature="e#26110#26212#0" />
             <element signature="e#30750#32775#0" />
             <element signature="e#30881#31566#0" />
             <element signature="e#31458#31566#0" />
@@ -1387,11 +1415,7 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#32171#32268#0" />
             <element signature="e#32428#32775#0" />
             <element signature="e#32434#32732#0" />
-            <element signature="e#33377#33392#0" />
-            <element signature="e#28347#28362#0" />
-            <element signature="e#28723#28755#0" />
             <element signature="e#29583#29664#0" />
-            <element signature="e#29707#29828#0" />
             <element signature="e#29980#29988#0" />
             <element signature="e#30591#30600#0" />
             <element signature="e#35228#35545#0" />
