@@ -28,17 +28,18 @@ from sklearn.model_selection import train_test_split
 import _pickle as pickle  # from python2 to 3
 import random
 from random import sample
-from pybrain.datasets import SupervisedDataSet
-from pybrain.tools.shortcuts import buildNetwork
-from pybrain.supervised.trainers import BackpropTrainer
-from pybrain.structure.modules import SoftmaxLayer, TanhLayer, \
-    SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
+## PY
+# from pybrain.datasets import SupervisedDataSet
+# from pybrain.tools.shortcuts import buildNetwork
+# from pybrain.supervised.trainers import BackpropTrainer
+# from pybrain.structure.modules import SoftmaxLayer, TanhLayer, \
+#     SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
 from sklearn import preprocessing
 import pandas as pd
 from shutil import copyfile
 ##hyp
-from hyperopt import hp
-from hyperopt import fmin, tpe, space_eval
+# from hyperopt import hp
+# from hyperopt import fmin, tpe, space_eval
 ##
 import csv
 
@@ -47,7 +48,7 @@ import csv
 # import torch.nn as nn
 # import torch.nn.functional as F
 
-import ConvNN_t as CNN
+import ConvNN_t
 
 random.seed(30)
 np.random.seed(110)
@@ -289,123 +290,123 @@ def eval(divide_files_dir, division_num, test_precs, model_name, X, Y, net, svm,
     return acc, prec, recall, f1
 
 
-class nn_hold():
-    def __init__(self, bias_, hiddenclass_, outclass_, momentum_, batchlearning_ ):
-        self.bias_ = bias_
-        self.hiddenclass_ = hiddenclass_
-        self.outclass_ = outclass_
-        self.momentum_ = momentum_
-        self.batchlearning_ = batchlearning_
-
-    def nn_run(self, hidden_dim, num_epoch, learningrate_, lrdecay_, weightdecay_, num_classes, X_train, y_train):
-        # # NN HYP
-        # # hidden_dim = 100
-        # bias_ = True
-        # # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
-        # hiddenclass_ = TanhLayer
-        # outclass_ = SoftmaxLayer
-        # # num_epoch = 4
-        # # if len(sys.argv)>0:
-        # #     num_epoch = int(sys.argv[1])
-        # # learningrate_ = 0.01
-        # # lrdecay_ = 1.0
-        # momentum_ = 0.1
-        # batchlearning_ = False
-        # # weightdecay_ = 0.01
-        # # NN HYP
-
-        net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, hidden_dim,
-                           num_classes, bias=self.bias_, hiddenclass=self.hiddenclass_, outclass=self.outclass_)
-
-        train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
-        test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
-
-        if batch_size ==0:
-            # for feature, label in zip(X_train, y_train):
-            for feature, label in zip(X_train, y_train):
-                train_ds.addSample(feature, label)
-
-            # for feature, label in zip(X_test, y_test):
-            #     test_ds.addSample(feature, label)
-
-            # checking for model
-            if os.path.isfile("models/" + model_name + ".pkl"):
-                tmp = "Using previous " + model_name + " model...\n"
-                print(tmp)
-                f.write(tmp)
-                trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
-            else:
-                # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
-                # print(tmp)
-                # f.write(tmp)
-                trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
-                                          momentum=self.momentum_, verbose=True, batchlearning=self.batchlearning_,
-                                          weightdecay=weightdecay_)
-                # different trainig calls
-                # trainer.train()
-                trainer.trainEpochs(epochs=num_epoch)
-                # trainer.trainOnDataset(dataset)
-                # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
-                #                               verbose=None, continueEpochs=10, validationProportion=0.25)
-                # different trainig calls
-
-                # print("Saving model")
-                # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
-        elif batch_size>0:
-            trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
-                                      momentum=self.momentum_, verbose=True,
-                                      batchlearning=self.batchlearning_,
-                                      weightdecay=weightdecay_)
-            for epoch in range(num_epoch):
-                print("\n epoch {}".format(epoch))
-                for i in range(X_train.shape[0] // batch_size):
-                    X_ = X_train[i * batch_size:(i + 1) * batch_size][:]
-                    y_ = y_train[i * batch_size:(i + 1) * batch_size]
-
-                    tmp = "epoch {}, batch {}".format(epoch, i)
-                    print(tmp)
-                    f.write(tmp)
-
-                    train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
-
-                    for feature, label in zip(X_, y_):
-                        train_ds.addSample(feature, label)
-
-                    # train_ds.batches("batches", batch_size)
-
-                    # for feature, label in zip(X_test, y_test):
-                    #     test_ds.addSample(feature, label)
-
-                    # checking for model
-                    if os.path.isfile("models/" + model_name + ".pkl"):
-                        tmp = "Using previous " + model_name + " model...\n"
-                        print(tmp)
-                        f.write(tmp)
-                        trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
-                    else:
-                        # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
-                        # print(tmp)
-                        # f.write(tmp)
-                        # trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
-                        #                           momentum=self.momentum_, verbose=True,
-                        #                           batchlearning=self.batchlearning_,
-                        #                           weightdecay=weightdecay_)
-                        # different trainig calls
-                        # trainer.train()
-                        trainer.trainOnDataset(train_ds)
-                        # trainer.trainOnDataset(dataset)
-                        # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
-                        #                               verbose=None, continueEpochs=10, validationProportion=0.25)
-                        # different trainig calls
-
-                        # print("Saving model")
-                        # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
-
-                    # tmp = eval(" ", " ", test_precs, model_name,
-                    #            X_train, y_train, net, svm, f, tr_=True)
-                    # print("eval {}".format(tmp))
-
-        return net
+# class nn_hold():
+#     def __init__(self, bias_, hiddenclass_, outclass_, momentum_, batchlearning_ ):
+#         self.bias_ = bias_
+#         self.hiddenclass_ = hiddenclass_
+#         self.outclass_ = outclass_
+#         self.momentum_ = momentum_
+#         self.batchlearning_ = batchlearning_
+#
+#     def nn_run(self, hidden_dim, num_epoch, learningrate_, lrdecay_, weightdecay_, num_classes, X_train, y_train):
+#         # # NN HYP
+#         # # hidden_dim = 100
+#         # bias_ = True
+#         # # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
+#         # hiddenclass_ = TanhLayer
+#         # outclass_ = SoftmaxLayer
+#         # # num_epoch = 4
+#         # # if len(sys.argv)>0:
+#         # #     num_epoch = int(sys.argv[1])
+#         # # learningrate_ = 0.01
+#         # # lrdecay_ = 1.0
+#         # momentum_ = 0.1
+#         # batchlearning_ = False
+#         # # weightdecay_ = 0.01
+#         # # NN HYP
+#
+#         net = buildNetwork(SHAPE[0] * SHAPE[1] * 3, hidden_dim,
+#                            num_classes, bias=self.bias_, hiddenclass=self.hiddenclass_, outclass=self.outclass_)
+#
+#         train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
+#         test_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
+#
+#         if batch_size ==0:
+#             # for feature, label in zip(X_train, y_train):
+#             for feature, label in zip(X_train, y_train):
+#                 train_ds.addSample(feature, label)
+#
+#             # for feature, label in zip(X_test, y_test):
+#             #     test_ds.addSample(feature, label)
+#
+#             # checking for model
+#             if os.path.isfile("models/" + model_name + ".pkl"):
+#                 tmp = "Using previous " + model_name + " model...\n"
+#                 print(tmp)
+#                 f.write(tmp)
+#                 trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
+#             else:
+#                 # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
+#                 # print(tmp)
+#                 # f.write(tmp)
+#                 trainer = BackpropTrainer(net, train_ds, learningrate=learningrate_, lrdecay=lrdecay_,
+#                                           momentum=self.momentum_, verbose=True, batchlearning=self.batchlearning_,
+#                                           weightdecay=weightdecay_)
+#                 # different trainig calls
+#                 # trainer.train()
+#                 trainer.trainEpochs(epochs=num_epoch)
+#                 # trainer.trainOnDataset(dataset)
+#                 # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
+#                 #                               verbose=None, continueEpochs=10, validationProportion=0.25)
+#                 # different trainig calls
+#
+#                 # print("Saving model")
+#                 # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+#         elif batch_size>0:
+#             trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
+#                                       momentum=self.momentum_, verbose=True,
+#                                       batchlearning=self.batchlearning_,
+#                                       weightdecay=weightdecay_)
+#             for epoch in range(num_epoch):
+#                 print("\n epoch {}".format(epoch))
+#                 for i in range(X_train.shape[0] // batch_size):
+#                     X_ = X_train[i * batch_size:(i + 1) * batch_size][:]
+#                     y_ = y_train[i * batch_size:(i + 1) * batch_size]
+#
+#                     tmp = "epoch {}, batch {}".format(epoch, i)
+#                     print(tmp)
+#                     f.write(tmp)
+#
+#                     train_ds = SupervisedDataSet(SHAPE[0] * SHAPE[1] * 3, num_classes)
+#
+#                     for feature, label in zip(X_, y_):
+#                         train_ds.addSample(feature, label)
+#
+#                     # train_ds.batches("batches", batch_size)
+#
+#                     # for feature, label in zip(X_test, y_test):
+#                     #     test_ds.addSample(feature, label)
+#
+#                     # checking for model
+#                     if os.path.isfile("models/" + model_name + ".pkl"):
+#                         tmp = "Using previous " + model_name + " model...\n"
+#                         print(tmp)
+#                         f.write(tmp)
+#                         trainer = pickle.load(open("models/" + model_name + ".pkl", "rb"))
+#                     else:
+#                         # tmp = "Training " + model_name + " on set " + str(division_num) + "\n"
+#                         # print(tmp)
+#                         # f.write(tmp)
+#                         # trainer = BackpropTrainer(net, learningrate=learningrate_, lrdecay=lrdecay_,
+#                         #                           momentum=self.momentum_, verbose=True,
+#                         #                           batchlearning=self.batchlearning_,
+#                         #                           weightdecay=weightdecay_)
+#                         # different trainig calls
+#                         # trainer.train()
+#                         trainer.trainOnDataset(train_ds)
+#                         # trainer.trainOnDataset(dataset)
+#                         # trainer.trainUntilConvergence(dataset=None, maxEpochs=None,
+#                         #                               verbose=None, continueEpochs=10, validationProportion=0.25)
+#                         # different trainig calls
+#
+#                         # print("Saving model")
+#                         # pickle.dump(trainer, open("models/"+ model_name+ ".pkl", "wb"))
+#
+#                     # tmp = eval(" ", " ", test_precs, model_name,
+#                     #            X_train, y_train, net, svm, f, tr_=True)
+#                     # print("eval {}".format(tmp))
+#
+#         return net
 
 
 def svm_run(X_train, y_train):
@@ -467,7 +468,7 @@ if __name__ == "__main__":
     divide_file = False
     hyperopt_use = False
     hype_given = False
-    RSO_use = False
+    RSO_use = True
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -575,17 +576,17 @@ if __name__ == "__main__":
 
     # NN HYP
     # hidden_dim = 100
-    bias_ = True
-    # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
-    hiddenclass_ = TanhLayer
-    outclass_ = SoftmaxLayer
-    # num_epoch = 4
-    # if len(sys.argv)>0:
-    #     num_epoch = int(sys.argv[1])
-    # learningrate_ = 0.01
-    # lrdecay_ = 1.0
-    momentum_ = 0.1
-    batchlearning_ = True
+    # bias_ = True
+    # # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
+    # hiddenclass_ = TanhLayer
+    # outclass_ = SoftmaxLayer
+    # # num_epoch = 4
+    # # if len(sys.argv)>0:
+    # #     num_epoch = int(sys.argv[1])
+    # # learningrate_ = 0.01
+    # # lrdecay_ = 1.0
+    # momentum_ = 0.1
+    # batchlearning_ = True
     # weightdecay_ = 0.01
     # NN HYP
 
@@ -773,33 +774,49 @@ if __name__ == "__main__":
 
         df = pd.read_csv(points_list_file)
         X_test, y_test, num_classes = read_files(tes_dir, model_name)
+
+        test_dataset = None
+        test_load = None
+
         for tr_dir in os.listdir(divide_files_dir):
             if tr_dir == "res" or division_num>len(df['hidden-dim']):
                 continue
             # print(tr_dir)
             # read tr
-            X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
+            # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
 
-            hidden_dim = df['hidden-dim'][division_num]
-            learningrate_ = df['learningrate'][division_num]
-            lrdecay_ = df['Irdecay'][division_num]
-            weightdecay_ = df['weightdecay'][division_num]
-            # data_ave = np.average(X_train)
-            X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
-                                     X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
-            data_ave = np.average(X_sample)
-            data_std = np.std(X_train)
+            # hidden_dim = df['hidden-dim'][division_num]
+            # learningrate_ = df['learningrate'][division_num]
+            # lrdecay_ = df['Irdecay'][division_num]
+            # weightdecay_ = df['weightdecay'][division_num]
+            # # data_ave = np.average(X_train)
+            # X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
+            #                          X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
+            # data_ave = np.average(X_sample)
+            # data_std = np.std(X_train)
 
 
             if model_name == 'nn':
-                im_shape = 64
+                im_size = 64
+                batch_size = 50
                 lr = 0.01
                 krnl_1=3
                 krnl_2=5
                 mx_krnl_1=2
                 mx_krnl_2=2
                 num_epochs = 2
-                CNN_w = CNN_wrap(im_shape, batch_size, krnl_1, krnl_2, mx_krnl_1, mx_krnl_2, num_epochs)
+                CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                 mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
+                CNN_w.train_reader()
+                if test_dataset is not None:
+                    CNN_w.test_dataset = test_dataset
+                    CNN_w.test_load = test_load
+                else:
+                    CNN_w.test_reader()
+                    test_dataset = CNN_w.test_dataset
+                    test_load = CNN_w.test_load
+
+                tr_acc, tes_acc = CNN_w.trainer()
 
             elif model_name == 'svm':
                 svm = svm_run(X_train, y_train)

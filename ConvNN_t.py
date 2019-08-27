@@ -11,7 +11,7 @@ import numpy as np
 import time
 
 class CNN_wrap():
-    def __init__(self, im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1, mx_krnl_2, num_epochs):
+    def __init__(self, im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1, mx_krnl_2, num_epochs, tr_dir, tes_dir):
         self.im_size = im_size
         self.lr = lr
         self.krnl_1 = krnl_1
@@ -19,15 +19,17 @@ class CNN_wrap():
         self.mx_krnl_1 = mx_krnl_1
         self.mx_krnl_2 = mx_krnl_2
         self.num_epochs = num_epochs
+        self.batch_size = batch_size
         # Transformation for image
         self.transform_ori = transforms.Compose([transforms.RandomResizedCrop(self.im_size ),  # create 64x64 image
                                             transforms.RandomHorizontalFlip(),  # flipping the image horizontally
                                             transforms.ToTensor(),  # convert the image to a Tensor
                                             transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                                                  std=[0.229, 0.224, 0.225])])  # normalize the image
-        self.tr_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]_[0.2,0.2]/tr/"
-        self.tes_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]_[0.2,0.2]/tes/"
-        self.batch_size = batch_size
+        self.tr_dir = tr_dir
+        self.tes_dir = tes_dir
+        # self.f = open("CNN_"+str(batch_size)+"_"+str(lr)+str(batch_size)+"_"+.txt", "a")
+        # self.f.write(model_name + "\n")
 
     def train_reader(self):
         # Load our dataset
@@ -70,7 +72,7 @@ class CNN_wrap():
                                                      batch_size=self.batch_size,
                                                      shuffle=False)
 
-    def trainer():
+    def trainer(self):
         self.model = CNN(self.im_size, self.krnl_1, self.krnl_2, self.mx_krnl_1, self.mx_krnl_2)
         CUDA = torch.cuda.is_available()
         if CUDA:
@@ -95,6 +97,10 @@ class CNN_wrap():
             # Reset these below variables to 0 at the begining of every epoch
             start = time.time()
             correct = 0
+            tp = 0
+            tn = 0
+            fp = 0
+            fn = 0
             iterations = 0
             iter_loss = 0.0
 
@@ -126,12 +132,13 @@ class CNN_wrap():
                 # Record the correct predictions for training data
                 _, predicted = torch.max(outputs, 1)
                 correct += (predicted == labels).sum()
+                # tp = (predicted == 1)*()
                 iterations += 1
 
             # Record the training loss
             train_loss.append(iter_loss / iterations)
             # Record the training accuracy
-            train_accuracy.append((correct / len(train_dataset)))
+            train_accuracy.append((correct / len(self.train_dataset)))
 
             # Testing
             loss = 0.0
@@ -159,6 +166,7 @@ class CNN_wrap():
                 _, predicted = torch.max(outputs, 1)
                 correct += (predicted == labels).sum()
 
+
                 iterations += 1
 
             # Record the Testing loss
@@ -169,8 +177,10 @@ class CNN_wrap():
 
             print(
                 'Epoch {}/{}, Training Loss: {:.3f}, Training Accuracy: {:.3f}, Testing Loss: {:.3f}, Testing Acc: {:.3f}, Time: {}s'
-                    .format(epoch + 1, num_epochs, train_loss[-1], train_accuracy[-1], test_loss[-1], test_accuracy[-1],
+                    .format(epoch + 1, self.num_epochs, train_loss[-1], train_accuracy[-1], test_loss[-1], test_accuracy[-1],
                             stop - start))
+
+        return train_accuracy[-1], test_accuracy[-1]
 
     def plotter(self):
         # Loss
@@ -186,13 +196,14 @@ class CNN_wrap():
         plt.plot(test_accuracy, label='Testing Accuracy')
         plt.legend()
         plt.show()
+
         # Run this if you want to save the model
         # torch.save(model.state_dict(),'Cats-Dogs.pth')
         #
         # #Run this if you want to load the model
         # model.load_state_dict(torch.load('Cats-Dogs.pth'))
 
-    def predict(img_name, model):
+    def predict(self, img_name, model):
         image = cv2.imread(img_name)  # Read the image
         img = Image.fromarray(image)  # Convert the image to an array
         img = transforms_photo(img)  # Apply the transformations
@@ -200,13 +211,13 @@ class CNN_wrap():
         img = Variable(img)
         # Wrap the tensor to a variable
 
-        model.eval()
+        self.model.eval()
 
         if torch.cuda.is_available():
             model = model.cuda()
             img = img.cuda()
 
-        output = model(img)
+        output = self.model(img)
         print(output)
         print(output.data)
         _, predicted = torch.max(output, 1)
@@ -244,8 +255,8 @@ class CNN(nn.Module):
 
         # Flatten the feature maps. You have 32 feature mapsfrom cnn2. Each of the feature is
         # of size 16x16 --> 32*16*16 = 8192
-        sq_image_size = self.im_size/ self.mx_krnl_1 / self.mx_krnl_2
-        self.in_features_size = self.out_cnn2* sq_image_size**2
+        sq_image_size = int(self.im_size/ self.mx_krnl_1 / self.mx_krnl_2)
+        self.in_features_size = int(self.out_cnn2* sq_image_size**2)
         self.fc1 = nn.Linear(in_features=self.in_features_size,
                              out_features=4000)  # Flattened image is fed into linear NN and reduced to half size
         self.droput = nn.Dropout(p=0.5)  # Dropout used to reduce overfitting
