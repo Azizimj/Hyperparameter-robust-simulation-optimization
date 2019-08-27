@@ -44,8 +44,10 @@ import csv
 
 # import tensorflow as tf
 
-import torch.nn as nn
-import torch.nn.functional as F
+# import torch.nn as nn
+# import torch.nn.functional as F
+
+import ConvNN_t as CNN
 
 random.seed(30)
 np.random.seed(110)
@@ -406,151 +408,6 @@ class nn_hold():
         return net
 
 
-class Net(nn.Module):
-    def __init__(self):
-        super(Net, self).__init__()
-        self.fc1 = nn.Linear(28 * 28, 200)
-        self.fc2 = nn.Linear(200, 200)
-        self.fc3 = nn.Linear(200, 10)
-
-    def forward(self, x):
-        x = F.relu(self.fc1(x))
-        x = F.relu(self.fc2(x))
-        x = self.fc3(x)
-        return F.log_softmax(x)
-
-    def traner(self):
-        # net = Net()
-        # print(net)
-        optimizer = optim.SGD(net.parameters(), lr=learning_rate, momentum=0.9)
-        # create a loss function
-        criterion = nn.NLLLoss()
-
-        # run the main training loop
-        for epoch in range(epochs):
-            for batch_idx, (data, target) in enumerate(train_loader):
-                data, target = Variable(data), Variable(target)
-                # resize data from (batch_size, 1, 28, 28) to (batch_size, 28*28)
-                data = data.view(-1, 28*28)
-                optimizer.zero_grad()
-                net_out = self.forward(data)
-                loss = criterion(net_out, target)
-                loss.backward()
-                optimizer.step()
-                if batch_idx % log_interval == 0:
-                    print('Train Epoch: {} [{}/{} ({:.0f}%)]\tLoss: {:.6f}'.format(
-                            epoch, batch_idx * len(data), len(train_loader.dataset),
-                                   100. * batch_idx / len(train_loader), loss.data[0]))
-
-    def pred(self):
-        # run a test loop
-        test_loss = 0
-        correct = 0
-        for data, target in test_loader:
-            data, target = Variable(data, volatile=True), Variable(target)
-            data = data.view(-1, 28 * 28)
-            net_out = net(data)
-            # sum up batch loss
-            test_loss += criterion(net_out, target).data[0]
-            pred = net_out.data.max(1)[1]  # get the index of the max log-probability
-            correct += pred.eq(target.data).sum()
-
-        test_loss /= len(test_loader.dataset)
-        print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-                test_loss, correct, len(test_loader.dataset),
-                100. * correct / len(test_loader.dataset)))
-
-        correct += pred.eq(target.data).sum()
-
-        test_loss /= len(test_loader.dataset)
-        print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
-                test_loss, correct, len(test_loader.dataset),
-                100. * correct / len(test_loader.dataset)))
-
-
-class ConvNet(nn.Module):
-    def __init__(self):
-        super(ConvNet, self).__init__()
-        self.layer1 = nn.Sequential(
-            nn.Conv2d(1, 32, kernel_size=5, stride=1, padding=2),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2))
-        self.layer2 = nn.Sequential(
-            nn.Conv2d(32, 64, kernel_size=5, stride=1, padding=2),
-            nn.ReLU(),
-            nn.MaxPool2d(kernel_size=2, stride=2))
-        self.drop_out = nn.Dropout()
-        self.fc1 = nn.Linear(7 * 7 * 64, 1000)
-        self.fc2 = nn.Linear(1000, 10)
-
-    def forward(self, x):
-        out = self.layer1(x)
-        out = self.layer2(out)
-        out = out.reshape(out.size(0), -1)
-        out = self.drop_out(out)
-        out = self.fc1(out)
-        out = self.fc2(out)
-        return out
-
-    def forward(self, x):
-        out = self.layer1(x)
-        out = self.layer2(out)
-        out = out.reshape(out.size(0), -1)
-        out = self.drop_out(out)
-        out = self.fc1(out)
-        out = self.fc2(out)
-        return out
-
-    def opt(self):
-        criterion = nn.CrossEntropyLoss()
-        optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
-
-    def trainer(self):
-        # Train the model
-        total_step = len(train_loader)
-        loss_list = []
-        acc_list = []
-        for epoch in range(num_epochs):
-            for i, (images, labels) in enumerate(train_loader):
-                # Run the forward pass
-                outputs = model(images)
-                loss = criterion(outputs, labels)
-                loss_list.append(loss.item())
-
-                # Backprop and perform Adam optimisation
-                optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
-
-                # Track the accuracy
-                total = labels.size(0)
-                _, predicted = torch.max(outputs.data, 1)
-                correct = (predicted == labels).sum().item()
-                acc_list.append(correct / total)
-
-                if (i + 1) % 100 == 0:
-                    print('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}, Accuracy: {:.2f}%'
-                          .format(epoch + 1, num_epochs, i + 1, total_step, loss.item(),
-                                  (correct / total) * 100))
-
-    def tester(self):
-        # Test the model
-        model.eval()
-        with torch.no_grad():
-            correct = 0
-            total = 0
-            for images, labels in test_loader:
-                outputs = model(images)
-                _, predicted = torch.max(outputs.data, 1)
-                total += labels.size(0)
-                correct += (predicted == labels).sum().item()
-
-            print('Test Accuracy of the model on the 10000 test images: {} %'.format((correct / total) * 100))
-
-        # Save the model and plot
-        torch.save(model.state_dict(), MODEL_STORE_PATH + 'conv_net_model.ckpt')
-
-
 def svm_run(X_train, y_train):
 
     # Hyps
@@ -609,7 +466,7 @@ if __name__ == "__main__":
     sample_folder_build = False
     divide_file = False
     hyperopt_use = False
-    hype_given = True
+    hype_given = False
     RSO_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -935,8 +792,14 @@ if __name__ == "__main__":
 
 
             if model_name == 'nn':
-                nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
-                net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_, weightdecay_, num_classes, X_train, y_train)
+                im_shape = 64
+                lr = 0.01
+                krnl_1=3
+                krnl_2=5
+                mx_krnl_1=2
+                mx_krnl_2=2
+                num_epochs = 2
+                CNN_w = CNN_wrap(im_shape, batch_size, krnl_1, krnl_2, mx_krnl_1, mx_krnl_2, num_epochs)
 
             elif model_name == 'svm':
                 svm = svm_run(X_train, y_train)
