@@ -74,11 +74,12 @@ class CNN_wrap():
 
     def trainer(self):
         self.model = CNN(self.im_size, self.krnl_1, self.krnl_2, self.mx_krnl_1, self.mx_krnl_2)
-        CUDA = torch.cuda.is_available()
-        if CUDA:
+        self.CUDA = torch.cuda.is_available()
+        if self.CUDA:
             self.model = self.model.cuda()
         loss_fn = nn.CrossEntropyLoss()
-        optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
+        # optimizer = torch.optim.SGD(self.model.parameters(), lr=self.lr)
+        optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr)
 
         # Training the CNN
         # % % time
@@ -89,56 +90,53 @@ class CNN_wrap():
         train_accuracy = []
         test_accuracy = []
 
-        data_ave = torch.tensor(0)
-        data_std = torch.tensor(0)
+        tr_data_ave = torch.tensor(0)
+        tr_data_std = torch.tensor(0)
+        tes_data_ave = torch.tensor(0)
+        tes_data_std = torch.tensor(0)
 
         # Training
         for epoch in range(self.num_epochs):
             # Reset these below variables to 0 at the begining of every epoch
             start = time.time()
             correct = 0
-            tp = 0
-            tn = 0
-            fp = 0
-            fn = 0
             iterations = 0
             iter_loss = 0.0
 
             self.model.train()  # Put the network into training mode
 
             for i, (inputs, labels) in enumerate(self.train_load):
-
                 # Convert torch tensor to Variable
                 inputs = Variable(inputs)
                 labels = Variable(labels)
-
                 # If we have GPU, shift the data to GPU
-                CUDA = torch.cuda.is_available()
-                if CUDA:
+                # CUDA = torch.cuda.is_available()
+                if self.CUDA:
                     inputs = inputs.cuda()
                     labels = labels.cuda()
-
                 optimizer.zero_grad()  # Clear off the gradient in (w = w - gradient)
-                outputs = model(inputs)
+                outputs = self.model(inputs)
                 if epoch == 0:
-                    data_ave = data_ave + inputs.mean()
-                    data_std = data_std + inputs.std()
+                    tr_data_ave = tr_data_ave + inputs.mean()
+                    tr_data_std = tr_data_std + inputs.std()
                 loss = loss_fn(outputs, labels)
                 # iter_loss += loss.data[0]  # Accumulate the loss
                 iter_loss += loss.item()  # Accumulate the loss
                 loss.backward()  # Backpropagation
                 optimizer.step()  # Update the weights
-
                 # Record the correct predictions for training data
                 _, predicted = torch.max(outputs, 1)
                 correct += (predicted == labels).sum()
-                # tp = (predicted == 1)*()
+                # tp = ((predicted == labels) * (labels == 1)).sum()  # 1 is day
+                # tn = ((predicted == labels) * (labels == 0)).sum()
+                # fp = ((predicted != labels) * (labels == 0)).sum()
+                # fn = ((predicted != labels) * (labels == 1)).sum()
                 iterations += 1
 
             # Record the training loss
             train_loss.append(iter_loss / iterations)
             # Record the training accuracy
-            train_accuracy.append((correct / len(self.train_dataset)))
+            train_accuracy.append((100*correct / len(self.train_dataset)))
 
             # Testing
             loss = 0.0
@@ -153,12 +151,15 @@ class CNN_wrap():
                 inputs = Variable(inputs)
                 labels = Variable(labels)
 
-                CUDA = torch.cuda.is_available()
-                if CUDA:
+                # CUDA = torch.cuda.is_available()
+                if self.CUDA:
                     inputs = inputs.cuda()
                     labels = labels.cuda()
 
-                outputs = model(inputs)
+                outputs = self.model(inputs)
+                if epoch == 0:
+                    tes_data_ave = tes_data_ave + inputs.mean()
+                    tes_data_std = tes_data_std + inputs.std()
                 loss = loss_fn(outputs, labels)  # Calculate the loss
                 # loss += loss.data[0]
                 loss += loss.item()
@@ -172,7 +173,7 @@ class CNN_wrap():
             # Record the Testing loss
             test_loss.append(loss / iterations)
             # Record the Testing accuracy
-            test_accuracy.append((100 * correct / len(test_dataset)))
+            test_accuracy.append((100 * correct / len(self.test_dataset)))
             stop = time.time()
 
             print(
@@ -180,7 +181,12 @@ class CNN_wrap():
                     .format(epoch + 1, self.num_epochs, train_loss[-1], train_accuracy[-1], test_loss[-1], test_accuracy[-1],
                             stop - start))
 
-        return train_accuracy[-1], test_accuracy[-1]
+        self.tr_data_ave = (tr_data_ave / len(self.train_dataset)).item()
+        self.tr_data_std = (tr_data_std / len(self.train_dataset)).item()
+        self.tes_data_ave = (tes_data_ave / len(self.test_dataset)).item()
+        self.tes_data_std = (tes_data_std / len(self.test_dataset)).item()
+
+        return train_accuracy[-1].item(), test_accuracy[-1].item()
 
     def plotter(self):
         # Loss
@@ -203,7 +209,7 @@ class CNN_wrap():
         # #Run this if you want to load the model
         # model.load_state_dict(torch.load('Cats-Dogs.pth'))
 
-    def predict(self, img_name, model):
+    def predict(self, img_name):
         image = cv2.imread(img_name)  # Read the image
         img = Image.fromarray(image)  # Convert the image to an array
         img = transforms_photo(img)  # Apply the transformations
@@ -214,7 +220,7 @@ class CNN_wrap():
         self.model.eval()
 
         if torch.cuda.is_available():
-            model = model.cuda()
+            self.model = self.model.cuda()
             img = img.cuda()
 
         output = self.model(img)

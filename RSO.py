@@ -531,7 +531,7 @@ if __name__ == "__main__":
     # points_list_file = "Design-Data-small.csv"
     test_precs_file = "Test-Data.csv"
 
-    # FRAMESA (night) 16960, FRAMESB (day) 14607
+    # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
     classes_labels = ["FRAMESA", "FRAMESB"]
     # sample_sizes = [100, 200]
     sample_sizes = [500, 550]
@@ -773,7 +773,7 @@ if __name__ == "__main__":
         writer_f_all = csv.writer(f_all)
 
         df = pd.read_csv(points_list_file)
-        X_test, y_test, num_classes = read_files(tes_dir, model_name)
+        # X_test, y_test, num_classes = read_files(tes_dir, model_name)
 
         test_dataset = None
         test_load = None
@@ -785,11 +785,11 @@ if __name__ == "__main__":
             # read tr
             # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
 
-            # hidden_dim = df['hidden-dim'][division_num]
-            # learningrate_ = df['learningrate'][division_num]
-            # lrdecay_ = df['Irdecay'][division_num]
-            # weightdecay_ = df['weightdecay'][division_num]
-            # # data_ave = np.average(X_train)
+            hidden_dim = df['hidden-dim'][division_num]
+            learningrate_ = df['learningrate'][division_num]
+            lrdecay_ = df['Irdecay'][division_num]
+            weightdecay_ = df['weightdecay'][division_num]
+            # data_ave = np.average(X_train)
             # X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
             #                          X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
             # data_ave = np.average(X_sample)
@@ -798,13 +798,13 @@ if __name__ == "__main__":
 
             if model_name == 'nn':
                 im_size = 64
-                batch_size = 50
-                lr = 0.01
-                krnl_1=3
-                krnl_2=5
-                mx_krnl_1=2
-                mx_krnl_2=2
-                num_epochs = 2
+                batch_size = 50  # [50 - 400]
+                lr = 0.0001 # [1e-4, 1e-2]
+                krnl_1=3  # [3, 10]
+                krnl_2=5 # [3, 10]
+                mx_krnl_1=2 # [2, 4]
+                mx_krnl_2=2 # [2, 8]
+                num_epochs = 2 # [5, 20]
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()
@@ -817,35 +817,47 @@ if __name__ == "__main__":
                     test_load = CNN_w.test_load
 
                 tr_acc, tes_acc = CNN_w.trainer()
+                tr_data_ave = CNN_w.tr_data_ave
+                tr_data_std = CNN_w.tr_data_std
+                tes_data_ave = CNN_w.tes_data_ave
+                tes_data_std = CNN_w.tes_data_std
 
             elif model_name == 'svm':
                 svm = svm_run(X_train, y_train)
 
             # tr acc
-            tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
-                 X_train, y_train, net, svm, f, tr_=True)
+            # tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+            #      X_train, y_train, net, svm, f, tr_=True)
 
-            tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
-                  " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+            # tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
+            #       " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+            # print(tmp)
+            # f.write(tmp)
+
+            # X_train, y_train = None, None
+
+            tmp = 'Acc tr and tes on division ' + str(division_num) + \
+                  " are {}, {}\n".format(tr_acc, tes_acc)
             print(tmp)
             f.write(tmp)
-
-            X_train, y_train = None, None
 
             # tes acc
-            tes_acc, tes_prec, tes_reca, tes_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
-                 X_test, y_test, net, svm, f, tr_=False)
-
-            tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)
-            print(tmp)
-            f.write(tmp)
+            # tes_acc, tes_prec, tes_reca, tes_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+            #      X_test, y_test, net, svm, f, tr_=False)
+            #
+            # tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)
+            # print(tmp)
+            # f.write(tmp)
 
             if model_name == "nn":
-                row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
-                       tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
-                       bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
+                # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
+                #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
+                #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
+                row = [tr_data_ave, tr_data_std, tr_acc, "", tes_data_ave, tes_data_std, tes_acc, num_epochs]
                 writer_f_all.writerow(row)
 
+            print("division {} is done".format(division_num))
             division_num += 1
+
 
     f.close()
