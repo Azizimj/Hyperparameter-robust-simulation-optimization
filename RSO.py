@@ -465,10 +465,10 @@ if __name__ == "__main__":
 
     tr_tes_sep = False
     sample_folder_build = False
-    divide_file = False
+    divide_file = True
     hyperopt_use = False
     hype_given = False
-    RSO_use = True
+    RSO_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -510,26 +510,28 @@ if __name__ == "__main__":
 
     batch_size = 0
 
-    # hyps:
-    # int:
-    # hidden_dim[20, 200]
-    hidden_dim_l = 20
-    hidden_dim_u = 200
-    #
-    # Real:
-    # learningrate_[1e-5, 0.1]
-    learningrate_l = 1e-5
-    learningrate_u = 0.1
-    # lrdecay_[1e-2, 1e-1]
-    lrdecay_l = 1e-2
-    lrdecay_u = 1e-1
-    # weightdecay_[1e-3, 0.9]
-    weightdecay_l = 1e-3
-    weightdecay_u = 0.9
+    # # hyps:
+    # # int:
+    # # hidden_dim[20, 200]
+    # hidden_dim_l = 20
+    # hidden_dim_u = 200
+    # #
+    # # Real:
+    # # learningrate_[1e-5, 0.1]
+    # learningrate_l = 1e-5
+    # learningrate_u = 0.1
+    # # lrdecay_[1e-2, 1e-1]
+    # lrdecay_l = 1e-2
+    # lrdecay_u = 1e-1
+    # # weightdecay_[1e-3, 0.9]
+    # weightdecay_l = 1e-3
+    # weightdecay_u = 0.9
 
-    points_list_file = "Design-Data.csv"
+    # points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
+    points_list_file = "LHS-data.csv"
     test_precs_file = "Test-Data.csv"
+
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
     classes_labels = ["FRAMESA", "FRAMESB"]
@@ -662,11 +664,11 @@ if __name__ == "__main__":
             writer_f_all.writerow(row)
 
     elif hype_given:
-        hidden_dim = 134
-        learningrate_ = 0.0467821978480138
-        # learningrate_ = 0.0001
-        lrdecay_ = 0.0742889052103925
-        weightdecay_ = 0.71933869547565
+        # hidden_dim = 134
+        # learningrate_ = 0.0467821978480138
+        # # learningrate_ = 0.0001
+        # lrdecay_ = 0.0742889052103925
+        # weightdecay_ = 0.71933869547565
 
         f = open("res/result_" + str(test_precs) + "_" + model_name + "_givenHyp" +
                  "_epo" + str(num_epoch) + ".txt", "a")
@@ -676,35 +678,59 @@ if __name__ == "__main__":
         writer_f_all = csv.writer(f_all)
 
         tr_dir = images_dir + "_" + str(test_precs) + "/tr/divided/0/"
-        X_train, y_train, num_classes = read_files(tr_dir, model_name)
+        # X_train, y_train, num_classes = read_files(tr_dir, model_name)
 
-        X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
-                                   X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
-        data_ave = np.average(X_sample)
-        data_std = np.std(X_train)
+        # X_sample = np.concatenate((X_train[:, 500:600], X_train[:, 1100:1200],
+        #                            X_train[:, 1600:1700], X_train[:, 2000:2100]), axis=1)
+        # data_ave = np.average(X_sample)
+        # data_std = np.std(X_train)
 
         print("given hyp started ")
 
-        nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
+        im_size = 64
+        batch_size = 50  # [50 - 400]
+        lr = 0.0001  # [1e-4, 1e-2]
+        krnl_1 = 3  # [3, 10]
+        krnl_2 = 5  # [3, 10]
+        mx_krnl_1 = 2  # [2, 4]
+        mx_krnl_2 = 2  # [2, 8]
+        num_epochs = 2  # [5, 20]
+        CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                  mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
+        CNN_w.train_reader()
+        if test_dataset is not None:
+            CNN_w.test_dataset = test_dataset
+            CNN_w.test_load = test_load
+        else:
+            CNN_w.test_reader()
+            test_dataset = CNN_w.test_dataset
+            test_load = CNN_w.test_load
 
         print("train started on {}".format(tr_dir))
-
-        net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_,
-                              weightdecay_, num_classes, X_train, y_train)
+        tr_acc, tes_acc = CNN_w.trainer()
+        tr_data_ave = CNN_w.tr_data_ave
+        tr_data_std = CNN_w.tr_data_std
+        tes_data_ave = CNN_w.tes_data_ave
+        tes_data_std = CNN_w.tes_data_std
 
         #train eval on tr
-        tr_acc, tr_prec, tr_reca, tr_f1 = eval(" ", " ", test_precs, model_name,
-                                               X_train, y_train, net, svm, f, tr_=True)
+        # tr_acc, tr_prec, tr_reca, tr_f1 = eval(" ", " ", test_precs, model_name,
+        #                                        X_train, y_train, net, svm, f, tr_=True)
 
-        tmp = "train tr_acc, tr_prec, tr_reca, tr_f1 " \
-              "on the whole train are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+        # tmp = "train tr_acc, tr_prec, tr_reca, tr_f1 " \
+        #       "on the whole train are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+        # print(tmp)
+        # f.write(str(tmp))
+        tmp = 'Acc tr and tes on division ' + str(division_num) + \
+              " are {}, {}\n".format(tr_acc, tes_acc)
         print(tmp)
-        f.write(str(tmp))
+        f.write(tmp)
 
         if model_name == "nn":
-            row = ["whole tr, hyp given", hidden_dim, learningrate_, lrdecay_, weightdecay_, data_ave, data_std,
-                   tr_acc, tr_prec, tr_reca, tr_f1, "", " ", " ", " ", " ", "",
-                   bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
+            # row = ["whole tr, hyp given", hidden_dim, learningrate_, lrdecay_, weightdecay_, data_ave, data_std,
+            #        tr_acc, tr_prec, tr_reca, tr_f1, "", " ", " ", " ", " ", "",
+            #        bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
+            row = [tr_data_ave, tr_data_std, tr_acc, "", tes_data_ave, tes_data_std, tes_acc, num_epochs]
             writer_f_all.writerow(row)
 
         #
