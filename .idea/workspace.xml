@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="878" lean-forward="true" selection-start-line="878" selection-end-line="878" />
+            <state relative-caret-position="-547">
+              <caret line="493" column="25" lean-forward="true" selection-start-line="493" selection-start-column="25" selection-end-line="493" selection-end-column="25" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#544#549#0" />
@@ -96,11 +96,12 @@
                 <element signature="e#32171#32268#0" />
                 <element signature="e#32428#32775#0" />
                 <element signature="e#32434#32732#0" />
-                <element signature="e#29583#29664#0" />
+                <element signature="e#29517#29526#0" />
+                <element signature="e#30374#30404#0" />
                 <element signature="e#29980#29988#0" />
+                <element signature="e#31717#31830#0" />
                 <element signature="e#30591#30600#0" />
-                <element signature="e#35228#35545#0" />
-                <element signature="e#31286#31374#0" />
+                <element signature="e#32217#32305#0" />
               </folding>
             </state>
           </provider>
@@ -109,19 +110,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="267" column="62" lean-forward="true" selection-start-line="267" selection-start-column="62" selection-end-line="267" selection-end-column="62" />
+            <state relative-caret-position="85">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding>
                 <element signature="e#293#8422#0" />
-                <element signature="e#396#1550#0" />
-                <element signature="e#321#745#0" />
                 <element signature="e#1302#1384#0" />
                 <element signature="e#1455#3132#0" />
                 <element signature="e#2612#2638#0" />
                 <element signature="e#1876#1902#0" />
-                <element signature="e#3038#3356#0" />
+                <element signature="e#3802#8568#0" />
                 <element signature="e#3318#3336#0" />
                 <element signature="e#3660#3678#0" />
+                <element signature="e#4196#7876#0" />
+                <element signature="e#4017#5111#0" />
                 <element signature="e#4740#4779#0" />
                 <element signature="e#4287#4352#0" />
                 <element signature="e#4529#4619#0" />
@@ -134,8 +135,11 @@
                 <element signature="e#7285#8180#0" />
                 <element signature="e#7890#7943#0" />
                 <element signature="e#8263#8364#0" />
+                <element signature="e#3106#5607#0" />
+                <element signature="e#3134#4674#0" />
                 <element signature="e#9766#9852#0" />
                 <element signature="e#10737#10787#0" />
+                <element signature="e#4710#5607#0" />
               </folding>
             </state>
           </provider>
@@ -383,20 +387,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00003" summary="all models.py">
-      <created>1565040723250</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1565040723250</updated>
-    </task>
-    <task id="LOCAL-00004" summary="all models.py">
-      <created>1565041224712</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1565041224712</updated>
     </task>
     <task id="LOCAL-00005" summary="all models.py">
       <created>1565043886132</created>
@@ -727,7 +717,21 @@
       <option name="project" value="LOCAL" />
       <updated>1566942800106</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="RSO use in new">
+      <created>1566947634215</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1566947634215</updated>
+    </task>
+    <task id="LOCAL-00053" summary="RSO use in new">
+      <created>1566950927492</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1566950927493</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -748,8 +752,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.49918166" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23076923" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23731588" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.22585924" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
@@ -801,21 +805,6 @@
           <line>104</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ConvNN_t.py</url>
-          <line>188</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ConvNN_t.py</url>
-          <line>178</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ConvNN_t.py</url>
-          <line>289</line>
-          <option name="timeStamp" value="117" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -849,6 +838,16 @@ scipy.stats.skew(X_train)</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>self.test_load</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>inputs</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>out</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -880,16 +879,6 @@ scipy.stats.skew(X_train)</expression-string>
       </expression>
       <expression>
         <expression-string>self.batchnorm1(x)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>self.batchnorm1(self.cnn1(x))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>min(1,2)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1303,19 +1292,19 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="267" column="62" lean-forward="true" selection-start-line="267" selection-start-column="62" selection-end-line="267" selection-end-column="62" />
+        <state relative-caret-position="85">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
             <element signature="e#293#8422#0" />
-            <element signature="e#396#1550#0" />
-            <element signature="e#321#745#0" />
             <element signature="e#1302#1384#0" />
             <element signature="e#1455#3132#0" />
             <element signature="e#2612#2638#0" />
             <element signature="e#1876#1902#0" />
-            <element signature="e#3038#3356#0" />
+            <element signature="e#3802#8568#0" />
             <element signature="e#3318#3336#0" />
             <element signature="e#3660#3678#0" />
+            <element signature="e#4196#7876#0" />
+            <element signature="e#4017#5111#0" />
             <element signature="e#4740#4779#0" />
             <element signature="e#4287#4352#0" />
             <element signature="e#4529#4619#0" />
@@ -1328,16 +1317,19 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#7285#8180#0" />
             <element signature="e#7890#7943#0" />
             <element signature="e#8263#8364#0" />
+            <element signature="e#3106#5607#0" />
+            <element signature="e#3134#4674#0" />
             <element signature="e#9766#9852#0" />
             <element signature="e#10737#10787#0" />
+            <element signature="e#4710#5607#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="878" lean-forward="true" selection-start-line="878" selection-end-line="878" />
+        <state relative-caret-position="-547">
+          <caret line="493" column="25" lean-forward="true" selection-start-line="493" selection-start-column="25" selection-end-line="493" selection-end-column="25" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#544#549#0" />
@@ -1415,11 +1407,12 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#32171#32268#0" />
             <element signature="e#32428#32775#0" />
             <element signature="e#32434#32732#0" />
-            <element signature="e#29583#29664#0" />
+            <element signature="e#29517#29526#0" />
+            <element signature="e#30374#30404#0" />
             <element signature="e#29980#29988#0" />
+            <element signature="e#31717#31830#0" />
             <element signature="e#30591#30600#0" />
-            <element signature="e#35228#35545#0" />
-            <element signature="e#31286#31374#0" />
+            <element signature="e#32217#32305#0" />
           </folding>
         </state>
       </provider>

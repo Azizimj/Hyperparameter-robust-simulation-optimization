@@ -28,6 +28,11 @@ class CNN_wrap():
                                             transforms.ToTensor(),  # convert the image to a Tensor
                                             transforms.Normalize(mean=[0.485, 0.456, 0.406],
                                                                  std=[0.229, 0.224, 0.225])])  # normalize the image
+        self.transform_ori_tes = transforms.Compose([transforms.CenterCrop(self.im_size),  # create 64x64 image
+                                                 transforms.ToTensor(),  # convert the image to a Tensor
+                                                 transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                                                                      std=[0.229, 0.224,
+                                                                           0.225])])  # normalize the image
         self.tr_dir = tr_dir
         self.tes_dir = tes_dir
         # self.f = open("CNN_"+str(batch_size)+"_"+str(lr)+str(batch_size)+"_"+.txt", "a")
@@ -73,7 +78,7 @@ class CNN_wrap():
 
     def test_reader(self):
         print("reading test set form {}".format(self.tes_dir))
-        self.test_dataset = datasets.ImageFolder(root=self.tes_dir, transform=self.transform_ori)
+        self.test_dataset = datasets.ImageFolder(root=self.tes_dir, transform=self.transform_ori_tes)
         self.test_load = torch.utils.data.DataLoader(dataset=self.test_dataset,
                                                      batch_size=self.batch_size,
                                                      shuffle=False,

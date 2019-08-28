@@ -489,9 +489,9 @@ if __name__ == "__main__":
             hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
-    # images_dir = "images"
+    images_dir = "images"
 
     make_dir("res/")
 
@@ -823,8 +823,8 @@ if __name__ == "__main__":
                 krnl_2= int(df['krnl_1'][division_num])# 5 # [2, 40]
                 mx_krnl_1= 2 # [2, 4]
                 mx_krnl_2= 2 # [2, 8]
-                # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
-                num_epochs = 2
+                num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
+                # num_epochs = 2
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()
@@ -880,7 +880,11 @@ if __name__ == "__main__":
                 # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
                 #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
                 #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
-                row = [tr_data_ave, tr_data_std, tr_acc, "", tes_data_ave, tes_data_std, tes_acc, num_epochs, div_time]
+
+                row = [division_num, im_size, batch_size, lr, krnl_2, num_epochs,
+                       tr_data_ave, tr_data_std, tr_acc, "",
+                       tes_data_ave, tes_data_std, tes_acc,
+                       div_time]
                 writer_f_all.writerow(row)
 
             division_num += 1
