@@ -1,0 +1,6 @@
+nn
+
+ 
+optimal hyps with tpe hypopt are {'lr': 0.00980093693194154, 'batch_size': 231, 'mx_krnl_2': 7, 'krnl_2': 1}
+
+Best hyps tr acc 89 and tes acc 94 with tr ave, -0.003376855282112956 tr std 0.021733779460191727,tes ave 0.00020940527610946447, tes std 

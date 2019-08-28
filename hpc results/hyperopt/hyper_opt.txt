@@ -1,0 +1,64 @@
+hyperopt started 
+CUDA is True
+reading test set form images_[0.2, 0.2]/tes/ with batch_size 1000
+test size is 6313
+test loaded form images_[0.2, 0.2]/tes/
+train hypopt started on images_[0.2, 0.2]/tr/
+reading train set form images_[0.2, 0.2]/tr// with batch size 122                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.174, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 97.000, Time: 103.75125408172607s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 300                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.709, Training Accuracy: 91.000, Testing Loss: 0.000, Testing Acc: 97.000, Time: 101.07136249542236s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 257                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 1.081, Training Accuracy: 83.000, Testing Loss: 0.051, Testing Acc: 94.000, Time: 102.10848069190979s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 120                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.675, Training Accuracy: 91.000, Testing Loss: 0.002, Testing Acc: 97.000, Time: 103.01158285140991s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 55                                                                                                            
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.223, Training Accuracy: 95.000, Testing Loss: 0.022, Testing Acc: 98.000, Time: 105.8317723274231s                                              
+reading train set form images_[0.2, 0.2]/tr// with batch size 78                                                                                                            
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.549, Training Accuracy: 91.000, Testing Loss: 0.121, Testing Acc: 95.000, Time: 103.43369054794312s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 177                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.432, Training Accuracy: 93.000, Testing Loss: 0.012, Testing Acc: 98.000, Time: 103.22984576225281s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 137                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.294, Training Accuracy: 94.000, Testing Loss: 0.005, Testing Acc: 96.000, Time: 104.01367807388306s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 204                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.109, Training Accuracy: 96.000, Testing Loss: 0.043, Testing Acc: 97.000, Time: 102.06811451911926s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 255  
+
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.268, Training Accuracy: 95.000, Testing Loss: 0.000, Testing Acc: 96.000, Time: 102.73256850242615s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 217                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.809, Training Accuracy: 89.000, Testing Loss: 0.097, Testing Acc: 94.000, Time: 102.98036909103394s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 102                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.149, Training Accuracy: 95.000, Testing Loss: 0.221, Testing Acc: 95.000, Time: 103.78647541999817s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 281                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 2.758, Training Accuracy: 53.000, Testing Loss: 0.220, Testing Acc: 53.000, Time: 101.25445008277893s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 114                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.155, Training Accuracy: 96.000, Testing Loss: 0.001, Testing Acc: 95.000, Time: 103.10270071029663s                                             
+reading train set form images_[0.2, 0.2]/tr// with batch size 171                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.156, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 102.2906882762909s                                              
+reading train set form images_[0.2, 0.2]/tr// with batch size 174                                                                                                           
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.281, Training Accuracy: 92.000, Testing Loss: 0.008, Testing Acc: 97.000, Time: 102.5473062992096s                                              
+reading train set form images_[0.2, 0.2]/tr// with batch size 65                                                                                                            
+train size is 25254                                                                                                                                                         
+Epoch 1/1, Training Loss: 0.098, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 99.000, Time: 104.86191964149475s                                             
+100%|¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦| 17/17 [29:18<00:00, 103.43s/it, best loss: 53.0]
+
+ optimal hyps with tpe hypopt are {'lr': 0.00980093693194154, 'batch_size': 231, 'mx_krnl_2': 7, 'krnl_2': 1}
+
+Epoch 1/1, Training Loss: 1.090, Training Accuracy: 89.000, Testing Loss: 0.126, Testing Acc: 94.000, Time: 104.57888603210449s
+Best hyps tr acc 89 and tes acc 94 with tr ave -0.003376855282112956, tr std 0.021733779460191727 ,tes ave 0.00020940527610946447, tes std #lost#

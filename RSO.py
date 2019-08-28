@@ -628,7 +628,7 @@ if __name__ == "__main__":
         test_load = None
         st_time = time.time()
         im_size = 64
-        batch_size = 100  # [50 - 400]
+        batch_size = 1000  # [50 - 400]
         batch_size_l = 50
         batch_size_u = 400
         lr = 0.0001 # [1e-4, 1e-2]
@@ -684,7 +684,7 @@ if __name__ == "__main__":
         tes_data_ave = CNN_w.tes_data_ave
         tes_data_std = CNN_w.tes_data_std
 
-        tmp = 'Best hyps tr acc {} and tes acc {} with tr ave, {} tr std,' \
+        tmp = 'Best hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
               'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
                                               tr_data_std, tes_data_ave, tes_data_std)
         print(tmp)
