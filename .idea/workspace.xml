@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConvNN_t.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConvNN_t.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-547">
-              <caret line="493" column="25" lean-forward="true" selection-start-line="493" selection-start-column="25" selection-end-line="493" selection-end-column="25" />
+            <state relative-caret-position="226">
+              <caret line="496" lean-forward="true" selection-start-line="496" selection-end-line="496" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#544#549#0" />
@@ -97,11 +96,14 @@
                 <element signature="e#32428#32775#0" />
                 <element signature="e#32434#32732#0" />
                 <element signature="e#29517#29526#0" />
+                <element signature="e#29075#30145#0" />
                 <element signature="e#30374#30404#0" />
                 <element signature="e#29980#29988#0" />
                 <element signature="e#31717#31830#0" />
                 <element signature="e#30591#30600#0" />
+                <element signature="e#32217#32650#0" />
                 <element signature="e#32217#32305#0" />
+                <element signature="e#32935#33148#0" />
               </folding>
             </state>
           </provider>
@@ -239,7 +241,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Ross/Bandit/best_arm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -387,13 +389,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00005" summary="all models.py">
-      <created>1565043886132</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1565043886132</updated>
     </task>
     <task id="LOCAL-00006" summary="hyp figed">
       <created>1565046121531</created>
@@ -731,7 +726,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566950927493</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="RSO use in new">
+      <created>1566951892361</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1566951892362</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TodoView">
@@ -752,7 +754,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23731588" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.23731588" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.22585924" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -805,6 +807,11 @@
           <line>104</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RSO.py</url>
+          <line>809</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -838,47 +845,47 @@ scipy.stats.skew(X_train)</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>self.test_load</expression-string>
+        <expression-string>sorted(os.listdir(divide_files_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>inputs</expression-string>
+        <expression-string>[(i,j) for (i, j) in enumerate(np.sort(os.listdir(divide_files_dir)))]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>out</expression-string>
+        <expression-string>[i,j for i, j in enumerate(np.sort(os.listdir(divide_files_dir)))]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.cnn1(x)</expression-string>
+        <expression-string>enumerate(np.sort(os.listdir(divide_files_dir)))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>x</expression-string>
+        <expression-string>enumurate(np.sort(os.listdir(divide_files_dir)))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>(self.im_size+4)/ self.krnl_1</expression-string>
+        <expression-string>[i for i in sorted(os.listdir(divide_files_dir))]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.krnl_1</expression-string>
+        <expression-string>np.sort(os.listdir(divide_files_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>im_size+4/ self.krnl_1</expression-string>
+        <expression-string>np.sort(os.listdir(divide_files_dir)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.batchnorm1(x)</expression-string>
+        <expression-string>sort(os.listdir(divide_files_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1328,8 +1335,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-547">
-          <caret line="493" column="25" lean-forward="true" selection-start-line="493" selection-start-column="25" selection-end-line="493" selection-end-column="25" />
+        <state relative-caret-position="226">
+          <caret line="496" lean-forward="true" selection-start-line="496" selection-end-line="496" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#544#549#0" />
@@ -1408,11 +1415,14 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#32428#32775#0" />
             <element signature="e#32434#32732#0" />
             <element signature="e#29517#29526#0" />
+            <element signature="e#29075#30145#0" />
             <element signature="e#30374#30404#0" />
             <element signature="e#29980#29988#0" />
             <element signature="e#31717#31830#0" />
             <element signature="e#30591#30600#0" />
+            <element signature="e#32217#32650#0" />
             <element signature="e#32217#32305#0" />
+            <element signature="e#32935#33148#0" />
           </folding>
         </state>
       </provider>

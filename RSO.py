@@ -806,7 +806,7 @@ if __name__ == "__main__":
         test_load = None
         division_num = 0
 
-        for tr_dir in os.listdir(divide_files_dir):
+        for tr_dir in sorted(os.listdir(divide_files_dir)):
             if tr_dir == "res" or division_num>len(df['day prec']):
                 continue
             # print(tr_dir)
