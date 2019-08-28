@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="860" column="43" lean-forward="true" selection-start-line="860" selection-start-column="43" selection-end-line="860" selection-end-column="43" />
+            <state relative-caret-position="169">
+              <caret line="494" lean-forward="true" selection-start-line="494" selection-end-line="494" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -112,8 +112,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            <state relative-caret-position="289">
+              <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+              <folding>
+                <element signature="e#785#1252#0" />
+                <element signature="e#1329#1764#0" />
+                <element signature="e#1666#1762#0" />
+                <element signature="e#1857#1939#0" />
+                <element signature="e#2065#3786#0" />
+                <element signature="e#2627#2653#0" />
+                <element signature="e#3823#4285#0" />
+                <element signature="e#4318#9084#0" />
+                <element signature="e#4671#4689#0" />
+                <element signature="e#5113#8717#0" />
+                <element signature="e#5444#6850#0" />
+                <element signature="e#5579#5618#0" />
+                <element signature="e#5720#5785#0" />
+                <element signature="e#5968#6070#0" />
+                <element signature="e#6547#6611#0" />
+                <element signature="e#7315#8159#0" />
+                <element signature="e#7536#7601#0" />
+                <element signature="e#7699#7805#0" />
+                <element signature="e#9117#9753#0" />
+                <element signature="e#9535#9575#0" />
+                <element signature="e#9796#10703#0" />
+                <element signature="e#10201#10260#0" />
+                <element signature="e#10544#10645#0" />
+                <element signature="e#10732#14073#0" />
+                <element signature="e#10807#13121#0" />
+                <element signature="e#11973#12058#0" />
+                <element signature="e#12941#12991#0" />
+                <element signature="e#13157#14073#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -360,13 +390,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00010" summary="sample folder build">
-      <created>1565070979254</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1565070979254</updated>
     </task>
     <task id="LOCAL-00011" summary="svm hyps">
       <created>1565724099733</created>
@@ -704,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566974734503</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="RSO use in new">
+      <created>1566975028704</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1566975028704</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -725,7 +755,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44680852" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37315875" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26022914" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1214,10 +1244,57 @@ scipy.stats.skew(X_train)</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/jobs_rso.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="40" column="45" selection-start-line="40" selection-start-column="45" selection-end-line="40" selection-end-column="45" />
+          <folding>
+            <element signature="e#785#1252#0" />
+            <element signature="e#1329#1764#0" />
+            <element signature="e#1666#1762#0" />
+            <element signature="e#1857#1939#0" />
+            <element signature="e#2065#3786#0" />
+            <element signature="e#2627#2653#0" />
+            <element signature="e#3823#4285#0" />
+            <element signature="e#4318#9084#0" />
+            <element signature="e#4671#4689#0" />
+            <element signature="e#5113#8717#0" />
+            <element signature="e#5444#6850#0" />
+            <element signature="e#5579#5618#0" />
+            <element signature="e#5720#5785#0" />
+            <element signature="e#5968#6070#0" />
+            <element signature="e#6547#6611#0" />
+            <element signature="e#7315#8159#0" />
+            <element signature="e#7536#7601#0" />
+            <element signature="e#7699#7805#0" />
+            <element signature="e#9117#9753#0" />
+            <element signature="e#9535#9575#0" />
+            <element signature="e#9796#10703#0" />
+            <element signature="e#10201#10260#0" />
+            <element signature="e#10544#10645#0" />
+            <element signature="e#10732#14073#0" />
+            <element signature="e#10807#13121#0" />
+            <element signature="e#11973#12058#0" />
+            <element signature="e#12941#12991#0" />
+            <element signature="e#13157#14073#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="860" column="43" lean-forward="true" selection-start-line="860" selection-start-column="43" selection-end-line="860" selection-end-column="43" />
+        <state relative-caret-position="169">
+          <caret line="494" lean-forward="true" selection-start-line="494" selection-end-line="494" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
@@ -1299,23 +1376,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#32099#32108#0" />
             <element signature="e#32639#32727#0" />
             <element signature="e#32943#33156#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jobs_rso.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
