@@ -42,7 +42,7 @@ class CNN_wrap():
 
     def train_reader(self):
         # Load our dataset
-        print("reading train set form {}".format(self.tr_dir))
+        print("reading train set form {} with batch size {}".format(self.tr_dir, self.batch_size))
         self.train_dataset = datasets.ImageFolder(root=self.tr_dir, transform=self.transform_ori)
         self.train_load = torch.utils.data.DataLoader(dataset=self.train_dataset,
                                                       batch_size=self.batch_size,
@@ -76,14 +76,16 @@ class CNN_wrap():
         # data_std = np.sqrt()
 
         # Make the dataset iterable
+        print("train size is {}".format(len(self.train_dataset)))
 
     def test_reader(self):
-        print("reading test set form {}".format(self.tes_dir))
+        print("reading test set form {} with batch_size {}".format(self.tes_dir, self.batch_size))
         self.test_dataset = datasets.ImageFolder(root=self.tes_dir, transform=self.transform_ori_tes)
         self.test_load = torch.utils.data.DataLoader(dataset=self.test_dataset,
                                                      batch_size=self.batch_size,
                                                      shuffle=False,
                                                      pin_memory = self.CUDA)
+        print("test size is {}".format(len(self.test_dataset)))
 
     def trainer(self):
         self.model = CNN(self.im_size, self.krnl_1, self.krnl_2, self.mx_krnl_1, self.mx_krnl_2)

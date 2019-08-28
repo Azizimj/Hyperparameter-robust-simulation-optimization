@@ -465,6 +465,9 @@ def objective_cnn(hyps):
     CNN_w.lr = hyps['lr']
     CNN_w.krnl_2 = hyps['krnl_2'] + krnl_2_l
     CNN_w.mx_krnl_2 =  hyps['mx_krnl_2'] + mx_krnl_2_l
+
+    CNN_w.train_reader()
+
     tr_acc, tes_acc = CNN_w.trainer()
 
     return tes_acc
@@ -497,9 +500,9 @@ if __name__ == "__main__":
             hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
-    images_dir = "images"
+    # images_dir = "images"
 
     make_dir("res/")
 
@@ -638,10 +641,9 @@ if __name__ == "__main__":
         mx_krnl_2 = 2 # [2, 8]
         mx_krnl_2_l = 2
         mx_krnl_2_u = 10
-        num_epochs = 3
+        num_epochs = 1
         CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                   mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
-        CNN_w.train_reader()
         if test_dataset is not None:
             CNN_w.test_dataset = test_dataset
             CNN_w.test_load = test_load
@@ -847,38 +849,38 @@ if __name__ == "__main__":
             st_time = time.time()
             # read tr
             # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
-            if model_name == 'nn':
-                im_size = 64
-                batch_size = int(df['batch_size'][division_num])  # [50 - 400]
-                lr = float(df['lr'][division_num]) # 0.0001 # [1e-4, 1e-2]
-                krnl_1= 5  # [2, 40]
-                krnl_2= int(df['krnl_1'][division_num])# 5 # [2, 40]
-                mx_krnl_1= 2 # [2, 4]
-                mx_krnl_2= int(df['mx_krnl_1'][division_num]) # 2 # [2, 8]
-                # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
-                num_epochs = 3
-                CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
-                                 mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
-                CNN_w.train_reader()
-                if test_dataset is not None:
-                    CNN_w.test_dataset = test_dataset
-                    CNN_w.test_load = test_load
-                    print("used previous test read from {}".format(tes_dir))
-                else:
-                    CNN_w.test_reader()
-                    test_dataset = CNN_w.test_dataset
-                    test_load = CNN_w.test_load
-                    print("test loaded form {}".format(tes_dir))
-                # CNN_w.test_reader()
 
-                print("train started on division {} in {}".format(division_num, divide_files_dir+tr_dir+"/"))
-                tr_acc, tes_acc = CNN_w.trainer()
-                tr_data_ave = CNN_w.tr_data_ave
-                tr_data_std = CNN_w.tr_data_std
-                tes_data_ave = CNN_w.tes_data_ave
-                tes_data_std = CNN_w.tes_data_std
+            im_size = 64
+            batch_size = int(df['batch_size'][division_num])  # [50 - 400]
+            lr = float(df['lr'][division_num])  # 0.0001 # [1e-4, 1e-2]
+            krnl_1 = 5  # [2, 40]
+            krnl_2 = int(df['krnl_1'][division_num])  # 5 # [2, 40]
+            mx_krnl_1 = 2  # [2, 4]
+            mx_krnl_2 = int(df['mx_krnl_1'][division_num])  # 2 # [2, 8]
+            # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
+            num_epochs = 3
+            CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                      mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
+            CNN_w.train_reader()
+            if test_dataset is not None:
+                CNN_w.test_dataset = test_dataset
+                CNN_w.test_load = test_load
+                print("used previous test read from {}".format(tes_dir))
+            else:
+                CNN_w.test_reader()
+                test_dataset = CNN_w.test_dataset
+                test_load = CNN_w.test_load
+                print("test loaded form {}".format(tes_dir))
+            # CNN_w.test_reader()
 
-            elif model_name == 'svm':
+            print("train started on division {} in {}".format(division_num, divide_files_dir + tr_dir + "/"))
+            tr_acc, tes_acc = CNN_w.trainer()
+            tr_data_ave = CNN_w.tr_data_ave
+            tr_data_std = CNN_w.tr_data_std
+            tes_data_ave = CNN_w.tes_data_ave
+            tes_data_std = CNN_w.tes_data_std
+
+            if model_name == 'svm':
                 svm = svm_run(X_train, y_train)
 
             # tr acc
