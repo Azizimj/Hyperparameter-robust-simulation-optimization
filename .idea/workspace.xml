@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-605">
-              <caret line="494" lean-forward="true" selection-start-line="494" selection-end-line="494" />
+            <state relative-caret-position="160">
+              <caret line="860" column="43" lean-forward="true" selection-start-line="860" selection-start-column="43" selection-end-line="860" selection-end-column="43" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -361,13 +361,6 @@
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
     </task>
-    <task id="LOCAL-00009" summary="sample folder build">
-      <created>1565048797314</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1565048797314</updated>
-    </task>
     <task id="LOCAL-00010" summary="sample folder build">
       <created>1565070979254</created>
       <option name="number" value="00010" />
@@ -704,7 +697,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566974106405</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="RSO use in new">
+      <created>1566974734502</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1566974734503</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView">
@@ -725,7 +725,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1603928" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.44680852" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.26022914" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1216,8 +1216,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-605">
-          <caret line="494" lean-forward="true" selection-start-line="494" selection-end-line="494" />
+        <state relative-caret-position="160">
+          <caret line="860" column="43" lean-forward="true" selection-start-line="860" selection-start-column="43" selection-end-line="860" selection-end-column="43" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
