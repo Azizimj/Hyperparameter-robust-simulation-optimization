@@ -805,26 +805,27 @@ if __name__ == "__main__":
         test_dataset = None
         test_load = None
         division_num = 0
-
-        for tr_dir in sorted(os.listdir(divide_files_dir)):
+        list_dir = os.listdir(divide_files_dir)
+        list_dir.sort(key=int)
+        for tr_dir in list_dir:
+            # import IPython
+            # IPython.embed()
             if tr_dir == "res" or division_num>len(df['day prec']):
                 continue
             # print(tr_dir)
             st_time = time.time()
             # read tr
             # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
-
-
             if model_name == 'nn':
                 im_size = 64
                 batch_size = int(df['batch_size'][division_num])  # [50 - 400]
                 lr = float(df['lr'][division_num]) # 0.0001 # [1e-4, 1e-2]
-                krnl_1= 3  # [2, 40]
+                krnl_1= 5  # [2, 40]
                 krnl_2= int(df['krnl_1'][division_num])# 5 # [2, 40]
                 mx_krnl_1= 2 # [2, 4]
                 mx_krnl_2= int(df['mx_krnl_1'][division_num]) # 2 # [2, 8]
                 # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
-                num_epochs = 5
+                num_epochs = 3
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()
