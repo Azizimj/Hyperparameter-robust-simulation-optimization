@@ -828,16 +828,16 @@ if __name__ == "__main__":
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()
-                # if test_dataset is not None:
-                #     CNN_w.test_dataset = test_dataset
-                #     CNN_w.test_load = test_load
-                #     print("used previous test read from {}".format(tes_dir))
-                # else:
-                #     CNN_w.test_reader()
-                #     test_dataset = CNN_w.test_dataset
-                #     test_load = CNN_w.test_load
-                #     print("test loaded form {}".format(tes_dir))
-                CNN_w.test_reader()
+                if test_dataset is not None:
+                    CNN_w.test_dataset = test_dataset
+                    CNN_w.test_load = test_load
+                    print("used previous test read from {}".format(tes_dir))
+                else:
+                    CNN_w.test_reader()
+                    test_dataset = CNN_w.test_dataset
+                    test_load = CNN_w.test_load
+                    print("test loaded form {}".format(tes_dir))
+                # CNN_w.test_reader()
 
                 print("train started on division {} in {}".format(division_num, divide_files_dir+tr_dir+"/"))
                 tr_acc, tes_acc = CNN_w.trainer()
