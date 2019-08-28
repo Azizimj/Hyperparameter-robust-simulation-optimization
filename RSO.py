@@ -38,9 +38,6 @@ from random import sample
 from sklearn import preprocessing
 import pandas as pd
 from shutil import copyfile
-##hyp
-# from hyperopt import hp
-# from hyperopt import fmin, tpe, space_eval
 ##
 import csv
 
@@ -473,8 +470,6 @@ def objective_cnn(hyps):
     return tes_acc
 
 
-
-
 if __name__ == "__main__":
 
     tr_tes_sep = False
@@ -608,6 +603,8 @@ if __name__ == "__main__":
 
     #hypopt
     if hyperopt_use:
+        from hyperopt import hp
+        from hyperopt import fmin, tpe, space_eval
         max_eval_hpopt = 2
         if len(sys.argv) > 1:
             max_eval_hpopt = int(sys.argv[3])
@@ -621,7 +618,7 @@ if __name__ == "__main__":
 
         tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
 
-        print("hyp started ")
+        print("hyperopt started ")
 
         test_dataset = None
         test_load = None
@@ -633,7 +630,7 @@ if __name__ == "__main__":
         lr = 0.0001 # [1e-4, 1e-2]
         lr_l = 1e-4
         lr_u = 1e-2
-        krnl_1 = 5  # [2, 40]
+        krnl_1 = 3  # [2, 40]
         krnl_2 = 5 # [2, 40]
         krnl_2_l= 2
         krnl_2_u = 20
@@ -643,7 +640,7 @@ if __name__ == "__main__":
         mx_krnl_2_u = 10
         num_epochs = 3
         CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
-                                  mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
+                                  mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
         CNN_w.train_reader()
         if test_dataset is not None:
             CNN_w.test_dataset = test_dataset
@@ -663,6 +660,8 @@ if __name__ == "__main__":
                   'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
                   'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
 
+        hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
+        objective_cnn(hyps)
         # minimize the objective over the space
         best_hyp = fmin(objective_cnn, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
 
