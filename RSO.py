@@ -876,16 +876,14 @@ if __name__ == "__main__":
             # f.write(tmp)
             div_time = time.time() - st_time
             print("division {} is done in {}\n".format(division_num, div_time))
-            if model_name == "nn":
-                # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
-                #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
-                #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
-
-                row = [division_num, im_size, batch_size, lr, krnl_2, num_epochs,
-                       tr_data_ave, tr_data_std, tr_acc, "",
-                       tes_data_ave, tes_data_std, tes_acc,
-                       div_time]
-                writer_f_all.writerow(row)
+            # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
+            #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
+            #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
+            row = [division_num, im_size, batch_size, lr, krnl_2, num_epochs,
+                   tr_data_ave, tr_data_std, tr_acc, "",
+                   tes_data_ave, tes_data_std, tes_acc,
+                   div_time]
+            writer_f_all.writerow(row)
 
             division_num += 1
 
