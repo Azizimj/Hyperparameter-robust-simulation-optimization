@@ -19,6 +19,7 @@ images/
 """
 
 import sys
+import time
 import os
 import cv2
 import numpy as np
@@ -808,7 +809,8 @@ if __name__ == "__main__":
         for tr_dir in os.listdir(divide_files_dir):
             if tr_dir == "res" or division_num>len(df['day prec']):
                 continue
-            print(tr_dir)
+            # print(tr_dir)
+            st_time = time.time()
             # read tr
             # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
 
@@ -821,19 +823,23 @@ if __name__ == "__main__":
                 krnl_2= int(df['krnl_1'][division_num])# 5 # [2, 40]
                 mx_krnl_1= 2 # [2, 4]
                 mx_krnl_2= 2 # [2, 8]
-                num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
+                # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
+                num_epochs = 2
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()
-                if test_dataset is not None:
-                    CNN_w.test_dataset = test_dataset
-                    CNN_w.test_load = test_load
-                else:
-                    CNN_w.test_reader()
-                    test_dataset = CNN_w.test_dataset
-                    test_load = CNN_w.test_load
+                # if test_dataset is not None:
+                #     CNN_w.test_dataset = test_dataset
+                #     CNN_w.test_load = test_load
+                #     print("used previous test read from {}".format(tes_dir))
+                # else:
+                #     CNN_w.test_reader()
+                #     test_dataset = CNN_w.test_dataset
+                #     test_load = CNN_w.test_load
+                #     print("test loaded form {}".format(tes_dir))
+                CNN_w.test_reader()
 
-                print("train started on {}".format(tr_dir))
+                print("train started on division {} in {}".format(division_num, divide_files_dir+tr_dir+"/"))
                 tr_acc, tes_acc = CNN_w.trainer()
                 tr_data_ave = CNN_w.tr_data_ave
                 tr_data_std = CNN_w.tr_data_std
@@ -854,8 +860,10 @@ if __name__ == "__main__":
 
             # X_train, y_train = None, None
 
-            tmp = 'Acc tr and tes on division ' + str(division_num) + \
-                  " are {}, {}\n".format(tr_acc, tes_acc)
+            tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
+                  'tes ave {}, tes std {}'.format(tr_acc, tes_acc, division_num, tr_data_ave,
+                                                  tr_data_std, tes_data_ave, tes_data_std)
+
             print(tmp)
             f.write(tmp)
 
@@ -866,15 +874,15 @@ if __name__ == "__main__":
             # tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)
             # print(tmp)
             # f.write(tmp)
-
+            div_time = time.time() - st_time
+            print("division {} is done in {}\n".format(division_num, div_time))
             if model_name == "nn":
                 # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
                 #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
                 #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
-                row = [tr_data_ave, tr_data_std, tr_acc, "", tes_data_ave, tes_data_std, tes_acc, num_epochs]
+                row = [tr_data_ave, tr_data_std, tr_acc, "", tes_data_ave, tes_data_std, tes_acc, num_epochs, div_time]
                 writer_f_all.writerow(row)
 
-            print("division {} is done \n".format(division_num))
             division_num += 1
 
 

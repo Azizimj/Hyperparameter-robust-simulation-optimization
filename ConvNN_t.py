@@ -8,7 +8,9 @@ from torch.autograd import Variable
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
+np.random.seed(110)
 import time
+torch.manual_seed(110)
 
 class CNN_wrap():
     def __init__(self, im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1, mx_krnl_2, num_epochs, tr_dir, tes_dir):
@@ -30,13 +32,16 @@ class CNN_wrap():
         self.tes_dir = tes_dir
         # self.f = open("CNN_"+str(batch_size)+"_"+str(lr)+str(batch_size)+"_"+.txt", "a")
         # self.f.write(model_name + "\n")
+        self.CUDA = torch.cuda.is_available()
 
     def train_reader(self):
         # Load our dataset
+        print("reading train set form {}".format(self.tr_dir))
         self.train_dataset = datasets.ImageFolder(root=self.tr_dir, transform=self.transform_ori)
         self.train_load = torch.utils.data.DataLoader(dataset=self.train_dataset,
                                                       batch_size=self.batch_size,
-                                                      shuffle=True)  # Shuffle to create a mixed batches of 100 of cat & dog images
+                                                      shuffle=True,
+                                                      pin_memory = self.CUDA)  # Shuffle to create a mixed batches of 100 of cat & dog images
         # # Show a batch of images
         # def imshow(img):
         #     img = img / 2 + 0.5  # unnormalize
@@ -67,14 +72,16 @@ class CNN_wrap():
         # Make the dataset iterable
 
     def test_reader(self):
+        print("reading test set form {}".format(self.tes_dir))
         self.test_dataset = datasets.ImageFolder(root=self.tes_dir, transform=self.transform_ori)
         self.test_load = torch.utils.data.DataLoader(dataset=self.test_dataset,
                                                      batch_size=self.batch_size,
-                                                     shuffle=False)
+                                                     shuffle=False,
+                                                     pin_memory = self.CUDA)
 
     def trainer(self):
         self.model = CNN(self.im_size, self.krnl_1, self.krnl_2, self.mx_krnl_1, self.mx_krnl_2)
-        self.CUDA = torch.cuda.is_available()
+
         if self.CUDA:
             self.model = self.model.cuda()
         loss_fn = nn.CrossEntropyLoss()
