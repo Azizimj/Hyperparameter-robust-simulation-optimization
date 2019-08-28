@@ -499,10 +499,11 @@ if __name__ == "__main__":
         else:
             hyperopt_use = False
 
+    images_dir = "images"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
-    # images_dir = "images"
+
 
     make_dir("res/")
 
