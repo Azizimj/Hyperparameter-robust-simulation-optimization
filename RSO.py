@@ -822,9 +822,9 @@ if __name__ == "__main__":
                 krnl_1= 3  # [2, 40]
                 krnl_2= int(df['krnl_1'][division_num])# 5 # [2, 40]
                 mx_krnl_1= 2 # [2, 4]
-                mx_krnl_2= 2 # [2, 8]
-                num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
-                # num_epochs = 2
+                mx_krnl_2= int(df['mx_krnl_1'][division_num]) # 2 # [2, 8]
+                # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
+                num_epochs = 5
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                  mx_krnl_2, num_epochs, divide_files_dir+tr_dir+"/", tes_dir)
                 CNN_w.train_reader()

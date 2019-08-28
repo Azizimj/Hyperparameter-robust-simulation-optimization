@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="RSO use in new">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Design-Data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LHS-data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LHS-data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LHS-data.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="500" column="22" lean-forward="true" selection-start-line="500" selection-start-column="22" selection-end-line="500" selection-end-column="22" />
+            <state relative-caret-position="377">
+              <caret line="497" column="22" lean-forward="true" selection-start-line="497" selection-start-column="22" selection-end-line="497" selection-end-column="22" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -94,7 +99,6 @@
                 <element signature="e#28420#28767#0" />
                 <element signature="e#28426#28724#0" />
                 <element signature="e#29519#29528#0" />
-                <element signature="e#29680#31229#0" />
                 <element signature="e#30382#30412#0" />
                 <element signature="e#31330#31338#0" />
                 <element signature="e#31781#31894#0" />
@@ -357,13 +361,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00007" summary="set seed and hyps">
-      <created>1565047183955</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1565047183955</updated>
     </task>
     <task id="LOCAL-00008" summary="set seed and hyps">
       <created>1565047326637</created>
@@ -701,7 +698,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566952758273</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="RSO use in new">
+      <created>1566953356225</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1566953356225</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView">
@@ -722,8 +726,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23731588" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.22585924" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.24713585" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.26022914" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
@@ -775,11 +779,6 @@
           <line>104</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>809</line>
-          <option name="timeStamp" value="121" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -812,6 +811,11 @@ scipy.stats.skew(X_train)</expression-string>
       </expression>
     </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>df</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>sorted(os.listdir(divide_files_dir))</expression-string>
         <language-id>Python</language-id>
@@ -849,11 +853,6 @@ scipy.stats.skew(X_train)</expression-string>
       </expression>
       <expression>
         <expression-string>np.sort(os.listdir(divide_files_dir)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>sort(os.listdir(divide_files_dir))</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1218,8 +1217,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="500" column="22" lean-forward="true" selection-start-line="500" selection-start-column="22" selection-end-line="500" selection-end-column="22" />
+        <state relative-caret-position="377">
+          <caret line="497" column="22" lean-forward="true" selection-start-line="497" selection-start-column="22" selection-end-line="497" selection-end-column="22" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
@@ -1296,7 +1295,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#28420#28767#0" />
             <element signature="e#28426#28724#0" />
             <element signature="e#29519#29528#0" />
-            <element signature="e#29680#31229#0" />
             <element signature="e#30382#30412#0" />
             <element signature="e#31330#31338#0" />
             <element signature="e#31781#31894#0" />
