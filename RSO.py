@@ -582,7 +582,7 @@ if __name__ == "__main__":
 
     tes_dir = images_dir + "_" + str(test_precs) + "/"+"tes/"
 
-    divide_files_dir = images_dir +"_"+ str(test_precs) + "/tr/"+"divided/"
+    divide_files_dir = images_dir +"_"+ str(test_precs) + "/divided/"
     division_num = 0
 
     # NN HYP
@@ -605,7 +605,7 @@ if __name__ == "__main__":
     if hyperopt_use:
         from hyperopt import hp
         from hyperopt import fmin, tpe, space_eval
-        max_eval_hpopt = 2
+        max_eval_hpopt = 70
         if len(sys.argv) > 1:
             max_eval_hpopt = int(sys.argv[3])
 
@@ -660,8 +660,10 @@ if __name__ == "__main__":
                   'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
                   'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
 
-        hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
-        objective_cnn(hyps)
+        #try the objective_cnn
+        # hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
+        # objective_cnn(hyps)
+
         # minimize the objective over the space
         best_hyp = fmin(objective_cnn, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
 
@@ -680,9 +682,8 @@ if __name__ == "__main__":
         tes_data_std = CNN_w.tes_data_std
 
         tmp = 'Best hyps tr acc {} and tes acc {} with tr ave, {} tr std,' \
-              'tes ave {}, tes std {}'.format(tr_acc, tes_acc
-                                              , tr_data_ave, tr_data_std,
-                                              tes_data_ave, tes_data_std)
+              'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
+                                              tr_data_std, tes_data_ave, tes_data_std)
         print(tmp)
         f.write(tmp)
 
