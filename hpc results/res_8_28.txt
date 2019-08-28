@@ -1,0 +1,700 @@
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/0/
+reading test set form images_[0.2, 0.2]/tes/
+test loaded form images_[0.2, 0.2]/tes/
+train started on division 0 in images_[0.2, 0.2]/tr/divided/0/
+Epoch 1/3, Training Loss: 0.634, Training Accuracy: 79.000, Testing Loss: 0.025, Testing Acc: 92.000, Time: 38.910977363586426s
+Epoch 2/3, Training Loss: 0.144, Training Accuracy: 95.000, Testing Loss: 0.007, Testing Acc: 96.000, Time: 38.87136673927307s
+Epoch 3/3, Training Loss: 0.074, Training Accuracy: 97.000, Testing Loss: 0.004, Testing Acc: 97.000, Time: 38.863024950027466s
+tr acc 97 and tes acc 97 on division 0 with -0.0006087716319598258 tr ave, 0.007621630560606718 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 0 is done in 121.6418285369873
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/1/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 1 in images_[0.2, 0.2]/tr/divided/1/
+Epoch 1/3, Training Loss: 0.223, Training Accuracy: 90.000, Testing Loss: 0.004, Testing Acc: 93.000, Time: 38.724445819854736s
+Epoch 2/3, Training Loss: 0.029, Training Accuracy: 99.000, Testing Loss: 0.005, Testing Acc: 94.000, Time: 38.48844838142395s
+Epoch 3/3, Training Loss: 0.033, Training Accuracy: 99.000, Testing Loss: 0.002, Testing Acc: 98.000, Time: 38.51982283592224s
+tr acc 99 and tes acc 98 on division 1 with -0.0028412893880158663 tr ave, 0.00651967991143465 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 1 is done in 115.86115503311157
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/2/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 2 in images_[0.2, 0.2]/tr/divided/2/
+Epoch 1/3, Training Loss: 0.237, Training Accuracy: 90.000, Testing Loss: 0.039, Testing Acc: 96.000, Time: 86.45460391044617s
+Epoch 2/3, Training Loss: 0.074, Training Accuracy: 97.000, Testing Loss: 0.011, Testing Acc: 97.000, Time: 38.18013000488281s
+Epoch 3/3, Training Loss: 0.036, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 38.24727964401245s
+tr acc 98 and tes acc 98 on division 2 with -0.0009840608108788729 tr ave, 0.0039293658919632435 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 2 is done in 163.1652204990387
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/3/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 3 in images_[0.2, 0.2]/tr/divided/3/
+Epoch 1/3, Training Loss: 0.185, Training Accuracy: 93.000, Testing Loss: 0.020, Testing Acc: 95.000, Time: 82.55527400970459s
+Epoch 2/3, Training Loss: 0.056, Training Accuracy: 98.000, Testing Loss: 0.005, Testing Acc: 96.000, Time: 39.57147431373596s
+Epoch 3/3, Training Loss: 0.038, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 39.6507408618927s
+tr acc 98 and tes acc 98 on division 3 with -0.002292409772053361 tr ave, 0.009468146599829197 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 3 is done in 162.34938979148865
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/4/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 4 in images_[0.2, 0.2]/tr/divided/4/
+Epoch 1/3, Training Loss: 0.420, Training Accuracy: 91.000, Testing Loss: 0.000, Testing Acc: 97.000, Time: 86.4044463634491s
+Epoch 2/3, Training Loss: 0.096, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 39.09254598617554s
+Epoch 3/3, Training Loss: 0.118, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 97.000, Time: 38.93743634223938s
+tr acc 97 and tes acc 97 on division 4 with -0.005617810413241386 tr ave, 0.01639392599463463 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 4 is done in 164.759348154068
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/5/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 5 in images_[0.2, 0.2]/tr/divided/5/
+Epoch 1/3, Training Loss: 0.557, Training Accuracy: 87.000, Testing Loss: 0.003, Testing Acc: 95.000, Time: 84.83930969238281s
+Epoch 2/3, Training Loss: 0.117, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 38.811131954193115s
+Epoch 3/3, Training Loss: 0.065, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 38.864086866378784s
+tr acc 97 and tes acc 98 on division 5 with 0.0010260179406031966 tr ave, 0.011980915442109108 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 5 is done in 162.69074964523315
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/6/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 6 in images_[0.2, 0.2]/tr/divided/6/
+Epoch 1/3, Training Loss: 0.427, Training Accuracy: 83.000, Testing Loss: 0.025, Testing Acc: 88.000, Time: 80.355233669281s
+Epoch 2/3, Training Loss: 0.089, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 93.000, Time: 38.7379047870636s
+Epoch 3/3, Training Loss: 0.046, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.63254141807556s
+tr acc 98 and tes acc 96 on division 6 with 0.00038620788836851716 tr ave, 0.005265227518975735 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 6 is done in 157.98260974884033
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/7/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 7 in images_[0.2, 0.2]/tr/divided/7/
+Epoch 1/3, Training Loss: 1.673, Training Accuracy: 75.000, Testing Loss: 0.008, Testing Acc: 95.000, Time: 80.76148724555969s
+Epoch 2/3, Training Loss: 0.146, Training Accuracy: 85.000, Testing Loss: 0.006, Testing Acc: 87.000, Time: 38.11163091659546s
+Epoch 3/3, Training Loss: 0.121, Training Accuracy: 96.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.14633536338806s
+tr acc 96 and tes acc 96 on division 7 with -0.0016787993954494596 tr ave, 0.00418434850871563 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 7 is done in 157.19994187355042
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/8/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 8 in images_[0.2, 0.2]/tr/divided/8/
+Epoch 1/3, Training Loss: 0.239, Training Accuracy: 89.000, Testing Loss: 0.051, Testing Acc: 91.000, Time: 83.22070932388306s
+Epoch 2/3, Training Loss: 0.087, Training Accuracy: 97.000, Testing Loss: 0.004, Testing Acc: 95.000, Time: 38.304571866989136s
+Epoch 3/3, Training Loss: 0.046, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.50583219528198s
+tr acc 98 and tes acc 96 on division 8 with -0.0002601327432785183 tr ave, 0.004078408237546682 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 8 is done in 160.25668835639954
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/9/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 9 in images_[0.2, 0.2]/tr/divided/9/
+Epoch 1/3, Training Loss: 0.125, Training Accuracy: 95.000, Testing Loss: 0.003, Testing Acc: 96.000, Time: 83.85525941848755s
+Epoch 2/3, Training Loss: 0.045, Training Accuracy: 98.000, Testing Loss: 0.009, Testing Acc: 93.000, Time: 38.95407247543335s
+Epoch 3/3, Training Loss: 0.027, Training Accuracy: 99.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 38.797664403915405s
+tr acc 99 and tes acc 98 on division 9 with -0.0036615829449146986 tr ave, 0.012291687540709972 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 9 is done in 161.83737134933472
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/10/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 10 in images_[0.2, 0.2]/tr/divided/10/
+Epoch 1/3, Training Loss: 3.264, Training Accuracy: 74.000, Testing Loss: 0.046, Testing Acc: 93.000, Time: 38.829806327819824s
+Epoch 2/3, Training Loss: 0.216, Training Accuracy: 92.000, Testing Loss: 0.033, Testing Acc: 96.000, Time: 38.59334349632263s
+Epoch 3/3, Training Loss: 0.154, Training Accuracy: 93.000, Testing Loss: 0.016, Testing Acc: 96.000, Time: 38.57638382911682s
+tr acc 93 and tes acc 96 on division 10 with -0.0006724519771523774 tr ave, 0.004742829129099846 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 10 is done in 116.091628074646
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/11/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 11 in images_[0.2, 0.2]/tr/divided/11/
+Epoch 1/3, Training Loss: 10.140, Training Accuracy: 77.000, Testing Loss: 0.103, Testing Acc: 89.000, Time: 38.89267587661743s
+Epoch 2/3, Training Loss: 0.215, Training Accuracy: 90.000, Testing Loss: 0.026, Testing Acc: 91.000, Time: 38.84699559211731s
+Epoch 3/3, Training Loss: 0.241, Training Accuracy: 89.000, Testing Loss: 0.029, Testing Acc: 96.000, Time: 38.86195373535156s
+tr acc 89 and tes acc 96 on division 11 with -0.0005673901760019362 tr ave, 0.005710771773010492 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 11 is done in 116.74035048484802
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/12/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 12 in images_[0.2, 0.2]/tr/divided/12/
+Epoch 1/3, Training Loss: 0.164, Training Accuracy: 92.000, Testing Loss: 0.002, Testing Acc: 94.000, Time: 79.30277299880981s
+Epoch 2/3, Training Loss: 0.041, Training Accuracy: 98.000, Testing Loss: 0.003, Testing Acc: 95.000, Time: 39.30117726325989s
+Epoch 3/3, Training Loss: 0.040, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 95.000, Time: 39.059101581573486s
+tr acc 98 and tes acc 95 on division 12 with 0.001603999873623252 tr ave, 0.009259183891117573 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 12 is done in 157.87590789794922
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/13/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 13 in images_[0.2, 0.2]/tr/divided/13/
+Epoch 1/3, Training Loss: 0.701, Training Accuracy: 78.000, Testing Loss: 0.016, Testing Acc: 95.000, Time: 79.78348422050476s
+Epoch 2/3, Training Loss: 0.116, Training Accuracy: 96.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 40.82590389251709s
+Epoch 3/3, Training Loss: 0.106, Training Accuracy: 97.000, Testing Loss: 0.002, Testing Acc: 97.000, Time: 39.80426287651062s
+tr acc 97 and tes acc 97 on division 13 with -0.00031437264988198876 tr ave, 0.006927994545549154 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 13 is done in 160.62858843803406
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/14/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 14 in images_[0.2, 0.2]/tr/divided/14/
+Epoch 1/3, Training Loss: 1.333, Training Accuracy: 81.000, Testing Loss: 0.024, Testing Acc: 94.000, Time: 79.36405062675476s
+Epoch 2/3, Training Loss: 0.225, Training Accuracy: 95.000, Testing Loss: 0.019, Testing Acc: 96.000, Time: 40.08288931846619s
+Epoch 3/3, Training Loss: 0.135, Training Accuracy: 97.000, Testing Loss: 0.005, Testing Acc: 98.000, Time: 40.028183937072754s
+tr acc 97 and tes acc 98 on division 14 with -0.00171274587046355 tr ave, 0.0074369218200445175 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 14 is done in 159.63027262687683
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/15/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 15 in images_[0.2, 0.2]/tr/divided/15/
+Epoch 1/3, Training Loss: 0.669, Training Accuracy: 78.000, Testing Loss: 0.006, Testing Acc: 96.000, Time: 80.75352501869202s
+Epoch 2/3, Training Loss: 0.057, Training Accuracy: 98.000, Testing Loss: 0.005, Testing Acc: 98.000, Time: 40.41488218307495s
+Epoch 3/3, Training Loss: 0.031, Training Accuracy: 99.000, Testing Loss: 0.000, Testing Acc: 99.000, Time: 39.80115270614624s
+tr acc 99 and tes acc 99 on division 15 with 0.00020800356287509203 tr ave, 0.005257094278931618 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 15 is done in 161.17146110534668
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/16/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 16 in images_[0.2, 0.2]/tr/divided/16/
+Epoch 1/3, Training Loss: 2.928, Training Accuracy: 58.000, Testing Loss: 0.014, Testing Acc: 81.000, Time: 82.84527325630188s
+Epoch 2/3, Training Loss: 0.518, Training Accuracy: 63.000, Testing Loss: 0.018, Testing Acc: 92.000, Time: 39.71136546134949s
+Epoch 3/3, Training Loss: 0.509, Training Accuracy: 63.000, Testing Loss: 0.018, Testing Acc: 92.000, Time: 40.35119891166687s
+tr acc 63 and tes acc 92 on division 16 with 0.00023014980251900852 tr ave, 0.005037290044128895 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 16 is done in 163.13335061073303
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/17/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 17 in images_[0.2, 0.2]/tr/divided/17/
+Epoch 1/3, Training Loss: 0.954, Training Accuracy: 87.000, Testing Loss: 0.001, Testing Acc: 95.000, Time: 80.13206219673157s
+Epoch 2/3, Training Loss: 0.113, Training Accuracy: 96.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 40.54721713066101s
+Epoch 3/3, Training Loss: 0.099, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 97.000, Time: 39.91619539260864s
+tr acc 97 and tes acc 97 on division 17 with -0.0009714412735775113 tr ave, 0.011445946991443634 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 17 is done in 160.799400806427
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/18/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 18 in images_[0.2, 0.2]/tr/divided/18/
+Epoch 1/3, Training Loss: 0.275, Training Accuracy: 88.000, Testing Loss: 0.000, Testing Acc: 91.000, Time: 80.48932647705078s
+Epoch 2/3, Training Loss: 0.149, Training Accuracy: 95.000, Testing Loss: 0.009, Testing Acc: 95.000, Time: 41.00436305999756s
+Epoch 3/3, Training Loss: 0.140, Training Accuracy: 96.000, Testing Loss: 0.007, Testing Acc: 73.000, Time: 41.57042479515076s
+tr acc 96 and tes acc 73 on division 18 with 0.0048230490647256374 tr ave, 0.019819697365164757 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 18 is done in 163.241868019104
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/19/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 19 in images_[0.2, 0.2]/tr/divided/19/
+Epoch 1/3, Training Loss: 0.206, Training Accuracy: 91.000, Testing Loss: 0.006, Testing Acc: 96.000, Time: 74.86324262619019s
+Epoch 2/3, Training Loss: 0.053, Training Accuracy: 98.000, Testing Loss: 0.003, Testing Acc: 96.000, Time: 38.52866506576538s
+Epoch 3/3, Training Loss: 0.039, Training Accuracy: 98.000, Testing Loss: 0.003, Testing Acc: 97.000, Time: 38.28895878791809s
+tr acc 98 and tes acc 97 on division 19 with -0.000675839080940932 tr ave, 0.004731431603431702 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 19 is done in 152.07197523117065
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/20/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 20 in images_[0.2, 0.2]/tr/divided/20/
+Epoch 1/3, Training Loss: 0.723, Training Accuracy: 85.000, Testing Loss: 0.064, Testing Acc: 92.000, Time: 91.24652051925659s
+Epoch 2/3, Training Loss: 0.156, Training Accuracy: 95.000, Testing Loss: 0.006, Testing Acc: 97.000, Time: 39.22659182548523s
+Epoch 3/3, Training Loss: 0.073, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 39.33011245727539s
+tr acc 97 and tes acc 98 on division 20 with -0.0018844655714929104 tr ave, 0.009350580163300037 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 20 is done in 170.10820627212524
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/21/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 21 in images_[0.2, 0.2]/tr/divided/21/
+Epoch 1/3, Training Loss: 2.540, Training Accuracy: 77.000, Testing Loss: 0.015, Testing Acc: 78.000, Time: 86.37329936027527s
+Epoch 2/3, Training Loss: 0.243, Training Accuracy: 90.000, Testing Loss: 0.019, Testing Acc: 80.000, Time: 38.743706464767456s
+Epoch 3/3, Training Loss: 0.187, Training Accuracy: 93.000, Testing Loss: 0.000, Testing Acc: 86.000, Time: 38.818217754364014s
+tr acc 93 and tes acc 86 on division 21 with -7.885695958975703e-05 tr ave, 0.004801817703992128 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 21 is done in 164.26071071624756
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/22/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 22 in images_[0.2, 0.2]/tr/divided/22/
+Epoch 1/3, Training Loss: 0.964, Training Accuracy: 87.000, Testing Loss: 0.021, Testing Acc: 98.000, Time: 79.87801265716553s
+Epoch 2/3, Training Loss: 0.177, Training Accuracy: 95.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 39.28901124000549s
+Epoch 3/3, Training Loss: 0.202, Training Accuracy: 93.000, Testing Loss: 0.710, Testing Acc: 92.000, Time: 39.22992515563965s
+tr acc 93 and tes acc 92 on division 22 with -0.005102197173982859 tr ave, 0.014593868516385555 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 22 is done in 158.71070432662964
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/23/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 23 in images_[0.2, 0.2]/tr/divided/23/
+Epoch 1/3, Training Loss: 0.239, Training Accuracy: 91.000, Testing Loss: 0.002, Testing Acc: 97.000, Time: 83.37843012809753s
+Epoch 2/3, Training Loss: 0.077, Training Accuracy: 97.000, Testing Loss: 0.003, Testing Acc: 97.000, Time: 39.34106993675232s
+Epoch 3/3, Training Loss: 0.077, Training Accuracy: 98.000, Testing Loss: 0.002, Testing Acc: 97.000, Time: 39.247976541519165s
+tr acc 98 and tes acc 97 on division 23 with -0.003462734632194042 tr ave, 0.018261991441249847 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 23 is done in 162.26367020606995
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/24/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 24 in images_[0.2, 0.2]/tr/divided/24/
+Epoch 1/3, Training Loss: 2.185, Training Accuracy: 61.000, Testing Loss: 0.052, Testing Acc: 81.000, Time: 82.27412939071655s
+Epoch 2/3, Training Loss: 0.319, Training Accuracy: 90.000, Testing Loss: 0.043, Testing Acc: 86.000, Time: 38.61387586593628s
+Epoch 3/3, Training Loss: 0.226, Training Accuracy: 92.000, Testing Loss: 0.060, Testing Acc: 91.000, Time: 38.557674407958984s
+tr acc 92 and tes acc 91 on division 24 with -0.0008575201500207186 tr ave, 0.004197992384433746 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 24 is done in 159.6908323764801
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/25/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 25 in images_[0.2, 0.2]/tr/divided/25/
+Epoch 1/3, Training Loss: 0.833, Training Accuracy: 75.000, Testing Loss: 0.014, Testing Acc: 87.000, Time: 80.5817539691925s
+Epoch 2/3, Training Loss: 0.097, Training Accuracy: 96.000, Testing Loss: 0.006, Testing Acc: 96.000, Time: 38.5920615196228s
+Epoch 3/3, Training Loss: 0.059, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 38.56666398048401s
+tr acc 98 and tes acc 98 on division 25 with 0.0005094596999697387 tr ave, 0.004294445738196373 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 25 is done in 158.04616332054138
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/26/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 26 in images_[0.2, 0.2]/tr/divided/26/
+Epoch 1/3, Training Loss: 1.277, Training Accuracy: 72.000, Testing Loss: 0.005, Testing Acc: 87.000, Time: 80.04633569717407s
+Epoch 2/3, Training Loss: 0.117, Training Accuracy: 95.000, Testing Loss: 0.007, Testing Acc: 96.000, Time: 38.427624225616455s
+Epoch 3/3, Training Loss: 0.081, Training Accuracy: 97.000, Testing Loss: 0.002, Testing Acc: 96.000, Time: 38.40166878700256s
+tr acc 97 and tes acc 96 on division 26 with 8.237959264079109e-05 tr ave, 0.0038421167992055416 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 26 is done in 157.0775511264801
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/27/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 27 in images_[0.2, 0.2]/tr/divided/27/
+Epoch 1/3, Training Loss: 42.861, Training Accuracy: 53.000, Testing Loss: 0.039, Testing Acc: 91.000, Time: 81.03258323669434s
+Epoch 2/3, Training Loss: 0.562, Training Accuracy: 86.000, Testing Loss: 0.031, Testing Acc: 87.000, Time: 38.85482358932495s
+Epoch 3/3, Training Loss: 0.579, Training Accuracy: 82.000, Testing Loss: 0.024, Testing Acc: 77.000, Time: 39.02568054199219s
+tr acc 82 and tes acc 77 on division 27 with -5.771723226644099e-05 tr ave, 0.00453669298440218 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 27 is done in 159.37201142311096
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/28/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 28 in images_[0.2, 0.2]/tr/divided/28/
+Epoch 1/3, Training Loss: 0.486, Training Accuracy: 92.000, Testing Loss: 0.010, Testing Acc: 96.000, Time: 77.9739556312561s
+Epoch 2/3, Training Loss: 0.244, Training Accuracy: 94.000, Testing Loss: 0.007, Testing Acc: 95.000, Time: 39.479750871658325s
+Epoch 3/3, Training Loss: 0.167, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 96.000, Time: 39.41020727157593s
+tr acc 96 and tes acc 96 on division 28 with 0.0010464404476806521 tr ave, 0.024764534085989 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 28 is done in 157.02007460594177
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/29/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 29 in images_[0.2, 0.2]/tr/divided/29/
+Epoch 1/3, Training Loss: 0.590, Training Accuracy: 82.000, Testing Loss: 0.014, Testing Acc: 92.000, Time: 82.06374073028564s
+Epoch 2/3, Training Loss: 0.093, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 96.000, Time: 38.83962845802307s
+Epoch 3/3, Training Loss: 0.063, Training Accuracy: 98.000, Testing Loss: 0.000, Testing Acc: 95.000, Time: 39.00254011154175s
+tr acc 98 and tes acc 95 on division 29 with 0.0002066260203719139 tr ave, 0.0062390477396547794 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 29 is done in 160.0869734287262
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/30/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 30 in images_[0.2, 0.2]/tr/divided/30/
+Epoch 1/3, Training Loss: 2.892, Training Accuracy: 68.000, Testing Loss: 0.085, Testing Acc: 83.000, Time: 81.96350622177124s
+Epoch 2/3, Training Loss: 0.270, Training Accuracy: 90.000, Testing Loss: 0.052, Testing Acc: 87.000, Time: 38.68123722076416s
+Epoch 3/3, Training Loss: 0.254, Training Accuracy: 92.000, Testing Loss: 0.026, Testing Acc: 85.000, Time: 38.611764669418335s
+tr acc 92 and tes acc 85 on division 30 with -0.00037383774179033935 tr ave, 0.003804792882874608 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 30 is done in 159.42765712738037
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/31/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 31 in images_[0.2, 0.2]/tr/divided/31/
+Epoch 1/3, Training Loss: 0.330, Training Accuracy: 86.000, Testing Loss: 0.011, Testing Acc: 97.000, Time: 75.73399186134338s
+Epoch 2/3, Training Loss: 0.097, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 38.88502478599548s
+Epoch 3/3, Training Loss: 0.063, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 38.783509969711304s
+tr acc 97 and tes acc 98 on division 31 with -0.002396888565272093 tr ave, 0.0064252386800944805 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 31 is done in 153.64679670333862
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/32/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 32 in images_[0.2, 0.2]/tr/divided/32/
+Epoch 1/3, Training Loss: 29.580, Training Accuracy: 54.000, Testing Loss: 0.043, Testing Acc: 53.000, Time: 73.02406239509583s
+Epoch 2/3, Training Loss: 0.658, Training Accuracy: 74.000, Testing Loss: 0.054, Testing Acc: 53.000, Time: 38.40386486053467s
+Epoch 3/3, Training Loss: 0.519, Training Accuracy: 74.000, Testing Loss: 0.061, Testing Acc: 53.000, Time: 38.41308283805847s
+tr acc 74 and tes acc 53 on division 32 with -0.00165499746799469 tr ave, 0.003931564278900623 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 32 is done in 150.04622101783752
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/33/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 33 in images_[0.2, 0.2]/tr/divided/33/
+Epoch 1/3, Training Loss: 0.091, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 99.000, Time: 81.87818932533264s
+Epoch 2/3, Training Loss: 0.056, Training Accuracy: 98.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 39.504382848739624s
+Epoch 3/3, Training Loss: 0.038, Training Accuracy: 98.000, Testing Loss: 0.004, Testing Acc: 96.000, Time: 39.32807278633118s
+tr acc 98 and tes acc 96 on division 33 with -0.002061808481812477 tr ave, 0.02118166722357273 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 33 is done in 160.88426733016968
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/34/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 34 in images_[0.2, 0.2]/tr/divided/34/
+Epoch 1/3, Training Loss: 1.717, Training Accuracy: 78.000, Testing Loss: 0.008, Testing Acc: 74.000, Time: 79.29053044319153s
+Epoch 2/3, Training Loss: 0.196, Training Accuracy: 96.000, Testing Loss: 0.006, Testing Acc: 86.000, Time: 38.86079525947571s
+Epoch 3/3, Training Loss: 0.090, Training Accuracy: 97.000, Testing Loss: 0.002, Testing Acc: 93.000, Time: 38.66123604774475s
+tr acc 97 and tes acc 93 on division 34 with 0.0006105226930230856 tr ave, 0.003786031622439623 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 34 is done in 157.1519763469696
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/35/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 35 in images_[0.2, 0.2]/tr/divided/35/
+Epoch 1/3, Training Loss: 2.652, Training Accuracy: 70.000, Testing Loss: 0.017, Testing Acc: 91.000, Time: 78.54848670959473s
+Epoch 2/3, Training Loss: 0.313, Training Accuracy: 95.000, Testing Loss: 0.004, Testing Acc: 95.000, Time: 38.51945781707764s
+Epoch 3/3, Training Loss: 0.248, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.166038513183594s
+tr acc 97 and tes acc 96 on division 35 with 0.00013855009456165135 tr ave, 0.004068797919899225 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 35 is done in 155.50542974472046
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/36/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 36 in images_[0.2, 0.2]/tr/divided/36/
+Epoch 1/3, Training Loss: 0.210, Training Accuracy: 90.000, Testing Loss: 0.005, Testing Acc: 95.000, Time: 71.44066333770752s
+Epoch 2/3, Training Loss: 0.054, Training Accuracy: 98.000, Testing Loss: 0.003, Testing Acc: 96.000, Time: 39.213826179504395s
+Epoch 3/3, Training Loss: 0.034, Training Accuracy: 98.000, Testing Loss: 0.003, Testing Acc: 96.000, Time: 39.03644156455994s
+tr acc 98 and tes acc 96 on division 36 with 0.00039616384310647845 tr ave, 0.005993760656565428 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 36 is done in 150.23912978172302
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/37/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 37 in images_[0.2, 0.2]/tr/divided/37/
+Epoch 1/3, Training Loss: 0.687, Training Accuracy: 82.000, Testing Loss: 0.013, Testing Acc: 92.000, Time: 76.47086715698242s
+Epoch 2/3, Training Loss: 0.213, Training Accuracy: 92.000, Testing Loss: 0.006, Testing Acc: 94.000, Time: 38.88522815704346s
+Epoch 3/3, Training Loss: 0.119, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 96.000, Time: 39.10570669174194s
+tr acc 97 and tes acc 96 on division 37 with 0.0015648748958483338 tr ave, 0.008250677958130836 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 37 is done in 154.7625207901001
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/38/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 38 in images_[0.2, 0.2]/tr/divided/38/
+Epoch 1/3, Training Loss: 5.569, Training Accuracy: 82.000, Testing Loss: 0.037, Testing Acc: 83.000, Time: 75.31127381324768s
+Epoch 2/3, Training Loss: 0.243, Training Accuracy: 92.000, Testing Loss: 0.048, Testing Acc: 85.000, Time: 39.5796012878418s
+Epoch 3/3, Training Loss: 0.223, Training Accuracy: 93.000, Testing Loss: 0.044, Testing Acc: 88.000, Time: 39.39853239059448s
+tr acc 93 and tes acc 88 on division 38 with -0.002031436190009117 tr ave, 0.010274953208863735 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 38 is done in 154.70965266227722
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/39/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 39 in images_[0.2, 0.2]/tr/divided/39/
+Epoch 1/3, Training Loss: 1.092, Training Accuracy: 77.000, Testing Loss: 0.007, Testing Acc: 95.000, Time: 81.37084770202637s
+Epoch 2/3, Training Loss: 0.100, Training Accuracy: 96.000, Testing Loss: 0.000, Testing Acc: 96.000, Time: 38.28421425819397s
+Epoch 3/3, Training Loss: 0.081, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.18285274505615s
+tr acc 97 and tes acc 96 on division 39 with -0.0011267125373706222 tr ave, 0.004895591177046299 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 39 is done in 158.0304319858551
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/40/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 40 in images_[0.2, 0.2]/tr/divided/40/
+Epoch 1/3, Training Loss: 0.132, Training Accuracy: 96.000, Testing Loss: 0.003, Testing Acc: 97.000, Time: 91.09855675697327s
+Epoch 2/3, Training Loss: 0.082, Training Accuracy: 98.000, Testing Loss: 0.000, Testing Acc: 99.000, Time: 39.40729260444641s
+Epoch 3/3, Training Loss: 0.050, Training Accuracy: 98.000, Testing Loss: 0.000, Testing Acc: 99.000, Time: 39.43841886520386s
+tr acc 98 and tes acc 99 on division 40 with 0.0020694409031420946 tr ave, 0.028110187500715256 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 40 is done in 170.13304781913757
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/41/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 41 in images_[0.2, 0.2]/tr/divided/41/
+Epoch 1/3, Training Loss: 0.433, Training Accuracy: 86.000, Testing Loss: 0.006, Testing Acc: 97.000, Time: 78.08087992668152s
+Epoch 2/3, Training Loss: 0.095, Training Accuracy: 97.000, Testing Loss: 0.004, Testing Acc: 96.000, Time: 38.89809703826904s
+Epoch 3/3, Training Loss: 0.060, Training Accuracy: 98.000, Testing Loss: 0.021, Testing Acc: 95.000, Time: 38.88783359527588s
+tr acc 98 and tes acc 95 on division 41 with -0.0023540928959846497 tr ave, 0.0097349276766181 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 41 is done in 156.04455161094666
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/42/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 42 in images_[0.2, 0.2]/tr/divided/42/
+Epoch 1/3, Training Loss: 0.586, Training Accuracy: 84.000, Testing Loss: 0.023, Testing Acc: 88.000, Time: 83.85393214225769s
+Epoch 2/3, Training Loss: 0.100, Training Accuracy: 96.000, Testing Loss: 0.003, Testing Acc: 93.000, Time: 38.74232292175293s
+Epoch 3/3, Training Loss: 0.073, Training Accuracy: 97.000, Testing Loss: 0.002, Testing Acc: 94.000, Time: 38.714051485061646s
+tr acc 97 and tes acc 94 on division 42 with 0.000926401698961854 tr ave, 0.003987443633377552 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 42 is done in 161.49598169326782
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/43/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 43 in images_[0.2, 0.2]/tr/divided/43/
+Epoch 1/3, Training Loss: 1.081, Training Accuracy: 84.000, Testing Loss: 0.004, Testing Acc: 96.000, Time: 78.50877976417542s
+Epoch 2/3, Training Loss: 0.072, Training Accuracy: 97.000, Testing Loss: 0.003, Testing Acc: 97.000, Time: 39.066460371017456s
+Epoch 3/3, Training Loss: 0.043, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 99.000, Time: 39.192365646362305s
+tr acc 98 and tes acc 99 on division 43 with 0.00024712784215807915 tr ave, 0.006224425975233316 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 43 is done in 156.9903483390808
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/44/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 44 in images_[0.2, 0.2]/tr/divided/44/
+Epoch 1/3, Training Loss: 1.718, Training Accuracy: 83.000, Testing Loss: 0.068, Testing Acc: 86.000, Time: 74.68737268447876s
+Epoch 2/3, Training Loss: 0.197, Training Accuracy: 94.000, Testing Loss: 0.059, Testing Acc: 89.000, Time: 38.53850531578064s
+Epoch 3/3, Training Loss: 0.164, Training Accuracy: 95.000, Testing Loss: 0.029, Testing Acc: 88.000, Time: 38.76691555976868s
+tr acc 95 and tes acc 88 on division 44 with -0.0017076371004804969 tr ave, 0.007685290649533272 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 44 is done in 152.21159434318542
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/45/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 45 in images_[0.2, 0.2]/tr/divided/45/
+Epoch 1/3, Training Loss: 0.306, Training Accuracy: 85.000, Testing Loss: 0.006, Testing Acc: 97.000, Time: 72.38010096549988s
+Epoch 2/3, Training Loss: 0.058, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.493104696273804s
+Epoch 3/3, Training Loss: 0.052, Training Accuracy: 98.000, Testing Loss: 0.000, Testing Acc: 98.000, Time: 38.52679896354675s
+tr acc 98 and tes acc 98 on division 45 with -0.0013676059897989035 tr ave, 0.0072889127768576145 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 45 is done in 149.5689046382904
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/46/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 46 in images_[0.2, 0.2]/tr/divided/46/
+Epoch 1/3, Training Loss: 1.074, Training Accuracy: 85.000, Testing Loss: 0.013, Testing Acc: 83.000, Time: 86.61213040351868s
+Epoch 2/3, Training Loss: 0.152, Training Accuracy: 94.000, Testing Loss: 0.001, Testing Acc: 93.000, Time: 39.21334719657898s
+Epoch 3/3, Training Loss: 0.135, Training Accuracy: 96.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 39.169164180755615s
+tr acc 96 and tes acc 96 on division 46 with -0.0001825712388381362 tr ave, 0.011237175203859806 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 46 is done in 165.1684296131134
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/47/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 47 in images_[0.2, 0.2]/tr/divided/47/
+Epoch 1/3, Training Loss: 5.576, Training Accuracy: 57.000, Testing Loss: 0.028, Testing Acc: 46.000, Time: 78.4764358997345s
+Epoch 2/3, Training Loss: 0.569, Training Accuracy: 60.000, Testing Loss: 0.012, Testing Acc: 84.000, Time: 38.57858061790466s
+Epoch 3/3, Training Loss: 0.403, Training Accuracy: 82.000, Testing Loss: 0.022, Testing Acc: 92.000, Time: 38.583534717559814s
+tr acc 82 and tes acc 92 on division 47 with 4.724695099866949e-05 tr ave, 0.004058804828673601 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 47 is done in 155.86540627479553
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/48/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 48 in images_[0.2, 0.2]/tr/divided/48/
+Epoch 1/3, Training Loss: 0.494, Training Accuracy: 80.000, Testing Loss: 0.029, Testing Acc: 93.000, Time: 74.7029287815094s
+Epoch 2/3, Training Loss: 0.093, Training Accuracy: 97.000, Testing Loss: 0.004, Testing Acc: 96.000, Time: 38.48025989532471s
+Epoch 3/3, Training Loss: 0.056, Training Accuracy: 98.000, Testing Loss: 0.003, Testing Acc: 97.000, Time: 38.184481143951416s
+tr acc 98 and tes acc 97 on division 48 with 0.0003134198486804962 tr ave, 0.0038449440617114305 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 48 is done in 151.54740381240845
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/49/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 49 in images_[0.2, 0.2]/tr/divided/49/
+Epoch 1/3, Training Loss: 3.336, Training Accuracy: 78.000, Testing Loss: 0.024, Testing Acc: 83.000, Time: 77.3395516872406s
+Epoch 2/3, Training Loss: 0.193, Training Accuracy: 93.000, Testing Loss: 0.033, Testing Acc: 89.000, Time: 38.971884965896606s
+Epoch 3/3, Training Loss: 0.156, Training Accuracy: 94.000, Testing Loss: 0.016, Testing Acc: 92.000, Time: 39.175381660461426s
+tr acc 94 and tes acc 92 on division 49 with -0.0002864873385988176 tr ave, 0.006461271084845066 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 49 is done in 155.768807888031
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/50/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 50 in images_[0.2, 0.2]/tr/divided/50/
+Epoch 1/3, Training Loss: 3.762, Training Accuracy: 72.000, Testing Loss: 0.060, Testing Acc: 96.000, Time: 75.02119255065918s
+Epoch 2/3, Training Loss: 0.285, Training Accuracy: 94.000, Testing Loss: 0.032, Testing Acc: 97.000, Time: 38.08504557609558s
+Epoch 3/3, Training Loss: 0.240, Training Accuracy: 95.000, Testing Loss: 0.026, Testing Acc: 95.000, Time: 37.96922445297241s
+tr acc 95 and tes acc 95 on division 50 with -0.0010694216471165419 tr ave, 0.0036519523710012436 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 50 is done in 151.292884349823
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/51/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 51 in images_[0.2, 0.2]/tr/divided/51/
+Epoch 1/3, Training Loss: 2.737, Training Accuracy: 82.000, Testing Loss: 0.042, Testing Acc: 85.000, Time: 77.79595756530762s
+Epoch 2/3, Training Loss: 0.274, Training Accuracy: 91.000, Testing Loss: 0.060, Testing Acc: 86.000, Time: 38.98538851737976s
+Epoch 3/3, Training Loss: 0.248, Training Accuracy: 92.000, Testing Loss: 0.040, Testing Acc: 91.000, Time: 38.98820662498474s
+tr acc 92 and tes acc 91 on division 51 with -0.0008436496718786657 tr ave, 0.008258281275629997 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 51 is done in 155.94826769828796
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/52/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 52 in images_[0.2, 0.2]/tr/divided/52/
+Epoch 1/3, Training Loss: 0.945, Training Accuracy: 86.000, Testing Loss: 0.045, Testing Acc: 86.000, Time: 77.65846967697144s
+Epoch 2/3, Training Loss: 0.124, Training Accuracy: 96.000, Testing Loss: 0.007, Testing Acc: 97.000, Time: 38.698070764541626s
+Epoch 3/3, Training Loss: 0.087, Training Accuracy: 98.000, Testing Loss: 0.031, Testing Acc: 97.000, Time: 38.670085191726685s
+tr acc 98 and tes acc 97 on division 52 with -0.0031969479750841856 tr ave, 0.007940320298075676 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 52 is done in 155.29094862937927
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/53/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 53 in images_[0.2, 0.2]/tr/divided/53/
+Epoch 1/3, Training Loss: 0.664, Training Accuracy: 86.000, Testing Loss: 0.004, Testing Acc: 83.000, Time: 75.99378275871277s
+Epoch 2/3, Training Loss: 0.163, Training Accuracy: 94.000, Testing Loss: 0.003, Testing Acc: 97.000, Time: 39.1684455871582s
+Epoch 3/3, Training Loss: 0.077, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 39.309059143066406s
+tr acc 97 and tes acc 96 on division 53 with -0.00012074257392669097 tr ave, 0.013849354349076748 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 53 is done in 154.688472032547
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/54/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 54 in images_[0.2, 0.2]/tr/divided/54/
+Epoch 1/3, Training Loss: 0.544, Training Accuracy: 87.000, Testing Loss: 0.004, Testing Acc: 97.000, Time: 81.01831555366516s
+Epoch 2/3, Training Loss: 0.076, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 39.326972007751465s
+Epoch 3/3, Training Loss: 0.071, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 39.59170174598694s
+tr acc 98 and tes acc 97 on division 54 with -0.0002353249437874183 tr ave, 0.014795948751270771 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 54 is done in 160.28717589378357
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/55/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 55 in images_[0.2, 0.2]/tr/divided/55/
+Epoch 1/3, Training Loss: 0.818, Training Accuracy: 79.000, Testing Loss: 0.039, Testing Acc: 88.000, Time: 72.20915389060974s
+Epoch 2/3, Training Loss: 0.216, Training Accuracy: 92.000, Testing Loss: 0.023, Testing Acc: 92.000, Time: 38.52252960205078s
+Epoch 3/3, Training Loss: 0.167, Training Accuracy: 94.000, Testing Loss: 0.003, Testing Acc: 88.000, Time: 38.716675758361816s
+tr acc 94 and tes acc 88 on division 55 with -0.0003833513183053583 tr ave, 0.004522597882896662 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 55 is done in 149.65217971801758
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/56/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 56 in images_[0.2, 0.2]/tr/divided/56/
+Epoch 1/3, Training Loss: 0.569, Training Accuracy: 80.000, Testing Loss: 0.013, Testing Acc: 95.000, Time: 77.81301498413086s
+Epoch 2/3, Training Loss: 0.074, Training Accuracy: 97.000, Testing Loss: 0.019, Testing Acc: 94.000, Time: 38.6362886428833s
+Epoch 3/3, Training Loss: 0.033, Training Accuracy: 99.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 38.46973752975464s
+tr acc 99 and tes acc 98 on division 56 with -0.001353968633338809 tr ave, 0.004825514275580645 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 56 is done in 155.13624167442322
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/57/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 57 in images_[0.2, 0.2]/tr/divided/57/
+Epoch 1/3, Training Loss: 0.440, Training Accuracy: 83.000, Testing Loss: 0.029, Testing Acc: 96.000, Time: 75.96826362609863s
+Epoch 2/3, Training Loss: 0.096, Training Accuracy: 95.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 38.99729800224304s
+Epoch 3/3, Training Loss: 0.053, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 97.000, Time: 39.18088459968567s
+tr acc 97 and tes acc 97 on division 57 with 0.0007386856013908982 tr ave, 0.0064651863649487495 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 57 is done in 154.37237811088562
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/58/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 58 in images_[0.2, 0.2]/tr/divided/58/
+Epoch 1/3, Training Loss: 3.224, Training Accuracy: 70.000, Testing Loss: 0.013, Testing Acc: 85.000, Time: 86.27818179130554s
+Epoch 2/3, Training Loss: 0.344, Training Accuracy: 89.000, Testing Loss: 0.026, Testing Acc: 92.000, Time: 38.96742868423462s
+Epoch 3/3, Training Loss: 0.287, Training Accuracy: 90.000, Testing Loss: 0.026, Testing Acc: 93.000, Time: 38.785409688949585s
+tr acc 90 and tes acc 93 on division 58 with 0.0002642550098244101 tr ave, 0.0045671043917536736 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 58 is done in 164.2724645137787
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/59/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 59 in images_[0.2, 0.2]/tr/divided/59/
+Epoch 1/3, Training Loss: 1.435, Training Accuracy: 82.000, Testing Loss: 0.019, Testing Acc: 95.000, Time: 75.19040560722351s
+Epoch 2/3, Training Loss: 0.155, Training Accuracy: 95.000, Testing Loss: 0.006, Testing Acc: 96.000, Time: 38.80403161048889s
+Epoch 3/3, Training Loss: 0.119, Training Accuracy: 96.000, Testing Loss: 0.007, Testing Acc: 97.000, Time: 38.946123361587524s
+tr acc 96 and tes acc 97 on division 59 with -0.0015609579859301448 tr ave, 0.006481239106506109 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 59 is done in 153.2246618270874
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/60/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 60 in images_[0.2, 0.2]/tr/divided/60/
+Epoch 1/3, Training Loss: 3.028, Training Accuracy: 82.000, Testing Loss: 0.011, Testing Acc: 90.000, Time: 77.97468280792236s
+Epoch 2/3, Training Loss: 0.152, Training Accuracy: 90.000, Testing Loss: 0.005, Testing Acc: 97.000, Time: 38.84992504119873s
+Epoch 3/3, Training Loss: 0.104, Training Accuracy: 95.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.66194534301758s
+tr acc 95 and tes acc 96 on division 60 with -0.0020373968873173 tr ave, 0.005582162644714117 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 60 is done in 155.66208791732788
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/61/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 61 in images_[0.2, 0.2]/tr/divided/61/
+Epoch 1/3, Training Loss: 7.505, Training Accuracy: 65.000, Testing Loss: 0.029, Testing Acc: 46.000, Time: 78.4344756603241s
+Epoch 2/3, Training Loss: 0.539, Training Accuracy: 65.000, Testing Loss: 0.067, Testing Acc: 91.000, Time: 39.21449065208435s
+Epoch 3/3, Training Loss: 0.550, Training Accuracy: 69.000, Testing Loss: 0.019, Testing Acc: 93.000, Time: 39.34819316864014s
+tr acc 69 and tes acc 93 on division 61 with 0.0008449285523965955 tr ave, 0.013449839316308498 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 61 is done in 157.23173260688782
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/62/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 62 in images_[0.2, 0.2]/tr/divided/62/
+Epoch 1/3, Training Loss: 0.326, Training Accuracy: 84.000, Testing Loss: 0.009, Testing Acc: 94.000, Time: 76.2275288105011s
+Epoch 2/3, Training Loss: 0.069, Training Accuracy: 97.000, Testing Loss: 0.003, Testing Acc: 96.000, Time: 38.78394436836243s
+Epoch 3/3, Training Loss: 0.060, Training Accuracy: 98.000, Testing Loss: 0.001, Testing Acc: 96.000, Time: 38.497546911239624s
+tr acc 98 and tes acc 96 on division 62 with -3.427328556426801e-05 tr ave, 0.005751701071858406 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 62 is done in 153.68528509140015
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/63/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 63 in images_[0.2, 0.2]/tr/divided/63/
+Epoch 1/3, Training Loss: 0.203, Training Accuracy: 93.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 75.7791817188263s
+Epoch 2/3, Training Loss: 0.143, Training Accuracy: 97.000, Testing Loss: 0.004, Testing Acc: 93.000, Time: 39.149765491485596s
+Epoch 3/3, Training Loss: 0.085, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 39.18234729766846s
+tr acc 97 and tes acc 97 on division 63 with -0.0016109143616631627 tr ave, 0.016438204795122147 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 63 is done in 154.32016682624817
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/64/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 64 in images_[0.2, 0.2]/tr/divided/64/
+Epoch 1/3, Training Loss: 0.313, Training Accuracy: 91.000, Testing Loss: 0.000, Testing Acc: 96.000, Time: 72.84005951881409s
+Epoch 2/3, Training Loss: 0.149, Training Accuracy: 96.000, Testing Loss: 0.009, Testing Acc: 96.000, Time: 39.34970235824585s
+Epoch 3/3, Training Loss: 0.240, Training Accuracy: 93.000, Testing Loss: 0.000, Testing Acc: 91.000, Time: 39.244815826416016s
+tr acc 93 and tes acc 91 on division 64 with -0.0016347760101780295 tr ave, 0.0229851845651865 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 64 is done in 151.61587047576904
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/65/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 65 in images_[0.2, 0.2]/tr/divided/65/
+Epoch 1/3, Training Loss: 22.063, Training Accuracy: 79.000, Testing Loss: 0.028, Testing Acc: 94.000, Time: 79.5365936756134s
+Epoch 2/3, Training Loss: 0.156, Training Accuracy: 94.000, Testing Loss: 0.006, Testing Acc: 93.000, Time: 39.05483150482178s
+Epoch 3/3, Training Loss: 0.153, Training Accuracy: 95.000, Testing Loss: 0.004, Testing Acc: 95.000, Time: 39.055700063705444s
+tr acc 95 and tes acc 95 on division 65 with 0.00010146851855097339 tr ave, 0.005276310723274946 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 65 is done in 157.97401595115662
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/66/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 66 in images_[0.2, 0.2]/tr/divided/66/
+Epoch 1/3, Training Loss: 1.090, Training Accuracy: 82.000, Testing Loss: 0.002, Testing Acc: 96.000, Time: 71.53854942321777s
+Epoch 2/3, Training Loss: 0.105, Training Accuracy: 96.000, Testing Loss: 0.001, Testing Acc: 97.000, Time: 38.95717000961304s
+Epoch 3/3, Training Loss: 0.085, Training Accuracy: 97.000, Testing Loss: 0.001, Testing Acc: 98.000, Time: 38.85224771499634s
+tr acc 97 and tes acc 98 on division 66 with -0.001061134273186326 tr ave, 0.0053862896747887135 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 66 is done in 149.53380131721497
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/67/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 67 in images_[0.2, 0.2]/tr/divided/67/
+Epoch 1/3, Training Loss: 0.317, Training Accuracy: 91.000, Testing Loss: 0.002, Testing Acc: 95.000, Time: 76.33457517623901s
+Epoch 2/3, Training Loss: 0.100, Training Accuracy: 97.000, Testing Loss: 0.002, Testing Acc: 92.000, Time: 39.25760221481323s
+Epoch 3/3, Training Loss: 0.117, Training Accuracy: 97.000, Testing Loss: 0.000, Testing Acc: 95.000, Time: 39.310882568359375s
+tr acc 97 and tes acc 95 on division 67 with 0.0017794645391404629 tr ave, 0.01232836488634348 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 67 is done in 155.100004196167
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/68/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 68 in images_[0.2, 0.2]/tr/divided/68/
+Epoch 1/3, Training Loss: 7.326, Training Accuracy: 44.000, Testing Loss: 0.042, Testing Acc: 53.000, Time: 78.97671747207642s
+Epoch 2/3, Training Loss: 0.692, Training Accuracy: 53.000, Testing Loss: 0.036, Testing Acc: 46.000, Time: 39.214489698410034s
+Epoch 3/3, Training Loss: 0.687, Training Accuracy: 55.000, Testing Loss: 0.035, Testing Acc: 46.000, Time: 39.16462182998657s
+tr acc 55 and tes acc 46 on division 68 with -0.0004336784186307341 tr ave, 0.009092059917747974 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 68 is done in 157.63066911697388
+
+CUDA is True
+reading train set form images_[0.2, 0.2]/tr/divided/69/
+used previous test read from images_[0.2, 0.2]/tes/
+train started on division 69 in images_[0.2, 0.2]/tr/divided/69/
+Epoch 1/3, Training Loss: 19.246, Training Accuracy: 62.000, Testing Loss: 0.125, Testing Acc: 81.000, Time: 75.34963130950928s
+Epoch 2/3, Training Loss: 0.658, Training Accuracy: 61.000, Testing Loss: 0.038, Testing Acc: 53.000, Time: 39.03921413421631s
+Epoch 3/3, Training Loss: 0.598, Training Accuracy: 57.000, Testing Loss: 0.042, Testing Acc: 53.000, Time: 38.91003346443176s
+tr acc 57 and tes acc 53 on division 69 with -0.0013546020491048694 tr ave, 0.005338532850146294 tr std,tes ave 0.0007941111689433455, tes std 0.00589607423171401
+division 69 is done in 153.73871564865112

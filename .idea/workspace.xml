@@ -2,13 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/hpc results/res_8_28.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Data.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LHS-data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LHS-data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LHS-data.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/result_(0.2, 0.2)_nn_epo15_8_18_19.csv" beforeDir="false" afterPath="$PROJECT_DIR$/hpc results/old/result_(0.2, 0.2)_nn_epo15_8_18_19.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/result_[0.2, 0.2]_nn_epo15_8_18_19_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/hpc results/old/result_[0.2, 0.2]_nn_epo15_8_18_19_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/result_[0.2, 0.2]_nn_epo15_8_18_19_2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hpc results/old/result_[0.2, 0.2]_nn_epo15_8_18_19_2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/result_[0.2, 0.2]_nn_epo30_8_17_19.csv" beforeDir="false" afterPath="$PROJECT_DIR$/hpc results/old/result_[0.2, 0.2]_nn_epo30_8_17_19.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/rso15nn_8_18_19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hpc results/old/rso15nn_8_18_19.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/rso30nn_8_17_19.txt" beforeDir="false" afterPath="$PROJECT_DIR$/hpc results/old/rso30nn_8_17_19.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="877" column="44" lean-forward="true" selection-start-line="877" selection-start-column="44" selection-end-line="877" selection-end-column="44" />
+            <state relative-caret-position="325">
+              <caret line="507" lean-forward="true" selection-start-line="507" selection-end-line="507" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -76,13 +78,6 @@
                 <element signature="e#19562#19687#0" />
                 <element signature="e#19693#19795#0" />
                 <element signature="e#19975#19983#0" />
-                <element signature="e#20447#23548#0" />
-                <element signature="e#21149#21235#0" />
-                <element signature="e#21423#21757#0" />
-                <element signature="e#22018#22099#0" />
-                <element signature="e#22665#22747#0" />
-                <element signature="e#23215#23548#0" />
-                <element signature="e#23221#23509#0" />
                 <element signature="e#23579#28767#0" />
                 <element signature="e#23579#23597#0" />
                 <element signature="e#24171#24235#0" />
@@ -103,7 +98,6 @@
                 <element signature="e#31781#31894#0" />
                 <element signature="e#32099#32108#0" />
                 <element signature="e#32639#32727#0" />
-                <element signature="e#32943#33156#0" />
               </folding>
             </state>
           </provider>
@@ -112,10 +106,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="253" column="21" selection-start-line="253" selection-start-column="21" selection-end-line="253" selection-end-column="21" />
+            <state relative-caret-position="238">
+              <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               <folding>
-                <element signature="e#456#2027#0" />
                 <element signature="e#785#1252#0" />
                 <element signature="e#1329#1764#0" />
                 <element signature="e#1666#1762#0" />
@@ -231,11 +224,6 @@
             <path>
               <item name="Day-Night-Classification-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="Day-Night-Classification-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Day-Night-Classification-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Day-Night-Classification-master" type="462c0819:PsiDirectoryNode" />
-              <item name="hpc results" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -394,13 +382,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00012" summary="svm done">
-      <created>1565724679199</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1565724679199</updated>
     </task>
     <task id="LOCAL-00013" summary="svm done">
       <created>1565724755572</created>
@@ -738,7 +719,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566975170461</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="RSO use in new">
+      <created>1566979319633</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1566979319633</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TodoView">
@@ -754,13 +742,13 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12178517" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12178517" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.14075287" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.32569557" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.055646483" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
@@ -1260,10 +1248,9 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="253" column="21" selection-start-line="253" selection-start-column="21" selection-end-line="253" selection-end-column="21" />
+        <state relative-caret-position="238">
+          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           <folding>
-            <element signature="e#456#2027#0" />
             <element signature="e#785#1252#0" />
             <element signature="e#1329#1764#0" />
             <element signature="e#1666#1762#0" />
@@ -1296,8 +1283,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="877" column="44" lean-forward="true" selection-start-line="877" selection-start-column="44" selection-end-line="877" selection-end-column="44" />
+        <state relative-caret-position="325">
+          <caret line="507" lean-forward="true" selection-start-line="507" selection-end-line="507" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
@@ -1351,13 +1338,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#19562#19687#0" />
             <element signature="e#19693#19795#0" />
             <element signature="e#19975#19983#0" />
-            <element signature="e#20447#23548#0" />
-            <element signature="e#21149#21235#0" />
-            <element signature="e#21423#21757#0" />
-            <element signature="e#22018#22099#0" />
-            <element signature="e#22665#22747#0" />
-            <element signature="e#23215#23548#0" />
-            <element signature="e#23221#23509#0" />
             <element signature="e#23579#28767#0" />
             <element signature="e#23579#23597#0" />
             <element signature="e#24171#24235#0" />
@@ -1378,7 +1358,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#31781#31894#0" />
             <element signature="e#32099#32108#0" />
             <element signature="e#32639#32727#0" />
-            <element signature="e#32943#33156#0" />
           </folding>
         </state>
       </provider>

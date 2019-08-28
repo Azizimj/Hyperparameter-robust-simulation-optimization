@@ -462,14 +462,27 @@ def objective_(hyps):
     return eval_[0] # acc
 
 
+def objective_cnn(hyps):
+
+    CNN_w.batch_size = hyps['batch_size']+ batch_size_l
+    CNN_w.lr = hyps['lr']
+    CNN_w.krnl_2 = hyps['krnl_2'] + krnl_2_l
+    CNN_w.mx_krnl_2 =  hyps['mx_krnl_2'] + mx_krnl_2_l
+    tr_acc, tes_acc = CNN_w.trainer()
+
+    return tes_acc
+
+
+
+
 if __name__ == "__main__":
 
     tr_tes_sep = False
     sample_folder_build = False
     divide_file = False
-    hyperopt_use = False
+    hyperopt_use = True
     hype_given = False
-    RSO_use = True
+    RSO_use = False
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -489,9 +502,9 @@ if __name__ == "__main__":
             hyperopt_use = False
 
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
-    images_dir = "images"
+    # images_dir = "images"
 
     make_dir("res/")
 
@@ -607,62 +620,80 @@ if __name__ == "__main__":
         writer_f_all = csv.writer(f_all)
 
         tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
-        X_train, y_train, num_classes = read_files(tr_dir, model_name)
 
         print("hyp started ")
 
-        nn_hold_ = nn_hold(bias_, hiddenclass_, outclass_, momentum_, batchlearning_)
+        test_dataset = None
+        test_load = None
+        st_time = time.time()
+        im_size = 64
+        batch_size = 100  # [50 - 400]
+        batch_size_l = 50
+        batch_size_u = 400
+        lr = 0.0001 # [1e-4, 1e-2]
+        lr_l = 1e-4
+        lr_u = 1e-2
+        krnl_1 = 5  # [2, 40]
+        krnl_2 = 5 # [2, 40]
+        krnl_2_l= 2
+        krnl_2_u = 20
+        mx_krnl_1 = 2  # [2, 4]
+        mx_krnl_2 = 2 # [2, 8]
+        mx_krnl_2_l = 2
+        mx_krnl_2_u = 10
+        num_epochs = 3
+        CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                  mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
+        CNN_w.train_reader()
+        if test_dataset is not None:
+            CNN_w.test_dataset = test_dataset
+            CNN_w.test_load = test_load
+            print("used previous test read from {}".format(tes_dir))
+        else:
+            CNN_w.test_reader()
+            test_dataset = CNN_w.test_dataset
+            test_load = CNN_w.test_load
+            print("test loaded form {}".format(tes_dir))
+        # CNN_w.test_reader()
 
-        # hyps = {'hidden_dim':5, 'learningrate_':0.01, 'lrdecay_': 1.0, 'weightdecay_': 0.01}
-        # obj = objective_(hyps=hyps)
-        # print(obj)
+        print("train hypopt started on {}".format(tr_dir))
 
-        # define a search space
-        # 'hidden_dim': hp.uniform('hidden_dim', hidden_dim_l, hidden_dim_u),
-        space_ = {'hidden_dim': hp.randint('hidden_dim', hidden_dim_u-hidden_dim_l+1),
-                  'learningrate_': hp.uniform('learningrate_', learningrate_l, learningrate_u ),
-                  'lrdecay_': hp.uniform('lrdecay_', lrdecay_l, lrdecay_u),
-                  'weightdecay_': hp.uniform('weightdecay_', weightdecay_l, weightdecay_u)}
+        space_ = {'batch_size': hp.randint('batch_size', batch_size_u - batch_size_l+1),
+                  'lr': hp.uniform('lr', lr_l, lr_u),
+                  'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
+                  'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
 
         # minimize the objective over the space
-        best_hyp = fmin(objective_, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
+        best_hyp = fmin(objective_cnn, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
 
         tmp = "\n optimal hyps with tpe hypopt are {}\n".format(best_hyp)
         f.write(tmp)
         print(tmp)
-        # tmp = "space eval at optimal hyps is {}\n".format(space_eval(space_, best_hyp))
-        # f.write(tmp)
-        # print(tmp)
 
-        hidden_dim = best_hyp['hidden_dim']
-        learningrate_ = best_hyp['learningrate_']
-        lrdecay_ = best_hyp['lrdecay_']
-        weightdecay_ = best_hyp['weightdecay_']
-        net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_,
-                              weightdecay_, num_classes, X_train, y_train)
+        CNN_w.batch_size = best_hyp['batch_size']
+        CNN_w.lr = best_hyp['lr']
+        CNN_w.krnl_2 = best_hyp['krnl_2']
+        CNN_w.mx_krnl_2 = best_hyp['mx_krnl_2']
+        tr_acc, tes_acc = CNN_w.trainer()
+        tr_data_ave = CNN_w.tr_data_ave
+        tr_data_std = CNN_w.tr_data_std
+        tes_data_ave = CNN_w.tes_data_ave
+        tes_data_std = CNN_w.tes_data_std
 
-        tr_acc, tr_prec, tr_reca, tr_f1 = eval(" ", " ", test_precs, model_name,
-                                               X_train, y_train, net, svm, f, tr_=True)
-
-        tmp = 'Acc, prec, recal, f1 on tr for Hyperopt are ' \
-              '{}, {}, {}, {} \n'.format(tr_acc, tr_prec, tr_reca, tr_f1)
+        tmp = 'Best hyps tr acc {} and tes acc {} with tr ave, {} tr std,' \
+              'tes ave {}, tes std {}'.format(tr_acc, tes_acc
+                                              , tr_data_ave, tr_data_std,
+                                              tes_data_ave, tes_data_std)
         print(tmp)
         f.write(tmp)
 
-        X_test, y_test, num_classes = read_files(tes_dir, model_name)
-        tes_acc, tes_prec, tes_reca, tes_f1 = eval(" ", " ", test_precs, model_name,
-                        X_test, y_test, net, svm, f, tr_=False)
-
-        tmp = 'Acc, prec, recal, f1 of BEST hyp on tes are {}\n'.format(tes_eval)
-        print(tmp)
-        f.write(tmp)
-
-        if model_name == "nn":
-            row = ["hyperopt", hidden_dim, learningrate_,
-                   lrdecay_, weightdecay_, data_ave, data_std,
-                   tr_acc, tr_prec, tr_reca, tr_f1, "", tes_acc, tes_prec, tes_reca, tes_f1, "",
-                   bias_, hiddenclass_, outclass_, num_epoch, momentum_, batchlearning_]
-            writer_f_all.writerow(row)
+        hyp_opt_time = time.time() - st_time
+        print("Hypeopt is done in {} sec\n".format(hyp_opt_time))
+        row = ["Hypeopt", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+               tr_data_ave, tr_data_std, tr_acc, "",
+               tes_data_ave, tes_data_std, tes_acc,
+               hyp_opt_time]
+        writer_f_all.writerow(row)
 
     elif hype_given:
         # hidden_dim = 134
