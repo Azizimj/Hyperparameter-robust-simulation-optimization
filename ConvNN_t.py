@@ -38,6 +38,7 @@ class CNN_wrap():
         # self.f = open("CNN_"+str(batch_size)+"_"+str(lr)+str(batch_size)+"_"+.txt", "a")
         # self.f.write(model_name + "\n")
         self.CUDA = torch.cuda.is_available()
+        print("CUDA is {}".format(self.CUDA))
 
     def train_reader(self):
         # Load our dataset
