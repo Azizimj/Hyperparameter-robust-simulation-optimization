@@ -501,7 +501,7 @@ if __name__ == "__main__":
 
     images_dir = "images"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
 
 
@@ -700,7 +700,7 @@ if __name__ == "__main__":
         writer_f_all.writerow(row)
 
     elif hype_given:
-        test_size = 1000
+        test_size = 50
         load_model_name = "hyps.pth"
         # load_model_name = None
 

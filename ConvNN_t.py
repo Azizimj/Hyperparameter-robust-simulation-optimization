@@ -151,7 +151,7 @@ class CNN_wrap():
             # Record the training loss
             train_loss.append(iter_loss / iterations)
             # Record the training accuracy
-            train_accuracy.append((100*correct / len(self.train_dataset)))
+            train_accuracy.append((100*correct.item() / len(self.train_dataset)))
 
             # Testing
             loss = 0.0
@@ -188,7 +188,7 @@ class CNN_wrap():
             # Record the Testing loss
             test_loss.append(loss / iterations)
             # Record the Testing accuracy
-            test_accuracy.append((100 * correct / len(self.test_dataset)))
+            test_accuracy.append((100 * correct.item() / len(self.test_dataset)))
             stop = time.time()
 
             print(
@@ -244,7 +244,7 @@ class CNN_wrap():
         # Record the Testing loss
         tr_loss.append(loss / iterations)
         # Record the Testing accuracy
-        tr_accuracy.append((100 * correct / len(self.train_dataset)))
+        tr_accuracy.append((100 * correct.item() / len(self.train_dataset)))
 
         self.tr_data_ave = (tr_data_ave / len(self.train_dataset)).item()
         self.tr_data_std = (tr_data_std / len(self.train_dataset)).item()
@@ -295,7 +295,7 @@ class CNN_wrap():
         # Record the Testing loss
         test_loss.append(loss / iterations)
         # Record the Testing accuracy
-        test_accuracy.append((100 * correct / len(self.test_dataset)))
+        test_accuracy.append((100 * correct.item() / len(self.test_dataset)))
 
         self.tes_data_ave = (tes_data_ave / len(self.test_dataset)).item()
         self.tes_data_std = (tes_data_std / len(self.test_dataset)).item()
