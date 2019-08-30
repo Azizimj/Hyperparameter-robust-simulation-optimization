@@ -203,6 +203,59 @@ class CNN_wrap():
 
         return train_accuracy[-1].item(), test_accuracy[-1].item()
 
+
+    def eval_on_test(self):
+        if self.CUDA:
+            self.model = self.model.cuda()
+        loss_fn = nn.CrossEntropyLoss()
+
+        test_accuracy = []
+        test_loss = []
+
+        self.model.eval()
+
+        tes_data_ave = torch.tensor(0)
+        tes_data_std = torch.tensor(0)
+
+        loss = 0.0
+        correct = 0
+        iterations = 0
+
+        for i, (inputs, labels) in enumerate(self.test_load):
+
+            # Convert torch tensor to Variable
+            inputs = Variable(inputs)
+            labels = Variable(labels)
+
+            # CUDA = torch.cuda.is_available()
+            if self.CUDA:
+                inputs = inputs.cuda()
+                labels = labels.cuda()
+
+            outputs = self.model(inputs)
+            tes_data_ave = tes_data_ave + inputs.mean()
+            tes_data_std = tes_data_std + inputs.std()
+            loss = loss_fn(outputs, labels)  # Calculate the loss
+            loss += loss.item()
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == labels).sum()
+
+            iterations += 1
+
+        # Record the Testing loss
+        test_loss.append(loss / iterations)
+        # Record the Testing accuracy
+        test_accuracy.append((100 * correct / len(self.test_dataset)))
+
+        self.tes_data_ave = (tes_data_ave / len(self.test_dataset)).item()
+        self.tes_data_std = (tes_data_std / len(self.test_dataset)).item()
+
+        print('Testing Loss: {:.3f}, Testing Acc: '
+              '{:.3f}'.format(test_loss[-1], test_accuracy[-1]))
+
+        return test_accuracy[-1].item()
+
+
     def plotter(self):
         # Loss
         f = plt.figure(figsize=(10, 10))
@@ -218,11 +271,19 @@ class CNN_wrap():
         plt.legend()
         plt.show()
 
-        # Run this if you want to save the model
-        # torch.save(model.state_dict(),'Cats-Dogs.pth')
-        #
-        # #Run this if you want to load the model
-        # model.load_state_dict(torch.load('Cats-Dogs.pth'))
+    def save_model(self):
+
+        torch.save(self.model.state_dict(),'lr{}_kl_2_{}_'
+                                           'mx_kl_2_{}_batch{}_tr_size{}'
+                                           '.pth'.format(self.lr, self.krnl_2, self.mx_krnl_2, self.batch_size,
+                                                         len(self.train_dataset)))
+
+    def load_model(self):
+
+        self.model.load_state_dict(torch.load('lr{}_kl_2_{}_'
+                                           'mx_kl_2_{}_batch{}_tr_size{}'
+                                           '.pth'.format(self.lr, self.krnl_2, self.mx_krnl_2, self.batch_size,
+                                                         len(self.train_dataset))))
 
     def predict(self, img_name):
         image = cv2.imread(img_name)  # Read the image
