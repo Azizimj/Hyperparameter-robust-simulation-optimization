@@ -201,7 +201,7 @@ class CNN_wrap():
         self.tes_data_ave = (tes_data_ave / len(self.test_dataset)).item()
         self.tes_data_std = (tes_data_std / len(self.test_dataset)).item()
 
-        return train_accuracy[-1].item(), test_accuracy[-1].item()
+        return train_accuracy[-1], test_accuracy[-1]
 
     def eval_on_tr(self):
         if self.CUDA:
@@ -252,7 +252,7 @@ class CNN_wrap():
         print('Testing Loss: {:.3f}, Testing Acc: '
               '{:.3f}'.format(tr_loss[-1], tr_accuracy[-1]))
 
-        return tr_accuracy[-1].item()
+        return tr_accuracy[-1]
 
     def eval_on_test(self):
         if self.CUDA:
@@ -303,7 +303,7 @@ class CNN_wrap():
         print('Testing Loss: {:.3f}, Testing Acc: '
               '{:.3f}'.format(test_loss[-1], test_accuracy[-1]))
 
-        return test_accuracy[-1].item()
+        return test_accuracy[-1]
 
     def plotter(self):
         # Loss

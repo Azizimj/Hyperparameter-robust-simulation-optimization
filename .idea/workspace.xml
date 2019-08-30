@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConvNN_t.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConvNN_t.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hpc results/hyperopt/small_tests.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_givenHyp_epo5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ss.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1607">
-              <caret line="702" column="24" selection-start-line="702" selection-start-column="24" selection-end-line="702" selection-end-column="24" />
+            <state relative-caret-position="-962">
+              <caret line="705" lean-forward="true" selection-start-line="705" selection-end-line="705" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -79,6 +85,7 @@
                 <element signature="e#23911#24131#0" />
                 <element signature="e#26736#26848#0" />
                 <element signature="e#26589#26833#0" />
+                <element signature="e#27545#29188#0" />
                 <element signature="e#28781#28878#0" />
                 <element signature="e#28127#28335#0" />
                 <element signature="e#29423#33786#0" />
@@ -100,9 +107,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="249" column="15" selection-start-line="249" selection-start-column="15" selection-end-line="249" selection-end-column="15" />
+            <state relative-caret-position="85">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding>
+                <element signature="e#336#10951#0" />
                 <element signature="e#456#2073#0" />
                 <element signature="e#785#1252#0" />
                 <element signature="e#1329#1764#0" />
@@ -122,12 +130,20 @@
                 <element signature="e#7563#8407#0" />
                 <element signature="e#7784#7849#0" />
                 <element signature="e#7947#8053#0" />
+                <element signature="e#9368#10901#0" />
+                <element signature="e#9761#10403#0" />
+                <element signature="e#9962#10023#0" />
+                <element signature="e#10758#10818#0" />
                 <element signature="e#9379#10930#0" />
+                <element signature="e#9428#10204#0" />
                 <element signature="e#9629#9690#0" />
                 <element signature="e#10787#10847#0" />
                 <element signature="e#9365#10001#0" />
                 <element signature="e#9810#10129#0" />
                 <element signature="e#9845#9984#0" />
+                <element signature="e#13330#13887#0" />
+                <element signature="e#13302#13923#0" />
+                <element signature="e#11739#11794#0" />
                 <element signature="e#10044#10951#0" />
                 <element signature="e#10449#10508#0" />
                 <element signature="e#10792#10893#0" />
@@ -181,13 +197,11 @@
       <find>64</find>
       <find>im_</find>
       <find>model</find>
+      <find>corr</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/All_models.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -383,20 +397,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00025" summary="moved to hpc">
-      <created>1565999023246</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1565999023246</updated>
-    </task>
-    <task id="LOCAL-00026" summary="job init in hpc">
-      <created>1566000936258</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1566000936258</updated>
     </task>
     <task id="LOCAL-00027" summary="job init in hpc">
       <created>1566002175314</created>
@@ -727,7 +727,21 @@
       <option name="project" value="LOCAL" />
       <updated>1567134958025</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="load model in Hyps given">
+      <created>1567135144214</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1567135144214</updated>
+    </task>
+    <task id="LOCAL-00075" summary="load model in Hyps given">
+      <created>1567135702751</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1567135702751</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TodoView">
@@ -748,8 +762,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.18657938" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.18003273" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1685761" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.43207857" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
@@ -793,17 +807,6 @@
     <MESSAGE value="load model in Hyps given" />
     <option name="LAST_COMMIT_MESSAGE" value="load model in Hyps given" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/All_models.py</url>
-          <line>104</line>
-          <option name="timeStamp" value="81" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
@@ -834,47 +837,47 @@ scipy.stats.skew(X_train)</expression-string>
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>[(inputs, labels) for (inputs, labels) in self.test_load][0]</expression-string>
+        <expression-string>correct.item()/len(self.train_dataset)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>[(inputs, labels) for (inputs, labels) in self.test_load]</expression-string>
+        <expression-string>correct / len(self.train_dataset).item()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>[i for i in self.test_load]</expression-string>
+        <expression-string>correct.item()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>self.test_load</expression-string>
+        <expression-string>correct</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>labels</expression-string>
+        <expression-string>len(self.train_dataset)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>loss_fn(outputs, labels)</expression-string>
+        <expression-string>len(self.train_dataset).item()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>outputs</expression-string>
+        <expression-string>correct / len(self.train_dataset)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>out</expression-string>
+        <expression-string>160/240</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>CNN_w.train_dataset</expression-string>
+        <expression-string>60//len(self.train_dataset)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -1270,9 +1273,10 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="249" column="15" selection-start-line="249" selection-start-column="15" selection-end-line="249" selection-end-column="15" />
+        <state relative-caret-position="85">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
+            <element signature="e#336#10951#0" />
             <element signature="e#456#2073#0" />
             <element signature="e#785#1252#0" />
             <element signature="e#1329#1764#0" />
@@ -1292,12 +1296,20 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#7563#8407#0" />
             <element signature="e#7784#7849#0" />
             <element signature="e#7947#8053#0" />
+            <element signature="e#9368#10901#0" />
+            <element signature="e#9761#10403#0" />
+            <element signature="e#9962#10023#0" />
+            <element signature="e#10758#10818#0" />
             <element signature="e#9379#10930#0" />
+            <element signature="e#9428#10204#0" />
             <element signature="e#9629#9690#0" />
             <element signature="e#10787#10847#0" />
             <element signature="e#9365#10001#0" />
             <element signature="e#9810#10129#0" />
             <element signature="e#9845#9984#0" />
+            <element signature="e#13330#13887#0" />
+            <element signature="e#13302#13923#0" />
+            <element signature="e#11739#11794#0" />
             <element signature="e#10044#10951#0" />
             <element signature="e#10449#10508#0" />
             <element signature="e#10792#10893#0" />
@@ -1312,8 +1324,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1607">
-          <caret line="702" column="24" selection-start-line="702" selection-start-column="24" selection-end-line="702" selection-end-column="24" />
+        <state relative-caret-position="-962">
+          <caret line="705" lean-forward="true" selection-start-line="705" selection-end-line="705" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
@@ -1376,6 +1388,7 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#23911#24131#0" />
             <element signature="e#26736#26848#0" />
             <element signature="e#26589#26833#0" />
+            <element signature="e#27545#29188#0" />
             <element signature="e#28781#28878#0" />
             <element signature="e#28127#28335#0" />
             <element signature="e#29423#33786#0" />
