@@ -716,12 +716,12 @@ if __name__ == "__main__":
         st_time = time.time()
 
         im_size = 64
-        batch_size = 231 #50  # [50 - 400]
-        lr =  0.00980093693194154 # 0.0001  # [1e-4, 1e-2]
+        batch_size = 234 #231 #50  # [50 - 400]
+        lr =  0.00349753559529169 #0.00980093693194154 # 0.0001  # [1e-4, 1e-2]
         krnl_1 = 3  # [3, 10]
-        krnl_2 = 1 #5  # [3, 10]
+        krnl_2 = 8 #1 #5  # [3, 10]
         mx_krnl_1 = 2  # [2, 4]
-        mx_krnl_2 =  7 # 2  # [2, 8]
+        mx_krnl_2 =  6 #7 # 2  # [2, 8]
         num_epochs = 1  # [5, 20]
         tmp  = "given hyp started with batch_size {} , lr {} , " \
                "krnl_2 {} , mx_krnl_2 {} with num_epochs {}\n".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
@@ -817,7 +817,7 @@ if __name__ == "__main__":
             os.system("rm -r {}".format(tmp_tes))
 
         print("Given hyps takes {}".format(time.time()-st_time))
-    #RSO
+
     elif RSO_use:
 
         f = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
