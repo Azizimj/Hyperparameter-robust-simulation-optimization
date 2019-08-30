@@ -501,7 +501,7 @@ if __name__ == "__main__":
 
     images_dir = "images"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
-    # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
+    images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
 
 
@@ -720,8 +720,8 @@ if __name__ == "__main__":
         mx_krnl_1 = 2  # [2, 4]
         mx_krnl_2 =  7 # 2  # [2, 8]
         num_epochs = 1  # [5, 20]
-        tmp  = "given hyp started with batch_size {} , lr {} , "
-              "krnl_2 {} , mx_krnl_2 {} with num_epochs {}".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
+        tmp  = "given hyp started with batch_size {} , lr {} , " \
+               "krnl_2 {} , mx_krnl_2 {} with num_epochs {}".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
         print(tmp)
         f.write(tmp)
 
@@ -760,7 +760,7 @@ if __name__ == "__main__":
         #
 
         df = pd.read_csv(test_precs_file)
-        test_size = 1000
+        test_size = 50
         print("test on diff day precs started on {}".format(tes_dir))
 
         for cntr, day_prec in enumerate(df['day prec']):
@@ -772,20 +772,19 @@ if __name__ == "__main__":
                     prec = 1 - day_prec
                 else:
                     continue
-
                 num_classes += 1
                 images = os.listdir(tes_dir + class_fldr)
-
                 ln_ = len(images)
                 random.shuffle(images)
                 ln_ = min(int(prec * test_size), ln_)
                 print("{} images picked for test".format(ln_))
                 images_ = images[:ln_]
-
+                tmp_tes = "tmp_test"
+                make_dir(tmp_tes)
+                make_dir(tmp_tes+"/"+class_fldr)
                 for image in images_:
-                    tmp_tes = "tmp_test"
-                    make_dir(tmp_tes)
-                    copyfile(test_dir+ class_fldr + image, "tmp_test/"+class_fldr+"/"+ image)
+                    copyfile(tes_dir+class_fldr +"/"+ image, tmp_tes+"/"+class_fldr+"/"+ image)
+
             CNN_w.batch_size = 100
             CNN_w.tes_dir = tmp_tes
             CNN_w.test_reader()
@@ -802,6 +801,7 @@ if __name__ == "__main__":
                    tr_data_ave, tr_data_std, tr_acc, "",
                    tes_data_ave, tes_data_std, tes_acc, "small test"]
             writer_f_all.writerow(row)
+            os.system("rm -r {}".format(tmp_tes))
 
     #RSO
     elif RSO_use:

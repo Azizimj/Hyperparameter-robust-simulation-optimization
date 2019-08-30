@@ -3,9 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConvNN_t.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConvNN_t.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test-Data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Test-Data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_epo5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_hyopt17_epo5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/result_[0.2, 0.2]_nn_hyopt2_epo5.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1670">
-              <caret line="803" column="38" lean-forward="true" selection-start-line="803" selection-start-column="38" selection-end-line="803" selection-end-column="38" />
+            <state relative-caret-position="1382">
+              <caret line="803" column="47" selection-start-line="803" selection-start-column="47" selection-end-line="803" selection-end-column="47" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -64,7 +65,6 @@
                 <element signature="e#16051#16483#0" />
                 <element signature="e#16516#16778#0" />
                 <element signature="e#16989#17468#0" />
-                <element signature="e#17500#17567#0" />
                 <element signature="e#17782#17800#0" />
                 <element signature="e#18031#18040#0" />
                 <element signature="e#18691#18718#0" />
@@ -81,13 +81,9 @@
                 <element signature="e#22737#22759#0" />
                 <element signature="e#23516#23620#0" />
                 <element signature="e#23911#24131#0" />
-                <element signature="e#24195#25131#0" />
                 <element signature="e#26135#26152#0" />
                 <element signature="e#26736#26848#0" />
                 <element signature="e#26589#26833#0" />
-                <element signature="e#27360#29385#0" />
-                <element signature="e#26895#27633#0" />
-                <element signature="e#27481#27633#0" />
                 <element signature="e#28781#28878#0" />
                 <element signature="e#28127#28335#0" />
                 <element signature="e#29423#33786#0" />
@@ -110,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="206" column="20" lean-forward="true" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="20" />
+              <caret line="206" column="20" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="20" />
               <folding>
                 <element signature="e#456#2073#0" />
                 <element signature="e#785#1252#0" />
@@ -370,9 +366,9 @@
     <list>
       <item itemvalue="Python.All models" />
       <item itemvalue="Python.All_models" />
+      <item itemvalue="Python.tt" />
       <item itemvalue="Python.ConvNN_t" />
       <item itemvalue="Python.RSO" />
-      <item itemvalue="Python.tt" />
     </list>
     <recent_temporary>
       <list>
@@ -394,13 +390,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00020" summary="csv results">
-      <created>1565981551002</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1565981551002</updated>
     </task>
     <task id="LOCAL-00021" summary="csv results">
       <created>1565981671269</created>
@@ -738,7 +727,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567025034248</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Hyps given in pytorch">
+      <created>1567131920026</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1567131920026</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView">
@@ -752,14 +748,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.123298034" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36006546" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.63993454" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.18003273" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -777,7 +772,6 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sample folder build" />
     <MESSAGE value="svm hyps" />
     <MESSAGE value="svm done" />
     <MESSAGE value="tr_tes sep" />
@@ -802,7 +796,8 @@
     <MESSAGE value="RSO use in new" />
     <MESSAGE value="RSO use results" />
     <MESSAGE value="Hyperopt with CNN" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hyperopt with CNN" />
+    <MESSAGE value="Hyps given in pytorch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Hyps given in pytorch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1282,7 +1277,7 @@ scipy.stats.skew(X_train)</expression-string>
     <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="206" column="20" lean-forward="true" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="20" />
+          <caret line="206" column="20" selection-start-line="206" selection-start-column="8" selection-end-line="206" selection-end-column="20" />
           <folding>
             <element signature="e#456#2073#0" />
             <element signature="e#785#1252#0" />
@@ -1325,8 +1320,8 @@ scipy.stats.skew(X_train)</expression-string>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1670">
-          <caret line="803" column="38" lean-forward="true" selection-start-line="803" selection-start-column="38" selection-end-line="803" selection-end-column="38" />
+        <state relative-caret-position="1382">
+          <caret line="803" column="47" selection-start-line="803" selection-start-column="47" selection-end-line="803" selection-end-column="47" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
@@ -1371,7 +1366,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#16051#16483#0" />
             <element signature="e#16516#16778#0" />
             <element signature="e#16989#17468#0" />
-            <element signature="e#17500#17567#0" />
             <element signature="e#17782#17800#0" />
             <element signature="e#18031#18040#0" />
             <element signature="e#18691#18718#0" />
@@ -1388,13 +1382,9 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#22737#22759#0" />
             <element signature="e#23516#23620#0" />
             <element signature="e#23911#24131#0" />
-            <element signature="e#24195#25131#0" />
             <element signature="e#26135#26152#0" />
             <element signature="e#26736#26848#0" />
             <element signature="e#26589#26833#0" />
-            <element signature="e#27360#29385#0" />
-            <element signature="e#26895#27633#0" />
-            <element signature="e#27481#27633#0" />
             <element signature="e#28781#28878#0" />
             <element signature="e#28127#28335#0" />
             <element signature="e#29423#33786#0" />
