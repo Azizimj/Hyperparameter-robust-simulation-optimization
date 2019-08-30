@@ -634,7 +634,7 @@ if __name__ == "__main__":
         lr = 0.0001 # [1e-4, 1e-2]
         lr_l = 1e-4
         lr_u = 1e-2
-        krnl_1 = 3  # [2, 40]
+        krnl_1 = 5  # [2, 40]
         krnl_2 = 5 # [2, 40]
         krnl_2_l= 2
         krnl_2_u = 20
@@ -718,7 +718,7 @@ if __name__ == "__main__":
         im_size = 64
         batch_size = 234 #231 #50  # [50 - 400]
         lr =  0.00349753559529169 #0.00980093693194154 # 0.0001  # [1e-4, 1e-2]
-        krnl_1 = 3  # [3, 10]
+        krnl_1 = 5  # [3, 10]
         krnl_2 = 8 #1 #5  # [3, 10]
         mx_krnl_1 = 2  # [2, 4]
         mx_krnl_2 =  6 #7 # 2  # [2, 8]
@@ -852,7 +852,7 @@ if __name__ == "__main__":
             mx_krnl_1 = 2  # [2, 4]
             mx_krnl_2 = int(df['mx_krnl_1'][division_num])  # 2 # [2, 8]
             # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
-            num_epochs = 3
+            num_epochs = 1
             CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                       mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
             CNN_w.train_reader()

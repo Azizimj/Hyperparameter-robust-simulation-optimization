@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RSO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="720" column="29" lean-forward="true" selection-start-line="720" selection-start-column="29" selection-end-line="720" selection-end-column="29" />
+            <state relative-caret-position="224">
+              <caret line="713" column="60" lean-forward="true" selection-start-line="713" selection-start-column="60" selection-end-line="713" selection-end-column="60" />
               <folding>
                 <element signature="e#0#310#1" />
                 <element signature="e#556#561#0" />
@@ -91,7 +90,6 @@
                 <element signature="e#28641#28738#0" />
                 <element signature="e#28865#29073#0" />
                 <element signature="e#29257#33620#0" />
-                <element signature="e#29866#33620#0" />
                 <element signature="e#29866#29882#0" />
                 <element signature="e#30080#30089#0" />
                 <element signature="e#30959#31109#0" />
@@ -112,8 +110,6 @@
             <state relative-caret-position="85">
               <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding>
-                <element signature="e#336#14873#0" />
-                <element signature="e#456#2073#0" />
                 <element signature="e#785#1252#0" />
                 <element signature="e#1329#1764#0" />
                 <element signature="e#1666#1762#0" />
@@ -121,7 +117,6 @@
                 <element signature="e#2111#3934#0" />
                 <element signature="e#2709#2735#0" />
                 <element signature="e#3971#4533#0" />
-                <element signature="e#4566#9332#0" />
                 <element signature="e#4919#4937#0" />
                 <element signature="e#5361#8979#0" />
                 <element signature="e#5692#7098#0" />
@@ -148,11 +143,9 @@
                 <element signature="e#13966#14873#0" />
                 <element signature="e#14371#14430#0" />
                 <element signature="e#14714#14815#0" />
-                <element signature="e#14902#18243#0" />
                 <element signature="e#14977#17291#0" />
                 <element signature="e#16143#16228#0" />
                 <element signature="e#17111#17161#0" />
-                <element signature="e#17327#18243#0" />
               </folding>
             </state>
           </provider>
@@ -374,9 +367,9 @@
     <list>
       <item itemvalue="Python.All models" />
       <item itemvalue="Python.All_models" />
+      <item itemvalue="Python.tt" />
       <item itemvalue="Python.ConvNN_t" />
       <item itemvalue="Python.RSO" />
-      <item itemvalue="Python.tt" />
     </list>
     <recent_temporary>
       <list>
@@ -398,13 +391,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00029" summary="max(denom, 1)">
-      <created>1566064045235</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1566064045235</updated>
     </task>
     <task id="LOCAL-00030" summary="data_ave">
       <created>1566067212806</created>
@@ -742,7 +728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567137724557</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="RSO hyps given added">
+      <created>1567182959211</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1567182959212</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView">
@@ -781,7 +774,6 @@
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tr_tes sep" />
     <MESSAGE value="images_dir" />
     <MESSAGE value="divide finished" />
     <MESSAGE value="divide_fn finished" />
@@ -806,7 +798,8 @@
     <MESSAGE value="Hyps given in pytorch" />
     <MESSAGE value="load model in Hyps given" />
     <MESSAGE value="Hyps given results on small_tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hyps given results on small_tests" />
+    <MESSAGE value="RSO hyps given added" />
+    <option name="LAST_COMMIT_MESSAGE" value="RSO hyps given added" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
@@ -1125,8 +1118,6 @@ scipy.stats.skew(X_train)</expression-string>
         <state relative-caret-position="85">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
           <folding>
-            <element signature="e#336#14873#0" />
-            <element signature="e#456#2073#0" />
             <element signature="e#785#1252#0" />
             <element signature="e#1329#1764#0" />
             <element signature="e#1666#1762#0" />
@@ -1134,7 +1125,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#2111#3934#0" />
             <element signature="e#2709#2735#0" />
             <element signature="e#3971#4533#0" />
-            <element signature="e#4566#9332#0" />
             <element signature="e#4919#4937#0" />
             <element signature="e#5361#8979#0" />
             <element signature="e#5692#7098#0" />
@@ -1161,19 +1151,17 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#13966#14873#0" />
             <element signature="e#14371#14430#0" />
             <element signature="e#14714#14815#0" />
-            <element signature="e#14902#18243#0" />
             <element signature="e#14977#17291#0" />
             <element signature="e#16143#16228#0" />
             <element signature="e#17111#17161#0" />
-            <element signature="e#17327#18243#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RSO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="720" column="29" lean-forward="true" selection-start-line="720" selection-start-column="29" selection-end-line="720" selection-end-column="29" />
+        <state relative-caret-position="224">
+          <caret line="713" column="60" lean-forward="true" selection-start-line="713" selection-start-column="60" selection-end-line="713" selection-end-column="60" />
           <folding>
             <element signature="e#0#310#1" />
             <element signature="e#556#561#0" />
@@ -1247,7 +1235,6 @@ scipy.stats.skew(X_train)</expression-string>
             <element signature="e#28641#28738#0" />
             <element signature="e#28865#29073#0" />
             <element signature="e#29257#33620#0" />
-            <element signature="e#29866#33620#0" />
             <element signature="e#29866#29882#0" />
             <element signature="e#30080#30089#0" />
             <element signature="e#30959#31109#0" />

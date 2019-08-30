@@ -1,0 +1,15 @@
+nn
+given hyp started with batch_size 234 , lr 0.00349753559529169 , krnl_2 8 , mx_krnl_2 6 with num_epochs 1
+Given hyps tr acc 91.9735487447533 and tes acc 97.27546332963726 with tr ave -0.0009557590237818658, tr std 0.006045424845069647,tes ave 0.0006339150131680071, tes std 0.0047673629596829414tes acc on day prec 0.2 with tes_data_ave -0.002480247989296913 and tes_data_std 0.0106330132111907 is 95.5 
+tes acc on day prec 0.25 with tes_data_ave -0.00185668736230582 and tes_data_std 0.011154912412166595 is 96.6 
+tes acc on day prec 0.3 with tes_data_ave -0.0006948824157007039 and tes_data_std 0.010972696356475353 is 95.9 
+tes acc on day prec 0.35 with tes_data_ave 1.7046630091499537e-05 and tes_data_std 0.01128574088215828 is 96.6 
+tes acc on day prec 0.4 with tes_data_ave 0.0003661881200969219 and tes_data_std 0.011066030710935593 is 97.3 
+tes acc on day prec 0.45 with tes_data_ave 0.001687586773186922 and tes_data_std 0.011527893133461475 is 97.3 
+tes acc on day prec 0.5 with tes_data_ave 0.0021059580612927675 and tes_data_std 0.011457769200205803 is 97.3 
+tes acc on day prec 0.55 with tes_data_ave 0.0027675223536789417 and tes_data_std 0.011729874648153782 is 97.09709709709709 
+tes acc on day prec 0.6 with tes_data_ave 0.0038605632726103067 and tes_data_std 0.011566740460693836 is 97.8 
+tes acc on day prec 0.65 with tes_data_ave 0.0046399603597819805 and tes_data_std 0.011921324767172337 is 98.6 
+tes acc on day prec 0.7 with tes_data_ave 0.005401346832513809 and tes_data_std 0.011657445691525936 is 98.7 
+tes acc on day prec 0.75 with tes_data_ave 0.006120153237134218 and tes_data_std 0.012197654694318771 is 98.5 
+tes acc on day prec 0.8 with tes_data_ave 0.007212490309029818 and tes_data_std 0.011958125047385693 is 98.5985985985986 
