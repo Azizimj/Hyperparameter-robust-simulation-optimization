@@ -700,6 +700,9 @@ if __name__ == "__main__":
         writer_f_all.writerow(row)
 
     elif hype_given:
+        test_size = 50
+        load_model_name = "hyps.pth"
+        # load_model_name = None
 
         f = open("res/result_" + str(test_precs) + "_" + model_name + "_givenHyp" +
                  "_epo" + str(num_epoch) + ".txt", "a")
@@ -730,37 +733,47 @@ if __name__ == "__main__":
         CNN_w.train_reader()
         CNN_w.test_reader()
 
-        print("train started on {}\n".format(tr_dir))
-        tr_acc, tes_acc = CNN_w.trainer()
-        tr_data_ave = CNN_w.tr_data_ave
-        tr_data_std = CNN_w.tr_data_std
-        tes_data_ave = CNN_w.tes_data_ave
-        tes_data_std = CNN_w.tes_data_std
+        if load_model_name is not None:
+            CNN_w.load_model(load_model_name)
+            tr_acc = CNN_w.eval_on_tr()
+            tes_acc = CNN_w.eval_on_test()
+            tr_data_ave = CNN_w.tr_data_ave
+            tr_data_std = CNN_w.tr_data_std
+            tes_data_ave = CNN_w.tes_data_ave
+            tes_data_std = CNN_w.tes_data_std
+            tmp = 'Given hyps loaded tr acc {} and tes acc {} with tr ave {}, tr std {},' \
+                  'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
+                                                  tr_data_std, tes_data_ave, tes_data_std)
+            print(tmp)
+            f.write(tmp)
 
-        #train eval on tr
-        # tr_acc, tr_prec, tr_reca, tr_f1 = eval(" ", " ", test_precs, model_name,
-        #                                        X_train, y_train, net, svm, f, tr_=True)
+            row = ["Given hyps loaded", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                   tr_data_ave, tr_data_std, tr_acc, "",
+                   tes_data_ave, tes_data_std, tes_acc]
+            writer_f_all.writerow(row)
+        else:
+            print("train started on {}\n".format(tr_dir))
+            tr_acc, tes_acc = CNN_w.trainer()
+            tr_data_ave = CNN_w.tr_data_ave
+            tr_data_std = CNN_w.tr_data_std
+            tes_data_ave = CNN_w.tes_data_ave
+            tes_data_std = CNN_w.tes_data_std
+            tmp = 'Given hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
+                  'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
+                                                  tr_data_std, tes_data_ave, tes_data_std)
+            print(tmp)
+            f.write(tmp)
 
-        # tmp = "train tr_acc, tr_prec, tr_reca, tr_f1 " \
-        #       "on the whole train are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
-        # print(tmp)
-        # f.write(str(tmp))
-        tmp = 'Given hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
-              'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
-                                              tr_data_std, tes_data_ave, tes_data_std)
-        print(tmp)
-        f.write(tmp)
-
-        row = ["Given hyps", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
-               tr_data_ave, tr_data_std, tr_acc, "",
-               tes_data_ave, tes_data_std, tes_acc]
-        writer_f_all.writerow(row)
-        CNN_w.save_model()
+            row = ["Given hyps", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                   tr_data_ave, tr_data_std, tr_acc, "",
+                   tes_data_ave, tes_data_std, tes_acc]
+            writer_f_all.writerow(row)
+            CNN_w.save_model()
 
         #
 
         df = pd.read_csv(test_precs_file)
-        test_size = 50
+        test_size = test_size
         print("test on diff day precs started on {}\n".format(tes_dir))
 
         for cntr, day_prec in enumerate(df['day prec']):
@@ -803,6 +816,7 @@ if __name__ == "__main__":
             writer_f_all.writerow(row)
             os.system("rm -r {}".format(tmp_tes))
 
+        print("Given hyps takes {}".format(time.time()-st_time))
     #RSO
     elif RSO_use:
 

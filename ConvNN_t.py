@@ -203,6 +203,56 @@ class CNN_wrap():
 
         return train_accuracy[-1].item(), test_accuracy[-1].item()
 
+    def eval_on_tr(self):
+        if self.CUDA:
+            self.model = self.model.cuda()
+        loss_fn = nn.CrossEntropyLoss()
+
+        tr_accuracy = []
+        tr_loss = []
+
+        self.model.eval()
+
+        tr_data_ave = torch.tensor(0)
+        tr_data_std = torch.tensor(0)
+
+        loss = 0.0
+        correct = 0
+        iterations = 0
+
+        for i, (inputs, labels) in enumerate(self.train_load):
+
+            # Convert torch tensor to Variable
+            inputs = Variable(inputs)
+            labels = Variable(labels)
+
+            # CUDA = torch.cuda.is_available()
+            if self.CUDA:
+                inputs = inputs.cuda()
+                labels = labels.cuda()
+
+            outputs = self.model(inputs)
+            tr_data_ave = tr_data_ave + inputs.mean()
+            tr_data_std = tr_data_std + inputs.std()
+            loss = loss_fn(outputs, labels)  # Calculate the loss
+            loss += loss.item()
+            _, predicted = torch.max(outputs, 1)
+            correct += (predicted == labels).sum()
+
+            iterations += 1
+
+        # Record the Testing loss
+        tr_loss.append(loss / iterations)
+        # Record the Testing accuracy
+        tr_accuracy.append((100 * correct / len(self.train_dataset)))
+
+        self.tr_data_ave = (tr_data_ave / len(self.train_dataset)).item()
+        self.tr_data_std = (tr_data_std / len(self.train_dataset)).item()
+
+        print('Testing Loss: {:.3f}, Testing Acc: '
+              '{:.3f}'.format(tr_loss[-1], tr_accuracy[-1]))
+
+        return tr_accuracy[-1].item()
 
     def eval_on_test(self):
         if self.CUDA:
@@ -255,7 +305,6 @@ class CNN_wrap():
 
         return test_accuracy[-1].item()
 
-
     def plotter(self):
         # Loss
         f = plt.figure(figsize=(10, 10))
@@ -278,12 +327,16 @@ class CNN_wrap():
                                            '.pth'.format(self.lr, self.krnl_2, self.mx_krnl_2, self.batch_size,
                                                          len(self.train_dataset)))
 
-    def load_model(self):
-
-        self.model.load_state_dict(torch.load('lr{}_kl_2_{}_'
-                                           'mx_kl_2_{}_batch{}_tr_size{}'
-                                           '.pth'.format(self.lr, self.krnl_2, self.mx_krnl_2, self.batch_size,
-                                                         len(self.train_dataset))))
+    def load_model(self, load_model_name):
+        self.model = CNN(self.im_size, self.krnl_1, self.krnl_2, self.mx_krnl_1, self.mx_krnl_2)
+        if self.CUDA:
+            self.model = self.model.cuda()
+        # self.model.load_state_dict(torch.load('lr{}_kl_2_{}_'
+        #                                    'mx_kl_2_{}_batch{}_tr_size{}'
+        #                                    '.pth'.format(self.lr, self.krnl_2, self.mx_krnl_2, self.batch_size,
+        #                                                  len(self.train_dataset))))
+        self.model.load_state_dict(torch.load(load_model_name))
+        print("model loaded form {}\n".format(load_model_name))
 
     def predict(self, img_name):
         image = cv2.imread(img_name)  # Read the image
