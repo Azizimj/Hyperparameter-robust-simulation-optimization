@@ -721,7 +721,7 @@ if __name__ == "__main__":
         mx_krnl_2 =  7 # 2  # [2, 8]
         num_epochs = 1  # [5, 20]
         tmp  = "given hyp started with batch_size {} , lr {} , " \
-               "krnl_2 {} , mx_krnl_2 {} with num_epochs {}".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
+               "krnl_2 {} , mx_krnl_2 {} with num_epochs {}\n".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
         print(tmp)
         f.write(tmp)
 
@@ -730,7 +730,7 @@ if __name__ == "__main__":
         CNN_w.train_reader()
         CNN_w.test_reader()
 
-        print("train started on {}".format(tr_dir))
+        print("train started on {}\n".format(tr_dir))
         tr_acc, tes_acc = CNN_w.trainer()
         tr_data_ave = CNN_w.tr_data_ave
         tr_data_std = CNN_w.tr_data_std
@@ -761,7 +761,7 @@ if __name__ == "__main__":
 
         df = pd.read_csv(test_precs_file)
         test_size = 50
-        print("test on diff day precs started on {}".format(tes_dir))
+        print("test on diff day precs started on {}\n".format(tes_dir))
 
         for cntr, day_prec in enumerate(df['day prec']):
             num_classes = 0
@@ -777,7 +777,7 @@ if __name__ == "__main__":
                 ln_ = len(images)
                 random.shuffle(images)
                 ln_ = min(int(prec * test_size), ln_)
-                print("{} images picked for test".format(ln_))
+                print("{} images picked for test\n".format(ln_))
                 images_ = images[:ln_]
                 tmp_tes = "tmp_test"
                 make_dir(tmp_tes)
