@@ -16,6 +16,8 @@ images/
    dog/
       ...
 
+MJA:
+used for Day Night our algorithm
 """
 
 import sys
@@ -508,7 +510,7 @@ if __name__ == "__main__":
     make_dir("res/")
 
     size_of_trs = 6000
-    # size_of_trs = 50
+    size_of_trs = 50
 
     # init net and svm
     net = None
@@ -555,7 +557,7 @@ if __name__ == "__main__":
     SHAPE = (30, 30)
 
     if sample_folder_build:
-        # Build a sample folder or seperate test and train
+        # Build a sample folder or separate test and train
         sample_folder(images_dir, sample_sizes)
         exit()
 
@@ -914,6 +916,5 @@ if __name__ == "__main__":
             writer_f_all.writerow(row)
 
             division_num += 1
-
 
     f.close()
