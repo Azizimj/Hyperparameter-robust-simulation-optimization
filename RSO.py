@@ -483,6 +483,7 @@ if __name__ == "__main__":
     hyperopt_use = False
     hype_given = True
     RSO_use = False
+
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -505,7 +506,6 @@ if __name__ == "__main__":
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images[100,200]"
     # images_dir = "F:/Acad/research/fafar/RSO/nd_code/alderley/images_[500,550]"
-
 
     make_dir("res/")
 
@@ -545,15 +545,15 @@ if __name__ == "__main__":
     # points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
     points_list_file = "LHS-data.csv"
+    # points_list_file = "lhs-mnist.csv"
     test_precs_file = "Test-Data.csv"
-
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
     classes_labels = ["FRAMESA", "FRAMESB"]
     # sample_sizes = [100, 200]
     # sample_sizes = [500, 550]
-    sample_sizes = [-1,-1] # -1 for not sampling
-    test_precs= [.2,.2]
+    sample_sizes = [-1, -1]  # -1 for not sampling
+    test_precs= [.2, .2]
     SHAPE = (30, 30)
 
     if sample_folder_build:
@@ -588,10 +588,10 @@ if __name__ == "__main__":
 
     tes_dir = images_dir + "_" + str(test_precs) + "/tes/"
 
-    divide_files_dir = images_dir +"_"+ str(test_precs) + "/divided/"
+    divide_files_dir = images_dir + "_" + str(test_precs) + "/divided/"
     division_num = 0
 
-    # NN HYP
+    # # NN HYP
     # hidden_dim = 100
     # bias_ = True
     # # SoftmaxLayer, TanhLayer, SigmoidLayer, LSTMLayer, LinearLayer, GaussianLayer
@@ -605,9 +605,9 @@ if __name__ == "__main__":
     # momentum_ = 0.1
     # batchlearning_ = True
     # weightdecay_ = 0.01
-    # NN HYP
+    # # NN HYP
 
-    #hypopt
+    # hypopt
     if hyperopt_use:
         from hyperopt import hp
         from hyperopt import fmin, tpe, space_eval
@@ -645,6 +645,7 @@ if __name__ == "__main__":
         mx_krnl_2_l = 2
         mx_krnl_2_u = 10
         num_epochs = 1
+
         CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                   mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
         if test_dataset is not None:
@@ -665,7 +666,7 @@ if __name__ == "__main__":
                   'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
                   'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
 
-        #try the objective_cnn
+        # try the objective_cnn
         # hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
         # objective_cnn(hyps)
 

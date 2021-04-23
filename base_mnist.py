@@ -14,11 +14,16 @@ from keras.layers import MaxPooling2D
 from keras.layers import Dense
 from keras.layers import Flatten
 from keras.optimizers import SGD
+from scipy import ndimage, misc
+from scipy.ndimage.filters import gaussian_filter
 
 
 class mymnist():
-	def __init__(self):
+	def __init__(self, batch_size_l, fc_size_l, mxp_krnl_l):
 		np.random.seed(110)
+		self.batch_size_l = batch_size_l
+		self.fc_size_l = fc_size_l
+		self.mxp_krnl_l = mxp_krnl_l
 
 	def load_dataset(self, tr_ss=100, tes_ss=30):
 		# load train and test dataset
@@ -48,15 +53,19 @@ class mymnist():
 		train_norm = train_norm / 255.0
 		test_norm = test_norm / 255.0
 		# return normalized images
+		ndimage.rotate(train_norm, 45, reshape=False)
+		ndimage.rotate(test_norm, 45, reshape=False)
+
+		blurred = gaussian_filter(train_norm, sigma=7)
 		return train_norm, test_norm
 
-	def define_model(self, lr=0.01, krnl_size=100, max_krnl=2):
+	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2):
 		# define cnn model
 		self.model = Sequential()
 		self.model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', input_shape=(28, 28, 1)))
-		self.model.add(MaxPooling2D((max_krnl, max_krnl)))
+		self.model.add(MaxPooling2D((mxp_krnl, mxp_krnl)))
 		self.model.add(Flatten())
-		self.model.add(Dense(krnl_size, activation='relu', kernel_initializer='he_uniform'))
+		self.model.add(Dense(fc_size, activation='relu', kernel_initializer='he_uniform'))
 		self.model.add(Dense(10, activation='softmax'))
 		# compile model
 		opt = SGD(lr=lr, momentum=0.9)
@@ -124,21 +133,34 @@ class mymnist():
 		# summarize estimated performance
 		self._performance(scores)
 
-	def evaluate_model(self, lr=0.01, batch_size=32, krnl_size=100, max_krnl=2, epochs=10):
+	def evaluate_model(self, hyps):
+		# hypers
+		# lr = 0.01
+		# batch_size = 32
+		# fc_size = 100
+		# mxp_krnl = 2
+		epochs = 5
+		batch_size = hyps['batch_size'] + self.batch_size_l
+		lr = hyps['lr']
+		fc_size = hyps['fc_size'] + self.fc_size_l
+		mxp_krnl = hyps['mxp_krnl'] + self.mxp_krnl_l
+
 		# define model
-		model = self.define_model(lr=lr, krnl_size=krnl_size, max_krnl=max_krnl)
+		model = self.define_model(lr=lr, fc_size=fc_size, mxp_krnl=mxp_krnl)
 		# fit model
 		history = model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=batch_size,
 							validation_data=(self.testX, self.testY), verbose=0)
 		# evaluate model
 		_, acc = model.evaluate(self.testX, self.testY, verbose=0)
-		print('> %.3f' % (acc * 100.0))
+		print('> %.5f' % (acc * 100.0))
 
-		return acc, history
+		return acc
+
 
 if __name__ == "__main__":
 
-	fo = mymnist()
+	fo = mymnist(batch_size_l=32, fc_size_l=20, mxp_krnl_l=2)
 	# fo.run_test_harness()
 	fo.load_dataset(tr_ss=100, tes_ss=30)
-	fo.evaluate_model(lr=0.01, batch_size=32, krnl_size=100, max_krnl=2, epochs=2)
+	hyps = {'lr':.01, 'batch_size':-16, 'fc_size':80, 'mxp_krnl':0}
+	fo.evaluate_model(hyps)
