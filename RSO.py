@@ -714,6 +714,7 @@ if __name__ == "__main__":
         writer_f_all.writerow(row)
 
     elif hype_given:
+        #TODO: mnist
         test_size = 1000
         # load_model_name = "hyps.pth"
         load_model_name = None
@@ -867,45 +868,47 @@ if __name__ == "__main__":
             mx_krnl_2 = int(df['mx_krnl_1'][division_num])  # 2 # [2, 8]
             # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
             num_epochs = 1
-            CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
-                                      mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
-            CNN_w.train_reader()
-            if test_dataset is not None:
-                CNN_w.test_dataset = test_dataset
-                CNN_w.test_load = test_load
-                print("used previous test read from {}".format(tes_dir))
+            if mnist_on:
+
             else:
-                CNN_w.test_reader()
-                test_dataset = CNN_w.test_dataset
-                test_load = CNN_w.test_load
-                print("test loaded form {}".format(tes_dir))
-            # CNN_w.test_reader()
+                CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                          mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
+                CNN_w.train_reader()
+                if test_dataset is not None:
+                    CNN_w.test_dataset = test_dataset
+                    CNN_w.test_load = test_load
+                    print("used previous test read from {}".format(tes_dir))
+                else:
+                    CNN_w.test_reader()
+                    test_dataset = CNN_w.test_dataset
+                    test_load = CNN_w.test_load
+                    print("test loaded form {}".format(tes_dir))
+                # CNN_w.test_reader()
 
-            print("train started on division {} in {}".format(division_num, divide_files_dir + tr_dir + "/"))
-            tr_acc, tes_acc = CNN_w.trainer()
-            tr_data_ave = CNN_w.tr_data_ave
-            tr_data_std = CNN_w.tr_data_std
-            tes_data_ave = CNN_w.tes_data_ave
-            tes_data_std = CNN_w.tes_data_std
+                print("train started on division {} in {}".format(division_num, divide_files_dir + tr_dir + "/"))
+                tr_acc, tes_acc = CNN_w.trainer()
+                tr_data_ave = CNN_w.tr_data_ave
+                tr_data_std = CNN_w.tr_data_std
+                tes_data_ave = CNN_w.tes_data_ave
+                tes_data_std = CNN_w.tes_data_std
 
-            if model_name == 'svm':
-                svm = svm_run(X_train, y_train)
+                if model_name == 'svm':
+                    svm = svm_run(X_train, y_train)
 
-            # tr acc
-            # tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
-            #      X_train, y_train, net, svm, f, tr_=True)
+                # tr acc
+                # tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+                #      X_train, y_train, net, svm, f, tr_=True)
 
-            # tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
-            #       " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
-            # print(tmp)
-            # f.write(tmp)
+                # tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
+                #       " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+                # print(tmp)
+                # f.write(tmp)
 
-            # X_train, y_train = None, None
+                # X_train, y_train = None, None
 
             tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
                   'tes ave {}, tes std {}'.format(tr_acc, tes_acc, division_num, tr_data_ave,
                                                   tr_data_std, tes_data_ave, tes_data_std)
-
             print(tmp)
             f.write(tmp)
 
@@ -929,4 +932,4 @@ if __name__ == "__main__":
 
             division_num += 1
 
-            f.close()
+        f.close()
