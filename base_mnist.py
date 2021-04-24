@@ -33,7 +33,7 @@ if gpus:
 
 
 class mymnist():
-	def __init__(self, hyp_rngs, img_size=(28, 28)):
+	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=1):
 		np.random.seed(110)
 		if not hyp_rngs:
 			self.hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64),
@@ -41,14 +41,15 @@ class mymnist():
 		# self.hyps = hyps
 		self.hyp_rngs = hyp_rngs
 		self.img_size = img_size
+		self.blur_prec = blur_prec
 
 	def load_dataset(self, tr_ss=100, tes_ss=30):
 		# load train and test dataset
 		# load dataset
 		(self.trainX, self.trainY), (self.testX, self.testY) = mnist.load_data()
 		# sample
-		tr_idx, tes_idx = np.random.randint(0, self.trainX.shape[0], tr_ss), \
-						  np.random.randint(0, self.testX.shape[0], tes_ss)
+		tr_idx = np.random.randint(0, self.trainX.shape[0], tr_ss)
+		tes_idx = np.random.randint(0, self.testX.shape[0], tes_ss)
 		self.trainX, self.trainY = self.trainX[tr_idx, :], self.trainY[tr_idx]
 		self.testX, self.testY = self.testX[tes_idx, :], self.testY[tes_idx]
 		# reshape dataset to have a single channel
@@ -58,6 +59,8 @@ class mymnist():
 		self.trainY = to_categorical(self.trainY)
 		self.testY = to_categorical(self.testY)
 		print(f'train size:{self.trainX.shape}, test shape {self.testX.shape}')
+		# save data
+		self.trainX_save, self.testX_save = self.trainX.copy(), self.testX.copy()
 		# prepare pixel data
 		self.trainX, self.testX = self.prep_pixels(train=self.trainX, test=self.testX)
 		# cal the data stats
@@ -76,10 +79,14 @@ class mymnist():
 		# ndimage.rotate(train_norm, 45, reshape=False)
 		# ndimage.rotate(test_norm, 45, reshape=False)
 		# blurr
-		train_norm = gaussian_filter(train_norm, sigma=7)
-		test_norm = gaussian_filter(test_norm, sigma=7)
+		train_norm = gaussian_filter(train_norm, sigma=7*self.blur_prec)
+		test_norm = gaussian_filter(test_norm, sigma=7*self.blur_prec)
 		# return normalized images
 		return train_norm, test_norm
+
+	def change_blur(self, blur_prec):
+		self.blur_prec = blur_prec
+		self.trainX, self.testX = self.prep_pixels(train=self.trainX_save, test=self.testX_save)
 
 	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2):
 		# define cnn model
@@ -157,7 +164,7 @@ class mymnist():
 
 	def tr_eval(self):
 		_, tr_acc = self.model.evaluate(self.trainX, self.trainY, verbose=0)
-		print('> %.5f' % (tr_acc * 100.0))
+		# print('> %.5f' % (tr_acc * 100.0))
 		return tr_acc
 
 	def evaluate_model(self, hyps):
@@ -168,20 +175,20 @@ class mymnist():
 		# mxp_krnl = 2
 		self.hyps = hyps
 
-		epochs = 5
+		epochs = 10
 		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]
 		lr = self.hyps['lr']
 		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size'][0]
 		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl'][0]
 
 		# define model
-		self.model = self.define_model(lr=lr, fc_size=fc_size, mxp_krnl=mxp_krnl)
+		self.model = self.define_model(lr=lr, fc_size=int(fc_size), mxp_krnl=int(mxp_krnl))
 		# fit model
-		history = self.model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=batch_size,
+		history = self.model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=int(batch_size),
 							validation_data=(self.testX, self.testY), verbose=0)
 		# evaluate model
 		_, tes_acc = self.model.evaluate(self.testX, self.testY, verbose=0)
-		print('> %.5f' % (tes_acc * 100.0))
+		# print('> %.5f' % (tes_acc * 100.0))
 		return tes_acc
 
 

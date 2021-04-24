@@ -22,7 +22,7 @@ def objective(hyps):
     net = nn_hold_.nn_run(hidden_dim, num_epoch, learningrate_, lrdecay_, weightdecay_, num_classes, X, y)
 
     eval = am.eval(tr_dir, "hpopt", am.test_precs, am.model_name,
-                   X, y, net, am.svm, am.f, tr_=True)
+                   X, y, net, am.svm, am.out_file, tr_=True)
 
     return eval[0] # acc
 

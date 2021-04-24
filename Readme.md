@@ -47,3 +47,7 @@ both resizing the images to 30x30.
 same directory and loaded automatically if it is detected.
 
 
+# MNIST 
+we don't need to make folder etc, directly run RSO.py with desired flags (rso_use=1, ...)
+
+

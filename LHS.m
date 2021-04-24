@@ -10,4 +10,4 @@ X(:, 1:n_c) = lhsdesign(n, n_c, 'criterion', 'maximin');
 for i = 1:n_c
     X(:, i) = X(:,i)*abs(ucl(1,i)-lcl(1,i))+lcl(1,i);
 end
-csvwrite('LHS-mnist.csv',X)
+csvwrite('LHS-mnist.csv', X)
