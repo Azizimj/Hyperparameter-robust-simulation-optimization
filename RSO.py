@@ -49,6 +49,7 @@ import csv
 # import torch.nn.functional as F
 
 import ConvNN_t
+from base_mnist import mymnist
 
 random.seed(30)
 np.random.seed(110)
@@ -483,7 +484,7 @@ if __name__ == "__main__":
     hyperopt_use = False
     hype_given = True
     RSO_use = False
-
+    mnist_on = True
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -629,77 +630,96 @@ if __name__ == "__main__":
         test_dataset = None
         test_load = None
         st_time = time.time()
-        im_size = 64
-        batch_size = 1000  # [50 - 400]
-        batch_size_l = 50
-        batch_size_u = 400
-        lr = 0.0001 # [1e-4, 1e-2]
-        lr_l = 1e-4
-        lr_u = 1e-2
-        krnl_1 = 5  # [2, 40]
-        krnl_2 = 5 # [2, 40]
-        krnl_2_l= 2
-        krnl_2_u = 20
-        mx_krnl_1 = 2  # [2, 4]
-        mx_krnl_2 = 2 # [2, 8]
-        mx_krnl_2_l = 2
-        mx_krnl_2_u = 10
-        num_epochs = 1
 
-        CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
-                                  mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
-        if test_dataset is not None:
-            CNN_w.test_dataset = test_dataset
-            CNN_w.test_load = test_load
-            print("used previous test read from {}".format(tes_dir))
+        if mnist_on:
+            hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size':(10, 64), 'fc_size':(30, 200), 'mxp_krnl':(2, 10)}
+            mymnistTmp = mymnist(hyp_rngs)
+            mymnistTmp.load_dataset(tr_ss=100, tes_ss=30)
+            objective_cnn = mymnistTmp.evaluate_model()
+            space_ = {'batch_size': hp.randint('batch_size', hyp_rngs['batch_size'][1] - hyp_rngs['batch_size'][0] + 1),
+                      'lr': hp.uniform('lr', hyp_rngs['lr'][0], hyp_rngs['lr'][1]),
+                      'fc_size': hp.randint('fc_size',  hyp_rngs['fc_size'][1] - hyp_rngs['fc_size'][0] + 1),
+                      'mxp_krnl': hp.randint('mxp_krnl', hyp_rngs['mxp_krnl'][1] - hyp_rngs['mxp_krnl'][0] + 1)}
         else:
-            CNN_w.test_reader()
-            test_dataset = CNN_w.test_dataset
-            test_load = CNN_w.test_load
-            print("test loaded form {}".format(tes_dir))
-        # CNN_w.test_reader()
+            im_size = 64
+            batch_size = 1000  # [50 - 400]
+            batch_size_l = 50
+            batch_size_u = 400
+            lr = 0.0001  # [1e-4, 1e-2]
+            lr_l = 1e-4
+            lr_u = 1e-2
+            krnl_1 = 5  # [2, 40]
+            krnl_2 = 5  # [2, 40]
+            krnl_2_l = 2
+            krnl_2_u = 20
+            mx_krnl_1 = 2  # [2, 4]
+            mx_krnl_2 = 2  # [2, 8]
+            mx_krnl_2_l = 2
+            mx_krnl_2_u = 10
+            num_epochs = 1
+            CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                  mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
+            if test_dataset is not None:
+                CNN_w.test_dataset = test_dataset
+                CNN_w.test_load = test_load
+                print("used previous test read from {}".format(tes_dir))
+            else:
+                CNN_w.test_reader()
+                test_dataset = CNN_w.test_dataset
+                test_load = CNN_w.test_load
+                print("test loaded form {}".format(tes_dir))
+            # CNN_w.test_reader()
 
-        print("train hypopt started on {}".format(tr_dir))
+            print("train hypopt started on {}".format(tr_dir))
 
-        space_ = {'batch_size': hp.randint('batch_size', batch_size_u - batch_size_l+1),
-                  'lr': hp.uniform('lr', lr_l, lr_u),
-                  'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
-                  'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
+            space_ = {'batch_size': hp.randint('batch_size', batch_size_u - batch_size_l+1),
+                      'lr': hp.uniform('lr', lr_l, lr_u),
+                      'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
+                      'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
 
-        # try the objective_cnn
-        # hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
-        # objective_cnn(hyps)
+            # try the objective_cnn
+            # hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
+            # objective_cnn(hyps)
 
         # minimize the objective over the space
         best_hyp = fmin(objective_cnn, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
-
         tmp = "\n optimal hyps with tpe hypopt are {}\n".format(best_hyp)
         f.write(tmp)
         print(tmp)
 
-        CNN_w.batch_size = best_hyp['batch_size']
-        CNN_w.lr = best_hyp['lr']
-        CNN_w.krnl_2 = best_hyp['krnl_2']
-        CNN_w.mx_krnl_2 = best_hyp['mx_krnl_2']
-        tr_acc, tes_acc = CNN_w.trainer()
-        tr_data_ave = CNN_w.tr_data_ave
-        tr_data_std = CNN_w.tr_data_std
-        tes_data_ave = CNN_w.tes_data_ave
-        tes_data_std = CNN_w.tes_data_std
+        if mnist_on:
+            mymnistTmp.hyps = best_hyp
+            tr_acc, tes_acc = mymnistTmp.evaluate_model()
+            tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
+            tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
+            hyp_opt_time = time.time() - st_time
+            row = ["Hypeopt", mymnistTmp.im_size, mymnistTmp.hyps[], CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                   tr_data_ave, tr_data_std, tr_acc, "",
+                   tes_data_ave, tes_data_std, tes_acc,
+                   hyp_opt_time]
+        else:
+            CNN_w.batch_size = best_hyp['batch_size']
+            CNN_w.lr = best_hyp['lr']
+            CNN_w.krnl_2 = best_hyp['krnl_2']
+            CNN_w.mx_krnl_2 = best_hyp['mx_krnl_2']
+            tr_acc, tes_acc = CNN_w.trainer()
+            tr_data_ave = CNN_w.tr_data_ave
+            tr_data_std = CNN_w.tr_data_std
+            tes_data_ave = CNN_w.tes_data_ave
+            tes_data_std = CNN_w.tes_data_std
+            CNN_w.save_model()
+            hyp_opt_time = time.time() - st_time
+            row = ["Hypeopt", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                   tr_data_ave, tr_data_std, tr_acc, "",
+                   tes_data_ave, tes_data_std, tes_acc,
+                   hyp_opt_time]
 
         tmp = 'Best hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
               'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
                                               tr_data_std, tes_data_ave, tes_data_std)
         print(tmp)
         f.write(tmp)
-
-        hyp_opt_time = time.time() - st_time
-        CNN_w.save_model()
         print("Hypeopt is done in {} sec\n".format(hyp_opt_time))
-        row = ["Hypeopt", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
-               tr_data_ave, tr_data_std, tr_acc, "",
-               tes_data_ave, tes_data_std, tes_acc,
-               hyp_opt_time]
         writer_f_all.writerow(row)
 
     elif hype_given:

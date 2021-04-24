@@ -19,11 +19,14 @@ from scipy.ndimage.filters import gaussian_filter
 
 
 class mymnist():
-	def __init__(self, batch_size_l, fc_size_l, mxp_krnl_l):
+	def __init__(self, hyps, hyp_rngs, img_size=(28, 28)):
 		np.random.seed(110)
-		self.batch_size_l = batch_size_l
-		self.fc_size_l = fc_size_l
-		self.mxp_krnl_l = mxp_krnl_l
+		if not hyp_rngs:
+			self.hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64),
+							 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
+		self.hyps = hyps
+		self.hyp_rngs = hyp_rngs
+		self.img_size = img_size
 
 	def load_dataset(self, tr_ss=100, tes_ss=30):
 		# load train and test dataset
@@ -43,6 +46,9 @@ class mymnist():
 		print(f'train size:{self.trainX.shape}, test shape {self.testX.shape}')
 		# prepare pixel data
 		self.trainX, self.testX = self.prep_pixels(train=self.trainX, test=self.testX)
+		# cal the data stats
+		self.tr_ave, self.tr_std = np.average(self.trainX), np.std(self.trainX)
+		self.tes_ave, self.tes_std = np.average(self.testX), np.std(self.testX)
 
 	def prep_pixels(self, train, test):
 		# scale pixels
@@ -52,11 +58,13 @@ class mymnist():
 		# normalize to range 0-1
 		train_norm = train_norm / 255.0
 		test_norm = test_norm / 255.0
+		# rotate
+		# ndimage.rotate(train_norm, 45, reshape=False)
+		# ndimage.rotate(test_norm, 45, reshape=False)
+		# blurr
+		train_norm = gaussian_filter(train_norm, sigma=7)
+		test_norm = gaussian_filter(test_norm, sigma=7)
 		# return normalized images
-		ndimage.rotate(train_norm, 45, reshape=False)
-		ndimage.rotate(test_norm, 45, reshape=False)
-
-		blurred = gaussian_filter(train_norm, sigma=7)
 		return train_norm, test_norm
 
 	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2):
@@ -133,17 +141,18 @@ class mymnist():
 		# summarize estimated performance
 		self._performance(scores)
 
-	def evaluate_model(self, hyps):
+	def evaluate_model(self):
 		# hypers
 		# lr = 0.01
 		# batch_size = 32
 		# fc_size = 100
 		# mxp_krnl = 2
+
 		epochs = 5
-		batch_size = hyps['batch_size'] + self.batch_size_l
-		lr = hyps['lr']
-		fc_size = hyps['fc_size'] + self.fc_size_l
-		mxp_krnl = hyps['mxp_krnl'] + self.mxp_krnl_l
+		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size_l'][0]
+		lr = self.hyps['lr']
+		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size_l'][0]
+		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl_l'][0]
 
 		# define model
 		model = self.define_model(lr=lr, fc_size=fc_size, mxp_krnl=mxp_krnl)
@@ -159,8 +168,8 @@ class mymnist():
 
 if __name__ == "__main__":
 
-	fo = mymnist(batch_size_l=32, fc_size_l=20, mxp_krnl_l=2)
+	hyps = {'lr':.01, 'batch_size':-16, 'fc_size':80, 'mxp_krnl':0}
+	fo = mymnist()
 	# fo.run_test_harness()
 	fo.load_dataset(tr_ss=100, tes_ss=30)
-	hyps = {'lr':.01, 'batch_size':-16, 'fc_size':80, 'mxp_krnl':0}
-	fo.evaluate_model(hyps)
+	fo.evaluate_model()
