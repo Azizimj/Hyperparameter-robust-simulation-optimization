@@ -478,13 +478,13 @@ def objective_cnn(hyps):
 
 if __name__ == "__main__":
 
-    tr_tes_sep = False
-    sample_folder_build = False
-    divide_file = False
-    hyperopt_use = False
-    hype_given = True
-    RSO_use = False
-    mnist_on = True
+    tr_tes_sep = 0
+    sample_folder_build = 0
+    divide_file = 0
+    hyperopt_use = 1
+    hype_given = 0
+    RSO_use = 0
+    mnist_on = 1
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
             tr_tes_sep = True
@@ -609,10 +609,12 @@ if __name__ == "__main__":
     # # NN HYP
 
     # hypopt
+
     if hyperopt_use:
         from hyperopt import hp
         from hyperopt import fmin, tpe, space_eval
         max_eval_hpopt = 17
+        max_eval_hpopt = 3
         if len(sys.argv) > 1:
             max_eval_hpopt = int(sys.argv[3])
 
@@ -676,12 +678,13 @@ if __name__ == "__main__":
         print(tmp)
 
         if mnist_on:
-            mymnistTmp.hyps = best_hyp
-            tr_acc, tes_acc = mymnistTmp.evaluate_model()
+            tes_acc = mymnistTmp.evaluate_model(best_hyp)
+            tr_acc = mymnistTmp.tr_eval()
             tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
             tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
             hyp_opt_time = time.time() - st_time
-            row = ["Hypeopt", mymnistTmp.im_size, mymnistTmp.hyps[], CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+            row = ["Hypeopt", mymnistTmp.img_size, best_hyp['batch_size'], best_hyp['lr'], best_hyp['fc_size'],
+                   best_hyp['mxp_krnl'],
                    tr_data_ave, tr_data_std, tr_acc, "",
                    tes_data_ave, tes_data_std, tes_acc,
                    hyp_opt_time]
@@ -848,7 +851,7 @@ if __name__ == "__main__":
         for tr_dir in list_dir:
             # import IPython
             # IPython.embed()
-            if tr_dir == "res" or division_num>len(df['day prec']):
+            if tr_dir == "res" or division_num > len(df['day prec']):
                 continue
             # print(tr_dir)
             st_time = time.time()
@@ -926,4 +929,4 @@ if __name__ == "__main__":
 
             division_num += 1
 
-    f.close()
+            f.close()

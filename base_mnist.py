@@ -33,12 +33,12 @@ if gpus:
 
 
 class mymnist():
-	def __init__(self, hyps, hyp_rngs, img_size=(28, 28)):
+	def __init__(self, hyp_rngs, img_size=(28, 28)):
 		np.random.seed(110)
 		if not hyp_rngs:
 			self.hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64),
 							 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
-		self.hyps = hyps
+		# self.hyps = hyps
 		self.hyp_rngs = hyp_rngs
 		self.img_size = img_size
 
@@ -155,12 +155,18 @@ class mymnist():
 		# summarize estimated performance
 		self._performance(scores)
 
-	def evaluate_model(self):
+	def tr_eval(self):
+		_, tr_acc = self.model.evaluate(self.trainX, self.trainY, verbose=0)
+		print('> %.5f' % (tr_acc * 100.0))
+		return tr_acc
+
+	def evaluate_model(self, hyps):
 		# hypers
 		# lr = 0.01
 		# batch_size = 32
 		# fc_size = 100
 		# mxp_krnl = 2
+		self.hyps = hyps
 
 		epochs = 5
 		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]
@@ -169,22 +175,21 @@ class mymnist():
 		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl'][0]
 
 		# define model
-		model = self.define_model(lr=lr, fc_size=fc_size, mxp_krnl=mxp_krnl)
+		self.model = self.define_model(lr=lr, fc_size=fc_size, mxp_krnl=mxp_krnl)
 		# fit model
-		history = model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=batch_size,
+		history = self.model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=batch_size,
 							validation_data=(self.testX, self.testY), verbose=0)
 		# evaluate model
-		_, acc = model.evaluate(self.testX, self.testY, verbose=0)
-		print('> %.5f' % (acc * 100.0))
-
-		return acc
+		_, tes_acc = self.model.evaluate(self.testX, self.testY, verbose=0)
+		print('> %.5f' % (tes_acc * 100.0))
+		return tes_acc
 
 
 if __name__ == "__main__":
 
 	hyps = {'lr':.01, 'batch_size':0, 'fc_size':30, 'mxp_krnl':0}
 	hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
-	fo = mymnist(hyps=hyps, hyp_rngs=hyp_rngs)
+	fo = mymnist(hyp_rngs=hyp_rngs)
 	# fo.run_test_harness()
 	fo.load_dataset(tr_ss=100, tes_ss=30)
-	fo.evaluate_model()
+	fo.evaluate_model(hyps)
