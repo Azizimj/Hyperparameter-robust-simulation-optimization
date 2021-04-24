@@ -16,6 +16,20 @@ from keras.layers import Flatten
 from keras.optimizers import SGD
 from scipy import ndimage, misc
 from scipy.ndimage.filters import gaussian_filter
+import tensorflow as tf
+
+gpus = tf.config.list_physical_devices('GPU')
+if gpus:
+  # Restrict TensorFlow to only allocate 1GB of memory on the first GPU
+  try:
+    tf.config.experimental.set_virtual_device_configuration(
+        gpus[0],
+        [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=5*1024)])
+    logical_gpus = tf.config.experimental.list_logical_devices('GPU')
+    print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
+  except RuntimeError as e:
+    # Virtual devices must be set before GPUs have been initialized
+    print(e)
 
 
 class mymnist():
@@ -149,10 +163,10 @@ class mymnist():
 		# mxp_krnl = 2
 
 		epochs = 5
-		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size_l'][0]
+		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]
 		lr = self.hyps['lr']
-		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size_l'][0]
-		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl_l'][0]
+		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size'][0]
+		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl'][0]
 
 		# define model
 		model = self.define_model(lr=lr, fc_size=fc_size, mxp_krnl=mxp_krnl)
@@ -168,8 +182,9 @@ class mymnist():
 
 if __name__ == "__main__":
 
-	hyps = {'lr':.01, 'batch_size':-16, 'fc_size':80, 'mxp_krnl':0}
-	fo = mymnist()
+	hyps = {'lr':.01, 'batch_size':0, 'fc_size':30, 'mxp_krnl':0}
+	hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
+	fo = mymnist(hyps=hyps, hyp_rngs=hyp_rngs)
 	# fo.run_test_harness()
 	fo.load_dataset(tr_ss=100, tes_ss=30)
 	fo.evaluate_model()

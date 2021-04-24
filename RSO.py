@@ -633,30 +633,21 @@ if __name__ == "__main__":
 
         if mnist_on:
             hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size':(10, 64), 'fc_size':(30, 200), 'mxp_krnl':(2, 10)}
-            mymnistTmp = mymnist(hyp_rngs)
+            mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=100, tes_ss=30)
-            objective_cnn = mymnistTmp.evaluate_model()
+            objective_cnn = mymnistTmp.evaluate_model
             space_ = {'batch_size': hp.randint('batch_size', hyp_rngs['batch_size'][1] - hyp_rngs['batch_size'][0] + 1),
                       'lr': hp.uniform('lr', hyp_rngs['lr'][0], hyp_rngs['lr'][1]),
                       'fc_size': hp.randint('fc_size',  hyp_rngs['fc_size'][1] - hyp_rngs['fc_size'][0] + 1),
                       'mxp_krnl': hp.randint('mxp_krnl', hyp_rngs['mxp_krnl'][1] - hyp_rngs['mxp_krnl'][0] + 1)}
         else:
             im_size = 64
-            batch_size = 1000  # [50 - 400]
-            batch_size_l = 50
+            batch_size = 1000; batch_size_l = 50
             batch_size_u = 400
-            lr = 0.0001  # [1e-4, 1e-2]
-            lr_l = 1e-4
-            lr_u = 1e-2
-            krnl_1 = 5  # [2, 40]
-            krnl_2 = 5  # [2, 40]
-            krnl_2_l = 2
-            krnl_2_u = 20
-            mx_krnl_1 = 2  # [2, 4]
-            mx_krnl_2 = 2  # [2, 8]
-            mx_krnl_2_l = 2
-            mx_krnl_2_u = 10
-            num_epochs = 1
+            lr = 0.0001; lr_l = 1e-4; lr_u = 1e-2
+            krnl_1 = 5; krnl_2 = 5; krnl_2_l = 2; krnl_2_u = 20
+            mx_krnl_1 = 2; mx_krnl_2 = 2; mx_krnl_2_l = 2
+            mx_krnl_2_u = 10; num_epochs = 1
             CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
                                   mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
             if test_dataset is not None:
@@ -669,14 +660,11 @@ if __name__ == "__main__":
                 test_load = CNN_w.test_load
                 print("test loaded form {}".format(tes_dir))
             # CNN_w.test_reader()
-
             print("train hypopt started on {}".format(tr_dir))
-
             space_ = {'batch_size': hp.randint('batch_size', batch_size_u - batch_size_l+1),
                       'lr': hp.uniform('lr', lr_l, lr_u),
                       'krnl_2': hp.randint('krnl_2', krnl_2_u-krnl_2_l+1),
                       'mx_krnl_2': hp.randint('mx_krnl_2', mx_krnl_2_u-mx_krnl_2_l+1)}
-
             # try the objective_cnn
             # hyps = {'batch_size':50, 'lr': 0.001, 'krnl_2':5, 'mx_krnl_2':4}
             # objective_cnn(hyps)
