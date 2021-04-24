@@ -1,169 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist RSO run">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RSO.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="713" column="60" lean-forward="true" selection-start-line="713" selection-start-column="60" selection-end-line="713" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#310#1" />
-                <element signature="e#556#561#0" />
-                <element signature="e#942#967#0" />
-                <element signature="e#1119#1138#0" />
-                <element signature="e#1243#1403#0" />
-                <element signature="e#1455#2223#0" />
-                <element signature="e#1767#2140#0" />
-                <element signature="e#1794#2140#0" />
-                <element signature="e#2018#2140#0" />
-                <element signature="e#2249#2347#0" />
-                <element signature="e#2285#2347#0" />
-                <element signature="e#2399#3675#0" />
-                <element signature="e#2693#3574#0" />
-                <element signature="e#2720#3574#0" />
-                <element signature="e#3133#3290#0" />
-                <element signature="e#3412#3574#0" />
-                <element signature="e#3776#5033#0" />
-                <element signature="e#3957#4301#0" />
-                <element signature="e#4184#4301#0" />
-                <element signature="e#4306#4352#0" />
-                <element signature="e#5071#5291#0" />
-                <element signature="e#5071#5147#1" />
-                <element signature="e#5358#6601#0" />
-                <element signature="e#5358#5379#0" />
-                <element signature="e#5627#6550#0" />
-                <element signature="e#5699#6550#0" />
-                <element signature="e#6475#6550#0" />
-                <element signature="e#6698#8455#0" />
-                <element signature="e#6698#6706#0" />
-                <element signature="e#7376#7971#0" />
-                <element signature="e#7507#7588#0" />
-                <element signature="e#7634#7739#0" />
-                <element signature="e#7766#7840#0" />
-                <element signature="e#7850#7905#0" />
-                <element signature="e#8209#8276#0" />
-                <element signature="e#8458#8476#0" />
-                <element signature="e#14416#16022#0" />
-                <element signature="e#15470#15573#0" />
-                <element signature="e#15592#16006#0" />
-                <element signature="e#15910#15936#0" />
-                <element signature="e#16051#16483#0" />
-                <element signature="e#16516#16778#0" />
-                <element signature="e#16989#17468#0" />
-                <element signature="e#17500#17567#0" />
-                <element signature="e#17782#17800#0" />
-                <element signature="e#18031#18040#0" />
-                <element signature="e#18691#18718#0" />
-                <element signature="e#18882#18995#0" />
-                <element signature="e#19041#19094#0" />
-                <element signature="e#19100#19153#0" />
-                <element signature="e#19781#19906#0" />
-                <element signature="e#19912#20014#0" />
-                <element signature="e#20185#20193#0" />
-                <element signature="e#20657#24190#0" />
-                <element signature="e#22005#22147#0" />
-                <element signature="e#22174#22336#0" />
-                <element signature="e#22445#22724#0" />
-                <element signature="e#22734#22756#0" />
-                <element signature="e#23513#23617#0" />
-                <element signature="e#23935#24155#0" />
-                <element signature="e#25037#25151#0" />
-                <element signature="e#25523#26398#0" />
-                <element signature="e#25838#25954#0" />
-                <element signature="e#26150#26359#0" />
-                <element signature="e#26425#27292#0" />
-                <element signature="e#26715#26824#0" />
-                <element signature="e#27020#27222#0" />
-                <element signature="e#27519#29162#0" />
-                <element signature="e#27602#28382#0" />
-                <element signature="e#28641#28738#0" />
-                <element signature="e#28865#29073#0" />
-                <element signature="e#29257#33620#0" />
-                <element signature="e#29866#29882#0" />
-                <element signature="e#30080#30089#0" />
-                <element signature="e#30959#31109#0" />
-                <element signature="e#31144#31318#0" />
-                <element signature="e#31788#31796#0" />
-                <element signature="e#32239#32352#0" />
-                <element signature="e#32557#32566#0" />
-                <element signature="e#33058#33146#0" />
-                <element signature="e#33349#33550#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ConvNN_t.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-              <folding>
-                <element signature="e#785#1252#0" />
-                <element signature="e#1329#1764#0" />
-                <element signature="e#1666#1762#0" />
-                <element signature="e#1857#1939#0" />
-                <element signature="e#2111#3934#0" />
-                <element signature="e#2709#2735#0" />
-                <element signature="e#3971#4533#0" />
-                <element signature="e#4919#4937#0" />
-                <element signature="e#5361#8979#0" />
-                <element signature="e#5692#7098#0" />
-                <element signature="e#5827#5866#0" />
-                <element signature="e#5968#6033#0" />
-                <element signature="e#6216#6318#0" />
-                <element signature="e#6795#6859#0" />
-                <element signature="e#7570#8414#0" />
-                <element signature="e#7791#7856#0" />
-                <element signature="e#7954#8060#0" />
-                <element signature="e#9368#10881#0" />
-                <element signature="e#9756#10394#0" />
-                <element signature="e#9957#10018#0" />
-                <element signature="e#10751#10811#0" />
-                <element signature="e#10919#12452#0" />
-                <element signature="e#11312#11954#0" />
-                <element signature="e#11513#11574#0" />
-                <element signature="e#12316#12376#0" />
-                <element signature="e#12485#12893#0" />
-                <element signature="e#12930#13249#0" />
-                <element signature="e#12965#13104#0" />
-                <element signature="e#13302#13923#0" />
-                <element signature="e#13464#13519#0" />
-                <element signature="e#13966#14873#0" />
-                <element signature="e#14371#14430#0" />
-                <element signature="e#14714#14815#0" />
-                <element signature="e#14977#17291#0" />
-                <element signature="e#16143#16228#0" />
-                <element signature="e#17111#17161#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jobs_rso.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="25" column="35" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -221,6 +65,7 @@
     <option name="width" value="1026" />
     <option name="height" value="546" />
   </component>
+  <component name="ProjectId" id="1rX5fwPiIMYowUQlHHtpwLgJKOq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -241,45 +86,16 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager" selected="Python.RSO">
-    <configuration name="All models" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Day-Night-Classification-master" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/All models.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="All_models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Day-Night-Classification-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -329,7 +145,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="E:\program\Anaconda\envs\tf_2\python.exe" />
+      <option name="SDK_HOME" value="C:\ProgramData\Anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -343,7 +159,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="base_mnist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Day-Night-Classification-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -355,7 +171,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/base_mnist.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="mylhs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Day-Night-Classification-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mylhs.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -365,22 +202,23 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.All models" />
       <item itemvalue="Python.All_models" />
-      <item itemvalue="Python.tt" />
       <item itemvalue="Python.ConvNN_t" />
       <item itemvalue="Python.RSO" />
+      <item itemvalue="Python.base_mnist" />
+      <item itemvalue="Python.mylhs" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.RSO" />
+        <item itemvalue="Python.base_mnist" />
+        <item itemvalue="Python.mylhs" />
         <item itemvalue="Python.ConvNN_t" />
         <item itemvalue="Python.All_models" />
-        <item itemvalue="Python.tt" />
-        <item itemvalue="Python.All models" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -391,55 +229,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00030" summary="data_ave">
-      <created>1566067212806</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1566067212806</updated>
-    </task>
-    <task id="LOCAL-00031" summary="data_ave of concate">
-      <created>1566092123408</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1566092123408</updated>
-    </task>
-    <task id="LOCAL-00032" summary="data_ave of concate">
-      <created>1566152539634</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1566152539634</updated>
-    </task>
-    <task id="LOCAL-00033" summary="data_ave of concate">
-      <created>1566247871840</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1566247871841</updated>
-    </task>
-    <task id="LOCAL-00034" summary="data_ave of concate">
-      <created>1566247884034</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1566247884034</updated>
-    </task>
-    <task id="LOCAL-00035" summary="data_ave of concate">
-      <created>1566339968815</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1566339968815</updated>
-    </task>
-    <task id="LOCAL-00036" summary="hpopt init">
-      <created>1566340183706</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1566340183706</updated>
     </task>
     <task id="LOCAL-00037" summary="wrapped nn and svm in class">
       <created>1566341909872</created>
@@ -735,7 +524,56 @@
       <option name="project" value="LOCAL" />
       <updated>1567182959212</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="mnist added">
+      <created>1619211884932</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1619211884933</updated>
+    </task>
+    <task id="LOCAL-00080" summary="blurr">
+      <created>1619218873362</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1619218873363</updated>
+    </task>
+    <task id="LOCAL-00081" summary="mnist">
+      <created>1619233123658</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1619233123658</updated>
+    </task>
+    <task id="LOCAL-00082" summary="mnist cuda">
+      <created>1619234861031</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1619234861031</updated>
+    </task>
+    <task id="LOCAL-00083" summary="mnist cuda 2">
+      <created>1619236537337</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1619236537337</updated>
+    </task>
+    <task id="LOCAL-00084" summary="mnist hyperopt done">
+      <created>1619237071075</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1619237071075</updated>
+    </task>
+    <task id="LOCAL-00085" summary="mnist RSO run">
+      <created>1619242346092</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1619242346092</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TodoView">
@@ -773,14 +611,18 @@
       <window_info anchor="right" id="R Packages" order="5" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="images_dir" />
-    <MESSAGE value="divide finished" />
-    <MESSAGE value="divide_fn finished" />
-    <MESSAGE value="train on divides" />
-    <MESSAGE value="csv results" />
-    <MESSAGE value="moved to hpc" />
-    <MESSAGE value="job init in hpc" />
     <MESSAGE value="max(denom, 1)" />
     <MESSAGE value="data_ave" />
     <MESSAGE value="data_ave of concate" />
@@ -799,7 +641,30 @@
     <MESSAGE value="load model in Hyps given" />
     <MESSAGE value="Hyps given results on small_tests" />
     <MESSAGE value="RSO hyps given added" />
-    <option name="LAST_COMMIT_MESSAGE" value="RSO hyps given added" />
+    <MESSAGE value="mnist added" />
+    <MESSAGE value="blurr" />
+    <MESSAGE value="mnist" />
+    <MESSAGE value="mnist cuda" />
+    <MESSAGE value="mnist cuda 2" />
+    <MESSAGE value="mnist hyperopt done" />
+    <MESSAGE value="mnist RSO run" />
+    <option name="LAST_COMMIT_MESSAGE" value="mnist RSO run" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RSO.py</url>
+          <line>880</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/base_mnist.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
