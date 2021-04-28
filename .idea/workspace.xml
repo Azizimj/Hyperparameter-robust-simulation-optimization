@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist RSO run">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist RSO run 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_mnist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,13 +231,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00037" summary="wrapped nn and svm in class">
-      <created>1566341909872</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1566341909872</updated>
     </task>
     <task id="LOCAL-00038" summary="hpopt finished">
       <created>1566349041282</created>
@@ -573,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619242346092</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="mnist RSO run 2">
+      <created>1619245396955</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1619245396955</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TodoView">
@@ -623,7 +625,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="max(denom, 1)" />
     <MESSAGE value="data_ave" />
     <MESSAGE value="data_ave of concate" />
     <MESSAGE value="hpopt init" />
@@ -648,20 +649,26 @@
     <MESSAGE value="mnist cuda 2" />
     <MESSAGE value="mnist hyperopt done" />
     <MESSAGE value="mnist RSO run" />
-    <option name="LAST_COMMIT_MESSAGE" value="mnist RSO run" />
+    <MESSAGE value="mnist RSO run 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="mnist RSO run 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>880</line>
+          <line>882</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/RSO.py</url>
+          <line>853</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/base_mnist.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="29" />
+          <line>78</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

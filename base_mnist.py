@@ -34,7 +34,8 @@ if gpus:
 
 class mymnist():
 	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=1):
-		np.random.seed(110)
+		self._seed = 110
+		np.random.seed(self._seed)
 		if not hyp_rngs:
 			self.hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64),
 							 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
@@ -42,6 +43,7 @@ class mymnist():
 		self.hyp_rngs = hyp_rngs
 		self.img_size = img_size
 		self.blur_prec = blur_prec
+		self.rs = np.random.RandomState(seed=self._seed)
 
 	def load_dataset(self, tr_ss=100, tes_ss=30):
 		# load train and test dataset
@@ -76,8 +78,9 @@ class mymnist():
 		train_norm = train_norm / 255.0
 		test_norm = test_norm / 255.0
 		# rotate
-		# ndimage.rotate(train_norm, 45, reshape=False)
-		# ndimage.rotate(test_norm, 45, reshape=False)
+		self.deg = self.rs.random()*90
+		ndimage.rotate(train_norm, self.deg, reshape=False)
+		ndimage.rotate(test_norm, self.deg, reshape=False)
 		# blurr
 		train_norm = gaussian_filter(train_norm, sigma=7*self.blur_prec)
 		test_norm = gaussian_filter(test_norm, sigma=7*self.blur_prec)
@@ -87,6 +90,9 @@ class mymnist():
 	def change_blur(self, blur_prec):
 		self.blur_prec = blur_prec
 		self.trainX, self.testX = self.prep_pixels(train=self.trainX_save, test=self.testX_save)
+
+		self.tr_ave, self.tr_std = np.average(self.trainX), np.std(self.trainX)
+		self.tes_ave, self.tes_std = np.average(self.testX), np.std(self.testX)
 
 	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2):
 		# define cnn model

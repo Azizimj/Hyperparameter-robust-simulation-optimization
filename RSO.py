@@ -517,11 +517,6 @@ if __name__ == "__main__":
     size_of_trs = 6000
     # size_of_trs = 50
 
-    mnist_tr_size = 10000
-    # mnist_tr_size = 100
-    mnist_tes_size = 3000
-    # mnist_tes_size = 30
-
     # init net and svm
     net = None
     svm = None
@@ -556,8 +551,14 @@ if __name__ == "__main__":
     # points_list_file = "Design-Data-small.csv"
     points_list_file = "LHS-data.csv"  # day night
     points_list_file = "lhs-mnist.csv"  # mnist
-    # points_list_file = "lhs-mnist-small.csv"  # mnist
+    points_list_file = "lhs-mnist-small.csv"  # mnist
     test_precs_file = "Test-Data.csv"
+
+    # mnist parameters
+    mnist_tr_size = 10000
+    mnist_tr_size = 100
+    mnist_tes_size = 3000
+    mnist_tes_size = 30
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
     classes_labels = ["FRAMESA", "FRAMESB"]
@@ -864,6 +865,7 @@ if __name__ == "__main__":
                 tr_acc = mymnistTmp.tr_eval()
                 tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
                 tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
+                deg = mymnistTmp.deg
 
                 tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
                       'tes ave {}, tes std {}'.format(tr_acc, tes_acc, exp_point[0], tr_data_ave,
@@ -873,11 +875,11 @@ if __name__ == "__main__":
                 row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values)+\
                       [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
                        tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
-                       div_time]
+                       div_time, deg]
                 rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys())+\
                       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
                        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
-                       'div_time']
+                       'div_time', 'rotation angle']
                 write_csv(rowTitle, row, file_name='mnist_rso')
         else:
             out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
