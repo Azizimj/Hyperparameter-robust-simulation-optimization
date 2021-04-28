@@ -551,14 +551,14 @@ if __name__ == "__main__":
     # points_list_file = "Design-Data-small.csv"
     points_list_file = "LHS-data.csv"  # day night
     points_list_file = "lhs-mnist.csv"  # mnist
-    points_list_file = "lhs-mnist-small.csv"  # mnist
+    # points_list_file = "lhs-mnist-small.csv"  # mnist
     test_precs_file = "Test-Data.csv"
 
     # mnist parameters
     mnist_tr_size = 10000
-    mnist_tr_size = 100
+    # mnist_tr_size = 100
     mnist_tes_size = 3000
-    mnist_tes_size = 30
+    # mnist_tes_size = 30
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
     classes_labels = ["FRAMESA", "FRAMESB"]

@@ -78,12 +78,12 @@ class mymnist():
 		train_norm = train_norm / 255.0
 		test_norm = test_norm / 255.0
 		# rotate
-		self.deg = self.rs.random()*90
-		ndimage.rotate(train_norm, self.deg, reshape=False)
-		ndimage.rotate(test_norm, self.deg, reshape=False)
+		self.deg = self.blur_prec*90
+		train_norm = ndimage.rotate(train_norm, self.deg, reshape=False)
+		# test_norm = ndimage.rotate(test_norm, self.deg, reshape=False)
 		# blurr
 		train_norm = gaussian_filter(train_norm, sigma=7*self.blur_prec)
-		test_norm = gaussian_filter(test_norm, sigma=7*self.blur_prec)
+		# test_norm = gaussian_filter(test_norm, sigma=7*self.blur_prec)
 		# return normalized images
 		return train_norm, test_norm
 

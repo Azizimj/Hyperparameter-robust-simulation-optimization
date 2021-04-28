@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist RSO run 2">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="ave std change blur fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_mnist.py" afterDir="false" />
@@ -231,13 +231,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00038" summary="hpopt finished">
-      <created>1566349041282</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1566349041282</updated>
     </task>
     <task id="LOCAL-00039" summary="no csv results on res">
       <created>1566409456127</created>
@@ -575,7 +568,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619245396955</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="ave std change blur fix">
+      <created>1619623693592</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1619623693592</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TodoView">
@@ -625,7 +625,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="data_ave" />
     <MESSAGE value="data_ave of concate" />
     <MESSAGE value="hpopt init" />
     <MESSAGE value="wrapped nn and svm in class" />
@@ -650,7 +649,8 @@
     <MESSAGE value="mnist hyperopt done" />
     <MESSAGE value="mnist RSO run" />
     <MESSAGE value="mnist RSO run 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="mnist RSO run 2" />
+    <MESSAGE value="ave std change blur fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="ave std change blur fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
