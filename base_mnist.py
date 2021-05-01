@@ -31,19 +31,22 @@ if gpus:
     # Virtual devices must be set before GPUs have been initialized
     print(e)
 
+np.random.seed(110)
 
 class mymnist():
-	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=1):
+	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=.5):
 		self._seed = 110
 		np.random.seed(self._seed)
 		if not hyp_rngs:
-			self.hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64),
-							 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
-		# self.hyps = hyps
-		self.hyp_rngs = hyp_rngs
+			from init import hyp_rngs
+			self.hyp_rngs = hyp_rngs
+		else:
+			self.hyp_rngs = hyp_rngs
+
 		self.img_size = img_size
 		self.blur_prec = blur_prec
 		self.rs = np.random.RandomState(seed=self._seed)
+		print(f"hyp_rngs {hyp_rngs}\n")
 
 	def load_dataset(self, tr_ss=100, tes_ss=30):
 		# load train and test dataset
@@ -61,43 +64,62 @@ class mymnist():
 		self.trainY = to_categorical(self.trainY)
 		self.testY = to_categorical(self.testY)
 		print(f'train size:{self.trainX.shape}, test shape {self.testX.shape}')
+		# prepare pixel data
+		self.trainX, self.testX, self.trainY, self.testY = \
+			self.prep_pixels(self.trainX, self.testX, self.trainY, self.testY)
 		# save data
 		self.trainX_save, self.testX_save = self.trainX.copy(), self.testX.copy()
-		# prepare pixel data
-		self.trainX, self.testX = self.prep_pixels(train=self.trainX, test=self.testX)
+		self.trainY_save, self.testY_save = self.trainY.copy(), self.testY.copy()
+		# add noisy
+		self.trainX, self.trainY = self.add_noisy(self.trainX, self.trainY)
 		# cal the data stats
 		self.tr_ave, self.tr_std = np.average(self.trainX), np.std(self.trainX)
 		self.tes_ave, self.tes_std = np.average(self.testX), np.std(self.testX)
+		print(self.tr_ave, self.tr_std, self.tes_ave, self.tes_std)
 
-	def prep_pixels(self, train, test):
+	def add_noisy(self, x: np.ndarray, y: np.ndarray):
+		# rotate
+		# self.deg = self.blur_prec * 90
+		# self.deg = self.blur_prec * 10
+		# X = ndimage.rotate(X, self.deg, reshape=True)
+		# X = ndimage.interpolation.rotate(X, self.deg, reshape=False)
+
+		# shift
+		# X = ndimage.interpolation.shift(X, self.deg, mode='nearest')
+
+		# blurr
+		# X = gaussian_filter(X, sigma=3*self.blur_prec)
+
+		# Add blurries
+		bsize = int(x.shape[0]*self.blur_prec)
+		x_noise = x[:bsize] + np.random.normal(scale=5, size=x[:bsize].shape)
+		x = np.append(x, x_noise, axis=0)
+		y = np.append(y, y[:bsize], axis=0)
+		print(f"Blurred size: {x.shape, y.shape}")
+		return x, y
+
+	def prep_pixels(self, trainX, testX, trainY, testY):
 		# scale pixels
 		# convert from integers to floats
-		train_norm = train.astype('float32')
-		test_norm = test.astype('float32')
+		trainX = trainX.astype('float32')
+		testX = testX.astype('float32')
 		# normalize to range 0-1
-		train_norm = train_norm / 255.0
-		test_norm = test_norm / 255.0
-		# rotate
-		self.deg = self.blur_prec*90
-		# train_norm = ndimage.rotate(train_norm, self.deg, reshape=True)
-		# test_norm = ndimage.rotate(test_norm, self.deg, reshape=False)
-		# train_norm = ndimage.interpolation.rotate(train_norm, self.deg, reshape=False)
-		# test_norm = ndimage.interpolation.rotate(test_norm, self.deg, reshape=False)
-		# shift
-		# train_norm = ndimage.interpolation.shift(train_norm, self.deg, mode='nearest')
-		# test_norm = ndimage.interpolation.shift(test_norm, self.deg, reshape=False)
-		# blurr
-		train_norm = gaussian_filter(train_norm, sigma=2*self.blur_prec)
-		# test_norm = gaussian_filter(test_norm, sigma=7*self.blur_prec)
-		# return normalized images
-		return train_norm, test_norm
+		trainX = trainX / 255.0
+		testX = testX / 255.0
+		# return normalized images + noisy images
+		return trainX, testX, trainY, testY
 
 	def change_blur(self, blur_prec):
 		self.blur_prec = blur_prec
-		self.trainX, self.testX = self.prep_pixels(train=self.trainX_save, test=self.testX_save)
+		# self.trainX, self.testX, self.trainY, self.testY = \
+		# 	self.prep_pixels(self.trainX_save, self.testX_save, self.trainY_save, self.testX_save)
+
+		self.trainX, self.trainY = self.add_noisy(self.trainX_save, self.trainY_save)
 
 		self.tr_ave, self.tr_std = np.average(self.trainX), np.std(self.trainX)
 		self.tes_ave, self.tes_std = np.average(self.testX), np.std(self.testX)
+
+		print(self.tr_ave, self.tr_std, self.tes_ave, self.tes_std)
 
 	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2):
 		# define cnn model
@@ -179,6 +201,7 @@ class mymnist():
 		return tr_acc
 
 	def evaluate_model(self, hyps):
+		print(f"hyps {hyps}")
 		# hypers
 		# lr = 0.01
 		# batch_size = 32
@@ -186,8 +209,8 @@ class mymnist():
 		# mxp_krnl = 2
 		self.hyps = hyps
 
-		epochs = 30
-		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]
+		epochs = 10
+		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]  # keep it this way for Hyperopt
 		lr = self.hyps['lr']
 		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size'][0]
 		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl'][0]
@@ -199,17 +222,18 @@ class mymnist():
 							validation_data=(self.testX, self.testY), verbose=0)
 		# evaluate model
 		_, tes_acc = self.model.evaluate(self.testX, self.testY, verbose=0)
-		print('> %.5f' % (tes_acc * 100.0))
+		print('Test acc: %.5f' % (tes_acc * 100.0))
 		return tes_acc
 
 
 if __name__ == "__main__":
 
+	from init import hyp_rngs
+
 	hyps = {'lr': .01, 'batch_size': 0, 'fc_size': 30, 'mxp_krnl': 0}
-	hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
-	# hyp_rngs = {'lr': (1e-4, 1), 'batch_size': (32, 128), 'fc_size': (100, 200), 'mxp_krnl': (2, 10)}
-	fo = mymnist(hyp_rngs=hyp_rngs)
+
+	fo = mymnist(hyp_rngs=hyp_rngs, blur_prec=.1)
 	# fo.run_test_harness()
-	# fo.load_dataset(tr_ss=100, tes_ss=30)
+	# fo.load_dataset(tr_ss=1000, tes_ss=300)
 	fo.load_dataset(tr_ss=10000, tes_ss=3000)
 	fo.evaluate_model(hyps)

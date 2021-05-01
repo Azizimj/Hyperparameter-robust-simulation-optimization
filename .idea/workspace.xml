@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="increase acc">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="run sent">
+      <change afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_mnist.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mylhs.py" beforeDir="false" afterPath="$PROJECT_DIR$/mylhs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -232,13 +233,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00041" summary="hype given">
-      <created>1566767323517</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1566767323517</updated>
     </task>
     <task id="LOCAL-00042" summary="hype given">
       <created>1566770312966</created>
@@ -576,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619889373204</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="run sent">
+      <created>1619892524451</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1619892524451</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TodoView">
@@ -626,7 +627,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="wrapped nn and svm in class" />
     <MESSAGE value="hpopt finished" />
     <MESSAGE value="no csv results on res" />
     <MESSAGE value="hype given" />
@@ -651,7 +651,8 @@
     <MESSAGE value="ave std change blur fix" />
     <MESSAGE value="new run" />
     <MESSAGE value="increase acc" />
-    <option name="LAST_COMMIT_MESSAGE" value="increase acc" />
+    <MESSAGE value="run sent" />
+    <option name="LAST_COMMIT_MESSAGE" value="run sent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -662,14 +663,14 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>853</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/base_mnist.py</url>
+          <line>98</line>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/base_mnist.py</url>
-          <line>83</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/RSO.py</url>
+          <line>863</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

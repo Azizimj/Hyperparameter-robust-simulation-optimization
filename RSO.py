@@ -51,6 +51,7 @@ import csv
 import ConvNN_t
 from base_mnist import mymnist
 from utils import write_csv
+from init import hyp_rngs
 
 random.seed(30)
 np.random.seed(110)
@@ -551,14 +552,14 @@ if __name__ == "__main__":
     # points_list_file = "Design-Data-small.csv"
     points_list_file = "LHS-data.csv"  # day night
     points_list_file = "lhs-mnist.csv"  # mnist, use
-    # points_list_file = "lhs-mnist-small.csv"  # mnist
+    points_list_file = "lhs-mnist-small.csv"  # mnist
     test_precs_file = "Test-Data.csv"
 
     # mnist parameters
     mnist_tr_size = 10000
-    # mnist_tr_size = 100
+    mnist_tr_size = 1000
     mnist_tes_size = 3000
-    # mnist_tes_size = 30
+    mnist_tes_size = 300
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
     classes_labels = ["FRAMESA", "FRAMESB"]
@@ -646,7 +647,6 @@ if __name__ == "__main__":
 
         # find best hyps
         if mnist_on:
-            hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size':(10, 64), 'fc_size':(30, 200), 'mxp_krnl':(2, 10)}
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
             objective_cnn = mymnistTmp.evaluate_model
@@ -854,7 +854,7 @@ if __name__ == "__main__":
         if mnist_on:
             for k in ['batch_size', 'fc_size', 'mxp_krnl']:
                 df_eval_points[k] = df_eval_points[k].astype(int)
-            hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
+
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
             for exp_point in df_eval_points.iterrows():
@@ -865,7 +865,7 @@ if __name__ == "__main__":
                 tr_acc = mymnistTmp.tr_eval()
                 tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
                 tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
-                deg = mymnistTmp.deg
+                # deg = mymnistTmp.deg
 
                 tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
                       'tes ave {}, tes std {}'.format(tr_acc, tes_acc, exp_point[0], tr_data_ave,
