@@ -487,7 +487,7 @@ if __name__ == "__main__":
     hype_given = 0
     # hype_given = 1
     RSO_use = 0
-    # RSO_use = 1
+    RSO_use = 1
     mnist_on = 1
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":

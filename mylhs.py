@@ -8,8 +8,8 @@ from pyDOE import *
 import pandas as pd, numpy as np
 
 # mnist
-hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size':(10, 64), 'fc_size':(30, 200), 'mxp_krnl':(2, 10),
-            'blur_prec':(0.2, .8)}
+hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10),
+            'blur_prec': (0.2, .8)}
 
 lhs_x = lhs(n=len(hyp_rngs), samples=70, criterion='maximin')
 lhs_df = pd.DataFrame()

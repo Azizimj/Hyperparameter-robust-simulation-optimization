@@ -48,6 +48,7 @@ same directory and loaded automatically if it is detected.
 
 
 # MNIST 
+set mnist_on on in RSO.py
 1. Run mylhs.py to get the LHS design points for a given range of Hypes
 2. Run RSO.py with RSO_use flag on to get RSO results into res/mnist_rso.csv
 3. Run RSO.py with hyperopt_use flag on to get HP result
