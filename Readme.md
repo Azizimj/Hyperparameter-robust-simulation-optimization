@@ -48,6 +48,11 @@ same directory and loaded automatically if it is detected.
 
 
 # MNIST 
-we don't need to make folder etc, directly run RSO.py with desired flags (rso_use=1, ...)
+1. Run mylhs.py to get the LHS design points for a given range of Hypes
+2. Run RSO.py with RSO_use flag on to get RSO results into res/mnist_rso.csv
+3. Run RSO.py with hyperopt_use flag on to get HP result
+4. Run RSO.py with hype_given flag on to get final results of RSO vs HP.
+
+we don't need to make data folder etc, directly run RSO.py with desired flags (rso_use=1, ...)
 
 

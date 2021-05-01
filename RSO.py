@@ -487,7 +487,7 @@ if __name__ == "__main__":
     hype_given = 0
     # hype_given = 1
     RSO_use = 0
-    RSO_use = 1
+    # RSO_use = 1
     mnist_on = 1
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -550,7 +550,7 @@ if __name__ == "__main__":
     # points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
     points_list_file = "LHS-data.csv"  # day night
-    points_list_file = "lhs-mnist.csv"  # mnist
+    points_list_file = "lhs-mnist.csv"  # mnist, use
     # points_list_file = "lhs-mnist-small.csv"  # mnist
     test_precs_file = "Test-Data.csv"
 
@@ -744,7 +744,7 @@ if __name__ == "__main__":
         st_time = time.time()
 
         im_size = 64
-        batch_size = 234 #231 #50  # [50 - 400]
+        batch_size = 234  #231 #50  # [50 - 400]
         lr =  0.00349753559529169 #0.00980093693194154 # 0.0001  # [1e-4, 1e-2]
         krnl_1 = 5  # [3, 10]
         krnl_2 = 8 #1 #5  # [3, 10]
@@ -800,11 +800,11 @@ if __name__ == "__main__":
 
         #
 
-        df = pd.read_csv(test_precs_file)
+        df_eval_points = pd.read_csv(test_precs_file)
         test_size = test_size
         print("test on diff day precs started on {}\n".format(tes_dir))
 
-        for cntr, day_prec in enumerate(df['day prec']):
+        for cntr, day_prec in enumerate(df_eval_points['day prec']):
             num_classes = 0
             for class_fldr in os.listdir(tes_dir):
                 if (class_fldr == "FRAMESB"):
@@ -848,16 +848,16 @@ if __name__ == "__main__":
 
     elif RSO_use:
 
-        df = pd.read_csv(points_list_file)
+        df_eval_points = pd.read_csv(points_list_file)
         # X_test, y_test, num_classes = read_files(tes_dir, model_name)
 
         if mnist_on:
             for k in ['batch_size', 'fc_size', 'mxp_krnl']:
-                df[k] = df[k].astype(int)
+                df_eval_points[k] = df_eval_points[k].astype(int)
             hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
-            for exp_point in df.iterrows():
+            for exp_point in df_eval_points.iterrows():
                 st_time = time.time()
                 mymnistTmp.change_blur(blur_prec=exp_point[1]['blur_prec'])
                 mymnistTmp.evaluate_model(hyps=dict(exp_point[1]))
@@ -875,11 +875,11 @@ if __name__ == "__main__":
                 row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values)+\
                       [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
                        tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
-                       div_time, deg]
+                       div_time]
                 rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys())+\
                       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
                        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
-                       'div_time', 'rotation angle']
+                       'div_time']
                 write_csv(rowTitle, row, file_name='mnist_rso')
         else:
             out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
@@ -896,7 +896,7 @@ if __name__ == "__main__":
             for tr_dir in list_dir:
                 # import IPython
                 # IPython.embed()
-                if tr_dir == "res" or division_num > len(df['day prec']):
+                if tr_dir == "res" or division_num > len(df_eval_points['day prec']):
                     continue
                 # print(tr_dir)
                 st_time = time.time()
@@ -904,12 +904,12 @@ if __name__ == "__main__":
                 # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
 
                 im_size = 64
-                batch_size = int(df['batch_size'][division_num])  # [50 - 400]
-                lr = float(df['lr'][division_num])  # 0.0001 # [1e-4, 1e-2]
+                batch_size = int(df_eval_points['batch_size'][division_num])  # [50 - 400]
+                lr = float(df_eval_points['lr'][division_num])  # 0.0001 # [1e-4, 1e-2]
                 krnl_1 = 5  # [2, 40]
-                krnl_2 = int(df['krnl_1'][division_num])  # 5 # [2, 40]
+                krnl_2 = int(df_eval_points['krnl_1'][division_num])  # 5 # [2, 40]
                 mx_krnl_1 = 2  # [2, 4]
-                mx_krnl_2 = int(df['mx_krnl_1'][division_num])  # 2 # [2, 8]
+                mx_krnl_2 = int(df_eval_points['mx_krnl_1'][division_num])  # 2 # [2, 8]
                 # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
                 num_epochs = 1
                 CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,

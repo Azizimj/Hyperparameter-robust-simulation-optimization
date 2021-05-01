@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="ave std change blur fix">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="new run">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/base_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_mnist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +98,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.RSO">
+  <component name="RunManager" selected="Python.base_mnist">
     <configuration name="All_models" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Day-Night-Classification-master" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -212,8 +213,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RSO" />
         <item itemvalue="Python.base_mnist" />
+        <item itemvalue="Python.RSO" />
         <item itemvalue="Python.mylhs" />
         <item itemvalue="Python.ConvNN_t" />
         <item itemvalue="Python.All_models" />
@@ -231,13 +232,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00039" summary="no csv results on res">
-      <created>1566409456127</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1566409456127</updated>
     </task>
     <task id="LOCAL-00040" summary="hype given">
       <created>1566761130897</created>
@@ -575,7 +569,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619623693592</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="new run">
+      <created>1619626390725</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1619626390725</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView">
@@ -625,7 +626,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="data_ave of concate" />
     <MESSAGE value="hpopt init" />
     <MESSAGE value="wrapped nn and svm in class" />
     <MESSAGE value="hpopt finished" />
@@ -650,7 +650,8 @@
     <MESSAGE value="mnist RSO run" />
     <MESSAGE value="mnist RSO run 2" />
     <MESSAGE value="ave std change blur fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="ave std change blur fix" />
+    <MESSAGE value="new run" />
+    <option name="LAST_COMMIT_MESSAGE" value="new run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -667,8 +668,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/base_mnist.py</url>
-          <line>78</line>
-          <option name="timeStamp" value="31" />
+          <line>83</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

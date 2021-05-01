@@ -79,10 +79,15 @@ class mymnist():
 		test_norm = test_norm / 255.0
 		# rotate
 		self.deg = self.blur_prec*90
-		train_norm = ndimage.rotate(train_norm, self.deg, reshape=False)
+		# train_norm = ndimage.rotate(train_norm, self.deg, reshape=True)
 		# test_norm = ndimage.rotate(test_norm, self.deg, reshape=False)
+		# train_norm = ndimage.interpolation.rotate(train_norm, self.deg, reshape=False)
+		# test_norm = ndimage.interpolation.rotate(test_norm, self.deg, reshape=False)
+		# shift
+		# train_norm = ndimage.interpolation.shift(train_norm, self.deg, mode='nearest')
+		# test_norm = ndimage.interpolation.shift(test_norm, self.deg, reshape=False)
 		# blurr
-		train_norm = gaussian_filter(train_norm, sigma=7*self.blur_prec)
+		train_norm = gaussian_filter(train_norm, sigma=2*self.blur_prec)
 		# test_norm = gaussian_filter(test_norm, sigma=7*self.blur_prec)
 		# return normalized images
 		return train_norm, test_norm
@@ -108,7 +113,7 @@ class mymnist():
 		return self.model
 
 	def run_model(self, trainX, trainY, testX, testY):
-		# fit model
+		# fit & run for CV
 		history = self.model.fit(trainX, trainY, epochs=10, batch_size=32, validation_data=(testX, testY), verbose=0)
 		# evaluate model
 		_, acc = self.model.evaluate(testX, testY, verbose=0)
@@ -181,7 +186,7 @@ class mymnist():
 		# mxp_krnl = 2
 		self.hyps = hyps
 
-		epochs = 10
+		epochs = 30
 		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]
 		lr = self.hyps['lr']
 		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size'][0]
@@ -194,15 +199,17 @@ class mymnist():
 							validation_data=(self.testX, self.testY), verbose=0)
 		# evaluate model
 		_, tes_acc = self.model.evaluate(self.testX, self.testY, verbose=0)
-		# print('> %.5f' % (tes_acc * 100.0))
+		print('> %.5f' % (tes_acc * 100.0))
 		return tes_acc
 
 
 if __name__ == "__main__":
 
-	hyps = {'lr':.01, 'batch_size':0, 'fc_size':30, 'mxp_krnl':0}
+	hyps = {'lr': .01, 'batch_size': 0, 'fc_size': 30, 'mxp_krnl': 0}
 	hyp_rngs = {'lr': (1e-4, 1e-1), 'batch_size': (10, 64), 'fc_size': (30, 200), 'mxp_krnl': (2, 10)}
+	# hyp_rngs = {'lr': (1e-4, 1), 'batch_size': (32, 128), 'fc_size': (100, 200), 'mxp_krnl': (2, 10)}
 	fo = mymnist(hyp_rngs=hyp_rngs)
 	# fo.run_test_harness()
-	fo.load_dataset(tr_ss=100, tes_ss=30)
+	# fo.load_dataset(tr_ss=100, tes_ss=30)
+	fo.load_dataset(tr_ss=10000, tes_ss=3000)
 	fo.evaluate_model(hyps)
