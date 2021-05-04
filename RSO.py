@@ -52,6 +52,7 @@ import ConvNN_t
 from base_mnist import mymnist
 from utils import write_csv
 from init import hyp_rngs
+from mylhs import mylhs_f
 
 random.seed(30)
 np.random.seed(110)
@@ -550,9 +551,13 @@ if __name__ == "__main__":
 
     # points_list_file = "Design-Data.csv"
     # points_list_file = "Design-Data-small.csv"
-    points_list_file = "LHS-data.csv"  # day night
-    points_list_file = "lhs-mnist.csv"  # mnist, use
-    points_list_file = "lhs-mnist-small.csv"  # mnist
+    # points_list_file = "LHS-data.csv"  # day night
+    # points_list_file = "lhs-mnist.csv"  # mnist, use
+    # points_list_file = "lhs-mnist-small.csv"  # mnist
+
+    # points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=4)
+    points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=70)
+
     test_precs_file = "Test-Data.csv"
 
     # mnist parameters
@@ -626,7 +631,7 @@ if __name__ == "__main__":
         from hyperopt import hp
         from hyperopt import fmin, tpe, space_eval
         max_eval_hpopt = 17
-        max_eval_hpopt = 3
+        # max_eval_hpopt = 3
         if len(sys.argv) > 1:
             max_eval_hpopt = int(sys.argv[3])
 
@@ -649,7 +654,15 @@ if __name__ == "__main__":
         if mnist_on:
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
-            objective_cnn = mymnistTmp.evaluate_model
+            # objective_cnn = mymnistTmp.evaluate_model
+
+            def objective_cnn(hyps):
+                hyps['batch_size'] += hyp_rngs['batch_size'][0]
+                hyps['fc_size'] += hyp_rngs['fc_size'][0]
+                hyps['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
+                res = mymnistTmp.evaluate_model(hyps)
+                return res
+
             space_ = {'batch_size': hp.randint('batch_size', hyp_rngs['batch_size'][1] - hyp_rngs['batch_size'][0] + 1),
                       'lr': hp.uniform('lr', hyp_rngs['lr'][0], hyp_rngs['lr'][1]),
                       'fc_size': hp.randint('fc_size',  hyp_rngs['fc_size'][1] - hyp_rngs['fc_size'][0] + 1),

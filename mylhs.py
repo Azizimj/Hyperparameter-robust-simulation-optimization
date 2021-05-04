@@ -6,17 +6,19 @@
 
 from pyDOE import *
 import pandas as pd, numpy as np
-
-# mnist
 from init import hyp_rngs
 
-lhs_x = lhs(n=len(hyp_rngs), samples=70, criterion='maximin')
-lhs_df = pd.DataFrame()
-for i, (k, v) in enumerate(hyp_rngs.items()):
-    if k not in ['lr', 'blur_prec']:
-        lhs_df[k] = np.floor(lhs_x[:, i] * (v[1] - v[0]) + v[0]).astype(int)
-    else:
-        lhs_df[k] = np.round(lhs_x[:, i] * (v[1]-v[0]) + v[0], 4)
+def mylhs_f(fname, num_points):
 
-lhs_df.to_csv("lhs-mnist.csv", index=False)
+    hyp_rngs.update({'blur_prec': (0.2, .8)})
+    lhs_x = lhs(n=len(hyp_rngs), samples=num_points, criterion='maximin')
+    lhs_df = pd.DataFrame()
+    for i, (k, v) in enumerate(hyp_rngs.items()):
+        if k not in ['lr', 'blur_prec']:
+            lhs_df[k] = np.floor(lhs_x[:, i] * (v[1] - v[0]) + v[0]).astype(int)
+        else:
+            lhs_df[k] = np.round(lhs_x[:, i] * (v[1]-v[0]) + v[0], 4)
+
+    lhs_df.to_csv(fname, index=False)
+    return fname
 

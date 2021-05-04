@@ -200,20 +200,20 @@ class mymnist():
 		# print('> %.5f' % (tr_acc * 100.0))
 		return tr_acc
 
+	def check_hyp(self, hyp_name):
+		assert self.hyp_rngs[hyp_name][0] <= self.hyps[hyp_name] <= self.hyp_rngs[hyp_name][1], \
+			f"{hyp_name} out of ranges"
+		return self.hyps[hyp_name]
+
 	def evaluate_model(self, hyps):
 		print(f"hyps {hyps}")
-		# hypers
-		# lr = 0.01
-		# batch_size = 32
-		# fc_size = 100
-		# mxp_krnl = 2
 		self.hyps = hyps
 
 		epochs = 10
-		batch_size = self.hyps['batch_size'] + self.hyp_rngs['batch_size'][0]  # keep it this way for Hyperopt
-		lr = self.hyps['lr']
-		fc_size = self.hyps['fc_size'] + self.hyp_rngs['fc_size'][0]
-		mxp_krnl = self.hyps['mxp_krnl'] + self.hyp_rngs['mxp_krnl'][0]
+		batch_size = self.check_hyp('batch_size')
+		lr = self.check_hyp('lr')
+		fc_size = self.check_hyp('fc_size')
+		mxp_krnl = self.check_hyp('mxp_krnl')
 
 		# define model
 		self.model = self.define_model(lr=lr, fc_size=int(fc_size), mxp_krnl=int(mxp_krnl))
@@ -230,7 +230,7 @@ if __name__ == "__main__":
 
 	from init import hyp_rngs
 
-	hyps = {'lr': .01, 'batch_size': 0, 'fc_size': 30, 'mxp_krnl': 0}
+	hyps = {'lr': .01, 'batch_size': 10, 'fc_size': 50, 'mxp_krnl': 2}
 
 	fo = mymnist(hyp_rngs=hyp_rngs, blur_prec=.1)
 	# fo.run_test_harness()
