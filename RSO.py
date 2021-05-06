@@ -487,9 +487,9 @@ if __name__ == "__main__":
     hyperopt_use = 0
     # hyperopt_use = 1
     hype_given = 0
-    # hype_given = 1
+    hype_given = 1
     RSO_use = 0
-    RSO_use = 1
+    # RSO_use = 1
     mnist_on = 1
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -561,9 +561,7 @@ if __name__ == "__main__":
     test_precs_file = "Test-Data.csv"
 
     # mnist parameters
-    mnist_tr_size = 10000
     mnist_tr_size = 1000
-    mnist_tes_size = 3000
     mnist_tes_size = 300
 
     # FRAMESA (night) 16960, FRAMESB (day) 14607 # in CNN FRAMESB is 1
@@ -740,124 +738,157 @@ if __name__ == "__main__":
         writer_f_all.writerow(row)
 
     elif hype_given:
-        #TODO: mnist
-        test_size = 1000
-        # load_model_name = "hyps.pth"
-        load_model_name = None
-
-        out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_givenHyp" +
-                 "_epo" + str(num_epoch) + ".txt", "a")
-        out_file.write(model_name + "\n")
-
-        f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
-        writer_f_all = csv.writer(f_all)
-
-        tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
-
-        st_time = time.time()
-
-        im_size = 64
-        batch_size = 234  #231 #50  # [50 - 400]
-        lr =  0.00349753559529169 #0.00980093693194154 # 0.0001  # [1e-4, 1e-2]
-        krnl_1 = 5  # [3, 10]
-        krnl_2 = 8 #1 #5  # [3, 10]
-        mx_krnl_1 = 2  # [2, 4]
-        mx_krnl_2 =  6 #7 # 2  # [2, 8]
-        num_epochs = 1  # [5, 20]
-        tmp  = "given hyp started with batch_size {} , lr {} , " \
-               "krnl_2 {} , mx_krnl_2 {} with num_epochs {}\n".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
-        print(tmp)
-        out_file.write(tmp)
-
-        CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
-                                  mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
-        CNN_w.train_reader()
-        CNN_w.test_reader()
-
-        if load_model_name is not None:
-            CNN_w.load_model(load_model_name)
-            tr_acc = CNN_w.eval_on_tr()
-            tes_acc = CNN_w.eval_on_test()
-            tr_data_ave = CNN_w.tr_data_ave
-            tr_data_std = CNN_w.tr_data_std
-            tes_data_ave = CNN_w.tes_data_ave
-            tes_data_std = CNN_w.tes_data_std
-            tmp = 'Given hyps loaded tr acc {} and tes acc {} with tr ave {}, tr std {},' \
-                  'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
-                                                  tr_data_std, tes_data_ave, tes_data_std)
-            print(tmp)
-            out_file.write(tmp)
-
-            row = ["Given hyps loaded", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
-                   tr_data_ave, tr_data_std, tr_acc, "",
-                   tes_data_ave, tes_data_std, tes_acc]
-            writer_f_all.writerow(row)
-        else:
-            print("train started on {}\n".format(tr_dir))
-            tr_acc, tes_acc = CNN_w.trainer()
-            tr_data_ave = CNN_w.tr_data_ave
-            tr_data_std = CNN_w.tr_data_std
-            tes_data_ave = CNN_w.tes_data_ave
-            tes_data_std = CNN_w.tes_data_std
-            tmp = 'Given hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
-                  'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
-                                                  tr_data_std, tes_data_ave, tes_data_std)
-            print(tmp)
-            out_file.write(tmp)
-
-            row = ["Given hyps", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
-                   tr_data_ave, tr_data_std, tr_acc, "",
-                   tes_data_ave, tes_data_std, tes_acc]
-            writer_f_all.writerow(row)
-            CNN_w.save_model()
-
-        #
-
         df_eval_points = pd.read_csv(test_precs_file)
-        test_size = test_size
-        print("test on diff day precs started on {}\n".format(tes_dir))
+        if mnist_on:
+            # RSO
+            hyps = {'lr': .077057, 'batch_size': 86, 'fc_size': 119, 'mxp_krnl': 6} #RSO
+            fname = 'mnist_RSO_givenHyps'
+            # Hyperopt
+            # hyps = {'batch_size': 90, 'fc_size': 138, 'lr': 0.07249575958347834, 'mxp_krnl': 6}
+            # fname = 'mnist_Hyperopt_givenHyps'
 
-        for cntr, day_prec in enumerate(df_eval_points['day prec']):
-            num_classes = 0
-            for class_fldr in os.listdir(tes_dir):
-                if (class_fldr == "FRAMESB"):
-                    prec = day_prec
-                elif (class_fldr == "FRAMESA"):
-                    prec = 1 - day_prec
-                else:
-                    continue
-                num_classes += 1
-                images = os.listdir(tes_dir + class_fldr)
-                ln_ = len(images)
-                random.shuffle(images)
-                ln_ = min(int(prec * test_size), ln_)
-                print("{} images picked for test\n".format(ln_))
-                images_ = images[:ln_]
-                tmp_tes = "tmp_test"
-                make_dir(tmp_tes)
-                make_dir(tmp_tes+"/"+class_fldr)
-                for image in images_:
-                    copyfile(tes_dir+class_fldr +"/"+ image, tmp_tes+"/"+class_fldr+"/"+ image)
+            mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
+            mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
+            for cntr, blur_prec in enumerate(df_eval_points['day prec']):
+                st_time = time.time()
+                mymnistTmp.change_blur(blur_prec=blur_prec)
+                mymnistTmp.evaluate_model(hyps=hyps)
+                tes_acc = mymnistTmp.evaluate_model(hyps=hyps)
+                tr_acc = mymnistTmp.tr_eval()
+                tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
+                tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
+                tmp = 'tr acc {} and tes acc {} on test point {} with {} tr ave, {} tr std,' \
+                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, cntr, tr_data_ave,
+                                                      tr_data_std, tes_data_ave, tes_data_std)
+                print(tmp)
+                div_time = time.time() - st_time
+                row = [cntr, blur_prec, mymnistTmp.img_size] + list(mymnistTmp.hyps.values()) + \
+                      [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
+                       tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
+                       div_time]
+                rowTitle = ['division_num', 'blur_prec', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys()) + \
+                           ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
+                            'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
+                            'div_time']
+                write_csv(rowTitle, row, file_name=fname)
 
-            CNN_w.batch_size = 100
-            CNN_w.tes_dir = tmp_tes
-            CNN_w.test_reader()
-            tes_acc = CNN_w.eval_on_test()
-            tes_data_ave = CNN_w.tes_data_ave
-            tes_data_std = CNN_w.tes_data_std
+        else:
+            test_size = 1000
+            # load_model_name = "hyps.pth"
+            load_model_name = None
 
-            tmp = "tes acc on day prec {} with tes_data_ave {} and tes_data_std {} " \
-                  "is {} \n".format(day_prec, tes_data_ave, tes_data_std, tes_acc)
+            out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_givenHyp" +
+                     "_epo" + str(num_epoch) + ".txt", "a")
+            out_file.write(model_name + "\n")
+
+            f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
+            writer_f_all = csv.writer(f_all)
+
+            tr_dir = images_dir + "_" + str(test_precs) + "/tr/"
+
+            st_time = time.time()
+
+            im_size = 64
+            batch_size = 234  #231 #50  # [50 - 400]
+            lr =  0.00349753559529169 #0.00980093693194154 # 0.0001  # [1e-4, 1e-2]
+            krnl_1 = 5  # [3, 10]
+            krnl_2 = 8 #1 #5  # [3, 10]
+            mx_krnl_1 = 2  # [2, 4]
+            mx_krnl_2 =  6 #7 # 2  # [2, 8]
+            num_epochs = 1  # [5, 20]
+            tmp  = "given hyp started with batch_size {} , lr {} , " \
+                   "krnl_2 {} , mx_krnl_2 {} with num_epochs {}\n".format(batch_size, lr, krnl_2, mx_krnl_2, num_epochs)
             print(tmp)
-            out_file.write(str(tmp))
+            out_file.write(tmp)
 
-            row = [prec, CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
-                   tr_data_ave, tr_data_std, tr_acc, "",
-                   tes_data_ave, tes_data_std, tes_acc, "small test"]
-            writer_f_all.writerow(row)
-            os.system("rm -r {}".format(tmp_tes))
+            CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                      mx_krnl_2, num_epochs, tr_dir + "/", tes_dir)
+            CNN_w.train_reader()
+            CNN_w.test_reader()
 
-        print("Given hyps takes {}".format(time.time()-st_time))
+            if load_model_name is not None:
+                CNN_w.load_model(load_model_name)
+                tr_acc = CNN_w.eval_on_tr()
+                tes_acc = CNN_w.eval_on_test()
+                tr_data_ave = CNN_w.tr_data_ave
+                tr_data_std = CNN_w.tr_data_std
+                tes_data_ave = CNN_w.tes_data_ave
+                tes_data_std = CNN_w.tes_data_std
+                tmp = 'Given hyps loaded tr acc {} and tes acc {} with tr ave {}, tr std {},' \
+                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
+                                                      tr_data_std, tes_data_ave, tes_data_std)
+                print(tmp)
+                out_file.write(tmp)
+
+                row = ["Given hyps loaded", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                       tr_data_ave, tr_data_std, tr_acc, "",
+                       tes_data_ave, tes_data_std, tes_acc]
+                writer_f_all.writerow(row)
+            else:
+                print("train started on {}\n".format(tr_dir))
+                tr_acc, tes_acc = CNN_w.trainer()
+                tr_data_ave = CNN_w.tr_data_ave
+                tr_data_std = CNN_w.tr_data_std
+                tes_data_ave = CNN_w.tes_data_ave
+                tes_data_std = CNN_w.tes_data_std
+                tmp = 'Given hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
+                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
+                                                      tr_data_std, tes_data_ave, tes_data_std)
+                print(tmp)
+                out_file.write(tmp)
+
+                row = ["Given hyps", CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                       tr_data_ave, tr_data_std, tr_acc, "",
+                       tes_data_ave, tes_data_std, tes_acc]
+                writer_f_all.writerow(row)
+                CNN_w.save_model()
+
+            #
+
+            test_size = test_size
+            print("test on diff day precs started on {}\n".format(tes_dir))
+
+            for cntr, day_prec in enumerate(df_eval_points['day prec']):
+                num_classes = 0
+                for class_fldr in os.listdir(tes_dir):
+                    if (class_fldr == "FRAMESB"):
+                        prec = day_prec
+                    elif (class_fldr == "FRAMESA"):
+                        prec = 1 - day_prec
+                    else:
+                        continue
+                    num_classes += 1
+                    images = os.listdir(tes_dir + class_fldr)
+                    ln_ = len(images)
+                    random.shuffle(images)
+                    ln_ = min(int(prec * test_size), ln_)
+                    print("{} images picked for test\n".format(ln_))
+                    images_ = images[:ln_]
+                    tmp_tes = "tmp_test"
+                    make_dir(tmp_tes)
+                    make_dir(tmp_tes+"/"+class_fldr)
+                    for image in images_:
+                        copyfile(tes_dir+class_fldr +"/"+ image, tmp_tes+"/"+class_fldr+"/"+ image)
+
+                CNN_w.batch_size = 100
+                CNN_w.tes_dir = tmp_tes
+                CNN_w.test_reader()
+                tes_acc = CNN_w.eval_on_test()
+                tes_data_ave = CNN_w.tes_data_ave
+                tes_data_std = CNN_w.tes_data_std
+
+                tmp = "tes acc on day prec {} with tes_data_ave {} and tes_data_std {} " \
+                      "is {} \n".format(day_prec, tes_data_ave, tes_data_std, tes_acc)
+                print(tmp)
+                out_file.write(str(tmp))
+
+                row = [prec, CNN_w.im_size, CNN_w.batch_size, CNN_w.lr, CNN_w.krnl_2, CNN_w.num_epochs,
+                       tr_data_ave, tr_data_std, tr_acc, "",
+                       tes_data_ave, tes_data_std, tes_acc, "small test"]
+                writer_f_all.writerow(row)
+                os.system("rm -r {}".format(tmp_tes))
+
+            print("Given hyps takes {}".format(time.time()-st_time))
 
     elif RSO_use:
 
@@ -885,7 +916,7 @@ if __name__ == "__main__":
                                                       tr_data_std, tes_data_ave, tes_data_std)
                 print(tmp)
                 div_time = time.time() - st_time
-                row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values)+\
+                row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values())+\
                       [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
                        tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
                        div_time]
