@@ -741,14 +741,23 @@ if __name__ == "__main__":
         df_eval_points = pd.read_csv(test_precs_file)
         if mnist_on:
             # RSO
+            fname = 'mnist_givenHyps'
             hyps = {'lr': .077057, 'batch_size': 86, 'fc_size': 119, 'mxp_krnl': 6} #RSO
-            fname = 'mnist_RSO_givenHyps'
+            mname = 'RSO'
             # Hyperopt
             # hyps = {'batch_size': 90, 'fc_size': 138, 'lr': 0.07249575958347834, 'mxp_krnl': 6}
-            # fname = 'mnist_Hyperopt_givenHyps'
+            # hyps = {'batch_size': 90, 'fc_size': 88, 'lr': 0.07249575958347834, 'mxp_krnl': 4}
+            # mname = 'HyperOpt'
 
-            mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
+            write_csv([''], [mname], file_name=fname)
+            mymnistTmp = mymnist(hyp_rngs=hyp_rngs, hyps=hyps)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
+
+            rowTitle = ['division_num', 'blur_prec', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys()) + \
+                       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
+                        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
+                        'div_time']
+            write_csv(rowTitle, [], file_name=fname)
             for cntr, blur_prec in enumerate(df_eval_points['day prec']):
                 st_time = time.time()
                 mymnistTmp.change_blur(blur_prec=blur_prec)
@@ -766,11 +775,7 @@ if __name__ == "__main__":
                       [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
                        tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
                        div_time]
-                rowTitle = ['division_num', 'blur_prec', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys()) + \
-                           ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
-                            'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
-                            'div_time']
-                write_csv(rowTitle, row, file_name=fname)
+                write_csv([], row, file_name=fname)
 
         else:
             test_size = 1000

@@ -34,7 +34,7 @@ if gpus:
 np.random.seed(110)
 
 class mymnist():
-	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=.5):
+	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=.5, hyps=None):
 		self._seed = 110
 		np.random.seed(self._seed)
 		if not hyp_rngs:
@@ -42,6 +42,9 @@ class mymnist():
 			self.hyp_rngs = hyp_rngs
 		else:
 			self.hyp_rngs = hyp_rngs
+
+		if hyps:
+			self.hyps = hyps
 
 		self.img_size = img_size
 		self.blur_prec = blur_prec

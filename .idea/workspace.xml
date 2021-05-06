@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="run 1000 300">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist hyps given">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/base_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_mnist.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,13 +239,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00044" summary="hype given csv corrected">
-      <created>1566773981679</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1566773981679</updated>
     </task>
     <task id="LOCAL-00045" summary="hype given csv corrected">
       <created>1566793255447</created>
@@ -582,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620163258960</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="mnist hyps given">
+      <created>1620333235828</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1620333235829</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TodoView">
@@ -632,7 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hype given" />
     <MESSAGE value="hype given csv corrected" />
     <MESSAGE value="pytorch added" />
     <MESSAGE value="divide with new" />
@@ -657,29 +657,30 @@
     <MESSAGE value="run sent" />
     <MESSAGE value="from init import hyp_rngs" />
     <MESSAGE value="run 1000 300" />
-    <option name="LAST_COMMIT_MESSAGE" value="run 1000 300" />
+    <MESSAGE value="mnist hyps given" />
+    <option name="LAST_COMMIT_MESSAGE" value="mnist hyps given" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>926</line>
+          <line>931</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>903</line>
+          <line>908</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>763</line>
+          <line>772</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/RSO.py</url>
-          <line>762</line>
+          <line>771</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
