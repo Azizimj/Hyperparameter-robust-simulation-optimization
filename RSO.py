@@ -487,9 +487,9 @@ if __name__ == "__main__":
     hyperopt_use = 0
     # hyperopt_use = 1
     hype_given = 0
-    hype_given = 1
+    # hype_given = 1
     RSO_use = 0
-    # RSO_use = 1
+    RSO_use = 1
     mnist_on = 1
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -556,7 +556,7 @@ if __name__ == "__main__":
     # points_list_file = "lhs-mnist-small.csv"  # mnist
 
     # points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=4)
-    points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=70)
+    points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=100)
 
     test_precs_file = "Test-Data.csv"
 
@@ -628,7 +628,7 @@ if __name__ == "__main__":
     if hyperopt_use:
         from hyperopt import hp
         from hyperopt import fmin, tpe, space_eval
-        max_eval_hpopt = 17
+        max_eval_hpopt = 20
         # max_eval_hpopt = 3
         if len(sys.argv) > 1:
             max_eval_hpopt = int(sys.argv[3])
@@ -652,19 +652,22 @@ if __name__ == "__main__":
         if mnist_on:
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
+            mymnistTmp.change_blur(blur_prec=.5)
             # objective_cnn = mymnistTmp.evaluate_model
 
             def objective_cnn(hyps):
                 hyps['batch_size'] += hyp_rngs['batch_size'][0]
                 hyps['fc_size'] += hyp_rngs['fc_size'][0]
                 hyps['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
+                hyps['cnv_size'] += hyp_rngs['cnv_size'][0]
                 res = mymnistTmp.evaluate_model(hyps)
                 return res
 
             space_ = {'batch_size': hp.randint('batch_size', hyp_rngs['batch_size'][1] - hyp_rngs['batch_size'][0] + 1),
                       'lr': hp.uniform('lr', hyp_rngs['lr'][0], hyp_rngs['lr'][1]),
                       'fc_size': hp.randint('fc_size',  hyp_rngs['fc_size'][1] - hyp_rngs['fc_size'][0] + 1),
-                      'mxp_krnl': hp.randint('mxp_krnl', hyp_rngs['mxp_krnl'][1] - hyp_rngs['mxp_krnl'][0] + 1)}
+                      'mxp_krnl': hp.randint('mxp_krnl', hyp_rngs['mxp_krnl'][1] - hyp_rngs['mxp_krnl'][0] + 1),
+                      'cnv_size': hp.randint('cnv_size', hyp_rngs['cnv_size'][1] - hyp_rngs['cnv_size'][0] + 1)}
         else:
             im_size = 64
             batch_size = 1000; batch_size_l = 50
@@ -696,6 +699,10 @@ if __name__ == "__main__":
 
         # minimize the objective over the space
         best_hyp = fmin(objective_cnn, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
+        best_hyp['batch_size'] += hyp_rngs['batch_size'][0]
+        best_hyp['fc_size'] += hyp_rngs['fc_size'][0]
+        best_hyp['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
+        best_hyp['cnv_size'] += hyp_rngs['cnv_size'][0]
         tmp = "\n optimal hyps with tpe hypopt are {}\n".format(best_hyp)
         out_file.write(tmp)
         print(tmp)
@@ -742,12 +749,13 @@ if __name__ == "__main__":
         if mnist_on:
             # RSO
             fname = 'mnist_givenHyps'
-            hyps = {'lr': .077057, 'batch_size': 86, 'fc_size': 119, 'mxp_krnl': 6} #RSO
+            hyps = {'lr': .077057, 'batch_size': 86, 'fc_size': 119, 'mxp_krnl': 6}
             mname = 'RSO'
             # Hyperopt
-            # hyps = {'batch_size': 90, 'fc_size': 138, 'lr': 0.07249575958347834, 'mxp_krnl': 6}
+            # hyps = {'lr': 0.07249575958347834, 'batch_size': 90, 'fc_size': 138, 'mxp_krnl': 6}
+            hyps = {'batch_size': 56, 'fc_size': 102, 'lr': 0.08774412890589903, 'mxp_krnl': 6}
             # hyps = {'batch_size': 90, 'fc_size': 88, 'lr': 0.07249575958347834, 'mxp_krnl': 4}
-            # mname = 'HyperOpt'
+            mname = 'HyperOpt'
 
             write_csv([''], [mname], file_name=fname)
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs, hyps=hyps)
@@ -901,7 +909,7 @@ if __name__ == "__main__":
         # X_test, y_test, num_classes = read_files(tes_dir, model_name)
 
         if mnist_on:
-            for k in ['batch_size', 'fc_size', 'mxp_krnl']:
+            for k in ['batch_size', 'fc_size', 'mxp_krnl', 'cnv_size']:
                 df_eval_points[k] = df_eval_points[k].astype(int)
 
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
@@ -921,7 +929,7 @@ if __name__ == "__main__":
                                                       tr_data_std, tes_data_ave, tes_data_std)
                 print(tmp)
                 div_time = time.time() - st_time
-                row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values())+\
+                row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values)+\
                       [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
                        tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
                        div_time]

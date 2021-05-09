@@ -12,8 +12,10 @@ def write_csv(rowTitle, row, file_name='res'):
     make_dir('result')
     with open('res/{}.csv'.format(file_name), 'a', newline='') as csvFile:
         writer = csv.writer(csvFile)
-        writer.writerow(rowTitle)
-        writer.writerow(row)
+        if len(rowTitle)>0:
+            writer.writerow(rowTitle)
+        if len(row)>0:
+            writer.writerow(row)
     csvFile.close()
 
 intersection = lambda lst1, lst2: [value for value in lst1 if value in lst2]

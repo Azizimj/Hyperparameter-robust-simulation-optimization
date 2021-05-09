@@ -33,6 +33,7 @@ if gpus:
 
 np.random.seed(110)
 
+
 class mymnist():
 	def __init__(self, hyp_rngs, img_size=(28, 28), blur_prec=.5, hyps=None):
 		self._seed = 110
@@ -124,10 +125,12 @@ class mymnist():
 
 		print(self.tr_ave, self.tr_std, self.tes_ave, self.tes_std)
 
-	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2):
+	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2, cnv_size=3):
+		cnv_size = int(cnv_size)
 		# define cnn model
 		self.model = Sequential()
-		self.model.add(Conv2D(32, (3, 3), activation='relu', kernel_initializer='he_uniform', input_shape=(28, 28, 1)))
+		self.model.add(Conv2D(32, (cnv_size, cnv_size), activation='relu',
+							  kernel_initializer='he_uniform', input_shape=(self.img_size[0], self.img_size[1], 1)))
 		self.model.add(MaxPooling2D((mxp_krnl, mxp_krnl)))
 		self.model.add(Flatten())
 		self.model.add(Dense(fc_size, activation='relu', kernel_initializer='he_uniform'))
@@ -217,9 +220,10 @@ class mymnist():
 		lr = self.check_hyp('lr')
 		fc_size = self.check_hyp('fc_size')
 		mxp_krnl = self.check_hyp('mxp_krnl')
+		cnv_size = self.check_hyp('cnv_size')
 
 		# define model
-		self.model = self.define_model(lr=lr, fc_size=int(fc_size), mxp_krnl=int(mxp_krnl))
+		self.model = self.define_model(lr=lr, fc_size=int(fc_size), mxp_krnl=int(mxp_krnl), cnv_size=cnv_size)
 		# fit model
 		history = self.model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=int(batch_size),
 							validation_data=(self.testX, self.testY), verbose=0)
@@ -233,7 +237,7 @@ if __name__ == "__main__":
 
 	from init import hyp_rngs
 
-	hyps = {'lr': .01, 'batch_size': 10, 'fc_size': 50, 'mxp_krnl': 2}
+	hyps = {'lr': .01, 'batch_size': 10, 'fc_size': 50, 'mxp_krnl': 2, 'cnv_size': 2}
 
 	fo = mymnist(hyp_rngs=hyp_rngs, blur_prec=.1)
 	# fo.run_test_harness()
