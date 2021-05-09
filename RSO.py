@@ -484,12 +484,16 @@ if __name__ == "__main__":
     tr_tes_sep = 0
     sample_folder_build = 0
     divide_file = 0
+
     hyperopt_use = 0
     # hyperopt_use = 1
+
     hype_given = 0
     # hype_given = 1
+
     RSO_use = 0
     RSO_use = 1
+
     mnist_on = 1
     if len(sys.argv) > 1:
         if sys.argv[2]=="tr_tes_sep":
@@ -627,15 +631,15 @@ if __name__ == "__main__":
 
     if hyperopt_use:
         from hyperopt import hp
-        from hyperopt import fmin, tpe, space_eval
+        from hyperopt import fmin, tpe
         max_eval_hpopt = 20
         # max_eval_hpopt = 3
+        out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_hyopt" + str(max_eval_hpopt) +
+                        "_epo" + str(num_epoch) + ".txt", "a")
+        out_file.write(model_name + "\n")
+
         if len(sys.argv) > 1:
             max_eval_hpopt = int(sys.argv[3])
-
-        out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_hyopt" + str(max_eval_hpopt) +
-                 "_epo" + str(num_epoch) + ".txt", "a")
-        out_file.write(model_name + "\n")
 
         f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
         writer_f_all = csv.writer(f_all)
@@ -704,8 +708,11 @@ if __name__ == "__main__":
         best_hyp['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
         best_hyp['cnv_size'] += hyp_rngs['cnv_size'][0]
         tmp = "\n optimal hyps with tpe hypopt are {}\n".format(best_hyp)
-        out_file.write(tmp)
-        print(tmp)
+        with open('res/mnist_hyperopt.txt', 'a') as ff:
+            ff.write("\n\n"+10*'-'+"\n")
+            ff.write(str(hyp_rngs))
+            ff.write(tmp)
+            print(tmp)
 
         # get the best hype performance and stats
         if mnist_on:
@@ -739,8 +746,12 @@ if __name__ == "__main__":
         tmp = 'Best hyps tr acc {} and tes acc {} with tr ave {}, tr std {},' \
               'tes ave {}, tes std {}'.format(tr_acc, tes_acc, tr_data_ave,
                                               tr_data_std, tes_data_ave, tes_data_std)
+
         print(tmp)
         out_file.write(tmp)
+        with open('res/mnist_hyperopt.txt', 'a') as ff:
+            ff.write("\n"+tmp)
+
         print("Hypeopt is done in {} sec\n".format(hyp_opt_time))
         writer_f_all.writerow(row)
 
@@ -753,8 +764,9 @@ if __name__ == "__main__":
             mname = 'RSO'
             # Hyperopt
             # hyps = {'lr': 0.07249575958347834, 'batch_size': 90, 'fc_size': 138, 'mxp_krnl': 6}
-            hyps = {'batch_size': 56, 'fc_size': 102, 'lr': 0.08774412890589903, 'mxp_krnl': 6}
+            # hyps = {'batch_size': 56, 'fc_size': 102, 'lr': 0.08774412890589903, 'mxp_krnl': 6}
             # hyps = {'batch_size': 90, 'fc_size': 88, 'lr': 0.07249575958347834, 'mxp_krnl': 4}
+            hyps = {'batch_size': 116, 'fc_size': 177, 'lr': 0.09082556497109481, 'mxp_krnl': 8, 'cnv_size': 5}
             mname = 'HyperOpt'
 
             write_csv([''], [mname], file_name=fname)
@@ -911,9 +923,14 @@ if __name__ == "__main__":
         if mnist_on:
             for k in ['batch_size', 'fc_size', 'mxp_krnl', 'cnv_size']:
                 df_eval_points[k] = df_eval_points[k].astype(int)
-
             mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
             mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
+
+            rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyp_rngs.keys()) + \
+                       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
+                        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
+                        'div_time']
+            write_csv(rowTitle, [], file_name='mnist_rso')
             for exp_point in df_eval_points.iterrows():
                 st_time = time.time()
                 mymnistTmp.change_blur(blur_prec=exp_point[1]['blur_prec'])
@@ -933,11 +950,11 @@ if __name__ == "__main__":
                       [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
                        tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
                        div_time]
-                rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys())+\
-                      ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
-                       'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
-                       'div_time']
-                write_csv(rowTitle, row, file_name='mnist_rso')
+                # rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys())+\
+                #       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
+                #        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
+                #        'div_time']
+                write_csv([], row, file_name='mnist_rso')
         else:
             out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
             out_file.write(model_name + "\n")

@@ -10,7 +10,7 @@ from init import hyp_rngs
 
 def mylhs_f(fname, num_points):
 
-    hyp_rngs.update({'blur_prec': (0.2, .8)})
+    hyp_rngs.update({'blur_prec': (0, .7)})
     lhs_x = lhs(n=len(hyp_rngs), samples=num_points, criterion='maximin')
     lhs_df = pd.DataFrame()
     for i, (k, v) in enumerate(hyp_rngs.items()):
