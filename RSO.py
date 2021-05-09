@@ -486,13 +486,13 @@ if __name__ == "__main__":
     divide_file = 0
 
     hyperopt_use = 0
-    # hyperopt_use = 1
+    hyperopt_use = 1
+
+    RSO_use = 0
+    # RSO_use = 1
 
     hype_given = 0
     # hype_given = 1
-
-    RSO_use = 0
-    RSO_use = 1
 
     mnist_on = 1
     if len(sys.argv) > 1:

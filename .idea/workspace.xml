@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist cnv_size">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="mnist cnv_size RSO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mylhs.py" beforeDir="false" afterPath="$PROJECT_DIR$/mylhs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,13 +239,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00047" summary="pytorch added">
-      <created>1566865317640</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1566865317640</updated>
     </task>
     <task id="LOCAL-00048" summary="pytorch added">
       <created>1566867957857</created>
@@ -583,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620540719009</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="mnist cnv_size RSO">
+      <created>1620546732116</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1620546732116</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TodoView">
@@ -634,7 +634,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="divide with new" />
     <MESSAGE value="RSO use in new" />
     <MESSAGE value="RSO use results" />
     <MESSAGE value="Hyperopt with CNN" />
@@ -659,7 +658,8 @@
     <MESSAGE value="mnist hyps given" />
     <MESSAGE value="mnist hyps given csvs" />
     <MESSAGE value="mnist cnv_size" />
-    <option name="LAST_COMMIT_MESSAGE" value="mnist cnv_size" />
+    <MESSAGE value="mnist cnv_size RSO" />
+    <option name="LAST_COMMIT_MESSAGE" value="mnist cnv_size RSO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
