@@ -486,13 +486,13 @@ if __name__ == "__main__":
     divide_file = 0
 
     hyperopt_use = 0
-    hyperopt_use = 1
+    # hyperopt_use = 1
 
     RSO_use = 0
     # RSO_use = 1
 
     hype_given = 0
-    # hype_given = 1
+    hype_given = 1
 
     mnist_on = 1
     if len(sys.argv) > 1:
@@ -560,7 +560,7 @@ if __name__ == "__main__":
     # points_list_file = "lhs-mnist-small.csv"  # mnist
 
     # points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=4)
-    points_list_file = mylhs_f(fname="lhs-mnist.csv", num_points=100)
+    points_list_file = mylhs_f(fname="./res/lhs-mnist.csv", num_points=100)
 
     test_precs_file = "Test-Data.csv"
 
@@ -662,7 +662,7 @@ if __name__ == "__main__":
             def objective_cnn(hyps):
                 hyps['batch_size'] += hyp_rngs['batch_size'][0]
                 hyps['fc_size'] += hyp_rngs['fc_size'][0]
-                hyps['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
+                # hyps['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
                 hyps['cnv_size'] += hyp_rngs['cnv_size'][0]
                 res = mymnistTmp.evaluate_model(hyps)
                 return res
@@ -670,7 +670,7 @@ if __name__ == "__main__":
             space_ = {'batch_size': hp.randint('batch_size', hyp_rngs['batch_size'][1] - hyp_rngs['batch_size'][0] + 1),
                       'lr': hp.uniform('lr', hyp_rngs['lr'][0], hyp_rngs['lr'][1]),
                       'fc_size': hp.randint('fc_size',  hyp_rngs['fc_size'][1] - hyp_rngs['fc_size'][0] + 1),
-                      'mxp_krnl': hp.randint('mxp_krnl', hyp_rngs['mxp_krnl'][1] - hyp_rngs['mxp_krnl'][0] + 1),
+                      # 'mxp_krnl': hp.randint('mxp_krnl', hyp_rngs['mxp_krnl'][1] - hyp_rngs['mxp_krnl'][0] + 1),
                       'cnv_size': hp.randint('cnv_size', hyp_rngs['cnv_size'][1] - hyp_rngs['cnv_size'][0] + 1)}
         else:
             im_size = 64
@@ -705,12 +705,12 @@ if __name__ == "__main__":
         best_hyp = fmin(objective_cnn, space_, algo=tpe.suggest, max_evals=max_eval_hpopt)
         best_hyp['batch_size'] += hyp_rngs['batch_size'][0]
         best_hyp['fc_size'] += hyp_rngs['fc_size'][0]
-        best_hyp['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
+        # best_hyp['mxp_krnl'] += hyp_rngs['mxp_krnl'][0]
         best_hyp['cnv_size'] += hyp_rngs['cnv_size'][0]
         tmp = "\n optimal hyps with tpe hypopt are {}\n".format(best_hyp)
         with open('res/mnist_hyperopt.txt', 'a') as ff:
             ff.write("\n\n"+10*'-'+"\n")
-            ff.write(str(hyp_rngs))
+            ff.write("hyp_rngs: "+str(hyp_rngs))
             ff.write(tmp)
             print(tmp)
 
@@ -722,7 +722,7 @@ if __name__ == "__main__":
             tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
             hyp_opt_time = time.time() - st_time
             row = ["Hypeopt", mymnistTmp.img_size, best_hyp['batch_size'], best_hyp['lr'], best_hyp['fc_size'],
-                   best_hyp['mxp_krnl'],
+                   # best_hyp['mxp_krnl'],
                    tr_data_ave, tr_data_std, tr_acc, "",
                    tes_data_ave, tes_data_std, tes_acc,
                    hyp_opt_time]
@@ -755,18 +755,155 @@ if __name__ == "__main__":
         print("Hypeopt is done in {} sec\n".format(hyp_opt_time))
         writer_f_all.writerow(row)
 
+    elif RSO_use:
+
+        df_eval_points = pd.read_csv(points_list_file)
+        # X_test, y_test, num_classes = read_files(tes_dir, model_name)
+
+        if mnist_on:
+            # for k in ['batch_size', 'fc_size', 'mxp_krnl', 'cnv_size']:
+            for k in ['batch_size', 'fc_size', 'cnv_size']:
+                df_eval_points[k] = df_eval_points[k].astype(int)
+            mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
+            mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
+
+            rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyp_rngs.keys()) + \
+                       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
+                        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
+                        'div_time']
+            write_csv(rowTitle, [], file_name='mnist_rso')
+            for exp_point in df_eval_points.iterrows():
+                st_time = time.time()
+                mymnistTmp.change_blur(blur_prec=exp_point[1]['blur_prec'])
+                mymnistTmp.evaluate_model(hyps=dict(exp_point[1]))
+                tes_acc = mymnistTmp.evaluate_model(hyps=exp_point[1])
+                tr_acc = mymnistTmp.tr_eval()
+                tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
+                tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
+                # deg = mymnistTmp.deg
+
+                tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
+                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, exp_point[0], tr_data_ave,
+                                                      tr_data_std, tes_data_ave, tes_data_std)
+                print(tmp)
+                div_time = time.time() - st_time
+                row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values)+\
+                      [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
+                       tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
+                       div_time]
+                # rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys())+\
+                #       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
+                #        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
+                #        'div_time']
+                write_csv([], row, file_name='mnist_rso')
+        else:
+            out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
+            out_file.write(model_name + "\n")
+
+            f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
+            writer_f_all = csv.writer(f_all)
+
+            test_dataset = None
+            test_load = None
+            division_num = 0
+            list_dir = os.listdir(divide_files_dir)
+            list_dir.sort(key=int)
+            for tr_dir in list_dir:
+                # import IPython
+                # IPython.embed()
+                if tr_dir == "res" or division_num > len(df_eval_points['day prec']):
+                    continue
+                # print(tr_dir)
+                st_time = time.time()
+                # read tr
+                # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
+
+                im_size = 64
+                batch_size = int(df_eval_points['batch_size'][division_num])  # [50 - 400]
+                lr = float(df_eval_points['lr'][division_num])  # 0.0001 # [1e-4, 1e-2]
+                krnl_1 = 5  # [2, 40]
+                krnl_2 = int(df_eval_points['krnl_1'][division_num])  # 5 # [2, 40]
+                mx_krnl_1 = 2  # [2, 4]
+                mx_krnl_2 = int(df_eval_points['mx_krnl_1'][division_num])  # 2 # [2, 8]
+                # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
+                num_epochs = 1
+                CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
+                                          mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
+                CNN_w.train_reader()
+                if test_dataset is not None:
+                    CNN_w.test_dataset = test_dataset
+                    CNN_w.test_load = test_load
+                    print("used previous test read from {}".format(tes_dir))
+                else:
+                    CNN_w.test_reader()
+                    test_dataset = CNN_w.test_dataset
+                    test_load = CNN_w.test_load
+                    print("test loaded form {}".format(tes_dir))
+                # CNN_w.test_reader()
+
+                print("train started on division {} in {}".format(division_num, divide_files_dir + tr_dir + "/"))
+                tr_acc, tes_acc = CNN_w.trainer()
+                tr_data_ave = CNN_w.tr_data_ave
+                tr_data_std = CNN_w.tr_data_std
+                tes_data_ave = CNN_w.tes_data_ave
+                tes_data_std = CNN_w.tes_data_std
+
+                if model_name == 'svm':
+                    svm = svm_run(X_train, y_train)
+
+                # tr acc
+                # tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+                #      X_train, y_train, net, svm, f, tr_=True)
+
+                # tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
+                #       " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
+                # print(tmp)
+                # f.write(tmp)
+
+                # X_train, y_train = None, None
+
+                tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
+                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, division_num, tr_data_ave,
+                                                      tr_data_std, tes_data_ave, tes_data_std)
+                print(tmp)
+                out_file.write(tmp)
+
+                # tes acc
+                # tes_acc, tes_prec, tes_reca, tes_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
+                #      X_test, y_test, net, svm, f, tr_=False)
+                #
+                # tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)
+                # print(tmp)
+                # f.write(tmp)
+                div_time = time.time() - st_time
+                print("division {} is done in {}\n".format(division_num, div_time))
+                # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
+                #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
+                #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
+                row = [division_num, im_size, batch_size, lr, krnl_2, num_epochs,
+                       tr_data_ave, tr_data_std, tr_acc, "",
+                       tes_data_ave, tes_data_std, tes_acc,
+                       div_time]
+                writer_f_all.writerow(row)
+
+                division_num += 1
+
+            out_file.close()
+
     elif hype_given:
         df_eval_points = pd.read_csv(test_precs_file)
         if mnist_on:
             # RSO
             fname = 'mnist_givenHyps'
-            hyps = {'lr': .077057, 'batch_size': 86, 'fc_size': 119, 'mxp_krnl': 6}
+            # hyps = {'lr': .077057, 'batch_size': 86, 'fc_size': 119, 'mxp_krnl': 6}
+            hyps = {'lr': .053074, 'batch_size': 127, 'fc_size': 50, 'cnv_size': 5}
             mname = 'RSO'
             # Hyperopt
             # hyps = {'lr': 0.07249575958347834, 'batch_size': 90, 'fc_size': 138, 'mxp_krnl': 6}
             # hyps = {'batch_size': 56, 'fc_size': 102, 'lr': 0.08774412890589903, 'mxp_krnl': 6}
             # hyps = {'batch_size': 90, 'fc_size': 88, 'lr': 0.07249575958347834, 'mxp_krnl': 4}
-            hyps = {'batch_size': 116, 'fc_size': 177, 'lr': 0.09082556497109481, 'mxp_krnl': 8, 'cnv_size': 5}
+            # hyps = {'batch_size': 116, 'fc_size': 177, 'lr': 0.09082556497109481, 'mxp_krnl': 8, 'cnv_size': 5}
+            hyps = {'lr': 0.0886930851848628, 'batch_size': 54, 'fc_size': 76, 'cnv_size': 5}
             mname = 'HyperOpt'
 
             write_csv([''], [mname], file_name=fname)
@@ -914,137 +1051,3 @@ if __name__ == "__main__":
                 os.system("rm -r {}".format(tmp_tes))
 
             print("Given hyps takes {}".format(time.time()-st_time))
-
-    elif RSO_use:
-
-        df_eval_points = pd.read_csv(points_list_file)
-        # X_test, y_test, num_classes = read_files(tes_dir, model_name)
-
-        if mnist_on:
-            for k in ['batch_size', 'fc_size', 'mxp_krnl', 'cnv_size']:
-                df_eval_points[k] = df_eval_points[k].astype(int)
-            mymnistTmp = mymnist(hyp_rngs=hyp_rngs)
-            mymnistTmp.load_dataset(tr_ss=mnist_tr_size, tes_ss=mnist_tes_size)
-
-            rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyp_rngs.keys()) + \
-                       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
-                        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
-                        'div_time']
-            write_csv(rowTitle, [], file_name='mnist_rso')
-            for exp_point in df_eval_points.iterrows():
-                st_time = time.time()
-                mymnistTmp.change_blur(blur_prec=exp_point[1]['blur_prec'])
-                mymnistTmp.evaluate_model(hyps=dict(exp_point[1]))
-                tes_acc = mymnistTmp.evaluate_model(hyps=exp_point[1])
-                tr_acc = mymnistTmp.tr_eval()
-                tr_data_ave, tr_data_std = mymnistTmp.tr_ave, mymnistTmp.tr_std
-                tes_data_ave, tes_data_std = mymnistTmp.tes_ave, mymnistTmp.tes_std
-                # deg = mymnistTmp.deg
-
-                tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
-                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, exp_point[0], tr_data_ave,
-                                                      tr_data_std, tes_data_ave, tes_data_std)
-                print(tmp)
-                div_time = time.time() - st_time
-                row = [exp_point[0], mymnistTmp.img_size] + list(mymnistTmp.hyps.values)+\
-                      [tr_data_ave, tr_data_std, tr_acc, mymnistTmp.trainX.shape, "",
-                       tes_data_ave, tes_data_std, tes_acc, mymnistTmp.testX.shape,
-                       div_time]
-                # rowTitle = ['division_num', 'mymnistTmp.img_size'] + list(mymnistTmp.hyps.keys())+\
-                #       ['tr_data_ave', 'tr_data_std', 'tr_acc', 'trainX.shape', "",
-                #        'tes_data_ave', 'tes_data_std', 'tes_acc', 'testX.shape',
-                #        'div_time']
-                write_csv([], row, file_name='mnist_rso')
-        else:
-            out_file = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".txt", "a")
-            out_file.write(model_name + "\n")
-
-            f_all = open("res/result_" + str(test_precs) + "_" + model_name + "_epo" + str(num_epoch) + ".csv", 'a')
-            writer_f_all = csv.writer(f_all)
-
-            test_dataset = None
-            test_load = None
-            division_num = 0
-            list_dir = os.listdir(divide_files_dir)
-            list_dir.sort(key=int)
-            for tr_dir in list_dir:
-                # import IPython
-                # IPython.embed()
-                if tr_dir == "res" or division_num > len(df_eval_points['day prec']):
-                    continue
-                # print(tr_dir)
-                st_time = time.time()
-                # read tr
-                # X_train, y_train, num_classes = read_files(divide_files_dir+tr_dir+"/", model_name)
-
-                im_size = 64
-                batch_size = int(df_eval_points['batch_size'][division_num])  # [50 - 400]
-                lr = float(df_eval_points['lr'][division_num])  # 0.0001 # [1e-4, 1e-2]
-                krnl_1 = 5  # [2, 40]
-                krnl_2 = int(df_eval_points['krnl_1'][division_num])  # 5 # [2, 40]
-                mx_krnl_1 = 2  # [2, 4]
-                mx_krnl_2 = int(df_eval_points['mx_krnl_1'][division_num])  # 2 # [2, 8]
-                # num_epochs = int(df['num_epochs'][division_num]) # 2 # [5, 40]
-                num_epochs = 1
-                CNN_w = ConvNN_t.CNN_wrap(im_size, batch_size, lr, krnl_1, krnl_2, mx_krnl_1,
-                                          mx_krnl_2, num_epochs, divide_files_dir + tr_dir + "/", tes_dir)
-                CNN_w.train_reader()
-                if test_dataset is not None:
-                    CNN_w.test_dataset = test_dataset
-                    CNN_w.test_load = test_load
-                    print("used previous test read from {}".format(tes_dir))
-                else:
-                    CNN_w.test_reader()
-                    test_dataset = CNN_w.test_dataset
-                    test_load = CNN_w.test_load
-                    print("test loaded form {}".format(tes_dir))
-                # CNN_w.test_reader()
-
-                print("train started on division {} in {}".format(division_num, divide_files_dir + tr_dir + "/"))
-                tr_acc, tes_acc = CNN_w.trainer()
-                tr_data_ave = CNN_w.tr_data_ave
-                tr_data_std = CNN_w.tr_data_std
-                tes_data_ave = CNN_w.tes_data_ave
-                tes_data_std = CNN_w.tes_data_std
-
-                if model_name == 'svm':
-                    svm = svm_run(X_train, y_train)
-
-                # tr acc
-                # tr_acc, tr_prec, tr_reca, tr_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
-                #      X_train, y_train, net, svm, f, tr_=True)
-
-                # tmp = 'Acc, prec, recal, f1 on tr '+ str(division_num)+\
-                #       " are {}, {}, {}, {} \n".format(tr_acc, tr_prec, tr_reca, tr_f1)
-                # print(tmp)
-                # f.write(tmp)
-
-                # X_train, y_train = None, None
-
-                tmp = 'tr acc {} and tes acc {} on division {} with {} tr ave, {} tr std,' \
-                      'tes ave {}, tes std {}'.format(tr_acc, tes_acc, division_num, tr_data_ave,
-                                                      tr_data_std, tes_data_ave, tes_data_std)
-                print(tmp)
-                out_file.write(tmp)
-
-                # tes acc
-                # tes_acc, tes_prec, tes_reca, tes_f1 = eval(divide_files_dir, division_num, test_precs, model_name,
-                #      X_test, y_test, net, svm, f, tr_=False)
-                #
-                # tmp = 'Acc, prec, recal, f1 on tes are {}, {}, {}, {} \n'.format(tes_acc, tes_prec, tes_reca, tes_f1)
-                # print(tmp)
-                # f.write(tmp)
-                div_time = time.time() - st_time
-                print("division {} is done in {}\n".format(division_num, div_time))
-                # row = [division_num, hidden_dim,learningrate_,lrdecay_,weightdecay_,data_ave,data_std,
-                #        tr_acc, tr_prec, tr_reca, tr_f1, "",tes_acc, tes_prec, tes_reca, tes_f1, "",
-                #        bias_,hiddenclass_,outclass_,num_epoch,momentum_,batchlearning_]
-                row = [division_num, im_size, batch_size, lr, krnl_2, num_epochs,
-                       tr_data_ave, tr_data_std, tr_acc, "",
-                       tes_data_ave, tes_data_std, tes_acc,
-                       div_time]
-                writer_f_all.writerow(row)
-
-                division_num += 1
-
-            out_file.close()

@@ -125,7 +125,7 @@ class mymnist():
 
 		print(self.tr_ave, self.tr_std, self.tes_ave, self.tes_std)
 
-	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=2, cnv_size=3):
+	def define_model(self, lr=0.01, fc_size=100, mxp_krnl=6, cnv_size=3):
 		cnv_size = int(cnv_size)
 		# define cnn model
 		self.model = Sequential()
@@ -219,11 +219,12 @@ class mymnist():
 		batch_size = self.check_hyp('batch_size')
 		lr = self.check_hyp('lr')
 		fc_size = self.check_hyp('fc_size')
-		mxp_krnl = self.check_hyp('mxp_krnl')
+		# mxp_krnl = self.check_hyp('mxp_krnl')
 		cnv_size = self.check_hyp('cnv_size')
 
 		# define model
-		self.model = self.define_model(lr=lr, fc_size=int(fc_size), mxp_krnl=int(mxp_krnl), cnv_size=cnv_size)
+		# self.model = self.define_model(lr=lr, fc_size=int(fc_size), mxp_krnl=int(mxp_krnl), cnv_size=cnv_size)
+		self.model = self.define_model(lr=lr, fc_size=int(fc_size), cnv_size=cnv_size)
 		# fit model
 		history = self.model.fit(self.trainX, self.trainY, epochs=epochs, batch_size=int(batch_size),
 							validation_data=(self.testX, self.testY), verbose=0)
@@ -237,7 +238,8 @@ if __name__ == "__main__":
 
 	from init import hyp_rngs
 
-	hyps = {'lr': .01, 'batch_size': 10, 'fc_size': 50, 'mxp_krnl': 2, 'cnv_size': 2}
+	# hyps = {'lr': .01, 'batch_size': 10, 'fc_size': 50, 'mxp_krnl': 2, 'cnv_size': 2}
+	hyps = {'lr': .01, 'batch_size': 10, 'fc_size': 50, 'cnv_size': 2}
 
 	fo = mymnist(hyp_rngs=hyp_rngs, blur_prec=.1)
 	# fo.run_test_harness()

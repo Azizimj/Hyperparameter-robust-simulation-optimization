@@ -9,7 +9,7 @@ import pandas as pd, numpy as np
 from init import hyp_rngs
 
 def mylhs_f(fname, num_points):
-
+    # np.random.seed(110)
     hyp_rngs.update({'blur_prec': (0, .7)})
     lhs_x = lhs(n=len(hyp_rngs), samples=num_points, criterion='maximin')
     lhs_df = pd.DataFrame()
