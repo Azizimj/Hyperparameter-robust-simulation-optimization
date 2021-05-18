@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="Readme.md">
+    <list default="true" id="ef1d1136-6c8c-4f4a-9d49-e41fc5616962" name="Default Changelist" comment="RSO vs HyperOpt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Data-old.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Data-small.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Design-Data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LHS-data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LHS.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RSO.py" beforeDir="false" afterPath="$PROJECT_DIR$/RSO.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test-Data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/base_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/base_mnist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hyps.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hyps.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.py" beforeDir="false" afterPath="$PROJECT_DIR$/init.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mylhs.py" beforeDir="false" afterPath="$PROJECT_DIR$/mylhs.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,13 +237,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565031345436</updated>
-    </task>
-    <task id="LOCAL-00049" summary="pytorch added">
-      <created>1566870944292</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1566870944292</updated>
     </task>
     <task id="LOCAL-00050" summary="divide with new">
       <created>1566930410110</created>
@@ -593,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620547558698</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="RSO vs HyperOpt">
+      <created>1620948792302</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1620948792302</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TodoView">
@@ -644,7 +632,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RSO use results" />
     <MESSAGE value="Hyperopt with CNN" />
     <MESSAGE value="Hyps given in pytorch" />
     <MESSAGE value="load model in Hyps given" />
@@ -669,7 +656,8 @@
     <MESSAGE value="mnist cnv_size" />
     <MESSAGE value="mnist cnv_size RSO" />
     <MESSAGE value="readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="readme" />
+    <MESSAGE value="RSO vs HyperOpt" />
+    <option name="LAST_COMMIT_MESSAGE" value="RSO vs HyperOpt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
